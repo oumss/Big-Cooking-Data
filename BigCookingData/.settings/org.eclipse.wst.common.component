@@ -2,7 +2,7 @@
     <wb-module deploy-name="AGP_Project">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <property name="context-root" value="AGP_Project"/>
         <property name="java-output-path" value="/AGP_Project/build/classes"/>
+        <property name="context-root" value="BigCookingData"/>
     </wb-module>
 </project-modules>
