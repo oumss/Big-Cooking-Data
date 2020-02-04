@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<h:head>
+	<title>Results</title>
+</h:head>
+<h:body> 
+	<h1>TRIV-HAWAI</h1>
+
+	<fieldset>
+		<h:form id="form">
+			<p:dataList value="#{resultBean.searchOffer.offers}" var="offer">
+		        <f:facet name="header">
+		            Offers
+		        </f:facet>
+		        
+		        <h:outputText value="Hotel:  " />
+	            <h:outputText value="#{offer.hotel.name} (#{offer.hotel.price} $)" style="color:brown;"/>
+	 			 <br> </br>
+	            <h:outputText value="		Isle:  " />
+	            <h:outputText value="#{offer.hotel.isle}" style="color:blue;"/>
+	            <h:outputText value="		Stars of the hotel: 	" />
+	            <h:outputText value=" ** #{offer.hotel.stars} **	" style="color:orange;"/>
+	            <h:outputText value="		Price of the offer:  " />
+	            <h:outputText value=" $ #{offer.price}" style="color:red;"/>
+		       	 <br> </br>
+		       	<h:outputText value="Excursions :  " />
+		    	<!--<p:dataList value="#{offer.excursions}" var="excursion">
+	            	<h:outputText value=" # " style="color:purple;"/>
+	            	<p:dataList value="#{resultBean.sites.get(offer.hotel.id)}" var="list">
+	            		<p:dataList value="#{list}" var="elt">
+	            			<h:outputText value="  #{elt.name} ( #{elt.price} $ )" style="color:green;"/>
+	            		</p:dataList>
+	            		 
+	            	</p:dataList>
+	            </p:dataList>-->
+	            <br> </br>
+    		</p:dataList>
+		
+		</h:form>
+		
+	</fieldset>
+</h:body>
+</html>

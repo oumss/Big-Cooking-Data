@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<h:head>
+	<link href="./style.css" rel="stylesheet" type="text/css" /> 
+	<title>Réservation</title>
+</h:head>
+<h:body>
+	
+<p:galleria style="border-width: 0px;  position:fixed;margin-left:auto; margin-right:auto;"  effect="puff" effectSpeed="1500" transitionInterval="7000" panelWidth="1280" panelHeight="650"  showCaption="false">
+    <p:graphicImage style="width:100%;height:100%;" value="/images/jetski.png" title="Deferlés sur les vagues" alt="Plages Hawaïenne" />
+    <p:graphicImage style="width:100%;height:100%;" value="/images/musee.png" title="Admirer l'antiquité" alt="Musée halowa" />
+    <p:graphicImage style="width:100%;height:100%;" value="/images/randonnee.png" title="Partez à l'aventure!" alt="Montagne stitch" />
+    <p:graphicImage style="width:100%;height:100%;" value="/images/fruit.png" title="Des saveurs surnaturelles" alt="FrutyBowl" />
+    <p:graphicImage style="width:100%;height:100%;" value="/images/hawai.png" title="De belles plages" alt="Plage lilo" />
+    
+</p:galleria>
+<div  style="text-indent:0.5cm;background-color:rgba(0,0,0,0.5); width:1500px;height:70px;position:relative;" >
+	<img style="top:-0.25cm; position:relative; width:20%; height:130%;" src="./images/logo.png" alt="logo" />
+</div>
+	<h:form>
+		<div align="center">
+					
+			<fieldset>
+			<h1 style="color:white;">Search a trip offer in Hawai isle</h1>	
+				<p:growl id="growl" life="2000" />
+				<h:panelGrid columns="2" cellpadding="5">
+					<br />
+		              <label>  keyword : </label> 
+		                <p:inputText value="#{searchBean.entry.keyword}" />
+		            <br />
+		               <label> type of activity you prefer : </label> 
+		                <p:selectOneMenu id="type" value="#{searchBean.entry.type}" dynamic="true" style="width:125px">
+		            		<f:selectItem itemLabel="----" itemValue="" />
+		            		<f:selectItems value="#{searchBean.entry.types}" />
+		        		</p:selectOneMenu>
+					<br />
+		                <label> Price : (Your budget maximum)</label> 
+		                <p:inputText value="#{searchBean.entry.budget}" />
+					<br />
+					<label>	comfort: (Your rythme of excursion) </label> 
+					<p:selectOneMenu id="comfort" value="#{searchBean.entry.comfort}" dynamic="true" style="width:125px">
+	            		<f:selectItem itemLabel="----" itemValue="" />
+	            		<f:selectItems value="#{searchBean.entry.comforts}" />
+	        		</p:selectOneMenu>
+	        	</h:panelGrid>
+				<br />
+				
+				<p:commandButton style="width:contain; color : white; background-color:green;" look="success" value="Search for offers" action="#{searchBean.search}" /><br />
+				<p:commandButton value="Let's search a Site" action="./searchSite.jsf" />
+		<p:commandButton value="Let's search an Hotel" action="./searchHotel.jsf" />
+			</fieldset> 
+		</div>
+		
+	</h:form>
+
+</h:body>
+</html>

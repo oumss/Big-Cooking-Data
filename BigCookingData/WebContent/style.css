@@ -1,0 +1,30 @@
+body{
+margin: 0; 
+    padding : 0;
+
+    overflow: hidden;
+  
+}
+		
+fieldset{
+	position:relative;
+background-color:rgba(0,0,0,0.4);
+border-width: 0px;
+border-radius: 15px 15px 15px 15px;
+/*Alignement Horizontal */
+margin-left:auto;
+margin-right:auto;
+
+margin-top:8%;
+
+/* largeur */
+width: 800px;
+
+/*hauteur*/
+height:contain;
+
+}
+/*---------------------------------- Taille des images et mise en place ------------ */
+
+
+label{color:white; text-transform: capitalize;}
