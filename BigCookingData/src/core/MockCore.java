@@ -51,7 +51,7 @@ public class MockCore {
 		if (userRegistry.contains(user)) {
 			String expectedPassword = userRegistry.get(user.getId()).getPassword();
 			if (expectedPassword.equals(password)) {
-				result = true;
+				result = true; 
 			}
 		}
 		return result;
