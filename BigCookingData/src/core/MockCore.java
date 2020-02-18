@@ -3,6 +3,7 @@ package core;
 import java.util.ArrayList;
 
 import business.Ingredient;
+import business.Ingredient.Unit;
 import business.Recipe;
 import business.User;
 
@@ -20,24 +21,32 @@ public class MockCore {
 
 	private static final ArrayList<Ingredient> ingredients0 = new ArrayList<Ingredient>();
 	static {
-		ingredients0.add(new Ingredient(0,"tomate"));
-		ingredients0.add(new Ingredient(1,"oignon"));
-		ingredients0.add(new Ingredient(2,"kefta"));		
+		ingredients0.add(new Ingredient(0,"tomate",2,Unit.U));
+		ingredients0.add(new Ingredient(1,"oignon",1,Unit.U));
+		ingredients0.add(new Ingredient(2,"kefta",200,Unit.G));
+		ingredients0.add(new Ingredient(6,"sel",2,Unit.cac));
+		ingredients0.add(new Ingredient(7,"poivre",1,Unit.cac));
+		ingredients0.add(new Ingredient(8,"gingembre",3,Unit.cac));
+		ingredients0.add(new Ingredient(11,"paprika",1,Unit.cas));
 	}
 	
 	private static final ArrayList<Ingredient> ingredients1 = new ArrayList<Ingredient>();
 	static {
-		ingredients1.add(new Ingredient(3,"viande"));
-		ingredients1.add(new Ingredient(4,"carrote"));
-		ingredients1.add(new Ingredient(0,"tomate"));
-		ingredients1.add(new Ingredient(1,"oignon"));
-		ingredients1.add(new Ingredient(5,"huile d'olive"));		
+		ingredients1.add(new Ingredient(3,"viande",800,Unit.G));
+		ingredients1.add(new Ingredient(4,"carrote",3,Unit.U));
+		ingredients1.add(new Ingredient(0,"tomate",3,Unit.U));
+		ingredients1.add(new Ingredient(1,"oignon",2,Unit.U));
+		ingredients1.add(new Ingredient(6,"sel",2,Unit.cac));
+		ingredients1.add(new Ingredient(7,"poivre",1,Unit.cac));
+		ingredients1.add(new Ingredient(8,"gingembre",3,Unit.cac));
+		ingredients1.add(new Ingredient(11,"paprika",1,Unit.cas));
+		ingredients1.add(new Ingredient(5,"huile d'olive",10,Unit.cL));		
 	}
 
 	private static final ArrayList<Recipe> recipeRegistry = new ArrayList<Recipe>();
 	static {
-		recipeRegistry.add(new Recipe(0,"Tcharmira", ingredients0));
-		recipeRegistry.add(new Recipe(1,"Tagine", ingredients1));
+		recipeRegistry.add(new Recipe(0,"Tcharmira", ingredients0,15));
+		recipeRegistry.add(new Recipe(1,"Tagine", ingredients1,40));
 	}
 	
 	public static boolean exist(String login) {
