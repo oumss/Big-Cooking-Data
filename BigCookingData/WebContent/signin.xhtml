@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<h:head>
+	<link href="./css/style.css" rel="stylesheet" type="text/css" /> 
+	<title>Sign In</title>
+</h:head>
+<h:body>
+
+	<h:form>
+		<div align="center">
+					
+			<fieldset>
+			<h1 style="color:white;">Sign in Big Cooking Data</h1>	
+				<p:growl id="growl" life="2000" />
+				<h:outputText value="#{signinBean.incorrect}"></h:outputText>
+			<div >
+				<h3 style="color:white;">Sign in</h3>
+				<h:panelGrid columns="2" cellpadding="5">
+					<br />
+		              <label>  Login : </label> 
+		                <p:inputText value="#{signinBean.login}" />
+		            <br />
+		              <label>  Password : </label> 
+		                <p:password value="#{signinBean.password}"/>
+		            <br />
+		            <p:commandButton style="width:contain; color : white; background-color:green;" look="success" value="Connect" action="#{signinBean.verify}" /><br />
+	        	</h:panelGrid>
+			</div>
+			
+			<div>
+				<h3 style="color:white;">Create your account</h3>
+				<h:panelGrid columns="2" cellpadding="5">
+				<p:commandButton style="width:contain; color : white; background-color:grey;" look="success" value="Sign out" action="#{signinBean.signout}" /><br />
+		        </h:panelGrid>
+			</div>
+			</fieldset> 
+		</div>
+		
+	</h:form>
+
+</h:body>
+</html>

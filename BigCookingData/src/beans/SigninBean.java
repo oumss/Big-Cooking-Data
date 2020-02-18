@@ -7,17 +7,18 @@ import javax.faces.bean.SessionScoped;
 
 import core.MockCore;
 
-@ManagedBean(name = "loginBean", eager = true)
+@ManagedBean(name = "signinBean", eager = true)
 @SessionScoped 
-public class LoginBean implements Serializable {
+public class SigninBean implements Serializable {
 
 	private static final long serialVersionUID = 6955508471291131931L;
 
 	private String login;
 	private String password;
+	private String incorrect;
 	private boolean connected = false;
 	
-	public LoginBean() {
+	public SigninBean() {
 	}
 	
 	public String verify() {
@@ -28,16 +29,20 @@ public class LoginBean implements Serializable {
 				System.out.println("connected");
 				connected = true;
 			} else {
-				results = "login";
+				results = "errorSignin";
 				System.out.println("password incorrect");
 			}
 		} else {
-			results = "login";
+			results = "errorSignin";
 			System.out.println("login incorrect");
 		}
 		return results;
 	}
 
+	public String signout() {
+		return "signout";
+	}
+	
 	public String getLogin() {
 		return login;
 	}
@@ -60,6 +65,14 @@ public class LoginBean implements Serializable {
 
 	public void setConnected(boolean connected) {
 		this.connected = connected;
+	}
+
+	public String getIncorrect() {
+		return incorrect;
+	}
+
+	public void setIncorrect(String incorrect) {
+		this.incorrect = incorrect;
 	}
 	
 }

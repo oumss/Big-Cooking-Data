@@ -14,8 +14,8 @@ public class ChangePasswordBean implements Serializable {
 
 	private static final long serialVersionUID = 6955508471291131931L;
 	
-	@ManagedProperty(value = "#{loginBean}")
-	private LoginBean loginBean;
+	@ManagedProperty(value = "#{signinBean}")
+	private SigninBean signinBean;
 	
 	private String actualPassword;
 	private String newPassword;
@@ -27,7 +27,7 @@ public class ChangePasswordBean implements Serializable {
 
 	public String verify() {
 		String results = "errorPassword";
-		String loginPassword = MockCore.getUserByLogin(loginBean.getLogin()).getPassword();
+		String loginPassword = MockCore.getUserByLogin(signinBean.getLogin()).getPassword();
 		System.out.println("loginpass = "+loginPassword +" atcual = "+actualPassword+" new = "+newPassword+" conf = "+confirmedPassword);
 		
 		if (actualPassword.equals(loginPassword)) {
@@ -62,12 +62,12 @@ public class ChangePasswordBean implements Serializable {
 		this.confirmedPassword = confirmedPassword;
 	}
 
-	public LoginBean getLoginBean() {
-		return loginBean;
+	public SigninBean getSigninBean() {
+		return signinBean;
 	}
 
-	public void setLoginBean(LoginBean loginBean) {
-		this.loginBean = loginBean;
+	public void setSigninBean(SigninBean signinBean) {
+		this.signinBean = signinBean;
 	}
 	
 

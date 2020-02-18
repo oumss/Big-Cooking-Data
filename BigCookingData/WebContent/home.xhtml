@@ -7,7 +7,7 @@
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
 <h:head>
-	<link href="./style.css" rel="stylesheet" type="text/css" /> 
+	<link href="./css/style.css" rel="stylesheet" type="text/css" /> 
 	<title>Home Page</title>
 </h:head>
 <h:body>
@@ -45,7 +45,7 @@
 						<p:submenu>
 							<p:menuitem value="Profil" url="home.jsf" />
 							<p:menuitem value="Change my password" url="changePassword.jsf" />
-							<p:menuitem value="Disconnect" url="home.jsf" />
+							<p:menuitem value="Disconnect" action="#{homeBean.disconnect}" />
 							
 						</p:submenu>
 					</p:column>
