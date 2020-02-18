@@ -5,10 +5,8 @@ import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
-import core.MockCore;
-
 @ManagedBean(name = "signoutBean", eager = true)
-@SessionScoped 
+@SessionScoped
 public class SignoutBean implements Serializable {
 
 	private static final long serialVersionUID = 6955508471291131931L;
@@ -19,10 +17,10 @@ public class SignoutBean implements Serializable {
 	private String confirmedPassword;
 	private String firstname;
 	private String surname;
-	
+
 	public SignoutBean() {
 	}
-	
+
 	public String create() {
 		String results = "signin";
 		return results;
@@ -75,5 +73,5 @@ public class SignoutBean implements Serializable {
 	public void setSurname(String surname) {
 		this.surname = surname;
 	}
-	
+
 }

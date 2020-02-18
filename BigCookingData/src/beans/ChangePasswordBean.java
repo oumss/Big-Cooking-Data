@@ -9,27 +9,27 @@ import javax.faces.bean.SessionScoped;
 import core.MockCore;
 
 @ManagedBean
-@SessionScoped 
+@SessionScoped
 public class ChangePasswordBean implements Serializable {
 
 	private static final long serialVersionUID = 6955508471291131931L;
-	
+
 	@ManagedProperty(value = "#{signinBean}")
 	private SigninBean signinBean;
-	
+
 	private String actualPassword;
 	private String newPassword;
 	private String confirmedPassword;
-	
-	
+
 	public ChangePasswordBean() {
 	}
 
 	public String verify() {
 		String results = "errorPassword";
 		String loginPassword = MockCore.getUserByLogin(signinBean.getLogin()).getPassword();
-		System.out.println("loginpass = "+loginPassword +" atcual = "+actualPassword+" new = "+newPassword+" conf = "+confirmedPassword);
-		
+		System.out.println("loginpass = " + loginPassword + " atcual = " + actualPassword + " new = " + newPassword
+				+ " conf = " + confirmedPassword);
+
 		if (actualPassword.equals(loginPassword)) {
 			if (newPassword.equals(confirmedPassword)) {
 				results = "sucessPassword";
@@ -49,7 +49,7 @@ public class ChangePasswordBean implements Serializable {
 	public String getNewPassword() {
 		return newPassword;
 	}
-	
+
 	public void setNewPassword(String newPassword) {
 		this.newPassword = newPassword;
 	}
@@ -69,6 +69,5 @@ public class ChangePasswordBean implements Serializable {
 	public void setSigninBean(SigninBean signinBean) {
 		this.signinBean = signinBean;
 	}
-	
 
 }

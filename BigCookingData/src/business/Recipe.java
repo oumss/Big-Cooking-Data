@@ -6,10 +6,10 @@ public class Recipe {
 
 	private int id;
 	private String name;
-	private int time; //in minutes
+	private int time; // in minutes
 	private ArrayList<Ingredient> ingredients = new ArrayList<Ingredient>();
-	
-	public Recipe(int id,String name, ArrayList<Ingredient> ingredients,int time) {
+
+	public Recipe(int id, String name, ArrayList<Ingredient> ingredients, int time) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -48,5 +48,5 @@ public class Recipe {
 	public void setTime(int time) {
 		this.time = time;
 	}
-		
+
 }

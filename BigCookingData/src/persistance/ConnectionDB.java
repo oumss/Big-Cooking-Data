@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 
 public class ConnectionDB {
-	
+
 	private static String host = "localhost";
 	private static String base = "agp_voyage";
 	private static String user = "root";
@@ -15,7 +15,6 @@ public class ConnectionDB {
 	 * Lazy singleton instance.
 	 */
 	private static Connection connection;
-
 
 	public static Connection getConnection() {
 		if (connection == null) {

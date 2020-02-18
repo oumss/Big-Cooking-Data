@@ -8,7 +8,7 @@ import javax.faces.bean.SessionScoped;
 import core.MockCore;
 
 @ManagedBean(name = "signinBean", eager = true)
-@SessionScoped 
+@SessionScoped
 public class SigninBean implements Serializable {
 
 	private static final long serialVersionUID = 6955508471291131931L;
@@ -17,10 +17,10 @@ public class SigninBean implements Serializable {
 	private String password;
 	private String incorrect;
 	private boolean connected = false;
-	
+
 	public SigninBean() {
 	}
-	
+
 	public String verify() {
 		String results;
 		if (MockCore.exist(login)) {
@@ -42,7 +42,7 @@ public class SigninBean implements Serializable {
 	public String signout() {
 		return "signout";
 	}
-	
+
 	public String getLogin() {
 		return login;
 	}
@@ -74,5 +74,5 @@ public class SigninBean implements Serializable {
 	public void setIncorrect(String incorrect) {
 		this.incorrect = incorrect;
 	}
-	
+
 }

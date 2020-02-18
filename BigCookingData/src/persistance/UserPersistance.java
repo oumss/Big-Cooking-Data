@@ -6,7 +6,6 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-
 public class UserPersistance {
 
 	public User readUserById(int id) {
@@ -22,9 +21,9 @@ public class UserPersistance {
 				readUser.setId(result.getInt("id_user"));
 				readUser.setLogin(result.getString("login"));
 				readUser.setPassword(result.getString("password"));
-			}	
+			}
 			preparedStatement.close();
-			
+
 		} catch (SQLException se) {
 			System.err.println(se.getMessage());
 		}
@@ -44,7 +43,7 @@ public class UserPersistance {
 				readUser.setId(result.getInt("id_user"));
 				readUser.setLogin(result.getString("login"));
 				readUser.setPassword(result.getString("password"));
-				
+
 				readUserList.add(readUser);
 			}
 			preparedStatement.close();
