@@ -73,11 +73,11 @@
 				</p:growl>
 			    <h:panelGrid columns="2" cellpadding="5">
 			 		 <br/>
-			        <label> Ingredients </label>
+			        <label> Ingredients : </label>
 			        <p:selectCheckboxMenu id="ingredient" value="#{homeBean.selectedIngredients}" label="Ingredient" multiple="true"
 			                              filter="true" filterMatchMode="startsWith" panelStyle="width:270px;">
 			            <f:selectItems value="#{homeBean.ingredients}" style="color:black;" />
-			        </p:selectCheckboxMenu> 
+			        </p:selectCheckboxMenu>
 			    </h:panelGrid>
 			</h:form>
 			<p:growl id="growl" life="2000" />
@@ -85,7 +85,7 @@
 				<br />
 		        <label> Mot clé : </label> 
 		        <p:inputText value="#{homeBean.keyword}" />
-		        <br />		               
+		        <br />               
 				<br />
 	        </h:panelGrid>
 			<br />

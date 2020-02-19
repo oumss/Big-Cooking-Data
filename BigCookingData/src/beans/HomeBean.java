@@ -15,7 +15,7 @@ import javax.faces.model.SelectItemGroup;
 
 import org.primefaces.event.UnselectEvent;
 
-@ManagedBean
+@ManagedBean(name = "homeBean", eager = true)
 @SessionScoped
 public class HomeBean implements Serializable {
 
@@ -23,8 +23,6 @@ public class HomeBean implements Serializable {
 	private SigninBean signinBean;
 	private static final long serialVersionUID = 6955508471291131931L;
 	private String keyword;
-	
-
     private List<SelectItemGroup> ingredients ;
     private String[] selectedIngredients;
 
@@ -79,18 +77,7 @@ public class HomeBean implements Serializable {
 	public void setSigninBean(SigninBean signinBean) {
 		this.signinBean = signinBean;
 	}
-
 	
-	public void onItemUnselect(UnselectEvent event) {
-        FacesContext context = FacesContext.getCurrentInstance();
-         
-        FacesMessage msg = new FacesMessage();
-        msg.setSummary("Item unselected: " + event.getObject().toString());
-        msg.setSeverity(FacesMessage.SEVERITY_INFO);
-         
-        context.addMessage(null, msg);
-    }
-
 	public List<SelectItemGroup> getIngredients() {
 		return ingredients;
 	}
@@ -107,4 +94,14 @@ public class HomeBean implements Serializable {
 		this.selectedIngredients = selectedIngredients;
 	}
 	
+	public void onItemUnselect(UnselectEvent event) {
+        FacesContext context = FacesContext.getCurrentInstance();
+         
+        FacesMessage msg = new FacesMessage();
+        msg.setSummary("Item unselected: " + event.getObject().toString());
+        msg.setSeverity(FacesMessage.SEVERITY_INFO);
+         
+        context.addMessage(null, msg);
+    }
+
 }

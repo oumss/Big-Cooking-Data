@@ -6,7 +6,7 @@ import java.sql.DriverManager;
 public class ConnectionDB {
 
 	private static String host = "localhost";
-	private static String base = "agp_voyage";
+	private static String base = "bcd";
 	private static String user = "root";
 	private static String password = "";
 	private static String url = "jdbc:mysql://" + host + "/" + base;
