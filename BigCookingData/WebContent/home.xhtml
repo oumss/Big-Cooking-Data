@@ -8,33 +8,42 @@
 
 <h:head>
 	<link href="./css/style.css" rel="stylesheet" type="text/css" /> 
-	<title>Home Page</title>
+	<title>Big Cooking Data</title>
 </h:head>
 <h:body>
 
-	<h:form>
-		<div align="center">
-					
-			<fieldset>
-			<h1 style="color:white;">Welcome Big Cooking Data</h1>
-			
+	<h:form>		
 			<p:megaMenu orientation="#{index.orientation}" style="margin-top:20px">
 				
-				<p:menuitem value="Home" url="home.jsf" />
+				<p:menuitem value="Acceuil" url="home.jsf" />
 								
-				<p:submenu label="Explore" icon="pi pi-pencil">
+				<p:submenu label="Recette" icon="pi pi-pencil">
 					<p:column>
-						<p:submenu>
-							<p:menuitem value="bla" url="home.jsf" />
-							<p:menuitem value="blo" url="home.jsf" />
+						<p:submenu label="Entrées" icon="pi pi-pencil">
+							<p:menuitem value="Salades" url="home.jsf" />
+							<p:menuitem value="Apéritifs" url="home.jsf" />
+						</p:submenu>
+					</p:column>
+					<p:column>
+						<p:submenu label="Plats" icon="pi pi-pencil">
+							<p:menuitem value="Poissons" url="home.jsf" />
+							<p:menuitem value="Viandes" url="home.jsf" />
+							<p:menuitem value="Végétarien" url="home.jsf" />
+						</p:submenu>
+					</p:column>
+					<p:column>
+						<p:submenu label="Desserts" icon="pi pi-pencil">
+							<p:menuitem value="Gateaux" url="home.jsf" />
+							<p:menuitem value="Glacés" url="home.jsf" />
+							<p:menuitem value="Yaourt" url="home.jsf" />
 						</p:submenu>
 					</p:column>
 				</p:submenu>
 				
-				<p:submenu label="My Taste">
+				<p:submenu label="Mes Goûts">
 					<p:column>
 						<p:submenu>
-							<p:menuitem value="My list of taste" url="home.jsf" />
+							<p:menuitem value="Ma liste" url="home.jsf" />
 							<p:menuitem value="bli" url="home.jsf" />
 						</p:submenu>
 					</p:column>
@@ -44,8 +53,8 @@
 					<p:column>
 						<p:submenu>
 							<p:menuitem value="Profil" url="home.jsf" />
-							<p:menuitem value="Change my password" url="changePassword.jsf" />
-							<p:menuitem value="Disconnect" action="#{homeBean.disconnect}" />
+							<p:menuitem value="Changer de mot de passe" url="changePassword.jsf" />
+							<p:menuitem value="Deconnexion" action="#{homeBean.disconnect}" />
 							
 						</p:submenu>
 					</p:column>
@@ -53,11 +62,17 @@
 				
 			</p:megaMenu>
 			
+		<div align="center">
+		
+			<fieldset> 
+			
+			<h1 style="color:white;">Bienvenue dans Big Cooking Data</h1>
+			
 			<br/>
 				<p:growl id="growl" life="2000" />
 				<h:panelGrid columns="2" cellpadding="5">
 					<br />
-		            <label> Search by keyword : </label> 
+		            <label> Recherche : </label> 
 		            <p:inputText value="#{homeBean.keyword}" />
 		            <br />		               
 					<br />
@@ -69,6 +84,5 @@
 		</div>
 		
 	</h:form>
-
 </h:body>
 </html>
