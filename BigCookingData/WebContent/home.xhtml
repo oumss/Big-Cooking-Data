@@ -13,7 +13,7 @@
 <h:body>
 
 	<h:form>		
-			<p:megaMenu orientation="#{index.orientation}" style="margin-top:20px">
+			<p:megaMenu orientation="#{index.orientation}" style="margin-top:20px; height:40px; background-color:#6692c0;">
 				
 				<p:menuitem value="Acceuil" url="home.jsf" />
 								
@@ -62,25 +62,36 @@
 				
 			</p:megaMenu>
 			
+	
 		<div align="center">
-		
-			<fieldset> 
-			
+		<fieldset style="background-color:#6692c0!important;">
 			<h1 style="color:white;">Bienvenue dans Big Cooking Data</h1>
-			
 			<br/>
-				<p:growl id="growl" life="2000" />
-				<h:panelGrid columns="2" cellpadding="5">
-					<br />
-		            <label> Recherche : </label> 
-		            <p:inputText value="#{homeBean.keyword}" />
-		            <br />		               
-					<br />
-	        	</h:panelGrid>
+			<h:form >
+				<p:growl>
+				<p:autoUpdate />
+				</p:growl>
+			    <h:panelGrid columns="2" cellpadding="5">
+			 		 <br/>
+			        <label> Ingredients </label>
+			        <p:selectCheckboxMenu id="ingredient" value="#{homeBean.selectedIngredients}" label="Ingredient" multiple="true"
+			                              filter="true" filterMatchMode="startsWith" panelStyle="width:270px;">
+			            <f:selectItems value="#{homeBean.ingredients}" style="color:black;" />
+			        </p:selectCheckboxMenu> 
+			    </h:panelGrid>
+			</h:form>
+			<p:growl id="growl" life="2000" />
+			<h:panelGrid columns="2" cellpadding="5">
 				<br />
+		        <label> Mot clé : </label> 
+		        <p:inputText value="#{homeBean.keyword}" />
+		        <br />		               
+				<br />
+	        </h:panelGrid>
+			<br />
 				
-				<p:commandButton style="width:contain; color : white; background-color:green;" look="success" value="Search" action="./homePage" /><br />
-			</fieldset> 
+			<p:commandButton style="width:contain; color:white; background-color:grey;" look="success" value="Chercher" action="./homePage" /><br />
+		</fieldset>
 		</div>
 		
 	</h:form>
