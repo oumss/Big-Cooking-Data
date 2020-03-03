@@ -5,17 +5,20 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
-
+	
 <h:head>
-	<link href="./css/style.css" rel="stylesheet" type="text/css" /> 
 	<title>Sign In</title>
+	
+    <style type="text/css">
+    	@import url(css/style.css)
+	</style>
+	
 </h:head>
 <h:body>
 
 	<h:form>
-		<div align="center">
-					
-			<fieldset>
+
+		<fieldset>
 			<h1 style="color:white;">Sign in Big Cooking Data</h1>	
 				<p:growl id="growl" life="2000" />
 				<h:outputText value="#{signinBean.incorrect}"></h:outputText>
@@ -40,9 +43,9 @@
 		        </h:panelGrid>
 			</div>
 			</fieldset> 
-		</div>
-		
 	</h:form>
+	
+
 
 </h:body>
 </html>

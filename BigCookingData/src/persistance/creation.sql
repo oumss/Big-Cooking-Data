@@ -15,7 +15,6 @@ CREATE TABLE `user` (
 	`id_user` integer, 
     `surname` varchar(30), 
     `firstname` varchar(30), 
-    `region` varchar(30), 
     `login` varchar(30), 
     `password` varchar(30), 
     PRIMARY KEY (`id_user`)
@@ -101,14 +100,14 @@ CREATE TABLE `recipe`(
     `name` varchar(30) , 
     `picture` LONGBLOB, 
     `price` double, 
-    `time` time, 
+    `time` varchar(30), 
     PRIMARY KEY (`id_recipe`),
     FOREIGN KEY (`id_ingredient`) REFERENCES `ingredient` (`id_ingredient`)
 );
     
 CREATE TABLE `connexion`( 
     `id_user` integer, 
-    `date` DATE, 
+    `date` varchar(30), 
     PRIMARY KEY (`id_user`),
     FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`)
 );

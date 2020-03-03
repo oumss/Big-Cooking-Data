@@ -7,64 +7,17 @@
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
 <h:head>
-	<link href="./css/style.css" rel="stylesheet" type="text/css" /> 
+	<style type="text/css">
+    	@import url(css/style.css)
+	</style>
 	<title>Big Cooking Data</title>
 </h:head>
 <h:body>
 
-	<h:form>		
-			<p:megaMenu orientation="#{index.orientation}" style="margin-top:20px; height:40px; background-color:#6692c0;">
-				
-				<p:menuitem value="Acceuil" url="home.jsf" />
-								
-				<p:submenu label="Recette" icon="pi pi-pencil">
-					<p:column>
-						<p:submenu label="Entrées" icon="pi pi-pencil">
-							<p:menuitem value="Salades" url="home.jsf" />
-							<p:menuitem value="Apéritifs" url="home.jsf" />
-						</p:submenu>
-					</p:column>
-					<p:column>
-						<p:submenu label="Plats" icon="pi pi-pencil">
-							<p:menuitem value="Poissons" url="home.jsf" />
-							<p:menuitem value="Viandes" url="home.jsf" />
-							<p:menuitem value="Végétarien" url="home.jsf" />
-						</p:submenu>
-					</p:column>
-					<p:column>
-						<p:submenu label="Desserts" icon="pi pi-pencil">
-							<p:menuitem value="Gateaux" url="home.jsf" />
-							<p:menuitem value="Glacés" url="home.jsf" />
-							<p:menuitem value="Yaourt" url="home.jsf" />
-						</p:submenu>
-					</p:column>
-				</p:submenu>
-				
-				<p:submenu label="Mes Goûts">
-					<p:column>
-						<p:submenu>
-							<p:menuitem value="Ma liste" url="home.jsf" />
-							<p:menuitem value="bli" url="home.jsf" />
-						</p:submenu>
-					</p:column>
-				</p:submenu>
-				
-				<p:submenu label="My Account" icon="pi pi-pencil">
-					<p:column>
-						<p:submenu>
-							<p:menuitem value="Profil" url="home.jsf" />
-							<p:menuitem value="Changer de mot de passe" url="changePassword.jsf" />
-							<p:menuitem value="Deconnexion" action="#{homeBean.disconnect}" />
-							
-						</p:submenu>
-					</p:column>
-				</p:submenu>
-				
-			</p:megaMenu>
-			
-	
-		<div align="center">
-		<fieldset style="background-color:#6692c0!important;">
+	<h:form>	
+		<ui:include src="head.xhtml" />	
+		<div>
+		<fieldset>
 			<h1 style="color:white;">Bienvenue dans Big Cooking Data</h1>
 			<br/>
 			<h:form >

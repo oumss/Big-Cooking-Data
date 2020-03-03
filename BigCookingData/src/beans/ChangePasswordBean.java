@@ -27,8 +27,7 @@ public class ChangePasswordBean implements Serializable {
 	public String verify() {
 		String results = "errorPassword";
 		String loginPassword = MockCore.getUserByLogin(signinBean.getLogin()).getPassword();
-		System.out.println("loginpass = " + loginPassword + " atcual = " + actualPassword + " new = " + newPassword
-				+ " conf = " + confirmedPassword);
+		//System.out.println("loginpass = " + loginPassword + " atcual = " + actualPassword + " new = " + newPassword + " conf = " + confirmedPassword);
 
 		if (actualPassword.equals(loginPassword)) {
 			if (newPassword.equals(confirmedPassword)) {
