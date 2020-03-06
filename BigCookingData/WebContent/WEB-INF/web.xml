@@ -8,6 +8,53 @@
     <servlet-name>Faces Servlet</servlet-name>
     <url-pattern>*.jsf</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+   	<servlet-name>SigninBean</servlet-name>
+    <servlet-class>beans.SigninBean</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SigninBean</servlet-name>
+    <url-pattern>/signin</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+   	<servlet-name>SignoutBean</servlet-name>
+    <servlet-class>beans.SignoutBean</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SignoutBean</servlet-name>
+    <url-pattern>/signout</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+   	<servlet-name>HomeBean</servlet-name>
+    <servlet-class>beans.HomeBean</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>HomeBean</servlet-name>
+    <url-pattern>/home</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+   	<servlet-name>ChangePasswordBean</servlet-name>
+    <servlet-class>beans.ChangePasswordBean</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ChangePasswordBean</servlet-name>
+    <url-pattern>/changePassword</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+   	<servlet-name>SearchBean</servlet-name>
+    <servlet-class>beans.SearchBean</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SearchBean</servlet-name>
+    <url-pattern>/search</url-pattern>
+  </servlet-mapping>
+  
+  
   <context-param>
     <param-name>javax.faces.PROJECT_STAGE</param-name>
     <param-value>Development</param-value>

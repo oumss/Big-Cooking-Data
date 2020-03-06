@@ -1,0 +1,199 @@
+/*-------------------data.css--------------------*/
+/*
+ * table.jsp
+ * accordeon.jsp
+ * welcome.jsp
+ */
+
+/*-------------------Welcome-------------------*/
+
+
+.tabs .tab a {
+	padding: 0px !important;
+}
+
+.meteo {
+	padding-right: 0px !important;
+	margin-left: 0px !important;
+	width: 100% !important;
+	height: 0px !important;
+}
+
+#section1, #sect1 {
+	background: #FF7900;
+	color: black !important;
+	font-weight: bold;
+}
+
+#section2, #sect2 {
+	background: #ffb4e5;
+	color: black !important;
+	font-weight: bold;
+}
+
+#section3, #sect3 {
+	background: #4bb4e6;
+	color: black !important;
+	font-weight: bold;
+}
+
+#section4, #sect4 {
+	background: #ffd200;
+	color: black !important;
+	font-weight: bold;
+}
+
+#section5, #sect5 {
+	background: #a885d8;
+	color: black !important;
+	font-weight: bold;
+}
+
+.indicator {
+	background: black !important;
+	height: 3px !important;
+}
+
+.mois {
+	background: #d6d6d6;
+	color: black;
+	font-weight: bold;
+	text-align: center;
+}
+
+.target {
+	background: #595959;
+	color: white;
+	font-weight: bold;
+	text-align: center
+}
+
+.trimestre {
+	background: #8f8f8f;
+	color: white;
+	font-weight: bold;
+	text-align: center;
+}
+
+.semestre {
+	background: #ff7900;
+	color: white;
+	font-weight: bold;
+	text-align: center;
+}
+
+.lib {
+	background: #d6d6d6;
+	color: black;
+	font-weight: bold;
+	padding-left: 5px;
+}
+
+.contenu {
+	text-align: center;
+}
+
+table tr td {
+	border-radius: 0px !important;
+	border-bottom: 1.5px solid white;
+	width: 200px !important;
+	margin: 0px !important;
+}
+
+table tr th {
+	border-radius: 0px !important;
+	border-bottom: 1.5px solid white;
+	width: 250px !important;
+	margin: 0px !important;
+}
+
+.sun {
+	background-image: url('img/sunny.png');
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.cloud {
+	background-image: url('img/cloud.png');
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.rain {
+	background-image: url('img/rain.png');
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+table {
+	font-size: 12px !important;
+	margin-left: 0px !important;
+	height: auto !important;
+}
+
+/*-------------------Général-------------------*/
+.titletext {
+	background: #d6d6d6;
+	color: #595959;
+	border-left: solid 5px #ff7900;
+}
+
+table {
+	padding-right: 10px;
+	margin-left: 10px;
+	width: 380px;
+	height: 337px;
+}
+
+
+#content /* ??? */ {
+	margin: auto;
+}
+
+.ui-menu /* ??? */ {
+	margin: 0px 0px 0px 0px;
+	width: 150px;
+}
+
+/*------------------Menu de séléction Mois/Année----------------*/
+
+.yearMobile {
+	background-color: #ff7900;
+	font-weight: bold;
+}
+
+.monthMobile {
+	background: #d6d6d6;
+}
+
+.yearMobile:hover {
+	background: #8f8f8f;
+}
+
+.monthMobile:hover {
+	background: #8f8f8f;
+}
+
+#main-nav ul {
+	list-style-type: none;
+}
+
+#main-nav ul li ul {
+	display: none;
+	margin-left: 0;
+	margin-bottom: 9px;
+	padding-left: 0px;
+}
+
+#main-nav ul {
+	margin-left: 0;
+	margin-bottom: 9px;
+}
+
+#main-nav ul li:focus ul {
+	display: block;
+}
+
+#yearMobile # ul li a {
+	border: none !important;
+}

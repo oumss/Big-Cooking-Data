@@ -9,6 +9,9 @@
 <h:head>
 	<style type="text/css">
     	@import url(css/style.css)
+    	@import url(css/header.css)
+    	@import url(css/general.css)
+    	@import url(css/buttons.jqueryui.css)
 	</style>
 	<title>Big Cooking Data</title>
 </h:head>
@@ -18,7 +21,7 @@
 		<ui:include src="head.xhtml" />	
 		<div>
 		<fieldset>
-			<h1 style="color:white;">Bienvenue dans Big Cooking Data</h1>
+			<h1 style="color:grey;">Bienvenue dans Big Cooking Data</h1>
 			<br/>
 			<h:form >
 				<p:growl>
@@ -26,7 +29,8 @@
 				</p:growl>
 			    <h:panelGrid columns="2" cellpadding="5">
 			 		 <br/>
-			        <label> Ingredients : </label>
+			        <label> Ingredients : </label> 
+			        <br/>
 			        <p:selectCheckboxMenu id="ingredient" value="#{homeBean.selectedIngredients}" label="Ingredient" multiple="true"
 			                              filter="true" filterMatchMode="startsWith" panelStyle="width:270px;">
 			            <f:selectItems value="#{homeBean.ingredients}" style="color:black;" />
