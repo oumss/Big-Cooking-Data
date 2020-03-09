@@ -8,13 +8,12 @@ public class Ingredient {
 	private int alim_ssssgrp_code;
 	private String alim_nom_fr;
 	private int id_ingredient;
-	private Unit unit;
 	
 	public Ingredient() {
 		
 	}
 	public Ingredient(int poids, int alim_grp_code, int alim_ssgrp_code, int alim_ssssgrp_code,
-			String alim_nom_fr, int id_ingredient, Unit unit) {
+			String alim_nom_fr, int id_ingredient) {
 		super();
 		this.poids = poids;
 		this.alim_grp_code = alim_grp_code;
@@ -22,7 +21,6 @@ public class Ingredient {
 		this.alim_ssssgrp_code = alim_ssssgrp_code;
 		this.alim_nom_fr = alim_nom_fr;
 		this.id_ingredient = id_ingredient;
-		this.unit = unit;
 	}
 
 	public int getAlim_grp_code() {
@@ -65,9 +63,6 @@ public class Ingredient {
 		this.id_ingredient = id_ingredient;
 	}
 
-	public enum Unit {
-		kG, mG, G, cL, mL, L, U, cac, cas
-	};
 
 	public int getPoids() {
 		return poids;
@@ -77,12 +72,5 @@ public class Ingredient {
 		this.poids = quantity;
 	}
 
-	public Unit getUnit() {
-		return unit;
-	}
-
-	public void setUnit(Unit unit) {
-		this.unit = unit;
-	}
 
 }
