@@ -12,7 +12,9 @@ public class Ingredient {
 	private int id_ingredient;
 	private Unit unit;
 	
-
+	public Ingredient() {
+		
+	}
 	public Ingredient(int id, String name, int poids, int alim_grp_code, int alim_ssgrp_code, int alim_ssssgrp_code,
 			String alim_nom_fr, int id_ingredient, Unit unit) {
 		super();
