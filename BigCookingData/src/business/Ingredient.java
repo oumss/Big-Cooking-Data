@@ -3,7 +3,6 @@ package business;
 public class Ingredient {
 
 	private int id;
-	private String name;
 	private int poids;
 	private int alim_grp_code;
 	private int alim_ssgrp_code;
@@ -15,11 +14,10 @@ public class Ingredient {
 	public Ingredient() {
 		
 	}
-	public Ingredient(int id, String name, int poids, int alim_grp_code, int alim_ssgrp_code, int alim_ssssgrp_code,
+	public Ingredient(int id, int poids, int alim_grp_code, int alim_ssgrp_code, int alim_ssssgrp_code,
 			String alim_nom_fr, int id_ingredient, Unit unit) {
 		super();
 		this.id = id;
-		this.name = name;
 		this.poids = poids;
 		this.alim_grp_code = alim_grp_code;
 		this.alim_ssgrp_code = alim_ssgrp_code;
@@ -81,13 +79,6 @@ public class Ingredient {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
 
 	public int getPoids() {
 		return poids;
