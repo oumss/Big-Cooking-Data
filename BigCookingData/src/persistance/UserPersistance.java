@@ -21,6 +21,32 @@ public class UserPersistance {
 				readUser.setId(result.getInt("id_user"));
 				readUser.setLogin(result.getString("login"));
 				readUser.setPassword(result.getString("password"));
+				readUser.setLogin(result.getString("surname"));
+				readUser.setPassword(result.getString("firstname"));
+			}
+			preparedStatement.close();
+
+		} catch (SQLException se) {
+			System.err.println(se.getMessage());
+		}
+		return readUser;
+	}
+	
+	public User readUserByLogin(int id) {
+		User readUser = new User();
+		try {
+			String selectUserQuery = "SELECT * FROM user WHERE login = ? ";
+			Connection dbConnection = ConnectionDB.getConnection();
+			java.sql.PreparedStatement preparedStatement = dbConnection.prepareStatement(selectUserQuery);
+			preparedStatement.setInt(1, id);
+			ResultSet result = preparedStatement.executeQuery();
+
+			while (result.next()) {
+				readUser.setId(result.getInt("id_user"));
+				readUser.setLogin(result.getString("login"));
+				readUser.setPassword(result.getString("password"));
+				readUser.setLogin(result.getString("surname"));
+				readUser.setPassword(result.getString("firstname"));
 			}
 			preparedStatement.close();
 
