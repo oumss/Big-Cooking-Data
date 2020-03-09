@@ -10,8 +10,8 @@ import java.io.IOException;
 public class ConverterTxt {
 
 	public static void main(String[] args) throws IOException {
-		File fileA = new File(new File("src//data_ingredient_class//a.txt").getAbsolutePath());
-		FileWriter fileB = new FileWriter(new File("src//data_ingredient_class//b.txt").getAbsolutePath());
+		File fileA = new File(new File("src//data_ingredient_class//csv.txt").getAbsolutePath());
+		FileWriter fileB = new FileWriter(new File("src//data_ingredient_class//insert.txt").getAbsolutePath());
 		System.out.println(fileA.getPath());
 		String ligne = new String();
 		String insert = new String();
