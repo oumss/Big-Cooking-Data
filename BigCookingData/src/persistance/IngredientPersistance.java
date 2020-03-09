@@ -1,56 +1,64 @@
 package persistance;
 
 	import java.util.ArrayList;
-	import business.User;
-	import java.sql.Connection;
+	import business.Ingredient;
+import business.Ingredient;
+
+import java.sql.Connection;
 	import java.sql.ResultSet;
 	import java.sql.SQLException;
 
 public class IngredientPersistance {
 
-		public User readUserById(int id) {
-			User readUser = new User();
+		public Ingredient readIngredientById(int id) {
+			Ingredient readIngredient = new Ingredient();
 			try {
-				String selectUserQuery = "SELECT * FROM user WHERE id_ingredient = ? ";
+				String selectIngredientQuery = "SELECT * FROM user WHERE id_ingredient = ? ";
 				Connection dbConnection = ConnectionDB.getConnection();
-				java.sql.PreparedStatement preparedStatement = dbConnection.prepareStatement(selectUserQuery);
+				java.sql.PreparedStatement preparedStatement = dbConnection.prepareStatement(selectIngredientQuery);
 				preparedStatement.setInt(1, id);
 				ResultSet result = preparedStatement.executeQuery();
 
 				while (result.next()) {
-					readUser.setId(result.getInt("id_ingredient"));
-					readUser.setLogin(result.getString("alim_nom_fr"));
-					readUser.setPassword(result.getString("poids"));
+					readIngredient.setId_ingredient(result.getInt("id_ingredient"));
+					readIngredient.setAlim_nom_fr(result.getString("alim_nom_fr"));
+					readIngredient.setAlim_grp_code(result.getInt("alim_grp_code"));
+					readIngredient.setAlim_ssgrp_code(result.getInt("alim_ssgrp_code"));
+					readIngredient.setAlim_ssssgrp_code(result.getInt("alim_ssssgrp_code"));
+					readIngredient.setPoids(result.getInt("poids"));
 				}
 				preparedStatement.close();
 
 			} catch (SQLException se) {
 				System.err.println(se.getMessage());
 			}
-			return readUser;
+			return readIngredient;
 		}
 
-		public static ArrayList<User> readAllUser() {
-			ArrayList<User> readUserList = new ArrayList<User>();
+		public static ArrayList<Ingredient> readAllIngredient() {
+			ArrayList<Ingredient> readIngredientList = new ArrayList<Ingredient>();
 			try {
-				String selectUserQuery = "SELECT * FROM user ";
+				String selectIngredientQuery = "SELECT * FROM ingredient ";
 				Connection dbConnection = ConnectionDB.getConnection();
-				java.sql.PreparedStatement preparedStatement = dbConnection.prepareStatement(selectUserQuery);
+				java.sql.PreparedStatement preparedStatement = dbConnection.prepareStatement(selectIngredientQuery);
 				ResultSet result = preparedStatement.executeQuery();
 
 				while (result.next()) {
-					User readUser = new User();
-					readUser.setId(result.getInt("id_user"));
-					readUser.setLogin(result.getString("login"));
-					readUser.setPassword(result.getString("password"));
+					Ingredient readIngredient = new Ingredient();
+					readIngredient.setId_ingredient(result.getInt("id_ingredient"));
+					readIngredient.setAlim_nom_fr(result.getString("alim_nom_fr"));
+					readIngredient.setAlim_grp_code(result.getInt("alim_grp_code"));
+					readIngredient.setAlim_ssgrp_code(result.getInt("alim_ssgrp_code"));
+					readIngredient.setAlim_ssssgrp_code(result.getInt("alim_ssssgrp_code"));
+					readIngredient.setPoids(result.getInt("poids"));
 
-					readUserList.add(readUser);
+					readIngredientList.add(readIngredient);
 				}
 				preparedStatement.close();
 
 			} catch (SQLException se) {
 				System.err.println(se.getMessage());
 			}
-			return readUserList;
+			return readIngredientList;
 		}
 }
