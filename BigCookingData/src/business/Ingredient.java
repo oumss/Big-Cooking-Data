@@ -2,7 +2,6 @@ package business;
 
 public class Ingredient {
 
-	private int id;
 	private int poids;
 	private int alim_grp_code;
 	private int alim_ssgrp_code;
@@ -14,10 +13,9 @@ public class Ingredient {
 	public Ingredient() {
 		
 	}
-	public Ingredient(int id, int poids, int alim_grp_code, int alim_ssgrp_code, int alim_ssssgrp_code,
+	public Ingredient(int poids, int alim_grp_code, int alim_ssgrp_code, int alim_ssssgrp_code,
 			String alim_nom_fr, int id_ingredient, Unit unit) {
 		super();
-		this.id = id;
 		this.poids = poids;
 		this.alim_grp_code = alim_grp_code;
 		this.alim_ssgrp_code = alim_ssgrp_code;
@@ -70,15 +68,6 @@ public class Ingredient {
 	public enum Unit {
 		kG, mG, G, cL, mL, L, U, cac, cas
 	};
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
 
 	public int getPoids() {
 		return poids;
