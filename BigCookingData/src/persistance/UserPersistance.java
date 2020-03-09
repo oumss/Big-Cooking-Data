@@ -21,8 +21,8 @@ public class UserPersistance {
 				readUser.setId(result.getInt("id_user"));
 				readUser.setLogin(result.getString("login"));
 				readUser.setPassword(result.getString("password"));
-				readUser.setLogin(result.getString("surname"));
-				readUser.setPassword(result.getString("firstname"));
+				readUser.setSurname(result.getString("surname"));
+				readUser.setFirstname(result.getString("firstname"));
 			}
 			preparedStatement.close();
 
@@ -45,8 +45,8 @@ public class UserPersistance {
 				readUser.setId(result.getInt("id_user"));
 				readUser.setLogin(result.getString("login"));
 				readUser.setPassword(result.getString("password"));
-				readUser.setLogin(result.getString("surname"));
-				readUser.setPassword(result.getString("firstname"));
+				readUser.setSurname(result.getString("surname"));
+				readUser.setFirstname(result.getString("firstname"));
 			}
 			preparedStatement.close();
 
@@ -69,8 +69,8 @@ public class UserPersistance {
 				readUser.setId(result.getInt("id_user"));
 				readUser.setLogin(result.getString("login"));
 				readUser.setPassword(result.getString("password"));
-				readUser.setLogin(result.getString("surname"));
-				readUser.setPassword(result.getString("firstname"));
+				readUser.setSurname(result.getString("surname"));
+				readUser.setFirstname(result.getString("firstname"));
 
 				readUserList.add(readUser);
 			}
