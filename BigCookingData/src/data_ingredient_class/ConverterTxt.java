@@ -1,4 +1,4 @@
-package excel;
+package data_ingredient_class;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -10,8 +10,8 @@ import java.io.IOException;
 public class ConverterTxt {
 
 	public static void main(String[] args) throws IOException {
-		File fileA = new File(new File("src//excel//a.txt").getAbsolutePath());
-		FileWriter fileB = new FileWriter(new File("src//excel//b.txt").getAbsolutePath());
+		File fileA = new File(new File("src//data_ingredient_class//a.txt").getAbsolutePath());
+		FileWriter fileB = new FileWriter(new File("src//data_ingredient_class//b.txt").getAbsolutePath());
 		System.out.println(fileA.getPath());
 		String ligne = new String();
 		String insert = new String();
