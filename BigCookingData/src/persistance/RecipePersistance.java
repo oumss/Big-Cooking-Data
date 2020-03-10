@@ -63,4 +63,32 @@ public class RecipePersistance {
 			}
 			return readRecipeList;
 		}
+		
+		
+
+
+		public Recipe readRandRecipe() {
+			Recipe readRecipe = new Recipe();
+			try {
+				String selectRecipeQuery = "SELECT * FROM recipe WHERE RAND() > 0.9 ORDER BY RAND( ) LIMIT 1 ";
+				Connection dbConnection = ConnectionDB.getConnection();
+				java.sql.PreparedStatement preparedStatement = dbConnection.prepareStatement(selectRecipeQuery);
+				ResultSet result = preparedStatement.executeQuery();
+
+				while (result.next()) {
+					readRecipe.setId_ingredient(result.getInt("id_ingredient_recipe"));
+					readRecipe.setId_recipe(result.getInt("id_recipe"));
+					readRecipe.setName(result.getString("name"));
+					readRecipe.setPrice(result.getFloat("price"));
+					readRecipe.setWeight(result.getInt("weight"));
+					readRecipe.setTime(result.getInt("time"));
+
+				}
+				preparedStatement.close();
+
+			} catch (SQLException se) {
+				System.err.println(se.getMessage());
+			}
+			return readRecipe;
+		}
 	}
