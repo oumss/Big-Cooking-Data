@@ -20,7 +20,7 @@ public class RecipePersistance {
 				ResultSet result = preparedStatement.executeQuery();
 
 				while (result.next()) {
-					readRecipe.setId_ingredient(result.getInt("id_ingredient"));
+					readRecipe.setId_ingredient(result.getInt("id_ingredient_recipe"));
 					readRecipe.setId_recipe(result.getInt("id_recipe"));
 					readRecipe.setName(result.getString("name"));
 					readRecipe.setPrice(result.getFloat("price"));
@@ -47,7 +47,7 @@ public class RecipePersistance {
 
 				while (result.next()) {
 					Recipe readRecipe = new Recipe();
-					readRecipe.setId_ingredient(result.getInt("id_ingredient"));
+					readRecipe.setId_ingredient(result.getInt("id_ingredient_recipe"));
 					readRecipe.setId_recipe(result.getInt("id_recipe"));
 					readRecipe.setName(result.getString("name"));
 					readRecipe.setPrice(result.getFloat("price"));
