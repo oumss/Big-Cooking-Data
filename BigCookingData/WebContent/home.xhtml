@@ -20,35 +20,12 @@
 	<h:form>	
 		<ui:include src="head.xhtml" />	
 		<div>
-		<fieldset>
-			<h1 style="color:grey;">Bienvenue dans Big Cooking Data</h1>
-			<br/>
-			<h:form >
-				<p:growl>
-				<p:autoUpdate />
-				</p:growl>
-			    <h:panelGrid columns="2" cellpadding="5">
-			 		 <br/>
-			        <label> Ingredients : </label> 
-			        <br/>
-			        <p:selectCheckboxMenu id="ingredient" value="#{homeBean.selectedIngredients}" label="Ingredient" multiple="true"
-			                              filter="true" filterMatchMode="startsWith" panelStyle="width:270px;">
-			            <f:selectItems value="#{homeBean.ingredients}" style="color:black;" />
-			        </p:selectCheckboxMenu>
-			    </h:panelGrid>
-			</h:form>
-			<p:growl id="growl" life="2000" />
-			<h:panelGrid columns="2" cellpadding="5">
+			<fieldset>
+				<h1 style="color:grey;">Bienvenue dans Big Cooking Data</h1>
+				<br/>
+					
 				<br />
-		        <label> Mot clé : </label> 
-		        <p:inputText value="#{homeBean.keyword}" />
-		        <br />               
-				<br />
-	        </h:panelGrid>
-			<br />
-				
-			<p:commandButton style="width:contain; color:white; background-color:grey;" look="success" value="Chercher" action="./homePage" /><br />
-		</fieldset>
+			</fieldset>
 		</div>
 		
 	</h:form>

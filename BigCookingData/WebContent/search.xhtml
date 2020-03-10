@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<h:head>
+	<style type="text/css">
+    	@import url(css/style.css)
+    	@import url(css/header.css)
+    	@import url(css/general.css)
+    	@import url(css/buttons.jqueryui.css)
+	</style>
+	<title>Big Cooking Data</title>
+</h:head>
+<h:body>
+
+	<h:form>	
+		<ui:include src="head.xhtml" />	
+		<div>
+		<fieldset>
+			<h1 style="color:grey;">Bienvenue dans Big Cooking Data</h1>
+			<br/>
+			<h:form >
+				<p:growl>
+				<p:autoUpdate />
+				</p:growl>
+			    <h:panelGrid columns="2" cellpadding="5">
+			 		 <br/>
+			        <h5> Ingredients : </h5> 
+			        <br/>
+			        <p:selectCheckboxMenu id="ingredient" value="#{searchBean.selectedIngredients}" label="Ingredient" multiple="true"
+			                              filter="true" filterMatchMode="startsWith" panelStyle="width:270px;">
+			            <f:selectItems value="#{searchBean.ingredients}" style="color:black;" />
+			        </p:selectCheckboxMenu>
+			    </h:panelGrid>
+			</h:form>
+			<p:growl id="growl" life="2000" />
+			<h:panelGrid columns="2" cellpadding="5">
+				<br />
+		        <h5> Mot clé : </h5> 
+		        <br/>
+		        <p:inputText value="#{searchBean.keyword}" />
+		        <br />               
+				<br />
+	        </h:panelGrid>
+			<br />
+				
+			<p:commandButton style="width:contain; color:white; background-color:grey;" look="success" value="Chercher" action="#{searchBean.search}" /><br />
+		</fieldset>
+		</div>
+		
+	</h:form>
+</h:body>
+</html>
