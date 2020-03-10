@@ -8,13 +8,6 @@ public class User {
     private String  surname;
     private String firstname; 
 
-	public User(int id, String login, String password) {
-		super();
-		this.id = id;
-		this.login = login;
-		this.password = password;
-	}
-
 	public User(int id, String login, String password, String surname, String firstname) {
 		super();
 		this.id = id;

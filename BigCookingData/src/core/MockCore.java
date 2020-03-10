@@ -14,8 +14,8 @@ public class MockCore {
 
 	private static final ArrayList<User> userRegistry = new ArrayList<User>();
 	static {
-		userRegistry.add(new User(0, "user1", "aaa"));
-		userRegistry.add(new User(1, "user2", "bbb"));
+		userRegistry.add(new User(0, "user1", "aaa","USER1","user1"));
+		userRegistry.add(new User(1, "user2", "bbb","USER2","user2"));
 	}
 
 	public static boolean exist(String login) {
