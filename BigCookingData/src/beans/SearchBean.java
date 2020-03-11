@@ -51,7 +51,7 @@ public class SearchBean implements Serializable {
 	}
 	
 	public String search() {
-		return "home";
+		return "results";
 	}
 
 	public String disconnect() {

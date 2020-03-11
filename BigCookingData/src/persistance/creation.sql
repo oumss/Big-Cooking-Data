@@ -95,14 +95,15 @@ CREATE TABLE `ingredient` (
 
 CREATE TABLE `recipe`( 
     `id_recipe` integer, 
-    `id_ingredient` integer, 
+    `id_ingredient_recipe` integer, 
     `weight` integer, 
     `name` varchar(30) , 
     `picture` LONGBLOB, 
-    `price` double, 
+    `price` int, 
     `time` varchar(30), 
+     `steps` varchar(1000), 
     PRIMARY KEY (`id_recipe`),
-    FOREIGN KEY (`id_ingredient`) REFERENCES `ingredient` (`id_ingredient`)
+    FOREIGN KEY (`id_ingredient_recipe`) REFERENCES `ingredient_recipe` (`id_ingredient_recipe`)
 );
     
 CREATE TABLE `connexion`( 
@@ -132,7 +133,7 @@ CREATE TABLE `ingredient_recipe`(
     `id_ingredient_recipe` integer,
     `id_ingredient` integer, 
     `quantity` integer, 
-    FOREIGN KEY (`id_ingredient_recipe`) REFERENCES `recipe` (`id_ingredient`),
+    FOREIGN KEY (`id_ingredient_recipe`) REFERENCES `recipe` (`id_recipe`),
     FOREIGN KEY (`id_ingredient`) REFERENCES `ingredient` (`id_ingredient`)
 );
      
