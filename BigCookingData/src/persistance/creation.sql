@@ -110,7 +110,7 @@ CREATE TABLE `connexion`(
     `date` varchar(30), 
     PRIMARY KEY (`id_user`),
     FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`)
-);
+); 
     
 CREATE TABLE `weight_ingredient`( 
     `id_user` integer,
