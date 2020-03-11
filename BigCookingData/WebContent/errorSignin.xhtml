@@ -18,18 +18,19 @@
 <h:body>
 
 	<h:form>
-			<h1 style="color:white;">Sign in Big Cooking Data</h1>	
+		<fieldset>
+			<h1 style="color:grey;">Sign in Big Cooking Data</h1>	
 			<p:growl id="growl" life="2000" />
 			<h3 style="color:red;">login or password incorrect please retry...</h3>
 			<div>
 				<h3 style="color:white;">Sign in</h3>
 				<h:panelGrid columns="2" cellpadding="5">
 					<br />
-		              <label>  Login : </label> 
-		                <p:inputText value="#{signinBean.login}" />
+		            <label>  Login : </label> 
+		            <p:inputText value="#{signinBean.login}" />
 		            <br /> 
-		              <label>  Password : </label> 
-		                <p:password value="#{signinBean.password}"/>
+		            <label>  Password : </label> 
+		            <p:password value="#{signinBean.password}"/>
 		            <br />
 		            <p:commandButton style="width:contain; color : white; background-color:green;" look="success" value="Connect" action="#{signinBean.verify}" /><br />
 	        	</h:panelGrid>
@@ -41,7 +42,7 @@
 				<p:commandButton style="width:contain; color : white; background-color:grey;" look="success" value="Sign out" action="#{signinBean.signout}" /><br />
 		        </h:panelGrid>
 			</div>
-		
+			</fieldset> 
 	</h:form>
 
 </h:body>

@@ -7,27 +7,28 @@
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 	
 <h:head>
+	<h:outputStylesheet name="primeicons/primeicons.css" library="primefaces" />
 	<p:megaMenu orientation="#{index.orientation}" style="margin-top:0px">
 			
-		<p:menuitem value="Acceuil" url="home.jsf" />
-		<p:menuitem value="Recherche Avancée" url="search.jsf" />
+		<p:menuitem value="" url="home.jsf" icon="pi pi-home" />
+		<p:menuitem value=" Recherche Avancée" url="search.jsf" icon="pi pi-search"/>
 		
-		<p:submenu label="Recette" icon="pi pi-pencil">
+		<p:submenu label="Catégories" >
 			<p:column>
-				<p:submenu label="Entrées" icon="pi pi-pencil">
+				<p:submenu label="Entrées" >
 					<p:menuitem value="Salades" url="home.jsf" />
 					<p:menuitem value="Apéritifs" url="home.jsf" />
 				</p:submenu>
 			</p:column>
 			<p:column>
-				<p:submenu label="Plats" icon="pi pi-pencil">
+				<p:submenu label="Plats" >
 					<p:menuitem value="Poissons" url="home.jsf" />
 					<p:menuitem value="Viandes" url="home.jsf" />
 					<p:menuitem value="Végétarien" url="home.jsf" />
 				</p:submenu>
 			</p:column>
 			<p:column>
-				<p:submenu label="Desserts" icon="pi pi-pencil">
+				<p:submenu label="Desserts">
 					<p:menuitem value="Gateaux" url="home.jsf" />
 					<p:menuitem value="Glacés" url="home.jsf" />
 					<p:menuitem value="Yaourt" url="home.jsf" />
@@ -35,7 +36,7 @@
 			</p:column>
 		</p:submenu>
 		
-		<p:submenu label="My Account" icon="pi pi-pencil">
+		<p:submenu label=" My Account" icon="pi pi-user"  >
 			<p:column>
 				<p:submenu>
 					<p:menuitem value="Profil" url="home.jsf" />
@@ -44,7 +45,11 @@
 					
 				</p:submenu>
 			</p:column>
-		</p:submenu>
+			</p:submenu>
+		
+		<f:facet name="options">
+            <p:commandButton type="button" value=" Deconnexion" icon="pi pi-power-off" action="#{homeBean.disconnect}" />
+        </f:facet>
 		
 	</p:megaMenu>
 </h:head>

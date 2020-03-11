@@ -8,15 +8,24 @@ import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
+import javax.faces.event.NamedEvent;
 import javax.faces.model.SelectItem;
 import javax.faces.model.SelectItemGroup;
 
 import org.primefaces.event.UnselectEvent;
 
+import com.sun.tracing.dtrace.NameAttributes;
+
+import business.Recipe;
+import core.SearchEntry;
+import core.SearchRecipe;
+
 @ManagedBean(name = "searchBean", eager = true)
 @SessionScoped
+@RequestScoped
 public class SearchBean implements Serializable {
 
 	@ManagedProperty(value = "#{signinBean}")
@@ -26,25 +35,29 @@ public class SearchBean implements Serializable {
 	private String ingredients;
 	private List<SelectItemGroup> categories;
 	private String[] selectedCategories;
+	private ArrayList<Recipe> recipes = new ArrayList<Recipe>();
 
 	public SearchBean() {
 	}
 
 	@PostConstruct
 	public void init() {
-		
+
 		categories = new ArrayList<SelectItemGroup>();
 		SelectItemGroup cat = new SelectItemGroup("Catégories");
-		cat.setSelectItems(
-				new SelectItem[] { new SelectItem("Entrée", "Entrée"), new SelectItem("Plat", "Plat"),
-						new SelectItem("Dessert", "Dessert"), new SelectItem("Soupe", "Soupe"),
-						new SelectItem("Apéritif", "Apéritif"), new SelectItem("Boisson", "Boisson") });
+		cat.setSelectItems(new SelectItem[] { new SelectItem("Entrée", "Entrée"), new SelectItem("Plat", "Plat"),
+				new SelectItem("Dessert", "Dessert"), new SelectItem("Soupe", "Soupe"),
+				new SelectItem("Apéritif", "Apéritif"), new SelectItem("Boisson", "Boisson") });
 		categories.add(cat);
 	}
-	
+
 	public String search() {
+		SearchEntry searchEntry = new SearchEntry(ingredients, keyword, selectedCategories);
+		// ... traitement des entrées ...
 		
 		
+		
+		// recipes = ...
 		return "results";
 	}
 
@@ -68,7 +81,7 @@ public class SearchBean implements Serializable {
 	public void setSigninBean(SigninBean signinBean) {
 		this.signinBean = signinBean;
 	}
-	
+
 	public String getIngredients() {
 		return ingredients;
 	}
@@ -93,6 +106,14 @@ public class SearchBean implements Serializable {
 		this.selectedCategories = selectedCategories;
 	}
 
+	public ArrayList<Recipe> getRecipes() {
+		return recipes;
+	}
+
+	public void setRecipes(ArrayList<Recipe> recipes) {
+		this.recipes = recipes;
+	}
+
 	public void onItemUnselect(UnselectEvent event) {
 		FacesContext context = FacesContext.getCurrentInstance();
 
@@ -102,7 +123,5 @@ public class SearchBean implements Serializable {
 
 		context.addMessage(null, msg);
 	}
-
-	
 
 }

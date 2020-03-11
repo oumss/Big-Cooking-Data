@@ -6,34 +6,20 @@ import business.Ingredient;
 
 public class SearchRecipe {
 
-	private ArrayList<Ingredient> ingredients;
-	private String keyword;
-	
-	
+	private SearchEntry entry;
+
 	public SearchRecipe() {
 	}
 
-	public SearchRecipe(ArrayList<Ingredient> ingredients, String keyword) {
+	public SearchRecipe(SearchEntry entry) {
 		super();
-		this.ingredients = ingredients;
-		this.keyword = keyword;
+		this.entry = entry;
 	}
 
-	public ArrayList<Ingredient> getIngredients() {
-		return ingredients;
+	public SearchEntry getEntry() {
+		return entry;
 	}
-	
-	public void setIngredients(ArrayList<Ingredient> ingredients) {
-		this.ingredients = ingredients;
+	public void setEntry(SearchEntry entry) {
+		this.entry = entry;
 	}
-	
-	public String getKeyword() {
-		return keyword;
-	}
-	
-	public void setKeyword(String keyword) {
-		this.keyword = keyword;
-	}
-	
-	
 }
