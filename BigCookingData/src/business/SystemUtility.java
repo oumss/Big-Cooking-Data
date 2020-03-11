@@ -4,7 +4,7 @@ import java.util.ArrayList;
  
 public class SystemUtility {
 
-	private int id;
+	private int id; 
 	private ArrayList<Recipe> recipes = new ArrayList<Recipe>();
 
 	public SystemUtility() {
