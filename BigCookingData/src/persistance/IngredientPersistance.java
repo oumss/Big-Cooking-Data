@@ -14,7 +14,7 @@ public class IngredientPersistance {
 		public static Ingredient readIngredientById(int id) {
 			Ingredient readIngredient = new Ingredient();
 			try {
-				String selectIngredientQuery = "SELECT * FROM user WHERE id_ingredient = ? ";
+				String selectIngredientQuery = "SELECT * FROM ingredient WHERE id_ingredient = ? ";
 				Connection dbConnection = ConnectionDB.getConnection();
 				java.sql.PreparedStatement preparedStatement = dbConnection.prepareStatement(selectIngredientQuery);
 				preparedStatement.setInt(1, id);

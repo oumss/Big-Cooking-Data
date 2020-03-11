@@ -98,9 +98,11 @@ CREATE TABLE `recipe`(
     `id_ingredient_recipe` integer, 
     `name` varchar(30) , 
     `picture` LONGBLOB, 
-    `price` int, 
+    `price` integer, 
+    `category` varchar(30),
+    `difficulty` integer,
     `time` varchar(30), 
-     `steps` varchar(1000), 
+    `steps` varchar(1000), 
     PRIMARY KEY (`id_recipe`),
     FOREIGN KEY (`id_ingredient_recipe`) REFERENCES `ingredient_recipe` (`id_ingredient_recipe`)
 );
