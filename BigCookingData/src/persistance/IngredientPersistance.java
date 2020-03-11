@@ -64,11 +64,11 @@ public class IngredientPersistance {
 		}
 		
 		
-		public static ArrayList<Ingredient> readIngredientWithLike(String ingredient) {
+		public static ArrayList<Ingredient> readIngredientWithLike(Ingredient ingredient) {
 			ArrayList<Ingredient> readIngredientList = new ArrayList<Ingredient>();
 			SystemUtility query = new SystemUtility();
 			try {
-				String selectIngredientQuery = query.createQuery(ingredient);
+				String selectIngredientQuery = query.createQuery(ingredient.getAlim_nom_fr());
 				Connection dbConnection = ConnectionDB.getConnection();
 				java.sql.PreparedStatement preparedStatement = dbConnection.prepareStatement(selectIngredientQuery);
 				ResultSet result = preparedStatement.executeQuery();
