@@ -96,7 +96,6 @@ CREATE TABLE `ingredient` (
 CREATE TABLE `recipe`( 
     `id_recipe` integer, 
     `id_ingredient_recipe` integer, 
-    `weight` integer, 
     `name` varchar(30) , 
     `picture` LONGBLOB, 
     `price` int, 
@@ -111,7 +110,7 @@ CREATE TABLE `connexion`(
     `date` varchar(30), 
     PRIMARY KEY (`id_user`),
     FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`)
-);
+); 
     
 CREATE TABLE `weight_ingredient`( 
     `id_user` integer,
