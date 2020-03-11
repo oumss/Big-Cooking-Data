@@ -5,10 +5,11 @@ import business.User;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
+import java.sql.Connection;
+import java.sql.DriverManager;
 public class UserPersistance {
 
-	public User readUserById(int id) {
+	public static User readUserById(int id) {
 		User readUser = new User();
 		try {
 			String selectUserQuery = "SELECT * FROM user WHERE id_user = ? ";
@@ -32,13 +33,13 @@ public class UserPersistance {
 		return readUser;
 	}
 	
-	public User readUserByLogin(int id) {
+	public static User readUserByLogin(String login) {
 		User readUser = new User();
 		try {
 			String selectUserQuery = "SELECT * FROM user WHERE login = ? ";
 			Connection dbConnection = ConnectionDB.getConnection();
 			java.sql.PreparedStatement preparedStatement = dbConnection.prepareStatement(selectUserQuery);
-			preparedStatement.setInt(1, id);
+			preparedStatement.setString(1, login);
 			ResultSet result = preparedStatement.executeQuery();
 
 			while (result.next()) {

@@ -1,17 +1,20 @@
 package beans;
 
 import java.io.Serializable;
+import persistance.*;
+
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
-import core.MockCore;
+import business.User;
+
 
 @ManagedBean(name = "signinBean", eager = true)
 @SessionScoped
 public class SigninBean implements Serializable {
 
-	private static final long serialVersionUID = 6955508471291131931L;
+	private static final long serialVersionUID = 6955502471291131931L;
 
 	private String login;
 	private String password;
@@ -22,16 +25,18 @@ public class SigninBean implements Serializable {
 	}
 
 	public String verify() {
+		System.out.println(login);
 		String results;
-		if (MockCore.exist(login)) {
-			if (MockCore.isValid(login, password)) {
-				results = "home";
-				System.out.println("connected");
-				connected = true;
-			} else {
-				results = "errorSignin";
-				System.out.println("password incorrect");
-			}
+		User usr = UserPersistance.readUserByLogin(login);
+		    if (usr!=null) {
+	            if (this.password.equals(usr.getPassword())) {
+	                results = "home";
+	                System.out.println("connected");
+	                connected = true;
+	            } else {
+	                results = "errorSignin";
+	                System.out.println("password incorrect");
+	            }
 		} else {
 			results = "errorSignin";
 			System.out.println("login incorrect");
