@@ -15,7 +15,7 @@ public class ConnectionDB {
 	 * Lazy singleton instance.
 	 */
 	private static Connection connection;
-
+ 
 	public static Connection getConnection() {
 		if (connection == null) {
 			try {
