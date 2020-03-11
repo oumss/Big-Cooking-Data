@@ -10,14 +10,14 @@ public class TestSamir {
 
 	public static void main(String[] args) {
 		SystemUtility a = new SystemUtility();
-		String b = a.createQuery("mousse au chocolat");
-		System.out.println(b);
+		String b = a.createQuery("Oignon rouge");
+		System.out.println(b);/**/
 		
-		/*
+		
 		ArrayList <Ingredient> m = new ArrayList<Ingredient>();
 		IngredientPersistance i = new IngredientPersistance();
-		m = i.readIngredientWithLike("mousse au chocolat");
-		System.out.println(m);*/
+		m = i.readIngredientWithLike("Oignon rouge");
+		System.out.println(m);
 	}
 
 }

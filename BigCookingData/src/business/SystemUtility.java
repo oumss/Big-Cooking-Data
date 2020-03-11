@@ -33,11 +33,11 @@ public class SystemUtility {
 			if (i == 0) {
 				result = result +"'%"+ query[i] +"%'";
 			}
-			else if (i>0 && i<query.length) {
-				result = result + "or alim_nom_fr like '%"+ query[i] +"%'";
+			else if (i>0 && i<=query.length) {
+				result = result + "and alim_nom_fr like '%"+ query[i] +"%'";
 			}
 			else{
-				result = result + "or alim_nom_fr like '%"+ query[i] +"%'";
+				result = result + "and alim_nom_fr like '%"+ query[i] +"%'";
 			}
 			
 		}

@@ -75,7 +75,7 @@ public class Ingredient {
 	public String toString() {
 		return "Ingredient [poids=" + poids + ", alim_grp_code=" + alim_grp_code + ", alim_ssgrp_code="
 				+ alim_ssgrp_code + ", alim_ssssgrp_code=" + alim_ssssgrp_code + ", alim_nom_fr=" + alim_nom_fr
-				+ ", id_ingredient=" + id_ingredient + "]\n";
+				+ ", id_ingredient=" + id_ingredient + "\n";
 	}
 
 	
