@@ -96,7 +96,6 @@ CREATE TABLE `ingredient` (
 CREATE TABLE `recipe`( 
     `id_recipe` integer, 
     `id_ingredient_recipe` integer, 
-    `weight` integer, 
     `name` varchar(30) , 
     `picture` LONGBLOB, 
     `price` int, 
