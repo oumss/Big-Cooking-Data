@@ -31,9 +31,13 @@
 			 		 <br/>
 			        <h5> Ingredients : </h5> 
 			        <br/>
-			        <p:selectCheckboxMenu id="ingredient" value="#{searchBean.selectedIngredients}" label="Ingredient" multiple="true"
+			        <p:inputText value="#{searchBean.ingredients}" />
+			        <br/>
+			        <h5> Categories : </h5> 
+			        <br/>
+			        <p:selectCheckboxMenu id="category" value="#{searchBean.selectedCategories}" label="Category" multiple="true"
 			                              filter="true" filterMatchMode="startsWith" panelStyle="width:270px;">
-			            <f:selectItems value="#{searchBean.ingredients}" style="color:black;" />
+			            <f:selectItems value="#{searchBean.categories}" style="color:black;" />
 			        </p:selectCheckboxMenu>
 			    </h:panelGrid>
 			</h:form>
@@ -47,7 +51,7 @@
 				<br />
 	        </h:panelGrid>
 			<br />
-				
+			
 			<p:commandButton style="width:contain; color:white; background-color:grey;" look="success" value="Chercher" action="#{searchBean.search}" /><br />
 		</fieldset>
 		</div>

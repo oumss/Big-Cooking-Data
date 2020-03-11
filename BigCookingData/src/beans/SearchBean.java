@@ -23,34 +23,28 @@ public class SearchBean implements Serializable {
 	private SigninBean signinBean;
 	private static final long serialVersionUID = 6955508471291131931L;
 	private String keyword;
-	private List<SelectItemGroup> ingredients;
-	private String[] selectedIngredients;
+	private String ingredients;
+	private List<SelectItemGroup> categories;
+	private String[] selectedCategories;
 
 	public SearchBean() {
 	}
 
 	@PostConstruct
 	public void init() {
-
-		ingredients = new ArrayList<SelectItemGroup>();
-
-		SelectItemGroup legumes = new SelectItemGroup("Légumes");
-		legumes.setSelectItems(
-				new SelectItem[] { new SelectItem("Concombre", "Concombre"), new SelectItem("Tomate", "Tomate"),
-						new SelectItem("Aubergine", "Aubergine"), new SelectItem("Pomme de terre", "Pomme de terre"),
-						new SelectItem("Tomate", "Tomate"), new SelectItem("Oignon", "Oignon") });
-
-		SelectItemGroup fruits = new SelectItemGroup("Fruits");
-		fruits.setSelectItems(
-				new SelectItem[] { new SelectItem("Cerise", "Cerise"), new SelectItem("Framboise", "Framboise"),
-						new SelectItem("Fraise", "Fraise"), new SelectItem("Mangue", "Mangue"),
-						new SelectItem("Ananas", "Ananas"), new SelectItem("Kiwi", "Kiwi") });
-
-		ingredients.add(legumes);
-		ingredients.add(fruits);
+		
+		categories = new ArrayList<SelectItemGroup>();
+		SelectItemGroup cat = new SelectItemGroup("Catégories");
+		cat.setSelectItems(
+				new SelectItem[] { new SelectItem("Entrée", "Entrée"), new SelectItem("Plat", "Plat"),
+						new SelectItem("Dessert", "Dessert"), new SelectItem("Soupe", "Soupe"),
+						new SelectItem("Apéritif", "Apéritif"), new SelectItem("Boisson", "Boisson") });
+		categories.add(cat);
 	}
 	
 	public String search() {
+		
+		
 		return "results";
 	}
 
@@ -74,21 +68,29 @@ public class SearchBean implements Serializable {
 	public void setSigninBean(SigninBean signinBean) {
 		this.signinBean = signinBean;
 	}
-
-	public List<SelectItemGroup> getIngredients() {
+	
+	public String getIngredients() {
 		return ingredients;
 	}
 
-	public void setIngredients(List<SelectItemGroup> ingredients) {
+	public void setIngredients(String ingredients) {
 		this.ingredients = ingredients;
 	}
 
-	public String[] getSelectedIngredients() {
-		return selectedIngredients;
+	public List<SelectItemGroup> getCategories() {
+		return categories;
 	}
 
-	public void setSelectedIngredients(String[] selectedIngredients) {
-		this.selectedIngredients = selectedIngredients;
+	public void setCategories(List<SelectItemGroup> categories) {
+		this.categories = categories;
+	}
+
+	public String[] getSelectedCategories() {
+		return selectedCategories;
+	}
+
+	public void setSelectedCategories(String[] selectedCategories) {
+		this.selectedCategories = selectedCategories;
 	}
 
 	public void onItemUnselect(UnselectEvent event) {
