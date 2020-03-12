@@ -1,6 +1,8 @@
 package business;
 
 import java.util.ArrayList;
+
+import persistance.IngredientPersistance;
  
 public class SystemUtility {
 
@@ -42,5 +44,26 @@ public class SystemUtility {
 			
 		}
 		return result;
+	}
+	
+	
+	public Ingredient associateIngredient(Ingredient ingredient) {
+		IngredientPersistance ip = new IngredientPersistance();
+		ArrayList<Ingredient> ingChoice = ip.readIngredientWithLike(ingredient);
+		int current = 0;
+		int near = 100; 
+		for(Ingredient i: ingChoice) {
+			int a = ingredient.getAlim_nom_fr().compareToIgnoreCase(i.getAlim_nom_fr());
+			System.out.println(a);
+			current = a*a;
+			if ( current <= (near * near) )  {     
+				near = a;
+			}
+		}
+		System.out.println("\n\n\n" + near);
+			
+	
+		
+		return null;
 	}
 }
