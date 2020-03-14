@@ -1,5 +1,9 @@
 package business;
 
+import java.util.ArrayList;
+
+import persistance.IngredientPersistance;
+
 public class Ingredient {
 
 	private int poids;
@@ -77,7 +81,30 @@ public class Ingredient {
 				+ alim_ssgrp_code + ", alim_ssssgrp_code=" + alim_ssssgrp_code + ", alim_nom_fr=" + alim_nom_fr
 				+ ", id_ingredient=" + id_ingredient + "\n";
 	}
+	
+	public Ingredient associateIngredient(Ingredient ingredient) {
+		IngredientPersistance ip = new IngredientPersistance();
+		ArrayList<Ingredient> ingChoice = ip.readIngredientWithLike(ingredient);
+		double current = 0;
+		double near = 0; 
+		double percentage;
+		Ingredient result = new Ingredient();
+		for(Ingredient i: ingChoice) {
+			percentage = StringSimilarity.similarity(ingredient.getAlim_nom_fr() , i.getAlim_nom_fr());
+			current = percentage*percentage;
+			if ( current <= (near * near) )  {     
+				near = percentage;
+				result.setAlim_grp_code(i.getAlim_grp_code());
+				result.setAlim_nom_fr(i.getAlim_nom_fr());
+				result.setAlim_ssgrp_code(i.getAlim_ssgrp_code());
+				result.setAlim_ssssgrp_code(i.getAlim_ssssgrp_code());
+				result.setId_ingredient(i.getId_ingredient());
+				result.setPoids(i.getPoids());
+			}
+		}
 
+		return result;
+	}
 	
 
 }
