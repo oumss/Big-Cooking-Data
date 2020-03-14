@@ -2,8 +2,6 @@ package Test;
 import business.*;
 import java.util.ArrayList;
 
-import business.Ingredient;
-import business.SystemUtility;
 import persistance.IngredientPersistance;
 
 public class TestSamir {
@@ -11,17 +9,17 @@ public class TestSamir {
 	public static void main(String[] args) {
 		
 		Ingredient ingredient = new Ingredient();
-		ingredient.setAlim_nom_fr("pomme de terre");
-		Ingredient a = ingredient.associateIngredient(ingredient);
+		ingredient.setAlim_nom_fr("mousse chocolat");
+		System.out.println(ingredient.toString()+"\n");
+		ingredient.associateIngredient();
+		System.out.println(ingredient.toString());
 		
-		System.out.println(a.getAlim_nom_fr());
+		System.out.println("\n\n");
+		System.out.println(StringSimilarity.similarity("mousse au chocolat", "Préparation pour mousse au chocolat"));
+		System.out.println(StringSimilarity.similarity("mousse au chocolat", "sauce au chocolat"));
 		
-		
-		
-	}   
-		
-
 	
+	}
 	
 
 }

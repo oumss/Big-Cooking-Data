@@ -79,32 +79,33 @@ public class Ingredient {
 	public String toString() {
 		return "Ingredient [poids=" + poids + ", alim_grp_code=" + alim_grp_code + ", alim_ssgrp_code="
 				+ alim_ssgrp_code + ", alim_ssssgrp_code=" + alim_ssssgrp_code + ", alim_nom_fr=" + alim_nom_fr
-				+ ", id_ingredient=" + id_ingredient + "\n";
+				+ ", id_ingredient=" + "id_ingredient" + "\n";
 	}
 	
-	public Ingredient associateIngredient(Ingredient ingredient) {
+	public void associateIngredient() {
 		IngredientPersistance ip = new IngredientPersistance();
+		Ingredient ingredient = new Ingredient(this.poids, this.alim_grp_code, this.alim_ssgrp_code, this.alim_ssssgrp_code,
+			this.alim_nom_fr, this.id_ingredient);
 		ArrayList<Ingredient> ingChoice = ip.readIngredientWithLike(ingredient);
 		double current = 0;
-		double near = 0; 
 		double percentage;
-		Ingredient result = new Ingredient();
-		for(Ingredient i: ingChoice) {
-			percentage = StringSimilarity.similarity(ingredient.getAlim_nom_fr() , i.getAlim_nom_fr());
-			current = percentage*percentage;
-			if ( current <= (near * near) )  {     
-				near = percentage;
-				result.setAlim_grp_code(i.getAlim_grp_code());
-				result.setAlim_nom_fr(i.getAlim_nom_fr());
-				result.setAlim_ssgrp_code(i.getAlim_ssgrp_code());
-				result.setAlim_ssssgrp_code(i.getAlim_ssssgrp_code());
-				result.setId_ingredient(i.getId_ingredient());
-				result.setPoids(i.getPoids());
+		
+		for(Ingredient z : ingChoice) {
+			percentage = StringSimilarity.similarity(ingredient.getAlim_nom_fr() , z.getAlim_nom_fr());
+			if ( current <= (percentage) )  {     
+				current = percentage;
+				this.setAlim_grp_code(z.getAlim_grp_code());
+				this.setAlim_nom_fr(z.getAlim_nom_fr());
+				this.setAlim_ssgrp_code(z.getAlim_ssgrp_code());
+				this.setAlim_ssssgrp_code(z.getAlim_ssssgrp_code());
+				this.setId_ingredient(z.getId_ingredient());
+				this.setPoids(z.getPoids());
 			}
 		}
 
-		return result;
+		
 	}
+
 	
 
 }
