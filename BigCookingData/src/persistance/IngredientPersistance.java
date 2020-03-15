@@ -89,6 +89,32 @@ public class IngredientPersistance {
 			} catch (SQLException se) {
 				System.err.println(se.getMessage());
 			}
+			
+			if(readIngredientList.size()==0) {
+				try {
+					String selectIngredientQuery = query.createQueryWithOr(ingredient.getAlim_nom_fr());
+					Connection dbConnection = ConnectionDB.getConnection();
+					java.sql.PreparedStatement preparedStatement = dbConnection.prepareStatement(selectIngredientQuery);
+					ResultSet result = preparedStatement.executeQuery();
+
+					while (result.next()) {
+						Ingredient readIngredient = new Ingredient();
+						readIngredient.setId_ingredient(result.getInt("id_ingredient"));
+						readIngredient.setAlim_nom_fr(result.getString("alim_nom_fr"));
+						readIngredient.setAlim_grp_code(result.getInt("alim_grp_code"));
+						readIngredient.setAlim_ssgrp_code(result.getInt("alim_ssgrp_code"));
+						readIngredient.setAlim_ssssgrp_code(result.getInt("alim_ssssgrp_code"));
+						readIngredient.setPoids(result.getInt("poids"));
+
+						readIngredientList.add(readIngredient);
+					}
+					preparedStatement.close();
+
+				} catch (SQLException se) {
+					System.err.println(se.getMessage());
+				}
+				
+			}
 			return readIngredientList;
 		}
 }

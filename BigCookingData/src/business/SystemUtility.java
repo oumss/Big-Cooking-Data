@@ -45,6 +45,23 @@ public class SystemUtility {
 		}
 		return result;
 	}
+	public String createQueryWithOr(String ingredient){
+		String[] query = ingredient.split(" ");
+		String result = "SELECT * FROM ingredient where alim_nom_fr like ";
+		for (int i=0; i< query.length ; i++) {
+			if (i == 0) {
+				result = result +"'%"+ query[i] +"%'";
+			}
+			else if (i>0 && i<=query.length) {
+				result = result + "or alim_nom_fr like '%"+ query[i] +"%'";
+			}
+			else{
+				result = result + "or alim_nom_fr like '%"+ query[i] +"%'";
+			}
+			
+		}
+		return result;
+	}
 	
 	
 }
