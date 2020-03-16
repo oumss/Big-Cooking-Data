@@ -31,7 +31,6 @@ public class SearchBean implements Serializable {
 	private SigninBean signinBean;
 	private static final long serialVersionUID = 6955508471291131931L;
 	private String keyword;
-	private String ingredients;
 	private List<SelectItemGroup> categories;
 	private String[] selectedCategories;
 	private ArrayList<Recipe> recipes = new ArrayList<Recipe>();
@@ -51,7 +50,7 @@ public class SearchBean implements Serializable {
 	}
 
 	public String search() {
-		SearchEntry searchEntry = new SearchEntry(ingredients, keyword, selectedCategories);
+		SearchEntry searchEntry = new SearchEntry(keyword, selectedCategories);
 		// ... traitement des entrées ...
 		
 		
@@ -79,14 +78,6 @@ public class SearchBean implements Serializable {
 
 	public void setSigninBean(SigninBean signinBean) {
 		this.signinBean = signinBean;
-	}
-
-	public String getIngredients() {
-		return ingredients;
-	}
-
-	public void setIngredients(String ingredients) {
-		this.ingredients = ingredients;
 	}
 
 	public List<SelectItemGroup> getCategories() {

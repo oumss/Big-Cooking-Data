@@ -1,9 +1,5 @@
 package core;
 
-import java.util.ArrayList;
-
-import business.Ingredient;
-
 public class SearchRecipe {
 
 	private SearchEntry entry;

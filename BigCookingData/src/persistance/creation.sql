@@ -7,9 +7,7 @@ DROP TABLE `recipe`;
 DROP TABLE `ingredient`;
 DROP TABLE `user`;
 
-
 -- NOMMER LA BD "bcd"
-
 
 CREATE TABLE `user` ( 
 	`id_user` integer, 
@@ -103,8 +101,7 @@ CREATE TABLE `recipe`(
     `difficulty` integer,
     `time` varchar(30), 
     `steps` varchar(1000), 
-    PRIMARY KEY (`id_recipe`),
-    FOREIGN KEY (`id_ingredient_recipe`) REFERENCES `ingredient_recipe` (`id_ingredient_recipe`)
+    PRIMARY KEY (`id_recipe`)
 );
     
 CREATE TABLE `connexion`( 
