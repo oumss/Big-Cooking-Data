@@ -29,7 +29,7 @@ public class SigninBean implements Serializable {
 		String results;
 		User usr = UserPersistance.readUserByLogin(login);
 		    if (usr!=null) {
-	            if (this.password.equals(usr.getPassword())) {
+	            if (usr.auth_user(this.password)) {
 	                results = "home";
 	                System.out.println("connected");
 	                connected = true;
