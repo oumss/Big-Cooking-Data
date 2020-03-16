@@ -25,7 +25,6 @@ import core.SearchRecipe;
 
 @ManagedBean(name = "searchBean", eager = true)
 @SessionScoped
-@RequestScoped
 public class SearchBean implements Serializable {
 
 	@ManagedProperty(value = "#{signinBean}")
