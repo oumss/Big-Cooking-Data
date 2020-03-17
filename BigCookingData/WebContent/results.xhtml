@@ -29,7 +29,7 @@
 			<fieldset>
 				<h1 style="color:grey;">Resultats de la recherche :</h1>
 			
-			   <p:dataGrid var="recipe" value="#{searchBean.recipes}" columns="3" layout="grid"
+			   <p:dataGrid var="recipe" value="#{resultBean.recipes}" columns="3" layout="grid"
 			        rows="12" paginator="true" id="recipes"
 			        paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
 			        rowsPerPageTemplate="6,12,16">
@@ -42,7 +42,7 @@
 			            <h:panelGrid columns="1" style="width:100%">
 			               
 						    <a href="#{resultBean.select()}">
-						    <img src="images/hawai.png" 
+						    <img src="images/fruit.png" 
 						    		alt="#{recipe.name}"/>
 						    </a>
 			                <h:outputText value="#{recipe.name}" />

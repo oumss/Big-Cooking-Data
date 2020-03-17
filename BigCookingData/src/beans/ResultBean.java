@@ -39,7 +39,7 @@ public class ResultBean implements Serializable {
 
 	@PostConstruct
 	public void init() {
-		//recipes.addAll(searchBean.getRecipes());
+		recipes.addAll(searchBean.getRecipes());
 		System.out.println(recipes.size());
 	}
 	
