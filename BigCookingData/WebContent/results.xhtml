@@ -35,13 +35,16 @@
 			        rowsPerPageTemplate="6,12,16">
 			         
 			        <f:facet name="header">
-			            Resultats:
+			            Resultats: 
 			        </f:facet>
 			 
 			        <p:panel header="#{recipe.id_recipe}" style="text-align:center">
 			            <h:panelGrid columns="1" style="width:100%">
-			                <p:graphicImage name="images/hawai.png"/> 
-			 
+			               
+						    <a href="#{resultBean.select()}">
+						    <img src="images/hawai.png" 
+						    		alt="#{recipe.name}"/>
+						    </a>
 			                <h:outputText value="#{recipe.name}" />
 			 
 			              

@@ -42,7 +42,11 @@ public class ResultBean implements Serializable {
 		//recipes.addAll(searchBean.getRecipes());
 		System.out.println(recipes.size());
 	}
-
+	
+	public String select() {
+		return "";
+	}
+	
 	public SearchBean getSearchBean() {
 		return searchBean;
 	}
