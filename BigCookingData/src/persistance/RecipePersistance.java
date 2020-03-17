@@ -31,7 +31,7 @@ public class RecipePersistance {
 			preparedStatement.close();
 
 		} catch (SQLException se) {
-			System.err.println(se.getMessage());
+			System.err.println(" hoy "+se.getMessage());
 		}
 
 		return readRecipe;
@@ -40,7 +40,7 @@ public class RecipePersistance {
 	public static ArrayList<Recipe> readAllRecipe() {
 		ArrayList<Recipe> readRecipeList = new ArrayList<Recipe>();
 		try {
-			String selectRecipeQuery = "SELECT * FROM recipe ";
+			String selectRecipeQuery = "SELECT * FROM recipe";
 			Connection dbConnection = ConnectionDB.getConnection();
 			java.sql.PreparedStatement preparedStatement = dbConnection.prepareStatement(selectRecipeQuery);
 			ResultSet result = preparedStatement.executeQuery();
@@ -59,11 +59,12 @@ public class RecipePersistance {
 				readRecipe.setIngredientsMap(IngredientRecipePersistance.readIngredientByIdRecipe(readRecipe.getId_recipe()));
 
 				readRecipeList.add(readRecipe);
+				System.out.println(readRecipe.getName());
 			}
 			preparedStatement.close();
 
 		} catch (SQLException se) {
-			System.err.println(se.getMessage());
+			System.err.println("hey"+se.getMessage());
 		}
 		return readRecipeList;
 	}

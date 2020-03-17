@@ -1,5 +1,7 @@
 package core;
 
+import java.util.Arrays;
+
 public class SearchEntry {
 
 	private String keyword;
@@ -30,4 +32,10 @@ public class SearchEntry {
 	public void setSelectedCategories(String[] selectedCategories) {
 		this.selectedCategories = selectedCategories;
 	}
+
+	@Override
+	public String toString() {
+		return "SearchEntry [keyword=" + keyword + ", selectedCategories=" + Arrays.toString(selectedCategories) + "]";
+	}
+	
 }

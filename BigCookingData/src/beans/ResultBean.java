@@ -15,6 +15,7 @@ import javax.faces.event.NamedEvent;
 import javax.faces.model.SelectItem;
 import javax.faces.model.SelectItemGroup;
 
+import org.primefaces.PrimeFaces;
 import org.primefaces.event.UnselectEvent;
 
 import com.sun.tracing.dtrace.NameAttributes;
@@ -22,21 +23,24 @@ import com.sun.tracing.dtrace.NameAttributes;
 import business.Recipe;
 import core.SearchEntry;
 import core.SearchRecipe;
+import persistance.RecipePersistance;
 
+@ManagedBean
 @SessionScoped
 public class ResultBean implements Serializable {
 
 	@ManagedProperty(value = "#{searchBean}")
 	private SearchBean searchBean;
 	private static final long serialVersionUID = 6955508471291131931L;
-	private ArrayList<Recipe> recipes = searchBean.getRecipes();
+	private ArrayList<Recipe> recipes = new ArrayList<Recipe>();
 
 	public ResultBean() {
 	}
 
 	@PostConstruct
 	public void init() {
-
+		//recipes.addAll(searchBean.getRecipes());
+		System.out.println(recipes.size());
 	}
 
 	public SearchBean getSearchBean() {

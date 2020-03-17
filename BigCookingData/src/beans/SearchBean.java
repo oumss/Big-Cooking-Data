@@ -22,6 +22,7 @@ import com.sun.tracing.dtrace.NameAttributes;
 import business.Recipe;
 import core.SearchEntry;
 import core.SearchRecipe;
+import persistance.RecipePersistance;
 
 @ManagedBean(name = "searchBean", eager = true)
 @SessionScoped
@@ -53,7 +54,9 @@ public class SearchBean implements Serializable {
 		SearchEntry searchEntry = new SearchEntry(keyword, selectedCategories);
 		// ... traitement des entrées ...
 		
-		
+		ArrayList<Recipe> recipesPersist = RecipePersistance.readAllRecipe();
+		System.out.println("recipes = "+recipesPersist);
+		recipes.addAll(recipesPersist);
 		
 		// recipes = ...
 		return "results";

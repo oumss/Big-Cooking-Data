@@ -12,6 +12,12 @@
     	@import url(css/header.css)
     	@import url(css/general.css)
     	@import url(css/buttons.jqueryui.css)
+    	
+    	/* demo */	
+	    .value {
+	        font-weight: bold;
+	    }
+	    		
 	</style>
 	<title>Big Cooking Data</title>
 </h:head>
@@ -21,10 +27,63 @@
 		<ui:include src="head.xhtml" />	
 		<div>
 			<fieldset>
-				<h1 style="color:grey;">Resultats de la recherche</h1>
-				<br/>
-				...
+				<h1 style="color:grey;">Resultats de la recherche :</h1>
+			
+			   <p:dataGrid var="recipe" value="#{searchBean.recipes}" columns="3" layout="grid"
+			        rows="12" paginator="true" id="recipes"
+			        paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+			        rowsPerPageTemplate="6,12,16">
+			         
+			        <f:facet name="header">
+			            Resultats:
+			        </f:facet>
+			 
+			        <p:panel header="#{recipe.id_recipe}" style="text-align:center">
+			            <h:panelGrid columns="1" style="width:100%">
+			                <p:graphicImage name="images/hawai.png"/> 
+			 
+			                <h:outputText value="#{recipe.name}" />
+			 
+			              
+			            </h:panelGrid>
+			        </p:panel>
+			 
+			    </p:dataGrid>
+			 
 				<br />
+		<!-- 		
+				<p:dataView var="recipe" value="#{searchBean.recipes}" gridIcon="pi pi-th-large" listIcon="pi pi-bars">
+			        <p:dataViewGridItem>
+			            <p:panel header="#{recipe.id_recipe}" style="text-align:center">
+			                <h:panelGrid columns="1" style="width:100%">
+			                    <p:graphicImage name="images/logo.png"/> 
+			                    <h:outputText value="#{recipe.name}" />
+			                </h:panelGrid>
+			            </p:panel>
+			        </p:dataViewGridItem>
+			        
+			        
+			        <p:dataViewListItem>
+			            <h:panelGrid columns="3" style="width:100%" columnClasses="logo,detail">
+			                <p:graphicImage name="images/logo.png" /> 
+			 
+			                <p:outputPanel>
+			                    <h:panelGrid columns="2" cellpadding="5">
+			                        <h:outputText value="Id:" />
+			                        <h:outputText value="#{recipe.id_recipe}" style="font-weight: bold"/>
+			 
+			                        <h:outputText value="#{recipe.name}" style="font-weight: bold"/>
+			                      
+			                    </h:panelGrid>
+			                </p:outputPanel>
+			            </h:panelGrid>
+			        </p:dataViewListItem>
+			        
+			        
+		    	</p:dataView>
+		    	
+		    -->
+		 
 			</fieldset>
 		</div>
 		
