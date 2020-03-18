@@ -1,13 +1,12 @@
 package beans;
 
 import java.io.Serializable;
-import persistance.*;
-
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
 import business.User;
+import persistance.UserPersistance;
 
 
 @ManagedBean(name = "signinBean", eager = true)
@@ -27,9 +26,10 @@ public class SigninBean implements Serializable {
 	public String verify() {
 		System.out.println(login);
 		String results;
-		User usr = UserPersistance.readUserByLogin(login);
+		UserPersistance userPersist = new UserPersistance();
+		User usr = userPersist.readUserByLogin(login);
 		    if (usr!=null) {
-	            if (usr.auth_user(this.password)) {
+	            if (usr.isCorrectPassword(this.password)) {
 	                results = "home";
 	                System.out.println("connected");
 	                connected = true;

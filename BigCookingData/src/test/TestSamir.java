@@ -1,8 +1,6 @@
-package Test;
-import business.*;
-import java.util.ArrayList;
+package test;
 
-import persistance.IngredientPersistance;
+import business.Ingredient;
 
 public class TestSamir {
 

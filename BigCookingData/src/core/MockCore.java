@@ -2,8 +2,6 @@ package core;
 
 import java.util.ArrayList;
 
-import business.Ingredient;
-import business.Recipe;
 import business.User;
 
 /**

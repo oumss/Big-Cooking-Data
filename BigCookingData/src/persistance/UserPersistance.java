@@ -5,15 +5,19 @@ import business.User;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Connection;
-import java.sql.DriverManager;
+
 public class UserPersistance {
 
-	public static User readUserById(int id) {
+	private Connection dbConnection;
+
+	public UserPersistance() {
+		this.dbConnection = ConnectionDB.getConnection();
+	}
+
+	public User readUserById(int id) {
 		User readUser = new User();
 		try {
 			String selectUserQuery = "SELECT * FROM user WHERE id_user = ? ";
-			Connection dbConnection = ConnectionDB.getConnection();
 			java.sql.PreparedStatement preparedStatement = dbConnection.prepareStatement(selectUserQuery);
 			preparedStatement.setInt(1, id);
 			ResultSet result = preparedStatement.executeQuery();
@@ -32,12 +36,11 @@ public class UserPersistance {
 		}
 		return readUser;
 	}
-	
-	public static User readUserByLogin(String login) {
+
+	public User readUserByLogin(String login) {
 		User readUser = new User();
 		try {
 			String selectUserQuery = "SELECT * FROM user WHERE login = ? ";
-			Connection dbConnection = ConnectionDB.getConnection();
 			java.sql.PreparedStatement preparedStatement = dbConnection.prepareStatement(selectUserQuery);
 			preparedStatement.setString(1, login);
 			ResultSet result = preparedStatement.executeQuery();
@@ -57,11 +60,10 @@ public class UserPersistance {
 		return readUser;
 	}
 
-	public static ArrayList<User> readAllUser() {
+	public ArrayList<User> readAllUser() {
 		ArrayList<User> readUserList = new ArrayList<User>();
 		try {
 			String selectUserQuery = "SELECT * FROM user ";
-			Connection dbConnection = ConnectionDB.getConnection();
 			java.sql.PreparedStatement preparedStatement = dbConnection.prepareStatement(selectUserQuery);
 			ResultSet result = preparedStatement.executeQuery();
 

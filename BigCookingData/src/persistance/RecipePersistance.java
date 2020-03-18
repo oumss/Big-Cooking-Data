@@ -8,15 +8,21 @@ import java.sql.SQLException;
 
 public class RecipePersistance {
 
+	private Connection dbConnection;
+	
+	public RecipePersistance() {
+		this.dbConnection = ConnectionDB.getConnection();
+	}
+
 	public Recipe readRecipeById(int id) {
 		Recipe readRecipe = new Recipe();
 		try {
 			String selectRecipeQuery = "SELECT * FROM recipe WHERE id_recipe = ? ";
-			Connection dbConnection = ConnectionDB.getConnection();
 			java.sql.PreparedStatement preparedStatement = dbConnection.prepareStatement(selectRecipeQuery);
 			preparedStatement.setInt(1, id);
 			ResultSet result = preparedStatement.executeQuery();
-
+			IngredientRecipePersistance ingredientRecipePersist = new IngredientRecipePersistance();
+			
 			while (result.next()) {
 				readRecipe.setId_recipe(result.getInt("id_recipe"));
 				readRecipe.setId_ingredient_recipe(result.getInt("id_ingredient_recipe"));
@@ -26,7 +32,7 @@ public class RecipePersistance {
 				readRecipe.setDifficutly(result.getInt("difficulty"));
 				readRecipe.setTime(result.getString("time"));
 				readRecipe.setSteps(result.getString("steps"));
-				readRecipe.setIngredientsMap(IngredientRecipePersistance.readIngredientByIdRecipe(id));
+				readRecipe.setIngredientsMap(ingredientRecipePersist.readIngredientByIdRecipe(id));
 			}
 			preparedStatement.close();
 
@@ -37,13 +43,13 @@ public class RecipePersistance {
 		return readRecipe;
 	}
 
-	public static ArrayList<Recipe> readAllRecipe() {
+	public ArrayList<Recipe> readAllRecipe() {
 		ArrayList<Recipe> readRecipeList = new ArrayList<Recipe>();
 		try {
 			String selectRecipeQuery = "SELECT * FROM recipe";
-			Connection dbConnection = ConnectionDB.getConnection();
 			java.sql.PreparedStatement preparedStatement = dbConnection.prepareStatement(selectRecipeQuery);
 			ResultSet result = preparedStatement.executeQuery();
+			IngredientRecipePersistance ingredientRecipePersist = new IngredientRecipePersistance();			
 
 			while (result.next()) {
 				Recipe readRecipe = new Recipe();
@@ -56,7 +62,7 @@ public class RecipePersistance {
 				readRecipe.setDifficutly(result.getInt("difficulty"));
 				readRecipe.setTime(result.getString("time"));
 				readRecipe.setSteps(result.getString("steps"));
-				readRecipe.setIngredientsMap(IngredientRecipePersistance.readIngredientByIdRecipe(readRecipe.getId_recipe()));
+				readRecipe.setIngredientsMap(ingredientRecipePersist.readIngredientByIdRecipe(readRecipe.getId_recipe()));
 
 				readRecipeList.add(readRecipe);
 				System.out.println(readRecipe.getName());
@@ -73,9 +79,9 @@ public class RecipePersistance {
 		Recipe readRecipe = new Recipe();
 		try {
 			String selectRecipeQuery = "SELECT * FROM recipe WHERE RAND() > 0.9 ORDER BY RAND( ) LIMIT 1 ";
-			Connection dbConnection = ConnectionDB.getConnection();
 			java.sql.PreparedStatement preparedStatement = dbConnection.prepareStatement(selectRecipeQuery);
 			ResultSet result = preparedStatement.executeQuery();
+			IngredientRecipePersistance ingredientRecipePersist = new IngredientRecipePersistance();
 
 			while (result.next()) {
 				readRecipe.setId_recipe(result.getInt("id_recipe"));
@@ -86,7 +92,7 @@ public class RecipePersistance {
 				readRecipe.setDifficutly(result.getInt("difficulty"));
 				readRecipe.setTime(result.getString("time"));
 				readRecipe.setSteps(result.getString("steps"));
-				readRecipe.setIngredientsMap(IngredientRecipePersistance.readIngredientByIdRecipe(readRecipe.getId_recipe()));
+				readRecipe.setIngredientsMap(ingredientRecipePersist.readIngredientByIdRecipe(readRecipe.getId_recipe()));
 			}
 			preparedStatement.close();
 

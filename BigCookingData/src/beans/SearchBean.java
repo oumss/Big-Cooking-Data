@@ -8,20 +8,15 @@ import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
-import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
-import javax.faces.event.NamedEvent;
 import javax.faces.model.SelectItem;
 import javax.faces.model.SelectItemGroup;
 
 import org.primefaces.event.UnselectEvent;
 
-import com.sun.tracing.dtrace.NameAttributes;
-
 import business.Recipe;
 import core.SearchEntry;
-import core.SearchRecipe;
 import persistance.RecipePersistance;
 
 @ManagedBean(name = "searchBean", eager = true)
@@ -53,8 +48,8 @@ public class SearchBean implements Serializable {
 	public String search() {
 		SearchEntry searchEntry = new SearchEntry(keyword, selectedCategories);
 		// ... traitement des entrées ...
-		
-		ArrayList<Recipe> recipesPersist = RecipePersistance.readAllRecipe();
+		RecipePersistance recipePersist = new RecipePersistance();
+		ArrayList<Recipe> recipesPersist = recipePersist.readAllRecipe();
 		System.out.println("recipes = "+recipesPersist);
 		recipes.addAll(recipesPersist);
 		
