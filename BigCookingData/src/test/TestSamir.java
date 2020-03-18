@@ -13,7 +13,7 @@ public class TestSamir {
 		System.out.println(ingredient.toString()+"\n");
 		ingredient = u.associateIngredient(ingredient);
 		System.out.println(ingredient.toString());
-		
+		  
 		
 		
 	
