@@ -102,9 +102,4 @@ public class Recipe {
 		this.steps = steps;
 	}
 
-	public void associateAllIngredient () {
-		for(HashMap.Entry<Ingredient,Integer> e : ingredientsMap.entrySet() ) {
-			e.getKey().associateIngredient();
-		}
-	}
 }

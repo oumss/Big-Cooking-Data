@@ -26,26 +26,6 @@ public class Ingredient {
 		this.id_ingredient = id_ingredient;
 	}
 	
-	public void associateIngredient() {
-		IngredientPersistance ip = new IngredientPersistance();
-		Ingredient ingredient = new Ingredient(this.poids, this.alim_grp_code, this.alim_ssgrp_code, this.alim_ssssgrp_code, this.alim_nom_fr, this.id_ingredient);
-		ArrayList<Ingredient> ingChoice = ip.readIngredientWithLike(ingredient);
-		double current = 0;
-		double percentage;
-		
-		for(Ingredient z : ingChoice) {
-			percentage = StringSimilarity.similarity(ingredient.getAlim_nom_fr() , z.getAlim_nom_fr());
-			if ( current <= (percentage) )  {     
-				current = percentage;
-				this.setAlim_grp_code(z.getAlim_grp_code());
-				this.setAlim_nom_fr(z.getAlim_nom_fr());
-				this.setAlim_ssgrp_code(z.getAlim_ssgrp_code());
-				this.setAlim_ssssgrp_code(z.getAlim_ssssgrp_code());
-				this.setId_ingredient(z.getId_ingredient());
-				this.setPoids(z.getPoids());
-			}
-		}		
-	}
 
 	public int getAlim_grp_code() {
 		return alim_grp_code;
