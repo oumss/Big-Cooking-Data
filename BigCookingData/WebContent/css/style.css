@@ -19,11 +19,12 @@ fieldset {
 	height: contain;
 }
 
-a {
-	width: 5px;
-	height: 5px;
+.image1 {
+	background-size: cover;
+	width: 100px;
+	height: 80px;
+	background-image:url(images/fruit.png);
 }
-
 label {
 	color: white;
 	text-transform: capitalize;
