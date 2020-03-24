@@ -9,6 +9,7 @@ public class SystemUtility {
 
 	private int id;
 	private ArrayList<Recipe> recipes = new ArrayList<Recipe>();
+	private ArrayList<String> wordToDelet = new ArrayList<String>();
 
 	public SystemUtility() {
 	}
@@ -90,5 +91,46 @@ public class SystemUtility {
 		}
 	}
 	
+	
+	
+	public void transformIngredientName (Ingredient ingredient) {
+		
+		this.wordToDelet.add(" à ");
+		this.wordToDelet.add(" au ");
+		this.wordToDelet.add(" aux ");
+		this.wordToDelet.add(" des ");
+		this.wordToDelet.add(" de ");
+		this.wordToDelet.add(" avec ");
+		this.wordToDelet.add(" sans ");
+		this.wordToDelet.add(" l'");
+		this.wordToDelet.add(" d'");
+		this.wordToDelet.add(" en ");
+		this.wordToDelet.add(" et ");
+		
+		for(String word : this.wordToDelet) {
+			if (ingredient.getAlim_nom_fr().contains(word)) {
+				ingredient.setAlim_nom_fr(ingredient.getAlim_nom_fr().replaceAll(word," "));
+			}
+		}
+		
+		String[] query = ingredient.getAlim_nom_fr().split(" ");
+		String newWord = new String();
+		
+		for(int count = 0; count < query.length; count++) {
+			query[count] = query[count]+" ";
+			if(query[count].contains("s ")) {
+				query[count] = query[count].substring(0,query[count].length()-2);
+			}
+			if(count == 0) {
+				newWord = query[count];
+			}
+			else {
+				newWord = newWord +" "+ query[count];
+			}
+		}
+		ingredient.setAlim_nom_fr(newWord);
+	}
 
+	
+	
 }
