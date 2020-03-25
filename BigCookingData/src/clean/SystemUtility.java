@@ -1,8 +1,10 @@
-package business;
+package clean;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import business.Ingredient;
+import business.Recipe;
 import persistance.IngredientPersistance;
 
 public class SystemUtility {

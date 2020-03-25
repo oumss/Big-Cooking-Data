@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import business.Ingredient;
 import business.Recipe;
-import business.SystemUtility;
+import clean.SystemUtility;
 import persistance.IngredientPersistance;
 
 public class TestSamir {

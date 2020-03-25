@@ -2,7 +2,7 @@ package persistance;
 
 import java.util.ArrayList;
 import business.Ingredient;
-import business.SystemUtility;
+import clean.SystemUtility;
 
 import java.sql.Connection;
 import java.sql.ResultSet;

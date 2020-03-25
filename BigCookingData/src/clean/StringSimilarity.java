@@ -1,4 +1,4 @@
-package business;
+package clean;
 
 public class StringSimilarity {
 	
