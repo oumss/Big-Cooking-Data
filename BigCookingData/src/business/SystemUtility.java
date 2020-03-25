@@ -62,6 +62,8 @@ public class SystemUtility {
 	
 	public Ingredient associateIngredient(Ingredient ingredient) {
 		IngredientPersistance ip = new IngredientPersistance();
+		SystemUtility  u = new SystemUtility();
+		u.transformIngredientName(ingredient);
 		//Ingredient ingredient = new Ingredient(this.poids, this.alim_grp_code, this.alim_ssgrp_code, this.alim_ssssgrp_code, this.alim_nom_fr, this.id_ingredient);
 		ArrayList<Ingredient> ingChoice = ip.readIngredientWithLike(ingredient);
 		double current = 0;
@@ -86,8 +88,8 @@ public class SystemUtility {
 		SystemUtility u = new SystemUtility();
 		Ingredient a = new Ingredient();
 		for(HashMap.Entry<Ingredient,Integer> e : recipe.getIngredientsMap().entrySet() ) {
-			a = e.getKey() ;
-			a = u.associateIngredient(e.getKey());	
+			a = u.associateIngredient(e.getKey());
+			recipe.getIngredientsMap().replace(a,e.getValue());
 		}
 	}
 	
@@ -125,7 +127,12 @@ public class SystemUtility {
 				newWord = query[count];
 			}
 			else {
-				newWord = newWord +" "+ query[count];
+				if(newWord.contains(" ")) {
+					newWord = newWord + query[count];
+				}
+				else {
+					newWord = newWord +" "+ query[count];
+				}
 			}
 		}
 		ingredient.setAlim_nom_fr(newWord);
