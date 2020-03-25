@@ -28,7 +28,7 @@ public class TestSamir {
 		Ingredient b = new Ingredient();
 		b.setAlim_nom_fr("concentré de tomates");
 		Ingredient c = new Ingredient();
-		c.setAlim_nom_fr("compoté de figues");
+		c.setAlim_nom_fr("figues");
 		
 		r.getIngredientsMap().put(a, 1);
 		r.getIngredientsMap().put(b, 2);
