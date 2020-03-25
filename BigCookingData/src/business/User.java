@@ -26,6 +26,8 @@ public class User {
 		}
 		return false;
 	}
+	
+
 
 	public int getId() {
 		return id;

@@ -5,6 +5,9 @@ import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
+import business.User;
+import persistance.UserPersistance;
+
 @ManagedBean
 @SessionScoped
 public class SignoutBean implements Serializable {
@@ -22,8 +25,39 @@ public class SignoutBean implements Serializable {
 	}
 
 	public String create() {
-		String results = "signin";
+		System.out.println(login);
+		System.out.println(password);
+		System.out.println(email);
+		System.out.println(confirmedPassword);
+		System.out.println(firstname);
+		System.out.println(surname);
+		String results;
+		UserPersistance userPersist = new UserPersistance();
+		User usr = userPersist.readUserByLogin(login);
+		    if (usr == null) {
+	            if (this.password == this.confirmedPassword && verifNotNull(this.login, this.password, this.email, this.confirmedPassword, this.firstname, this.surname)) {
+	            	results = "signin";
+	            	userPersist.CreateUser(this.firstname, this.surname, this.login, this.password);
+	                System.out.println("Succes insert BDD");
+	            } else {
+	            	
+	                results = "errorSignoutNotSamePass";
+	                System.out.println("password incorrect");
+	            }
+		} else {
+			results = "errorSignoutLoginAlreadyUsed";
+			System.out.println("login already used");
+		}
 		return results;
+	}
+
+	
+	
+	public boolean verifNotNull(String login, String password, String email, String confirmedPassword, String firstname,String surname ) {
+		if (login!=null && password!=null && email!=null && confirmedPassword!=null && firstname!=null && surname!=null)
+		return true;
+		else
+			return false;
 	}
 
 	public String getLogin() {
