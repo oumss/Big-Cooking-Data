@@ -1,17 +1,14 @@
 package test;
 
-import java.util.ArrayList;
-
 import business.Ingredient;
 import business.Recipe;
 import clean.SystemUtility;
-import persistance.IngredientPersistance;
 
 public class TestSamir {
 
 	public static void main(String[] args) {
 		
-		Ingredient ingredient = new Ingredient();
+		//Ingredient ingredient = new Ingredient();
 		SystemUtility u = new SystemUtility();/*
 		ingredient.setAlim_nom_fr("compote de figues");
 		System.out.println(ingredient.toString()+"\n");

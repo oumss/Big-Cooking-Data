@@ -1,9 +1,5 @@
 package business;
 
-import java.util.ArrayList;
-
-import persistance.IngredientPersistance;
-
 public class Ingredient {
 
 	private int poids;
