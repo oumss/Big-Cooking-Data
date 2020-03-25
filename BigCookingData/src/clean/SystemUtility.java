@@ -45,22 +45,6 @@ public class SystemUtility {
 		}
 		return result;
 	}
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public ArrayList<Recipe> getRecipes() {
-		return recipes;
-	}
-
-	public void setRecipes(ArrayList<Recipe> recipes) {
-		this.recipes = recipes;
-	}
 	
 	public Ingredient associateIngredient(Ingredient ingredient) {
 		IngredientPersistance ip = new IngredientPersistance();
@@ -94,8 +78,6 @@ public class SystemUtility {
 			recipe.getIngredientsMap().replace(a,e.getValue());
 		}
 	}
-	
-	
 	
 	public void transformIngredientName (Ingredient ingredient) {
 		
@@ -140,6 +122,20 @@ public class SystemUtility {
 		ingredient.setAlim_nom_fr(newWord);
 	}
 
-	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public ArrayList<Recipe> getRecipes() {
+		return recipes;
+	}
+
+	public void setRecipes(ArrayList<Recipe> recipes) {
+		this.recipes = recipes;
+	}
 	
 }
