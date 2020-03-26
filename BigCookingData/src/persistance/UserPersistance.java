@@ -92,22 +92,33 @@ public class UserPersistance {
 	}
 	public void CreateUser(String surname, String firstname, String login, String password) {
 		
-	
+		int result = (int) (Math.random()*(1+999999999));
 		try {
-			
-			String selectUserQuery = "SELECT COUNT(*) FROM user";
-			java.sql.PreparedStatement preparedStatement = dbConnection.prepareStatement(selectUserQuery);
-			ResultSet result = preparedStatement.executeQuery();
-			preparedStatement.close();
 			
 			
 			
 			java.sql.Statement addStatement = dbConnection.createStatement();
-			addStatement.executeUpdate("INSERT INTO `bcd`.`user` (`id_user`,`surname`,`firstname`,`login`,`password`) VALUES (" + result+1 + ",'" + surname + "','"+ firstname +"','"+ login +"','" + password + "')");
-			addStatement.close();
+			addStatement.executeUpdate("INSERT INTO `bcd`.`user` (`id_user`,`surname`,`firstname`,`login`,`password`) VALUES (" + result + ",'" + surname + "','"+ firstname +"','"+ login +"','" + password + "')");
+			
 
 		} catch (SQLException se) {
 			System.err.println(se.getMessage());
 		}
+		
+	}
+	
+	public void UpdatePassword(String login, String password) {
+
+		try {
+			
+			java.sql.Statement addStatement = dbConnection.createStatement();
+			addStatement.executeUpdate("UPDATE user SET password ='" + password + "' WHERE login ='" + login +"';");
+			
+
+		} catch (SQLException se) {
+			System.err.println(se.getMessage());
+		}
+		
+		
 	}
 }

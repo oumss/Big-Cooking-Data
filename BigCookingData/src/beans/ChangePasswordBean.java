@@ -6,7 +6,9 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 
+import business.User;
 import core.MockCore;
+import persistance.UserPersistance;
 
 @ManagedBean
 @SessionScoped
@@ -25,13 +27,16 @@ public class ChangePasswordBean implements Serializable {
 	}
 
 	public String verify() {
+		UserPersistance userPersist = new UserPersistance();
+		User usr = userPersist.readUserByLogin(signinBean.getLogin());
 		String results = "errorPassword";
-		String loginPassword = MockCore.getUserByLogin(signinBean.getLogin()).getPassword();
 		//System.out.println("loginpass = " + loginPassword + " atcual = " + actualPassword + " new = " + newPassword + " conf = " + confirmedPassword);
 
-		if (actualPassword.equals(loginPassword)) {
+		if (usr.isCorrectPassword(actualPassword)) {
 			if (newPassword.equals(confirmedPassword)) {
+				userPersist.UpdatePassword(usr.getLogin(), newPassword);
 				results = "sucessPassword";
+				System.out.println("Password updating: Succes");
 			}
 		}
 		return results;

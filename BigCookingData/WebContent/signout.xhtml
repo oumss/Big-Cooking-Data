@@ -28,22 +28,22 @@
 				<h:panelGrid columns="2" cellpadding="5">
 					<br />
 					<label>  Firstname : </label> 
-		            <p:inputText value="#{signoutBean.firstname}"/>
+		            <p:inputText value="#{signoutBean.firstname}" required="true"/>
 		            <br />
 					<label>  Surname : </label> 
-		            <p:inputText value="#{signoutBean.surname}"/>
+		            <p:inputText value="#{signoutBean.surname}" required="true"/>
 					<br />
 		            <label>  Login : </label> 
-		            <p:inputText value="#{signoutBean.login}" feedback="true" />
+		            <p:inputText value="#{signoutBean.login}" feedback="true" required="true"/>
 		            <br />
 		            <label>  Password : </label> 
-		            <p:password value="#{signoutBean.password}" feedback="true" /> 
+		            <p:password value="#{signoutBean.password}" feedback="true" required="true"/> 
 					<br />
 					<label> Confirm password : </label> 
-					<p:password value="#{signoutBean.confirmedPassword}" feedback="true" />
+					<p:password value="#{signoutBean.confirmedPassword}" feedback="true" required="true" />
 					<br/>
 		            <label>  Email : </label> 
-		            <p:inputText value="#{signoutBean.email}"/>
+		            <p:inputText value="#{signoutBean.email}" required="true"/>
 		            <br />
 	        	</h:panelGrid>
 				<br />

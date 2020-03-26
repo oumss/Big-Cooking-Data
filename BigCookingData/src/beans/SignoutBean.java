@@ -34,10 +34,10 @@ public class SignoutBean implements Serializable {
 		String results;
 		UserPersistance userPersist = new UserPersistance();
 		User usr = userPersist.readUserByLogin(login);
-		    if (usr == null) {
-	            if (this.password == this.confirmedPassword && verifNotNull(this.login, this.password, this.email, this.confirmedPassword, this.firstname, this.surname)) {
+		    if (usr != null) {
+	            if (password.equals(confirmedPassword)) {
 	            	results = "signin";
-	            	userPersist.CreateUser(this.firstname, this.surname, this.login, this.password);
+	            	userPersist.CreateUser(firstname, surname, login, password);
 	                System.out.println("Succes insert BDD");
 	            } else {
 	            	
@@ -54,10 +54,11 @@ public class SignoutBean implements Serializable {
 	
 	
 	public boolean verifNotNull(String login, String password, String email, String confirmedPassword, String firstname,String surname ) {
-		if (login!=null && password!=null && email!=null && confirmedPassword!=null && firstname!=null && surname!=null)
-		return true;
-		else
+		if (this.login!=null && this.password!=null && this.email!=null && this.confirmedPassword!=null && this.firstname!=null && this.surname!=null) {
+		return true;}
+		else {
 			return false;
+		}
 	}
 
 	public String getLogin() {
