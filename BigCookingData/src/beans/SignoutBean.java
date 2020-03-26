@@ -30,7 +30,7 @@ public class SignoutBean implements Serializable {
 		System.out.println(email);
 		System.out.println(confirmedPassword);
 		System.out.println(firstname);
-		System.out.println(surname);
+		System.out.println(surname); 
 		String results;
 		UserPersistance userPersist = new UserPersistance();
 		User usr = userPersist.readUserByLogin(login);
