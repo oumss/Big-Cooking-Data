@@ -27,7 +27,12 @@ public class User {
 		return false;
 	}
 	
-
+	public boolean isCorrectLogin(String login) {
+		if ((this.login).equals(login)) {
+			return true;
+		}
+		return false;
+	}
 
 	public int getId() {
 		return id;

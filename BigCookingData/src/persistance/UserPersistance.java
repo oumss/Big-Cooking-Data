@@ -93,7 +93,7 @@ public class UserPersistance {
 	}
 	public void CreateUser(String surname, String firstname, String login, String password) {
 		
-		int result = (int) (Math.random()*(1+999999999));
+		//int result = (int) (Math.random()*(1+999999999)); //Ancien code
 		try {
 			
 			String sql  = "SELECT * FROM user"; 
@@ -102,7 +102,7 @@ public class UserPersistance {
 			java.sql.ResultSetMetaData metadata = resultat.getMetaData(); 
 			int nColumns = metadata.getColumnCount(); 
 			
-			System.out.println("Génération auto d'un id user:" + result);
+			//System.out.println("Génération auto d'un id user:" + result); // Test, ça n'est pas utile, c'est l'ancien code
 			
 			System.out.println("Number of columns in user:" + nColumns);
 			
@@ -119,11 +119,9 @@ public class UserPersistance {
 
 		try {
 			
-			
 			java.sql.Statement addStatement = dbConnection.createStatement();
 			addStatement.executeUpdate("UPDATE user SET password ='" + password + "' WHERE login ='" + login +"';");
-			
-
+		
 		} catch (SQLException se) {
 			System.err.println(se.getMessage());
 		}

@@ -34,20 +34,21 @@ public class SignoutBean implements Serializable {
 		String results;
 		UserPersistance userPersist = new UserPersistance();
 		User usr = userPersist.readUserByLogin(login);
-		    if (usr != null) {
-	            if (password.equals(confirmedPassword)) {
-	            	results = "signin";
-	            	userPersist.CreateUser(surname, firstname, login, password);
-	                System.out.println("Succes insert BDD");
-	            } else {
-	            	
-	                results = "errorSignoutNotSamePass";
-	                System.out.println("password incorrect");
-	            }
-		} else {
-			results = "errorSignoutLoginAlreadyUsed";
-			System.out.println("login already used");
-		}
+		    if (usr.isCorrectLogin(login)) {
+		    	results = "errorSignoutLoginAlreadyUsed";
+				System.out.println("login already used");
+		    } else {
+		    	
+		    	if (password.equals(confirmedPassword)) {
+		    		results = "signin";
+            		userPersist.CreateUser(surname, firstname, login, password);
+            		System.out.println("Succes insert BDD");
+		    	} else {
+            	
+		    		results = "errorSignoutNotSamePass";
+		    		System.out.println("password incorrect");
+		    	}
+		    }
 		return results;
 	}
 
