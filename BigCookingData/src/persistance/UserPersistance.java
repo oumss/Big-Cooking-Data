@@ -2,6 +2,7 @@ package persistance;
 
 import java.util.ArrayList;
 
+import com.mysql.jdbc.ResultSetMetaData;
 import com.mysql.jdbc.Statement;
 
 import business.User;
@@ -95,11 +96,18 @@ public class UserPersistance {
 		int result = (int) (Math.random()*(1+999999999));
 		try {
 			
+			String sql  = "SELECT * FROM user"; 
+			java.sql.Statement addStatement = dbConnection.createStatement(); 
+			ResultSet resultat = addStatement.executeQuery(sql); 
+			java.sql.ResultSetMetaData metadata = resultat.getMetaData(); 
+			int nColumns = metadata.getColumnCount(); 
 			
+			System.out.println("Génération auto d'un id user:" + result);
 			
-			java.sql.Statement addStatement = dbConnection.createStatement();
-			addStatement.executeUpdate("INSERT INTO `bcd`.`user` (`id_user`,`surname`,`firstname`,`login`,`password`) VALUES (" + result + ",'" + surname + "','"+ firstname +"','"+ login +"','" + password + "')");
+			System.out.println("Number of columns in user:" + nColumns);
 			
+			java.sql.Statement addStatement2 = dbConnection.createStatement();
+			addStatement2.executeUpdate("INSERT INTO `bcd`.`user` (`id_user`,`surname`,`firstname`,`login`,`password`) VALUES (" + 1000+nColumns + ",'" + surname + "','"+ firstname +"','"+ login +"','" + password + "')");
 
 		} catch (SQLException se) {
 			System.err.println(se.getMessage());
@@ -110,6 +118,7 @@ public class UserPersistance {
 	public void UpdatePassword(String login, String password) {
 
 		try {
+			
 			
 			java.sql.Statement addStatement = dbConnection.createStatement();
 			addStatement.executeUpdate("UPDATE user SET password ='" + password + "' WHERE login ='" + login +"';");
