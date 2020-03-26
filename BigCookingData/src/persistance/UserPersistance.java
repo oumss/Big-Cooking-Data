@@ -2,8 +2,8 @@ package persistance;
 
 import java.util.ArrayList;
 
-import com.mysql.jdbc.ResultSetMetaData;
-import com.mysql.jdbc.Statement;
+
+
 
 import business.User;
 import java.sql.Connection;
@@ -98,16 +98,16 @@ public class UserPersistance {
 			
 			String sql  = "SELECT * FROM user"; 
 			java.sql.Statement addStatement = dbConnection.createStatement(); 
-			ResultSet resultat = addStatement.executeQuery(sql); 
+			java.sql.ResultSet resultat = addStatement.executeQuery(sql); 
 			java.sql.ResultSetMetaData metadata = resultat.getMetaData(); 
-			int nColumns = metadata.getColumnCount(); 
+			int nColumns = metadata.getColumnCount()+1;  
 			
-			//System.out.println("Génération auto d'un id user:" + result); // Test, ça n'est pas utile, c'est l'ancien code
+			//System.out.println("Génération auto d'un id user:" + result); //Ancien code
 			
 			System.out.println("Number of columns in user:" + nColumns);
 			
 			java.sql.Statement addStatement2 = dbConnection.createStatement();
-			addStatement2.executeUpdate("INSERT INTO `bcd`.`user` (`id_user`,`surname`,`firstname`,`login`,`password`) VALUES (" + 1000+nColumns + ",'" + surname + "','"+ firstname +"','"+ login +"','" + password + "')");
+			addStatement2.executeUpdate("INSERT INTO `bcd`.`user` (`id_user`,`surname`,`firstname`,`login`,`password`) VALUES (" + 1000000+nColumns + ",'" + surname + "','"+ firstname +"','"+ login +"','" + password + "')");
 
 		} catch (SQLException se) {
 			System.err.println(se.getMessage());
