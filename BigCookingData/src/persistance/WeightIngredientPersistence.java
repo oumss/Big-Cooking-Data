@@ -2,6 +2,7 @@ package persistance;
 
 import java.util.HashMap;
 
+import business.Ingredient;
 import business.User;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -34,6 +35,33 @@ public class WeightIngredientPersistence {
 			System.err.println(se.getMessage());
 		}
 		return weight;
+	}
+	
+	public void incrementWeight(Ingredient ingredient, User user) {
+		ingredient.setPoids(ingredient.getPoids()+1);
+		try {
+			
+			java.sql.Statement addStatement = dbConnection.createStatement();
+			addStatement.executeUpdate("UPDATE weight_ingredient SET weight_ingredient ='" + ingredient.getPoids()  + "' WHERE id_user =" + user.getId() +" AND id_ingredient =" + ingredient.getId_ingredient() +";");
+		
+		} catch (SQLException se) {
+			System.err.println(se.getMessage());
+		}
+	}
+	
+	public void decrementWeight(Ingredient ingredient, User user) {
+		if(ingredient.getPoids() != 0) {
+			ingredient.setPoids(ingredient.getPoids()-1);
+		}
+		try {
+			
+			java.sql.Statement addStatement = dbConnection.createStatement();
+			addStatement.executeUpdate("UPDATE weight_ingredient SET weight_ingredient ='" + ingredient.getPoids()  + "' WHERE id_user =" + user.getId() +" AND id_ingredient =" + ingredient.getId_ingredient() +";");
+		
+		} catch (SQLException se) {
+			System.err.println(se.getMessage());
+		}	
+		
 	}
 
 	public HashMap<Integer, Integer> readAllWeight(User user) {

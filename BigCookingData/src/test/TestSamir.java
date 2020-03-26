@@ -3,6 +3,8 @@ package test;
 import business.Ingredient;
 import business.Recipe;
 import clean.SystemUtility;
+import learn.LearnUtility;
+
 
 public class TestSamir {
 
@@ -21,14 +23,14 @@ public class TestSamir {
 		  
 
 
-		/**/
+		/*
 		Recipe r = new Recipe();
 		Ingredient a = new Ingredient();
-		a.setAlim_nom_fr("mousse au chocolat");
+		a.setAlim_nom_fr("poulet");
 		Ingredient b = new Ingredient();
-		b.setAlim_nom_fr("concentré de tomates");
+		b.setAlim_nom_fr("colin");
 		Ingredient c = new Ingredient();
-		c.setAlim_nom_fr("figues");
+		c.setAlim_nom_fr("vanille");
 		
 		r.getIngredientsMap().put(a, 1);
 		r.getIngredientsMap().put(b, 2);
@@ -39,13 +41,21 @@ public class TestSamir {
 		u.associateAllIngredient(r);
 		System.out.println(r.getIngredientsMap().toString());
 		
-		System.out.println("\n\n");
+		System.out.println("\n\n");*/
+		
+		
+		
 		/*
 		Ingredient ooo = new Ingredient();
 		ooo.setAlim_nom_fr("compote figue");
 		IngredientPersistance ip = new IngredientPersistance();
 		System.out.println(ip.readIngredientWithLike(ooo));
 	*/
+		
+		
+		LearnUtility lu = new LearnUtility();
+		lu.initIngredientList();
+		System.out.println(lu.getIngredientChoice().toString());
 	}
 	
 
