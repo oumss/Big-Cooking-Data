@@ -98,10 +98,10 @@ public class UserPersistance {
 			
 			String sql  = "SELECT * FROM user"; 
 			java.sql.Statement addStatement = dbConnection.createStatement(); 
-			java.sql.ResultSet resultat = addStatement.executeQuery(sql); 
+			ResultSet resultat = addStatement.executeQuery(sql); 
 			java.sql.ResultSetMetaData metadata = resultat.getMetaData(); 
 			int nColumns = metadata.getColumnCount()+1;  
-			
+			addStatement.close();
 			//System.out.println("Génération auto d'un id user:" + result); //Ancien code
 			
 			System.out.println("Number of columns in user:" + nColumns);
