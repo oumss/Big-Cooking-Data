@@ -37,7 +37,7 @@ public class SignoutBean implements Serializable {
 		    if (usr != null) {
 	            if (password.equals(confirmedPassword)) {
 	            	results = "signin";
-	            	userPersist.CreateUser(firstname, surname, login, password);
+	            	userPersist.CreateUser(surname, firstname, login, password);
 	                System.out.println("Succes insert BDD");
 	            } else {
 	            	
