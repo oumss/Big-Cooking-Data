@@ -54,14 +54,6 @@ public class SignoutBean implements Serializable {
 
 	
 	
-	public boolean verifNotNull(String login, String password, String email, String confirmedPassword, String firstname,String surname ) {
-		if (this.login!=null && this.password!=null && this.email!=null && this.confirmedPassword!=null && this.firstname!=null && this.surname!=null) {
-		return true;}
-		else {
-			return false;
-		}
-	}
-
 	public String getLogin() {
 		return login;
 	}
