@@ -93,18 +93,26 @@ public class UserPersistance {
 	}
 	public void CreateUser(String surname, String firstname, String login, String password) {
 		
-		//int result = (int) (Math.random()*(1+999999999)); //Ancien code
 		try {
 			
 			String sql  = "SELECT * FROM user"; 
 			java.sql.Statement addStatement = dbConnection.createStatement(); 
 			ResultSet resultat = addStatement.executeQuery(sql); 
-			java.sql.ResultSetMetaData metadata = resultat.getMetaData(); 
-			int nColumns = metadata.getColumnCount()+1000001;  
+			int nColumns = 0;
+			while (resultat.next())
+			{
+				nColumns++;
+			}
+			addStatement.close();
 			
-			//System.out.println("Génération auto d'un id user:" + result); //Ancien code
+			System.out.println("Number of columns in user before update:" + nColumns);
+			if (nColumns != 0) {
+				nColumns = 100000+nColumns+1;
+			}else {
+				nColumns = 100000+nColumns;
+			}
 			
-			System.out.println("Number of columns in user:" + nColumns);
+			System.out.println("Number of columns in user after update:" + nColumns);
 			
 			java.sql.Statement addStatement2 = dbConnection.createStatement();
 			addStatement2.executeUpdate("INSERT INTO `bcd`.`user` (`id_user`,`surname`,`firstname`,`login`,`password`) VALUES (" + nColumns + ",'" + surname + "','"+ firstname +"','"+ login +"','" + password + "')");
