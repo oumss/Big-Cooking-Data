@@ -117,7 +117,7 @@ public class UserPersistance {
 			java.sql.Statement addStatement2 = dbConnection.createStatement();
 			addStatement2.executeUpdate("INSERT INTO `bcd`.`user` (`id_user`,`surname`,`firstname`,`login`,`password`) VALUES (" + nColumns + ",'" + surname + "','"+ firstname +"','"+ login +"','" + password + "')");
 
-		} catch (SQLException se) {
+		} catch (SQLException se) { 
 			System.err.println(se.getMessage());
 		}
 		
