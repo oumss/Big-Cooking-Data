@@ -107,9 +107,9 @@ public class UserPersistance {
 			
 			System.out.println("Number of columns in user before update:" + nColumns);
 			if (nColumns != 0) {
-				nColumns = 100000+nColumns+1;
-			}else {
 				nColumns = 100000+nColumns;
+			}else {
+				nColumns = 100000;
 			}
 			
 			System.out.println("Number of columns in user after update:" + nColumns);

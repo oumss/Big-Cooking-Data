@@ -6,7 +6,7 @@ public class Test {
 
 		UserPersistance usr = new UserPersistance();
 		
-		usr.CreateUser("test1", "test2", "sdsd", "sds");
+		usr.CreateUser("tqsddq", "tqsdestsdf2", "sdqsdfssdsd", "sds");
 		System.out.println("hey");
 			
 	}
