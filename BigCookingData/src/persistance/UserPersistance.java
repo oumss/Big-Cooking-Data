@@ -107,9 +107,9 @@ public class UserPersistance {
 			
 			System.out.println("Number of columns in user before update:" + nColumns);
 			if (nColumns != 0) {
-				nColumns = 100000+nColumns;
+				nColumns = 100001+nColumns;
 			}else {
-				nColumns = 100000;
+				nColumns = 100001;
 			}
 			
 			System.out.println("Number of columns in user after update:" + nColumns);
@@ -135,5 +135,32 @@ public class UserPersistance {
 		}
 		
 		
+	}
+	public boolean userExistByLogin(String login) {
+		int nColumns=0;
+		boolean bool = true;
+			try {
+			
+				String selectUserQuery = "SELECT * FROM user WHERE login = ? ";
+				java.sql.PreparedStatement preparedStatement = dbConnection.prepareStatement(selectUserQuery);
+				preparedStatement.setString(1, login);
+				ResultSet result = preparedStatement.executeQuery();
+
+				while (result.next()) {
+					nColumns++;
+				}
+				preparedStatement.close();
+			
+					
+					if (nColumns != 0) {
+						bool= true;
+					}else {
+						bool= false;
+					}
+			
+			} catch (SQLException se) {
+				System.err.println(se.getMessage());
+			}
+			return bool;
 	}
 }
