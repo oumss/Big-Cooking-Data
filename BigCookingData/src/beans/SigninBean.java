@@ -27,8 +27,9 @@ public class SigninBean implements Serializable {
 		System.out.println(login);
 		String results;
 		UserPersistance userPersist = new UserPersistance();
-		User usr = userPersist.readUserByLogin(login);
-		    if (usr!=null) {
+		
+		    if (userPersist.userExistByLogin(login)) {
+		    	User usr = userPersist.readUserByLogin(login);
 	            if (usr.isCorrectPassword(this.password)) {
 	                results = "home";
 	                System.out.println("connected");
