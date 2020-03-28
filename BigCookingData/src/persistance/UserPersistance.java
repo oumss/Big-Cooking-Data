@@ -107,9 +107,9 @@ public class UserPersistance {
 			
 			System.out.println("Number of columns in user before update:" + nColumns);
 			if (nColumns != 0) {
-				nColumns = 100001+nColumns;
-			}else {
-				nColumns = 100001;
+				nColumns = 100001+nColumns;  // Ne pas être surpris par le nombre 100001
+			}else {							 // C'est juste pcq un id à 6 chiffres plus stylé masha Allah
+				nColumns = 100001;			 // Et le 1 c'est pour ne pas commencé à 0 en unité in sha Allah
 			}
 			
 			System.out.println("Number of columns in user after update:" + nColumns);
