@@ -23,14 +23,14 @@ public class TestSamir {
 		  
 
 
-		/*
+		/**/
 		Recipe r = new Recipe();
 		Ingredient a = new Ingredient();
 		a.setAlim_nom_fr("poulet");
 		Ingredient b = new Ingredient();
 		b.setAlim_nom_fr("colin");
 		Ingredient c = new Ingredient();
-		c.setAlim_nom_fr("vanille");
+		c.setAlim_nom_fr("Tomate concentré appertisé");
 		
 		r.getIngredientsMap().put(a, 1);
 		r.getIngredientsMap().put(b, 2);
@@ -41,7 +41,7 @@ public class TestSamir {
 		u.associateAllIngredient(r);
 		System.out.println(r.getIngredientsMap().toString());
 		
-		System.out.println("\n\n");*/
+		System.out.println("\n\n");
 		
 		
 		
@@ -53,9 +53,9 @@ public class TestSamir {
 	*/
 		
 		
-		LearnUtility lu = new LearnUtility();
-		lu.initIngredientList();
-		System.out.println(lu.getIngredientChoice().toString());
+		//LearnUtility lu = new LearnUtility();
+		//lu.initIngredientList();
+		//System.out.println(lu.getIngredientChoice().toString());
 	}
 	
 
