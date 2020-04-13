@@ -1,3 +1,6 @@
+/* Partout : ------------------------------------------------------------------------ */
+
+
 body {
 	padding: 0;
 	overflow: hidden;
@@ -7,6 +10,12 @@ body {
 	background-size: cover;
 	resize: both;
 }
+
+label{
+	color:white;
+}
+
+/* Avant Connexion : ------------------------------------------------------------------------ */
 
 #formulaire-sign{
 	position: relative;
@@ -28,7 +37,10 @@ body {
 	margin:auto auto auto auto;
 }
 
+
+
 #header{
+	float:top;
 	position: absolute;
 	background-color: rgba(0,0,0,0.4);
 	height: 70px;
@@ -36,7 +48,52 @@ body {
 
 }
 
-label{
-	color:white;
+/* Après Connexion : ------------------------------------------------------------------------ */
+
+
+#containerHome{	
+	float:top;
+	position: relative;
+	background-color: rgba(0,0,0,0.3);
+	overflow:hidden;
+	height:auto;
+	width: contain;
+	margin:auto auto auto auto;
 }
 
+#formulaire-change{
+	position: relative;
+	top:70px;
+	border-radius: 10% / 50%;
+	background-color: rgba(0,0,0,0.7);
+	height: 390px;
+	width: 500px;
+	margin:auto auto auto auto;
+}
+.red{
+	color:red;
+}
+
+.d1{
+	position:relative;
+	margin-top:39px;
+	margin-right:20px;
+	margin-bottom: 39px;
+	float: right;
+    width: 576px;
+    height: 432px;
+    box-shadow: 0px 15px 10px -5px #777;
+    background-color: #EDEDED;
+    background-size: cover;
+    animation: fondu 15s ease-in-out infinite both;
+}
+
+.d1:hover{
+    animation-play-state: paused;
+}
+@keyframes fondu{
+    0%{background-image: url("https://image.freepik.com/photos-gratuite/cuisinier-oeufs-cuisine-rustique-dans-contexte-mains-hommes_155003-1867.jpg");}
+    33.33%{background-image: url("https://specials-images.forbesimg.com/imageserve/1005962360/960x0.jpg?fit=scale");}
+    66.67%{background-image: url("https://image.freepik.com/photos-gratuite/beau-delicieux-millefeuille-dessert-du-mascarpone-baies-assiette-blanche-sauce-belle-offre-restaurant_127425-302.jpg");}
+    100%{background-image: url("https://s3-eu-west-1.amazonaws.com/images-ca-1-0-1-eu/recipe_photos/slide/182548/falafels-recette-facile-pois-chiches_4_CHEFSIMON_680.jpg");}
+}

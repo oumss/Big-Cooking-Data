@@ -7,26 +7,69 @@
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
 <h:head>
-	<style type="text/css">
-    	@import url(css/style.css)
-    	@import url(css/header.css)
-    	@import url(css/general.css)
-    	@import url(css/buttons.jqueryui.css)
-	</style>
+
 	<title>Big Cooking Data</title>
+	<link rel="icon" type="image/png" href="https://cdn.discordapp.com/icons/669477675697700865/1c65fb82e754248da73f3dd9bdb50ae1.png?size=256" />
+
+	<link rel="stylesheet" type="text/css" href="./css/bootstrap-min.css" />
+	<link rel="stylesheet" type="text/css" href="./css/styles.css" />
 </h:head>
 <h:body>
 
-	<h:form>	
-		<ui:include src="head.xhtml" />	
-		<div>
-			<fieldset>
-				<h1 style="color:grey;">Bienvenue dans Big Cooking Data</h1>
-				<br/>
+
+	<h:form id="containerHome" >	
+
+		<h:outputStylesheet name="primeicons/primeicons.css" library="primefaces" />
+	<p:megaMenu  style="background-color:rgba(0,255,0,0.8);" orientation="#{index.orientation}" >
+		<p:menuitem value="" url="home.jsf" icon="pi pi-home" />
+		<p:menuitem value=" Recherche Avancée" url="search.jsf" icon="pi pi-search"/>
+		
+		<p:submenu label="Catégories" >
+			<p:column>
+				<p:submenu label="Entrées" >
+					<p:menuitem value="Salades" url="home.jsf" />
+					<p:menuitem value="Apéritifs" url="home.jsf" />
+				</p:submenu>
+			</p:column>
+			<p:column>
+				<p:submenu label="Plats" >
+					<p:menuitem value="Poissons" url="home.jsf" />
+					<p:menuitem value="Viandes" url="home.jsf" />
+					<p:menuitem value="Végétarien" url="home.jsf" />
+				</p:submenu>
+			</p:column>
+			<p:column>
+				<p:submenu label="Desserts">
+					<p:menuitem value="Gateaux" url="home.jsf" />
+					<p:menuitem value="Glacés" url="home.jsf" />
+					<p:menuitem value="Yaourt" url="home.jsf" />
+				</p:submenu>
+			</p:column>
+		</p:submenu>
+		
+		<p:submenu label=" My Account" icon="pi pi-user"  >
+			<p:column>
+				<p:submenu>
+					<p:menuitem value="Profil" url="home.jsf" />
+					<p:menuitem value="Changer de mot de passe" url="changePassword.jsf" />
+					<p:menuitem value="Deconnexion" action="#{homeBean.disconnect}" />
 					
-				<br />
-			</fieldset>
-		</div>
+				</p:submenu>
+			</p:column>
+			</p:submenu>
+		
+		<f:facet name="options">
+            <p:commandButton style="background-color:red; color:white;" type="button" value=" Deconnexion" icon="pi pi-power-off" action="#{homeBean.disconnect}" />
+        </f:facet>
+		
+	</p:megaMenu>
+	<h1 style=" color:White; float: left; margin-top: 30px; margin-left: 20px;"> <img style="float: top; height:70px;" src="https://cdn.discordapp.com/icons/669477675697700865/1c65fb82e754248da73f3dd9bdb50ae1.png?size=256" /> Bienvenue sur Big Cooking Data</h1>
+	<div  class="d1"></div>	
+	
+	<p style="text-align:left; position:relative;color:White; float: left; margin-left: 20px; width:600px; margin-top: 35px;">«Les épices sont à la cuisine ce que la ponctuation est à la langue française. Comme la ponctuation révèle les mots, les épices permettent de révéler la face cachée des mets», annonce Olivier Roellinger en guise d’introduction. Le chef cancalais est connu pour avoir fermé son restaurant gastronomique triplement étoilé en 2008, en pleine gloire. L'idée était notamment de prendre le temps de transmettre au plus grand nombre sa passion pour les épices. Pour lui, les épices permettent une cuisine moins grasse, moins salée et riches en bienfaits, ainsi que de redécouvrir des aliments simples. «Avant d’être bon au palais, il faut que cela soit sain pour le corps, c’est ce que l’on pense avec ma femme depuis trente-cinq ans», explique-t-il. Et de nous donner les conseils pour s'y mettre, avec l'art et la manière.</p>
+		<p style="text-align:left; position:relative;color:White; float: left; margin-left: 20px; width:600px;">Ouvrir un livre de cuisine pour composer le menu. Rêvasser à mille combinaisons saugrenues. Un poulet aux fraises ? Un lapin aux rutabagas ? Une sole au caramel et au chocolat ? Et pourquoi pas ? La vie est triste parce qu'on la répète chaque jour. Il suffit de changer les ingrédients et elle chante. <br /><br />Katherine Pancol.</p>
+			
+		
 		
 	</h:form>
 </h:body>

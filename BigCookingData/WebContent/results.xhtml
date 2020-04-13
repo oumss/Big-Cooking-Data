@@ -1,3 +1,4 @@
+		
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
@@ -7,28 +8,66 @@
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
 <h:head>
-	<style type="text/css">
-    	@import url(css/style.css)
-    	@import url(css/header.css)
-    	@import url(css/general.css)
-    	@import url(css/buttons.jqueryui.css)
-    	
-    	/* demo */	
-	    .value {
-	        font-weight: bold;
-	    }
-	    		
-	</style>
+
 	<title>Big Cooking Data</title>
+	<link rel="icon" type="image/png" href="https://cdn.discordapp.com/icons/669477675697700865/1c65fb82e754248da73f3dd9bdb50ae1.png?size=256" />
+
+	<link rel="stylesheet" type="text/css" href="./css/bootstrap-min.css" />
+	<link rel="stylesheet" type="text/css" href="./css/styles.css" />
 </h:head>
 <h:body>
 
-	<h:form>	
-		<ui:include src="head.xhtml" />	
+
+	<h:form id="containerHome" >	
+
+		<h:outputStylesheet name="primeicons/primeicons.css" library="primefaces" />
+	<p:megaMenu  style="background-color:rgba(0,255,0,0.8);" orientation="#{index.orientation}" >
+		<p:menuitem value="" url="home.jsf" icon="pi pi-home" />
+		<p:menuitem value=" Recherche Avancée" url="search.jsf" icon="pi pi-search"/>
+		
+		<p:submenu label="Catégories" >
+			<p:column>
+				<p:submenu label="Entrées" >
+					<p:menuitem value="Salades" url="home.jsf" />
+					<p:menuitem value="Apéritifs" url="home.jsf" />
+				</p:submenu>
+			</p:column>
+			<p:column>
+				<p:submenu label="Plats" >
+					<p:menuitem value="Poissons" url="home.jsf" />
+					<p:menuitem value="Viandes" url="home.jsf" />
+					<p:menuitem value="Végétarien" url="home.jsf" />
+				</p:submenu>
+			</p:column>
+			<p:column>
+				<p:submenu label="Desserts">
+					<p:menuitem value="Gateaux" url="home.jsf" />
+					<p:menuitem value="Glacés" url="home.jsf" />
+					<p:menuitem value="Yaourt" url="home.jsf" />
+				</p:submenu>
+			</p:column>
+		</p:submenu>
+		
+		<p:submenu label=" My Account" icon="pi pi-user"  >
+			<p:column>
+				<p:submenu>
+					<p:menuitem value="Profil" url="home.jsf" />
+					<p:menuitem value="Changer de mot de passe" url="changePassword.jsf" />
+					<p:menuitem value="Deconnexion" action="#{homeBean.disconnect}" />
+					
+				</p:submenu>
+			</p:column>
+			</p:submenu>
+		</p:megaMenu>
+		<f:facet name="options">
+            <p:commandButton style="background-color:red; color:white;" type="button" value=" Deconnexion" icon="pi pi-power-off" action="#{homeBean.disconnect}" />
+        </f:facet>
+		
+	
 		<div>
 			<fieldset>
-				<h1 style="color:grey;">Resultats de la recherche :</h1>
-			
+		<h1 style="position: absolute; color:White; float: left; margin-top: 30px; margin-left: 20px;"> <img style="float: top; height:70px;" src="https://cdn.discordapp.com/icons/669477675697700865/1c65fb82e754248da73f3dd9bdb50ae1.png?size=256" /> Résultat(s) de la recherche Big Cooking Data</h1>
+			<br/><br/><br/><br/><br/><br/><br/>
 			   <p:dataGrid var="recipe" value="#{resultBean.recipes}" columns="3" layout="grid"
 			        rows="12" paginator="true" id="recipes"
 			        paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
@@ -91,7 +130,7 @@
 		 
 			</fieldset>
 		</div>
-		
 	</h:form>
 </h:body>
 </html>
+
