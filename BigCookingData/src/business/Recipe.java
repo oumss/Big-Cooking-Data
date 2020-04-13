@@ -1,5 +1,6 @@
 package business;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Recipe {
@@ -13,6 +14,7 @@ public class Recipe {
 	private String category;
 	private int difficutly;
 	private String steps;
+	public ArrayList<Integer> coordonnees = new ArrayList<Integer>();
 
 	public Recipe() {
 	}
