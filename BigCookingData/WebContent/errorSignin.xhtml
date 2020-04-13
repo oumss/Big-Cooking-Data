@@ -5,45 +5,44 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
-
+	
 <h:head>
-	<style type="text/css">
-    	@import url(css/style.css)
-    	@import url(css/header.css)
-    	@import url(css/general.css)
-    	@import url(css/buttons.jqueryui.css)
-	</style>
 	<title>Sign In</title>
+	
+	<link rel="stylesheet" type="text/css" href="./css/bootstrap-min.css" />
+	<link rel="stylesheet" type="text/css" href="./css/styles.css" />
+  
+	
 </h:head>
-<h:body>
-
-	<h:form>
-		<fieldset>
-			<h1 style="color:grey;">Sign in Big Cooking Data</h1>	
-			<p:growl id="growl" life="2000" />
-			<h3 style="color:red;">login or password incorrect please retry...</h3>
-			<div>
-				<h3 style="color:white;">Sign in</h3>
-				<h:panelGrid columns="2" cellpadding="5">
-					<br />
-		            <label>  Login : </label> 
+<h:body >
+<div id="header">
+<img style="position:absolute; left:0px; height:100%" src="https://cdn.discordapp.com/icons/669477675697700865/1c65fb82e754248da73f3dd9bdb50ae1.png?size=256"/>
+<h1 style="color:White;">-  Welcome to the kitchen  -</h1>	
+</div>
+	<h:form style="height:310px;" id="formulaire-sign">	
+		    <fieldset>
+					<h3 style="color:white; font-weight: bolder;">Sign in</h3>
+					<h3 style="color:red;">login or password incorrect please retry...</h3>
+					
+		            <label>  login : </label>
+		            <br/>
 		            <p:inputText value="#{signinBean.login}" />
-		            <br /> 
+		            <br/>
 		            <label>  Password : </label> 
+		            <br/>
 		            <p:password value="#{signinBean.password}"/>
-		            <br />
-		            <p:commandButton style="width:contain; color : white; background-color:green;" look="success" value="Connect" action="#{signinBean.verify}" /><br />
-	        	</h:panelGrid>
-			</div>
-			
-			<div>
-				<h3 style="color:white;">Create your account</h3>
-				<h:panelGrid columns="2" cellpadding="5">
-				<p:commandButton style="width:contain; color : white; background-color:grey;" look="success" value="Sign out" action="#{signinBean.signout}" /><br />
-		        </h:panelGrid>
-			</div>
-			</fieldset> 
+		            <br/><br/>
+		            <p:commandButton style=" width:contain; height: contain;color : white; background-color:green;" look="success" value="Connect" action="#{signinBean.verify}" />
+				    <p:commandButton style="width:contain; color : white; background-color:grey;" look="success" value="subscribe" action="#{signinBean.signout}" /><br />
+			</fieldset> 	
 	</h:form>
+	<p:imageSwitch effect="fade" id="fadeEffect">
+    <ui:repeat value="#{imagesView.images}" var="image" id="fadeEffectImages">
+        <p:graphicImage name="./images/nature/#{image}" id="image" />
+    </ui:repeat>
+</p:imageSwitch>
+
 
 </h:body>
 </html>
+			

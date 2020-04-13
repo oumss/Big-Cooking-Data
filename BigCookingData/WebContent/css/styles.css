@@ -1,0 +1,32 @@
+body {
+	padding: 0;
+	overflow: hidden;
+	text-align:center;
+	background-image: url("https://www.youschool.fr/wp-content/uploads/2018/07/comment-devenir-commis-de-cuisine.jpg");
+	background-repeat:no-repeat;
+	background-size: cover;
+	resize: both;
+}
+
+#formulaire-sign{
+	position: relative;
+	top:170px;
+	border-radius: 10% / 50%;
+	background-color: rgba(0,0,0,0.7);
+	height: 250px;
+	width: 500px;
+	margin:auto auto auto auto;
+}
+
+#header{
+	position: absolute;
+	background-color: rgba(0,0,0,0.4);
+	height: 70px;
+	width: 100%;
+
+}
+
+label{
+	color:white;
+}
+
