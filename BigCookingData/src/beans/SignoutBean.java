@@ -33,8 +33,7 @@ public class SignoutBean implements Serializable {
 		System.out.println(surname); 
 		String results;
 		UserPersistance userPersist = new UserPersistance();
-		User usr = userPersist.readUserByLogin(login);
-		    if (usr.isCorrectLogin(login)) {
+		    if (userPersist.userExistByLogin(login)) {
 		    	results = "errorSignoutLoginAlreadyUsed";
 				System.out.println("login already used");
 		    } else {

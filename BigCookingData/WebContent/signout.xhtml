@@ -5,52 +5,47 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
-
+	
 <h:head>
-	<style type="text/css">
-    	@import url(css/style.css)
-    	@import url(css/header.css)
-    	@import url(css/general.css)
-    	@import url(css/buttons.jqueryui.css)
-	</style>
-	<title>Sign In</title>
+	<title>Sign Out</title>
+	
+	<link rel="stylesheet" type="text/css" href="./css/bootstrap-min.css" />
+	<link rel="stylesheet" type="text/css" href="./css/styles.css" />
+  
+	
 </h:head>
-<h:body>
-
-	<h:form>
-		<div align="center">
-		<fieldset>
-			<h1 style="color:white;">Sign out Big Cooking Data</h1>	
-			<p:growl id="growl" life="2000" />
-			<h3 style="color:white;">Create your account</h3>
-			<div >
-				<h3 style="color:white;">Sign out</h3>
-				<h:panelGrid columns="2" cellpadding="5">
-					<br />
-					<label>  Firstname : </label> 
+<h:body >
+<div id="header">
+<img style="position:absolute; left:0px; height:100%" src="https://cdn.discordapp.com/icons/669477675697700865/1c65fb82e754248da73f3dd9bdb50ae1.png?size=256"/>
+<h1 style="color:White;">-  Subscribe and join us!  -</h1>	
+</div>
+	<h:form  id="formulaire-subscribe">	
+		    <fieldset>
+					<h3 style="color:white; font-weight: bolder;">Enter your informations</h3>
+	
+					
+		            <br />
+					<label>  Firstname : </label> <br />
 		            <p:inputText value="#{signoutBean.firstname}" required="true"/>
 		            <br />
-					<label>  Surname : </label> 
+					<label>  Surname : </label> <br />
 		            <p:inputText value="#{signoutBean.surname}" required="true"/>
 					<br />
-		            <label>  Login : </label> 
+		            <label>  Login : </label> <br />
 		            <p:inputText value="#{signoutBean.login}" feedback="true" required="true"/>
 		            <br />
-		            <label>  Password : </label> 
+		            <label>  Password : </label> <br />
 		            <p:password value="#{signoutBean.password}" feedback="true" required="true"/> 
 					<br />
-					<label> Confirm password : </label> 
+					<label> Confirm password : </label> <br />
 					<p:password value="#{signoutBean.confirmedPassword}" feedback="true" required="true" />
 					<br/>
-		            <label>  Email : </label> 
+		            <label>  Email : </label> <br />
 		            <p:inputText value="#{signoutBean.email}" required="true"/>
 		            <br />
-	        	</h:panelGrid>
 				<br />
 				<p:commandButton style="width:contain; color : white; background-color:green;" look="success" value="Create" action="#{signoutBean.create}" /><br />
-			</div>
-		</fieldset> 
-		</div>
+			</fieldset> 	
 	</h:form>
 
 </h:body>
