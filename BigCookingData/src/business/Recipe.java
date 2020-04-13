@@ -104,4 +104,13 @@ public class Recipe {
 		this.steps = steps;
 	}
 
+	public ArrayList<Integer> getCoordonnees() {
+		return coordonnees;
+	}
+
+	public void setCoordonnees(ArrayList<Integer> coordonnees) {
+		this.coordonnees = coordonnees;
+	}
+	
+
 }
