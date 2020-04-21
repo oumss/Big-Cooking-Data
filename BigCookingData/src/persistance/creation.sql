@@ -18,8 +18,8 @@ CREATE TABLE `user` (
     PRIMARY KEY (`id_user`)
 );
     
-     
-CREATE TABLE `ingredient` ( 
+    
+CREATE TABLE `ingredient` (
   `alim_grp_code`int(11) NOT NULL ,
   `alim_ssgrp_code` int(11) NOT NULL,
   `alim_ssssgrp_code` int(11) NOT NULL,
@@ -105,6 +105,7 @@ CREATE TABLE `recipe`(
     `id_ingredient_recipe` integer, 
     `picture` LONGBLOB, 
     `steps` varchar(1000), 
+    FOREIGN KEY (`id_ingredient_recipe`) REFERENCES `ingredient_recipe` (`id_ingredient_recipe`),
     PRIMARY KEY (`id_recipe`)
 );
     
@@ -135,7 +136,6 @@ CREATE TABLE `ingredient_recipe`(
     `id_ingredient_recipe` integer,
     `id_ingredient` integer, 
     `quantity` integer, 
-    FOREIGN KEY (`id_ingredient_recipe`) REFERENCES `recipe` (`id_recipe`),
     FOREIGN KEY (`id_ingredient`) REFERENCES `ingredient` (`id_ingredient`)
 );
      
