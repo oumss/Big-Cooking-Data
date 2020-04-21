@@ -19,7 +19,7 @@ CREATE TABLE `user` (
 );
     
     
-CREATE TABLE `ingredient` (
+CREATE TABLE `ingredient` ( 
   `alim_grp_code`int(11) NOT NULL ,
   `alim_ssgrp_code` int(11) NOT NULL,
   `alim_ssssgrp_code` int(11) NOT NULL,
