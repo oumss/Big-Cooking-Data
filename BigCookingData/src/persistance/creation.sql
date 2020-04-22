@@ -102,6 +102,7 @@ CREATE TABLE `recipe`(
     `time_total` varchar(100),
     `time_cooking` varchar(100),
     `utensils` varchar(100),
+    `ingredients_list` varchar(200),
     `id_ingredient_recipe` integer, 
     `picture` LONGBLOB, 
     `steps` varchar(1000), 
