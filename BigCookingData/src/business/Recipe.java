@@ -14,7 +14,7 @@ public class Recipe {
 	private String category;
 	private int difficutly;
 	private String steps;
-	public ArrayList<Integer> coordonnees = new ArrayList<Integer>();
+
 
 	public Recipe() {
 	}
@@ -104,13 +104,6 @@ public class Recipe {
 		this.steps = steps;
 	}
 
-	public ArrayList<Integer> getCoordonnees() {
-		return coordonnees;
-	}
-
-	public void setCoordonnees(ArrayList<Integer> coordonnees) {
-		this.coordonnees = coordonnees;
-	}
 	
 
 }
