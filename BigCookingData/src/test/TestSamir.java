@@ -3,7 +3,9 @@ package test;
 import business.Ingredient;
 import business.Recipe;
 import clean.SystemUtility;
+import learn.FirstPerceptronEntry;
 import learn.LearnUtility;
+import learn.PerceptronUtility;
 
 
 public class TestSamir {
@@ -11,8 +13,8 @@ public class TestSamir {
 	public static void main(String[] args) {
 		
 		//Ingredient ingredient = new Ingredient();
-		SystemUtility u = new SystemUtility();/*
-		ingredient.setAlim_nom_fr("compote de figues");
+		//SystemUtility u = new SystemUtility();
+		/*ingredient.setAlim_nom_fr("compote de figues");
 		System.out.println(ingredient.toString()+"\n");
 		
 		//u.transformIngredientName(ingredient);
@@ -23,7 +25,7 @@ public class TestSamir {
 		  
 
 
-		/**/
+		/*
 		Recipe r = new Recipe();
 		Ingredient a = new Ingredient();
 		a.setAlim_nom_fr("poulet");
@@ -43,7 +45,7 @@ public class TestSamir {
 		
 		System.out.println("\n\n");
 		
-		
+		*/
 		
 		/*
 		Ingredient ooo = new Ingredient();
@@ -56,6 +58,16 @@ public class TestSamir {
 		//LearnUtility lu = new LearnUtility();
 		//lu.initIngredientList();
 		//System.out.println(lu.getIngredientChoice().toString());
+		
+		FirstPerceptronEntry fpe = new FirstPerceptronEntry();
+		
+		PerceptronUtility pu = new PerceptronUtility();
+		
+		pu.initiIngredienttEntry(fpe);
+		
+		
+		
+	
 	}
 	
 
