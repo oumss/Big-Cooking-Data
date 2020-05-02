@@ -9,6 +9,9 @@ public class FirstPerceptronEntry {
 
 		private HashMap<Ingredient, Integer> ingredientEntry = new HashMap<Ingredient, Integer>();
 		private HashMap<Ingredient, Double> WeightEntry = new HashMap<Ingredient, Double>(2500);
+		private double pasApp = 0.1;
+		
+		
 		
 		public HashMap<Ingredient, Integer> getIngredientEntry() {
 			return ingredientEntry;
