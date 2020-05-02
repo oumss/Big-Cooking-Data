@@ -8,7 +8,7 @@ import business.Ingredient;
 public class FirstPerceptronEntry {
 
 		private HashMap<Ingredient, Integer> ingredientEntry = new HashMap<Ingredient, Integer>();
-		private HashMap<Ingredient, Double> WeightEntry = new HashMap<Ingredient, Double>(2500);
+		private HashMap<Ingredient, Double> WeightEntry = new HashMap<Ingredient, Double>();
 		private double pasApp = 0.1;
 		
 		
