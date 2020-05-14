@@ -118,4 +118,60 @@ public class IngredientPersistance {
 		}
 		return readIngredientList;
 	}
+	
+	
+	
+	
+	
+	public ArrayList<Integer> readAllSousCategorie() {
+		ArrayList<Integer> readSousCategorieList = new ArrayList<Integer>();
+		try {
+			String selectIngredientQuery = "SELECT DISTINCT alim_ssgrp_code FROM ingredient ";
+			java.sql.PreparedStatement preparedStatement = dbConnection.prepareStatement(selectIngredientQuery);
+			ResultSet result = preparedStatement.executeQuery();
+
+			while (result.next()) {
+				
+				int a = result.getInt("alim_ssgrp_code");
+				readSousCategorieList.add(a);
+			}
+			preparedStatement.close();
+
+		} catch (SQLException se) {
+			System.err.println(se.getMessage());
+		}
+		return readSousCategorieList;
+	}
+	
+	
+	
+	public ArrayList<Ingredient> readIngredientsBySousCategorie(int categorieCode) {
+		ArrayList<Ingredient> readIngredientList = new ArrayList<Ingredient>();
+		try {
+			String selectIngredientQuery = "SELECT * FROM ingredient WHERE alim_ssgrp_code = ? ";
+			java.sql.PreparedStatement preparedStatement = dbConnection.prepareStatement(selectIngredientQuery);
+			preparedStatement.setInt(1, categorieCode);
+			ResultSet result = preparedStatement.executeQuery();
+
+			while (result.next()) {
+				Ingredient readIngredient = new Ingredient();
+				
+				readIngredient.setId_ingredient(result.getInt("id_ingredient"));
+				readIngredient.setAlim_nom_fr(result.getString("alim_nom_fr"));
+				readIngredient.setAlim_grp_code(result.getInt("alim_grp_code"));
+				readIngredient.setAlim_ssgrp_code(result.getInt("alim_ssgrp_code"));
+				readIngredient.setAlim_ssssgrp_code(result.getInt("alim_ssssgrp_code"));
+				readIngredient.setPoids(result.getInt("poids"));
+				
+				readIngredientList.add(readIngredient);
+			}
+			preparedStatement.close();
+
+		} catch (SQLException se) {
+			System.err.println(se.getMessage());
+		}
+		return readIngredientList;
+	}
+	
+	
 }

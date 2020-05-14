@@ -6,6 +6,7 @@ import clean.SystemUtility;
 import learn.FirstPerceptronEntry;
 import learn.LearnUtility;
 import learn.PerceptronUtility;
+import persistance.IngredientPersistance;
 
 
 public class TestSamir {
@@ -58,14 +59,29 @@ public class TestSamir {
 		//LearnUtility lu = new LearnUtility();
 		//lu.initIngredientList();
 		//System.out.println(lu.getIngredientChoice().toString());
-		
+		/*
 		FirstPerceptronEntry fpe = new FirstPerceptronEntry();
 		
 		PerceptronUtility pu = new PerceptronUtility();
 		
 		pu.initiIngredienttEntry(fpe);
+		*/
+		
+		/*
+		IngredientPersistance ingp = new IngredientPersistance();
+		System.out.println(ingp.readAllSousCategorie());
+		System.out.println(ingp.readAllSousCategorie().size());
 		
 		
+		System.out.println("\n");
+		
+		System.out.println(ingp.readIngredientsBySousCategorie(205));
+		System.out.println(ingp.readIngredientsBySousCategorie(205).size());
+		*/
+		PerceptronUtility percepu = new PerceptronUtility();
+				
+		
+		percepu.CreatVectorRestultByGroupCode(205);
 		
 	
 	}
