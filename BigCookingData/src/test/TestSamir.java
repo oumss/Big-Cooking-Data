@@ -78,10 +78,10 @@ public class TestSamir {
 		System.out.println(ingp.readIngredientsBySousCategorie(205));
 		System.out.println(ingp.readIngredientsBySousCategorie(205).size());
 		*/
-		PerceptronUtility percepu = new PerceptronUtility();
+		//PerceptronUtility percepu = new PerceptronUtility();
 				
 		
-		percepu.CreatVectorRestultByGroupCode(205);
+		//percepu.creatAllResultVectorByGroup();
 		
 	
 	}

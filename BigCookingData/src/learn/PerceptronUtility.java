@@ -98,36 +98,8 @@ public class PerceptronUtility {
 		return result;
 	}
 
-	public ArrayList<HashMap<Ingredient, Double>> creatResultVectorByGroup() {
 
-		ArrayList<HashMap<Ingredient, Double>> result = new ArrayList<HashMap<Ingredient, Double>>();
-
-		IngredientPersistance ip = new IngredientPersistance();
-
-		ArrayList<Ingredient> ingredients = ip.readAllIngredient();
-
-		for (HashMap<Integer, ArrayList<Ingredient>> i : creatVectorByGroup()) {
-
-			HashMap<Ingredient, Double> vector = new HashMap<Ingredient, Double>();
-			ArrayList<ArrayList<Ingredient>> aaa = (ArrayList<ArrayList<Ingredient>>) i.values();
-			for (Ingredient ing : ingredients) {
-				if (i.values().contains(ing)) {
-					vector.put(ing, 1.0);
-					System.out.println("yes");
-				} else {
-					vector.put(ing, 0.0);
-					// System.out.println("no");
-				}
-
-			}
-
-			result.add(vector);
-
-		}
-		return result;
-	}
-
-	public HashMap<Ingredient, Double> CreatVectorRestultByGroupCode(int groupeCode) {
+	public HashMap<Ingredient, Double> creatVectorRestultByGroupCode(int groupeCode) {
 
 		IngredientPersistance ip = new IngredientPersistance();
 
@@ -145,6 +117,20 @@ public class PerceptronUtility {
 		}
 
 		return a;
+
+	}
+	
+	
+	public HashMap<Integer,HashMap<Ingredient, Double>> creatAllResultVectorByGroup() {
+		IngredientPersistance ip = new IngredientPersistance();
+		ArrayList<Integer> groupCode = ip.readAllSousCategorie();
+		HashMap<Integer,HashMap<Ingredient, Double>> result = new HashMap<Integer,HashMap<Ingredient,Double>>();
+		for (int group : groupCode) {
+			result.put(group,creatVectorRestultByGroupCode(group));
+		}
+		
+		return result;
+
 
 	}
 }
