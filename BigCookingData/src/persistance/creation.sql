@@ -1,16 +1,14 @@
-DROP TABLE `connexion`;
-DROP TABLE `weight_ingredient`;
-DROP TABLE `weight_recipe`;
-DROP TABLE `ingredient_recipe`;
-DROP TABLE `proposed_recipe_user`;
-DROP TABLE `recipe`;
-DROP TABLE `ingredient`;
-DROP TABLE `user`;
+DROP TABLE user ;
+DROP TABLE ingredient_recipe ;
+DROP TABLE ingredient;
 
+
+
+-- rajouter une tabole pour visite et pr like 
 -- NOMMER LA BD "bcd"
 
 CREATE TABLE `user` ( 
-	`id_user` integer, 
+	`id_user` integer AUTO_INCREMENT, 
     `surname` varchar(30), 
     `firstname` varchar(30), 
     `login` varchar(30), 
@@ -90,9 +88,15 @@ CREATE TABLE `ingredient` (
   `Vitamine B12 (�g/100g)` float DEFAULT NULL,
   `poids` int(11) NOT NULL
 );
+    
+CREATE TABLE `ingredient_recipe`( 
+    `id_ingredient_recipe` integer,
+    `id_ingredient` integer, 
+    FOREIGN KEY (`id_ingredient`) REFERENCES `ingredient` (`id_ingredient`)
+);
 
 CREATE TABLE `recipe`( 
-    `id_recipe` integer, 
+    `id_recipe` integer AUTO_INCREMENT, 
     `url` varchar(300),
     `title` varchar(100),
     `number_of_person` integer,
@@ -106,46 +110,53 @@ CREATE TABLE `recipe`(
     `id_ingredient_recipe` integer, 
     `picture` LONGBLOB, 
     `steps` varchar(1000), 
-    FOREIGN KEY (`id_ingredient_recipe`) REFERENCES `ingredient_recipe` (`id_ingredient_recipe`),
     PRIMARY KEY (`id_recipe`)
 );
     
 CREATE TABLE `connexion`( 
     `id_user` integer, 
     `date` varchar(30), 
-    PRIMARY KEY (`id_user`),
     FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`)
 ); 
     
 CREATE TABLE `weight_ingredient`( 
+    `id_weight_ingredient` integer AUTO_INCREMENT,
     `id_user` integer,
-    `id_ingredient` integer, 
+    `id_ingredient` integer,
     `weight_ingredient` integer, 
+    PRIMARY KEY (`id_weight_ingredient`),
     FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`),
     FOREIGN KEY (`id_ingredient`) REFERENCES `ingredient` (`id_ingredient`)
 );
-    
+ 
 CREATE TABLE `weight_recipe`( 
+    `id_weight_recipe` integer AUTO_INCREMENT,
     `id_user` integer,
     `id_recipe` integer, 
     `weight_recipe` integer, 
+    PRIMARY KEY (`id_weight_recipe`),
     FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`),
     FOREIGN KEY (`id_recipe`) REFERENCES `recipe` (`id_recipe`)
 );
-    
-CREATE TABLE `ingredient_recipe`( 
-    `id_ingredient_recipe` integer,
-    `id_ingredient` integer, 
-    `quantity` integer, 
-    FOREIGN KEY (`id_ingredient`) REFERENCES `ingredient` (`id_ingredient`)
-);
+
      
 CREATE TABLE `proposed_recipe_user`( 
+    `id_proposed_recipe_user` integer AUTO_INCREMENT,
     `id_user` integer,
     `id_recipe` integer,
     `visited` BOOLEAN,
+    PRIMARY KEY (`id_proposed_recipe_user`),
     FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`),
     FOREIGN KEY (`id_recipe`) REFERENCES `recipe` (`id_recipe`)  
 );
     
-
+CREATE TABLE `visits`( 
+    `id_visits` integer AUTO_INCREMENT,
+    `id_user` integer,
+    `id_recipe` integer,
+    `liked` BOOLEAN,
+    PRIMARY KEY (`id_visits`),
+    FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`),
+    FOREIGN KEY (`id_recipe`) REFERENCES `recipe` (`id_recipe`)  
+);
+    
