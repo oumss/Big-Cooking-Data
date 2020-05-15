@@ -98,18 +98,18 @@ CREATE TABLE `ingredient_recipe`(
 CREATE TABLE `recipe`( 
     `id_recipe` integer AUTO_INCREMENT, 
     `url` varchar(300),
-    `title` varchar(100),
+    `title` varchar(200),
     `number_of_person` integer,
     `level` integer,
     `budget` integer,
-    `category` varchar(100),
+    `category` text,
     `time_total` varchar(100),
     `time_cooking` varchar(100),
-    `utensils` varchar(100),
-    `ingredients_list` varchar(200),
+    `utensils` text,
+    `ingredients_list` text,
     `id_ingredient_recipe` integer, 
     `picture` LONGBLOB, 
-    `steps` varchar(1000), 
+    `steps` text, 
     PRIMARY KEY (`id_recipe`)
 );
     
