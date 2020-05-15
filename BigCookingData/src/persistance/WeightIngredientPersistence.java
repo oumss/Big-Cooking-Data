@@ -19,7 +19,7 @@ public class WeightIngredientPersistence {
 	public int readWeightByIdIngredient(int id_ingredient, User user) {
 		int id_user = user.getId();
 		int weight = 0;
-		try {
+		try { 
 			String selectUserQuery = "SELECT * FROM weight_ingredient WHERE id_user = ? and id_ingredient = ?";
 			java.sql.PreparedStatement preparedStatement = dbConnection.prepareStatement(selectUserQuery);
 			preparedStatement.setInt(1, id_user);
