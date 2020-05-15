@@ -17,6 +17,23 @@ public class VisitsPersistence {
 		this.dbConnection = ConnectionDB.getConnection();
 	}
 
+	public void  addVisitRecipe(User user, Recipe recipe) {
+		try {
+			int id_user = user.getId();
+			int id_recipe = recipe.getId();
+			String insertVisitQuery = "INSERT INTO `visits`(`id_user`,`id_recipe`,`liked`) VALUES (?,?,?)";
+			java.sql.PreparedStatement preparedStatement = dbConnection.prepareStatement(insertVisitQuery);
+			preparedStatement.setInt(1, id_user);
+			preparedStatement.setInt(2, id_recipe);
+			preparedStatement.setBoolean(3, false);
+			preparedStatement.executeQuery();
+			preparedStatement.close();
+
+		} catch (SQLException se) {
+			System.err.println(se.getMessage());
+		}
+	}
+	
 	public ArrayList<User>  readVisitsByIdRecipe(int id_recipe) {
 		ArrayList<User> usersVisits = new ArrayList<User>();
 		try {
