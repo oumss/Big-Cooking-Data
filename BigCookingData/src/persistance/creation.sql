@@ -1,8 +1,12 @@
-DROP TABLE user ;
 DROP TABLE ingredient_recipe ;
 DROP TABLE ingredient;
-
-
+DROP TABLE recipe ;
+DROP TABLE connexion;
+DROP TABLE weight_ingredient ;
+DROP TABLE weight_recipe;
+DROP TABLE proposed_recipe_user;
+DROP TABLE visits;
+DROP TABLE user ;
 
 -- rajouter une tabole pour visite et pr like 
 -- NOMMER LA BD "bcd"
@@ -91,8 +95,9 @@ CREATE TABLE `ingredient` (
 );
     
 CREATE TABLE `ingredient_recipe`( 
-    `id_ingredient_recipe` integer,
+    `id_recipe` integer,
     `id_ingredient` integer, 
+    FOREIGN KEY (`id_recipe`) REFERENCES `recipe` (`id_recipe`),
     FOREIGN KEY (`id_ingredient`) REFERENCES `ingredient` (`id_ingredient`)
 );
 
@@ -102,7 +107,7 @@ CREATE TABLE `recipe`(
     `title` varchar(200),
     `number_of_person` integer,
     `level` integer,
-    `budget` integer,
+    `budget` integer, 
     `category` text,
     `time_total` varchar(100),
     `time_cooking` varchar(100),
