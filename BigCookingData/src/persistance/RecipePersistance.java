@@ -24,8 +24,8 @@ public class RecipePersistance {
 			IngredientRecipePersistance ingredientRecipePersist = new IngredientRecipePersistance();
 			
 			while (result.next()) {
-				readRecipe.setId_recipe(result.getInt("id_recipe"));
-				readRecipe.setId_ingredient_recipe(result.getInt("id_ingredient_recipe"));
+				readRecipe.setId(result.getInt("id_recipe"));
+				readRecipe.setIdIngredients(result.getInt("id_ingredient_recipe"));
 				readRecipe.setName(result.getString("name"));
 				readRecipe.setPrice(result.getInt("price"));
 				readRecipe.setCategory(result.getString("category"));
@@ -54,15 +54,15 @@ public class RecipePersistance {
 			while (result.next()) {
 				Recipe readRecipe = new Recipe();
 
-				readRecipe.setId_recipe(result.getInt("id_recipe"));
-				readRecipe.setId_ingredient_recipe(result.getInt("id_ingredient_recipe"));
+				readRecipe.setId(result.getInt("id_recipe"));
+				readRecipe.setIdIngredients(result.getInt("id_ingredient_recipe"));
 				readRecipe.setName(result.getString("name"));
 				readRecipe.setPrice(result.getInt("price"));
 				readRecipe.setCategory(result.getString("category"));
 				readRecipe.setDifficutly(result.getInt("difficulty"));
 				readRecipe.setTime(result.getString("time"));
 				readRecipe.setSteps(result.getString("steps"));
-				readRecipe.setIngredientsMap(ingredientRecipePersist.readIngredientByIdRecipe(readRecipe.getId_recipe()));
+				readRecipe.setIngredientsMap(ingredientRecipePersist.readIngredientByIdRecipe(readRecipe.getId()));
 
 				readRecipeList.add(readRecipe);
 				System.out.println(readRecipe.getName());
@@ -84,15 +84,15 @@ public class RecipePersistance {
 			IngredientRecipePersistance ingredientRecipePersist = new IngredientRecipePersistance();
 
 			while (result.next()) {
-				readRecipe.setId_recipe(result.getInt("id_recipe"));
-				readRecipe.setId_ingredient_recipe(result.getInt("id_ingredient_recipe"));
+				readRecipe.setId(result.getInt("id_recipe"));
+				readRecipe.setIdIngredients(result.getInt("id_ingredient_recipe"));
 				readRecipe.setName(result.getString("name"));
 				readRecipe.setPrice(result.getInt("price"));
 				readRecipe.setCategory(result.getString("category"));
 				readRecipe.setDifficutly(result.getInt("difficulty"));
 				readRecipe.setTime(result.getString("time"));
 				readRecipe.setSteps(result.getString("steps"));
-				readRecipe.setIngredientsMap(ingredientRecipePersist.readIngredientByIdRecipe(readRecipe.getId_recipe()));
+				readRecipe.setIngredientsMap(ingredientRecipePersist.readIngredientByIdRecipe(readRecipe.getId()));
 			}
 			preparedStatement.close();
 

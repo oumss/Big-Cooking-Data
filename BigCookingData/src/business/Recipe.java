@@ -1,67 +1,40 @@
 package business;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Recipe {
 
-	private int id_recipe;
+	private int id;
 	private String name;
 	private String time;
-	private int id_ingredient_recipe;
+	private int idIngredients;
 	private HashMap<Ingredient, Integer> ingredientsMap = new HashMap<Ingredient, Integer>();
 	private int price;
 	private String category;
 	private int difficutly;
 	private String steps;
 
-
 	public Recipe() {
 	}
 
-	public Recipe(int id_recipe, String name, String time, int id_ingredient_recipe, int price, String category,
-			int difficutly, String steps) {
+	public Recipe(int id, String name, String time, int idIngredients, int price, String category, int difficutly,String steps) {
 		super();
-		this.id_recipe = id_recipe;
+		this.id = id;
 		this.name = name;
 		this.time = time;
-		this.id_ingredient_recipe = id_ingredient_recipe;
+		this.idIngredients = idIngredients;
 		this.price = price;
 		this.category = category;
 		this.difficutly = difficutly;
 		this.steps = steps;
 	}
 
-	public int getId_recipe() {
-		return id_recipe;
+	public int getId() {
+		return id;
 	}
 
-	public void setId_recipe(int id_recipe) {
-		this.id_recipe = id_recipe;
-	}
-
-	public int getId_ingredient_recipe() {
-		return id_ingredient_recipe;
-	}
-
-	public void setId_ingredient_recipe(int id_ingredient_recipe) {
-		this.id_ingredient_recipe = id_ingredient_recipe;
-	}
-
-	public int getPrice() {
-		return price;
-	}
-
-	public void setPrice(int price) {
-		this.price = price;
-	}
-
-	public String getCategory() {
-		return category;
-	}
-
-	public void setCategory(String category) {
-		this.category = category;
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getName() {
@@ -80,12 +53,12 @@ public class Recipe {
 		this.time = time;
 	}
 
-	public int getDifficutly() {
-		return difficutly;
+	public int getIdIngredients() {
+		return idIngredients;
 	}
 
-	public void setDifficutly(int difficutly) {
-		this.difficutly = difficutly;
+	public void setIdIngredients(int idIngredients) {
+		this.idIngredients = idIngredients;
 	}
 
 	public HashMap<Ingredient, Integer> getIngredientsMap() {
@@ -96,6 +69,30 @@ public class Recipe {
 		this.ingredientsMap = ingredientsMap;
 	}
 
+	public int getPrice() {
+		return price;
+	}
+
+	public void setPrice(int price) {
+		this.price = price;
+	}
+
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
+	}
+
+	public int getDifficutly() {
+		return difficutly;
+	}
+
+	public void setDifficutly(int difficutly) {
+		this.difficutly = difficutly;
+	}
+
 	public String getSteps() {
 		return steps;
 	}
@@ -103,7 +100,5 @@ public class Recipe {
 	public void setSteps(String steps) {
 		this.steps = steps;
 	}
-
-	
 
 }
