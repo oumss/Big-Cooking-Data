@@ -1,8 +1,12 @@
-DROP TABLE user ;
 DROP TABLE ingredient_recipe ;
 DROP TABLE ingredient;
-
-
+DROP TABLE recipe ;
+DROP TABLE connexion;
+DROP TABLE weight_ingredient ;
+DROP TABLE weight_recipe;
+DROP TABLE proposed_recipe_user;
+DROP TABLE visits;
+DROP TABLE user ;
 
 -- rajouter une tabole pour visite et pr like 
 -- NOMMER LA BD "bcd"
