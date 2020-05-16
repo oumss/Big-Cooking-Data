@@ -95,8 +95,9 @@ CREATE TABLE `ingredient` (
 );
     
 CREATE TABLE `ingredient_recipe`( 
-    `id_ingredient_recipe` integer,
+    `id_recipe` integer,
     `id_ingredient` integer, 
+    FOREIGN KEY (`id_recipe`) REFERENCES `recipe` (`id_recipe`),
     FOREIGN KEY (`id_ingredient`) REFERENCES `ingredient` (`id_ingredient`)
 );
 
