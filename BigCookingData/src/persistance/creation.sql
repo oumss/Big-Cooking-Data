@@ -107,7 +107,7 @@ CREATE TABLE `recipe`(
     `title` varchar(200),
     `number_of_person` integer,
     `level` integer,
-    `budget` integer,
+    `budget` integer, 
     `category` text,
     `time_total` varchar(100),
     `time_cooking` varchar(100),
