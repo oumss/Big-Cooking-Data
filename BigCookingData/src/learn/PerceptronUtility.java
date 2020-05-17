@@ -5,6 +5,8 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.aspectj.apache.bcel.generic.INVOKEVIRTUAL;
+
 import business.Ingredient;
 import persistance.IngredientPersistance;
 
@@ -77,8 +79,11 @@ public class PerceptronUtility {
 		return result;
 	}
 
-	// Fonction qui crée le vecteur de resultat attendu pour chaque catégories
-
+	
+	/**
+	 * Fonction qui crée une liste qui pour chaque groupe, crée le vecteur d'ingredient de ce groupe 
+	 * @return
+	 */
 	public ArrayList<HashMap<Integer, ArrayList<Ingredient>>> creatVectorByGroup() {
 		ArrayList<HashMap<Integer, ArrayList<Ingredient>>> result = new ArrayList<HashMap<Integer, ArrayList<Ingredient>>>();
 		IngredientPersistance ip = new IngredientPersistance();
@@ -103,7 +108,7 @@ public class PerceptronUtility {
 	 * @param groupeCode
 	 * @return
 	 */
-	public HashMap<Ingredient, Double> creatVectorRestultByGroupCode(int groupeCode) {
+	public HashMap<Ingredient, Double> creatVectorResultByGroupCode(int groupeCode) {
 
 		IngredientPersistance ip = new IngredientPersistance();
 
@@ -124,18 +129,40 @@ public class PerceptronUtility {
 
 	}
 	
-	// Fonction qui crée les vecteurs de resultat attendu pour chaque catégories
-	
+	/**
+	 * Fonction qui crée les vecteurs de resultat attendu pour chaque catégories
+	 * @return
+	 */
 	public HashMap<Integer,HashMap<Ingredient, Double>> creatAllResultVectorByGroup() {
 		IngredientPersistance ip = new IngredientPersistance();
 		ArrayList<Integer> groupCode = ip.readAllSousCategorie();
 		HashMap<Integer,HashMap<Ingredient, Double>> result = new HashMap<Integer,HashMap<Ingredient,Double>>();
 		for (int group : groupCode) {
-			result.put(group,creatVectorRestultByGroupCode(group));
+			result.put(group,creatVectorResultByGroupCode(group));
 		}
 		
 		return result;
 
 
+	}
+	
+	/**
+	 * Fonction HeavySide qui active ou non le neuron de la catégorie en question en fonction de son resultat de sortie
+	 * @param resultCalculSortie
+	 * @param groupeCode
+	 * @return
+	 */
+	
+	public boolean HeavySidePerceptron (double resultCalculSortie, int groupeCode) {
+
+		IngredientPersistance ip = new IngredientPersistance();
+		ArrayList<Ingredient> listIng = ip.readIngredientsBySousCategorie(groupeCode);
+		
+		if (resultCalculSortie >= (listIng.size()/5)) {
+			return true;
+		}
+		
+		
+		return false;
 	}
 }

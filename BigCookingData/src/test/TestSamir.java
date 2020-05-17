@@ -1,5 +1,7 @@
 package test;
 
+import java.util.ArrayList;
+
 import business.Ingredient;
 import business.Recipe;
 import clean.SystemUtility;
@@ -82,6 +84,31 @@ public class TestSamir {
 				
 		
 		//percepu.creatAllResultVectorByGroup();
+		
+		
+		IngredientPersistance ip = new IngredientPersistance();
+		ArrayList<Ingredient> listIng = ip.readIngredientsBySousCategorie(204);
+		System.out.println(listIng.size()/5);
+		System.out.println("\n");
+		/*ArrayList<Ingredient> listIng2 = ip.readIngredientsBySousCategorie(40);
+		ArrayList<Ingredient> listIng3 = ip.readIngredientsBySousCategorie(602);
+		ArrayList<Ingredient> listIng4 = ip.readIngredientsBySousCategorie(803);
+		
+		
+		System.out.println(listIng2.size()/5);
+		System.out.println("\n");
+		System.out.println(listIng3.size()/5);
+		System.out.println("\n");
+		System.out.println(listIng4.size()/5);
+		System.out.println("\n");*/
+		
+		
+		PerceptronUtility puti = new PerceptronUtility();
+		
+		System.out.println(puti.HeavySidePerceptron(18, 204));
+		
+		
+		
 		
 	
 	}
