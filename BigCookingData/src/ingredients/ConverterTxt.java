@@ -1,4 +1,4 @@
-package data_ingredient_class;
+package ingredients;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
