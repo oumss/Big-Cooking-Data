@@ -98,7 +98,11 @@ public class PerceptronUtility {
 		return result;
 	}
 
-	// Fonction qui crée le vecteur de resultat attendu pour chaque catégories
+	/**
+	 * Fonction qui crée le vecteur de resultat attendu pour une seule catégorie
+	 * @param groupeCode
+	 * @return
+	 */
 	public HashMap<Ingredient, Double> creatVectorRestultByGroupCode(int groupeCode) {
 
 		IngredientPersistance ip = new IngredientPersistance();
@@ -120,6 +124,7 @@ public class PerceptronUtility {
 
 	}
 	
+	// Fonction qui crée les vecteurs de resultat attendu pour chaque catégories
 	
 	public HashMap<Integer,HashMap<Ingredient, Double>> creatAllResultVectorByGroup() {
 		IngredientPersistance ip = new IngredientPersistance();
