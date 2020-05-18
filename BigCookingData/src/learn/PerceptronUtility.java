@@ -60,7 +60,7 @@ public class PerceptronUtility {
 		return weight + pasApp * (sortieD - sortie) * entry;
 	}
 
-	public boolean acceptSortie(int entry, double weight, int sortieD, double error) {
+	public boolean acceptSortie(int entry, double weight, int sortieD) {
 		if (Math.abs(calculSortieNeurone(entry, weight) - sortieD) < 0.1) {
 			return true;
 		}
@@ -108,20 +108,20 @@ public class PerceptronUtility {
 	 * @param groupeCode
 	 * @return
 	 */
-	public HashMap<Ingredient, Double> creatVectorResultByGroupCode(int groupeCode) {
+	public HashMap<Ingredient, Integer> creatVectorResultByGroupCode(int groupeCode) {
 
 		IngredientPersistance ip = new IngredientPersistance();
 
 		ArrayList<Ingredient> ingredients = ip.readAllIngredient();
 
-		HashMap<Ingredient, Double> a = new HashMap<Ingredient, Double>();
+		HashMap<Ingredient, Integer> a = new HashMap<Ingredient, Integer>();
 
 		for (Ingredient ing : ingredients) {
 			if (ing.getAlim_ssgrp_code() == groupeCode) {
-				a.put(ing, 1.0);
+				a.put(ing, 1);
 
 			} else {
-				a.put(ing, 0.0);
+				a.put(ing, 0);
 			}
 		}
 
@@ -133,10 +133,10 @@ public class PerceptronUtility {
 	 * Fonction qui crée les vecteurs de resultat attendu pour chaque catégories
 	 * @return
 	 */
-	public HashMap<Integer,HashMap<Ingredient, Double>> creatAllResultVectorByGroup() {
+	public HashMap<Integer,HashMap<Ingredient, Integer>> creatAllResultVectorByGroup() {
 		IngredientPersistance ip = new IngredientPersistance();
 		ArrayList<Integer> groupCode = ip.readAllSousCategorie();
-		HashMap<Integer,HashMap<Ingredient, Double>> result = new HashMap<Integer,HashMap<Ingredient,Double>>();
+		HashMap<Integer,HashMap<Ingredient, Integer>> result = new HashMap<Integer,HashMap<Ingredient,Integer>>();
 		for (int group : groupCode) {
 			result.put(group,creatVectorResultByGroupCode(group));
 		}
