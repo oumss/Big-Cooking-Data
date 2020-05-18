@@ -46,14 +46,19 @@ public class SearchBean implements Serializable {
 	}
 
 	public String search() {
+		int i = 0;
 		SearchEntry searchEntry = new SearchEntry(keyword, selectedCategories);
 		// ... traitement des entrées ...
 		searchEntry.combineEntry();
-		
+		ArrayList<Recipe> listRecette = new ArrayList<Recipe>();
 		RecipePersistance recipePersist = new RecipePersistance();
-		ArrayList<Recipe> recipesPersist = recipePersist.readAllRecipe();
-		System.out.println("recipesPersist = "+recipesPersist);
-		recipes.addAll(recipesPersist);
+		recipes.addAll(recipePersist.selectByKeyWord(keyword));
+		System.out.println(recipes.toString());
+
+		
+		//ArrayList<Recipe> recipesPersist = recipePersist.readAllRecipe();
+		//System.out.println("recipesPersist = "+recipesPersist);
+		//recipes.addAll(recipesPersist);
 		
 		// recipes = ...
 		return "results";

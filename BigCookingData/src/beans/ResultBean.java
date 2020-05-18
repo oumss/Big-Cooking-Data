@@ -18,7 +18,7 @@ public class ResultBean implements Serializable {
 	private SearchBean searchBean;
 	private static final long serialVersionUID = 6955508471291131931L;
 	private ArrayList<Recipe> recipes = new ArrayList<Recipe>();
-
+	private int idSelected;
 	public ResultBean() {
 	}
 
@@ -28,7 +28,9 @@ public class ResultBean implements Serializable {
 		System.out.println(recipes.size());
 	}
 	
-	public String select() {
+	public  String select(String id) {
+		System.out.println(id);
+		setIdSelected(Integer.valueOf(id));
 		return "";
 	}
 	
@@ -46,6 +48,14 @@ public class ResultBean implements Serializable {
 
 	public void setRecipes(ArrayList<Recipe> recipes) {
 		this.recipes = recipes;
+	}
+
+	public int getIdSelected() {
+		return idSelected;
+	}
+
+	public void setIdSelected(int idSelected) {
+		this.idSelected = idSelected;
 	}
 
 }
