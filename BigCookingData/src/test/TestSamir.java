@@ -87,7 +87,7 @@ public class TestSamir {
 		
 		
 		IngredientPersistance ip = new IngredientPersistance();
-		ArrayList<Ingredient> listIng = ip.readIngredientsBySousCategorie(204);
+		ArrayList<Ingredient> listIng = ip.readIngredientsBySousCategorie(602);
 		System.out.println(listIng.size()/5);
 		System.out.println("\n");
 		/*ArrayList<Ingredient> listIng2 = ip.readIngredientsBySousCategorie(40);
@@ -104,8 +104,8 @@ public class TestSamir {
 		
 		
 		PerceptronUtility puti = new PerceptronUtility();
-		
-		System.out.println(puti.HeavySidePerceptron(18, 204));
+		System.out.println(listIng.size());
+		System.out.println(puti.HeavySidePerceptron(5, 602));
 		
 		
 		
