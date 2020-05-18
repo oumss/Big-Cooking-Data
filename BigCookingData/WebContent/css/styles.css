@@ -9,10 +9,19 @@ body {
 	background-repeat:no-repeat;
 	background-size: cover;
 	resize: both;
+	max-height: 100%;
+	max-width: 100%;
 }
 
 label{
 	color:white;
+}
+
+#footer{
+	
+	position: absolute; bottom: 0; left: 0; right: 0;
+	
+	
 }
 
 /* Avant Connexion : ------------------------------------------------------------------------ */
