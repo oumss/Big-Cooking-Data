@@ -6,8 +6,10 @@ import java.util.Map;
 import business.Ingredient;
 
 public class FirstPerceptron {
+	
+	private FirstPerceptronEntry fpe = new FirstPerceptronEntry();
 
-	public boolean resultPerceptron(HashMap<Ingredient, Integer> ingredientEntry, double pasApp, int groupeCode) {
+	public boolean resultPerceptron(int groupeCode) {
 
 		/*
 		 * Algo Perceptron :
@@ -19,7 +21,7 @@ public class FirstPerceptron {
 		 * DEBUT:
 		 * 	bon = FALSE
 		 * 	i = 0
-		 * 	tant que i != 50 OU bon = FALSE
+		 * 	tant que i != 100 OU bon = FALSE
 		 * 		bon = TRUE
 		 * 		Pour chaque élément de ve faire
 		 *			sortie = ve.Integer x vp.Double 
@@ -39,11 +41,13 @@ public class FirstPerceptron {
 		 * 
 		 */
 		PerceptronUtility pu = new PerceptronUtility();
+		HashMap<Ingredient, Integer> ingredientEntry = fpe.getIngredientEntry();
+		double pasApp = fpe.getPasApp();
 		HashMap<Ingredient, Integer> vectorResultByGroupCode = pu.creatVectorResultByGroupCode(groupeCode);
 		HashMap<Ingredient, Double> weightEntry = pu.initiWeightEntry();
 		boolean bon = false;
 		int iteration = 0;
-		while(iteration != 50 && bon == false) {
+		while(iteration != 100 && bon == false) {
 			
 			bon = true;
 			for (Ingredient mapentry : ingredientEntry.keySet()) {
@@ -62,4 +66,8 @@ public class FirstPerceptron {
 		return pu.HeavySidePerceptron(resultat, groupeCode);
 		}
 
+	
+	
+	
+	
 }
