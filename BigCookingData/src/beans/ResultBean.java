@@ -1,6 +1,7 @@
 package beans;
 
 import java.io.Serializable;
+
 import java.util.ArrayList;
 
 import javax.annotation.PostConstruct;
@@ -10,7 +11,7 @@ import javax.faces.bean.SessionScoped;
 
 import business.Recipe;
 
-@ManagedBean
+@ManagedBean(name = "resultBean", eager = true)
 @SessionScoped
 public class ResultBean implements Serializable {
 
