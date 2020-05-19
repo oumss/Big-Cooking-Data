@@ -77,4 +77,12 @@ public class Ingredient {
 				+ ", id_ingredient=" + id_ingredient + "\n";
 	}
 
+	
+	public boolean equals(Ingredient i) {
+		if(this.getAlim_grp_code() == i.getAlim_grp_code() && this.getAlim_nom_fr() == i.getAlim_nom_fr() && this.getAlim_ssgrp_code() == i.getAlim_ssgrp_code() && this.getAlim_ssssgrp_code() == i.getAlim_ssssgrp_code() && this.getPoids() == i.getPoids() && this.getId_ingredient() == i.getId_ingredient()) {
+			return true;
+		}
+	
+		return false;
+	}
 }

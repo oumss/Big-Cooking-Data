@@ -1,11 +1,9 @@
 package learn;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.aspectj.apache.bcel.generic.INVOKEVIRTUAL;
 
 import business.Ingredient;
 import persistance.IngredientPersistance;
@@ -15,13 +13,13 @@ public class PerceptronUtility {
 	public PerceptronUtility() {
 	}
 
-	public HashMap<Ingredient, Double> initiWeightEntry() {
+	public HashMap<Ingredient, Double> initiWeightEntry(HashMap<Ingredient, Integer> ingredientEntry) {
 
-		IngredientPersistance ip = new IngredientPersistance();
-		ArrayList<Ingredient> a = ip.readAllIngredient();
+		//IngredientPersistance ip = new IngredientPersistance();
+		//ArrayList<Ingredient> a = ip.readAllIngredient();
 		HashMap<Ingredient, Double> weightEntry = new HashMap<Ingredient, Double>();
-		for (int i = 0; i < 2499; i++) {
-			weightEntry.put(a.get(i), Math.random());
+		for (Ingredient ing : ingredientEntry.keySet()) {
+			weightEntry.put(ing, Math.random());
 		}
 
 		/*
@@ -104,15 +102,15 @@ public class PerceptronUtility {
 	 * @param groupeCode
 	 * @return
 	 */
-	public HashMap<Ingredient, Integer> creatVectorResultByGroupCode(int groupeCode) {
+	public HashMap<Ingredient, Integer> creatVectorResultByGroupCode(HashMap<Ingredient, Integer> ingredientEntry, int groupeCode) {
 
-		IngredientPersistance ip = new IngredientPersistance();
+		//IngredientPersistance ip = new IngredientPersistance();
 
-		ArrayList<Ingredient> ingredients = ip.readAllIngredient();
+		//ArrayList<Ingredient> ingredients = ip.readAllIngredient();
 
 		HashMap<Ingredient, Integer> a = new HashMap<Ingredient, Integer>();
 
-		for (Ingredient ing : ingredients) {
+		for (Ingredient ing : ingredientEntry.keySet()) {
 			if (ing.getAlim_ssgrp_code() == groupeCode) {
 				a.put(ing, 1);
 
@@ -129,19 +127,19 @@ public class PerceptronUtility {
 	 * Fonction qui crée les vecteurs de resultat attendu pour chaque catégories
 	 * @return
 	 */
-	public HashMap<Integer,HashMap<Ingredient, Integer>> creatAllResultVectorByGroup() {
+/*	public HashMap<Integer,HashMap<Ingredient, Integer>> creatAllResultVectorByGroup(HashMap<Ingredient, Integer> ingredientEntry) {
 		IngredientPersistance ip = new IngredientPersistance();
 		ArrayList<Integer> groupCode = ip.readAllSousCategorie();
 		HashMap<Integer,HashMap<Ingredient, Integer>> result = new HashMap<Integer,HashMap<Ingredient,Integer>>();
 		for (int group : groupCode) {
-			result.put(group,creatVectorResultByGroupCode(group));
+			result.put(group,creatVectorResultByGroupCode(ingredientEntry,group));
 		}
 		
 		return result;
 
 
 	}
-	
+*/	
 	/**
 	 * Fonction HeavySide qui active ou non le neuron de la catégorie en question en fonction de son resultat de sortie
 	 * @param resultCalculSortie
@@ -154,7 +152,7 @@ public class PerceptronUtility {
 		IngredientPersistance ip = new IngredientPersistance();
 		ArrayList<Ingredient> listIng = ip.readIngredientsBySousCategorie(groupeCode);
 		
-		if (resultCalculSortie >= (listIng.size()/5)) {
+		if (resultCalculSortie >= (listIng.size())) {
 			return true;
 		}
 		
