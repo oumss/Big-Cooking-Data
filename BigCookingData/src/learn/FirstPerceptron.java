@@ -7,7 +7,7 @@ import business.Ingredient;
 
 public class FirstPerceptron {
 
-	public boolean resultPerceptron(HashMap<Ingredient, Integer> ingredientEntry, HashMap<Ingredient, Double> weightEntry, HashMap<Ingredient, Integer> vectorResultByGroupCode, double pasApp, int groupeCode) {
+	public boolean resultPerceptron(HashMap<Ingredient, Integer> ingredientEntry, double pasApp, int groupeCode) {
 
 		/*
 		 * Algo Perceptron :
@@ -39,6 +39,8 @@ public class FirstPerceptron {
 		 * 
 		 */
 		PerceptronUtility pu = new PerceptronUtility();
+		HashMap<Ingredient, Integer> vectorResultByGroupCode = pu.creatVectorResultByGroupCode(groupeCode);
+		HashMap<Ingredient, Double> weightEntry = pu.initiWeightEntry();
 		boolean bon = false;
 		int iteration = 0;
 		while(iteration != 50 && bon == false) {

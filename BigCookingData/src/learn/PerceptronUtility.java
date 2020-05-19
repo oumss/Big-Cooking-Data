@@ -15,13 +15,13 @@ public class PerceptronUtility {
 	public PerceptronUtility() {
 	}
 
-	public void initiWeightEntry(FirstPerceptronEntry perceptronEntry) {
+	public HashMap<Ingredient, Double> initiWeightEntry() {
 
 		IngredientPersistance ip = new IngredientPersistance();
 		ArrayList<Ingredient> a = ip.readAllIngredient();
-
+		HashMap<Ingredient, Double> weightEntry = new HashMap<Ingredient, Double>();
 		for (int i = 0; i < 2499; i++) {
-			perceptronEntry.getWeightEntry().put(a.get(i), Math.random());
+			weightEntry.put(a.get(i), Math.random());
 		}
 
 		/*
@@ -32,8 +32,9 @@ public class PerceptronUtility {
 		 * System.out.println("\n"); }
 		 * System.out.println(perceptronEntry.getWeightEntry().size());
 		 */
+		return weightEntry;
 	}
-
+/*
 	public void initiIngredienttEntry(FirstPerceptronEntry perceptronEntry) {
 
 		IngredientPersistance ip = new IngredientPersistance();
@@ -42,15 +43,10 @@ public class PerceptronUtility {
 		for (int i = 0; i < 2499; i++) {
 			perceptronEntry.getWeightEntry().put(a.get(i), 0.0);
 		}
-		/*
-		 * for(Map.Entry<Ingredient,Double> mapEntry :
-		 * perceptronEntry.getWeightEntry().entrySet()) {
-		 * System.out.println(mapEntry.getValue());
-		 * System.out.println(mapEntry.getKey().getId_ingredient());
-		 * System.out.println("\n"); }
-		 * System.out.println(perceptronEntry.getWeightEntry().size());
-		 */
 	}
+		*/
+	
+
 
 	public double calculSortieNeurone(int entry, double weight) {
 		return entry * weight;
