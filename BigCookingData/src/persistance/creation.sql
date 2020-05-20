@@ -92,7 +92,7 @@ CREATE TABLE `ingredient` (
   `Vitamine B12 (ug/100g)` float DEFAULT NULL,
   `poids` int(11) NOT NULL,
   PRIMARY KEY (`id_ingredient`)
-);
+); 
     
 CREATE TABLE `ingredient_recipe`( 
     `id_recipe` integer,
