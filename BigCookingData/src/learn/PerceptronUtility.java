@@ -55,13 +55,24 @@ public class PerceptronUtility {
 	}
 
 	public boolean acceptSortie(int entry, double weight, int sortieD) {
-		if (Math.abs(calculSortieNeurone(entry, weight) - sortieD) < 0.1) {
+		if (Math.abs(calculSortieNeurone(entry, weight) - sortieD) < 0.0001) {
 			return true;
 		}
 		return false;
 	}
 
 	public double calculSortiePerceptron(HashMap<Ingredient, Integer> perEntry, HashMap<Ingredient, Double> weight) {
+		double result = 0.0;
+		for (Ingredient mapPerEntry : perEntry.keySet()) {
+					result = result + calculSortieNeurone(perEntry.get(mapPerEntry), weight.get(mapPerEntry));
+				}
+		return result;
+	}
+/*ça c'est pour garder l'ancienne fonction calculSortiePerceptron
+ * 
+ * 
+ * 
+ * 	public double calculSortiePerceptron(HashMap<Ingredient, Integer> perEntry, HashMap<Ingredient, Double> weight) {
 		double result = 0.0;
 		for (Map.Entry<Ingredient, Integer> mapPerEntry : perEntry.entrySet()) {
 			for (Map.Entry<Ingredient, Double> mapWeight : weight.entrySet()) {
@@ -72,7 +83,7 @@ public class PerceptronUtility {
 		}
 		return result;
 	}
-
+ */
 	
 	/**
 	 * Fonction qui crée une liste qui pour chaque groupe, crée le vecteur d'ingredient de ce groupe 
@@ -151,8 +162,8 @@ public class PerceptronUtility {
 
 		IngredientPersistance ip = new IngredientPersistance();
 		ArrayList<Ingredient> listIng = ip.readIngredientsBySousCategorie(groupeCode);
-		
-		if (resultCalculSortie >= (listIng.size())) {
+		double size = listIng.size();
+		if (resultCalculSortie >= (size/2)) {
 			return true;
 		}
 		

@@ -154,14 +154,67 @@ public class TestSamir {
 		}
 		//System.out.println(fpe.getIngredientEntry());
 		
+		int test = 0;
+		for (Ingredient ing : fpe.getIngredientEntry().keySet()) {
+			if(fpe.getIngredientEntry().get(ing)==1 && ing.getAlim_ssgrp_code()!= 401) {
+			test ++;
+			}
+			//System.out.println(ing);
+			//System.out.println(fpe.getIngredientEntry().get(ing));
+			
+		}
+		
+		HashMap<Ingredient, Integer> vectorResultByGroupCode = pu.creatVectorResultByGroupCode(fpe.getIngredientEntry(),401);
+		
+		int test10 = 0;
+		for (Ingredient ing : vectorResultByGroupCode.keySet()) {
+			if(vectorResultByGroupCode.get(ing)==1 && ing.getAlim_ssgrp_code()== 401) {
+			test10 ++;
+			}
+			//System.out.println(ing);
+			//System.out.println(fpe.getIngredientEntry().get(ing));
+			
+		}
+		System.out.println(test10);
+		System.out.println(test);
+		System.out.println("\n");
+		System.out.println("\n");
+		System.out.println("\n");
+		System.out.println("\n");
+		
 		FirstPerceptron fp = new FirstPerceptron(fpe, pu) ;
 
 		
 		
-		//System.out.println(fp.resultAllPerceptron());
+		System.out.println(fp.resultAllPerceptron());
+		/*System.out.println(fp.resultPerceptron(905));
 		System.out.println(fp.resultPerceptron(401));
-		System.out.println(fp.resultPerceptron(905));
 		System.out.println(fp.resultPerceptron(603));
+		System.out.println(fp.resultPerceptron(0));
+		System.out.println(fp.resultPerceptron(40));
+		System.out.println(fp.resultPerceptron(1104));
+		System.out.println(fp.resultPerceptron(702));*/
+		
+		
+		
+		System.out.println("\n");
+		System.out.println("\n");
+		IngredientPersistance ip3 = new IngredientPersistance();
+		ArrayList<Ingredient> listIng = ip3.readIngredientsBySousCategorie(905);
+		System.out.println("taille de 905 :" +listIng.size());
+		ArrayList<Ingredient> listIng2 = ip3.readIngredientsBySousCategorie(401);
+		System.out.println("taille de 401 :" + listIng2.size());
+		ArrayList<Ingredient> listIng3 = ip3.readIngredientsBySousCategorie(603);
+		System.out.println("taille de 603 :" +listIng3.size());
+		
+		ArrayList<Ingredient> listIng4 = ip3.readIngredientsBySousCategorie(0);
+		System.out.println("taille de 0 :" +listIng4.size());
+		ArrayList<Ingredient> listIng5 = ip3.readIngredientsBySousCategorie(40);
+		System.out.println("taille de 40 :" +listIng5.size());
+		ArrayList<Ingredient> listIng6 = ip3.readIngredientsBySousCategorie(1104);
+		System.out.println("taille de 1104 :" +listIng6.size());
+		ArrayList<Ingredient> listIng7 = ip3.readIngredientsBySousCategorie(702);
+		System.out.println("taille de 702 :" +listIng7.size());
 		
 		
 		

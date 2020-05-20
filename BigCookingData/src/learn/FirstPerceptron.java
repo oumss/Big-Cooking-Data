@@ -19,16 +19,27 @@ public class FirstPerceptron {
 
 	public boolean resultPerceptron(int groupeCode) {
 		double pasApp = fpe.getPasApp();
-		IngredientPersistance ip = new IngredientPersistance();
-		ArrayList<Ingredient> ing = ip.readAllIngredient();
 		HashMap<Ingredient, Integer> ingredientEntry = fpe.getIngredientEntry();
 		HashMap<Ingredient, Double> weightEntry = pu.initiWeightEntry(ingredientEntry);
 		HashMap<Ingredient, Integer> vectorResultByGroupCode = pu.creatVectorResultByGroupCode(ingredientEntry,
 				groupeCode);
+		
+		/*
+		int test = 0;
+		for (Ingredient i : vectorResultByGroupCode.keySet()) {
+			
+			if(vectorResultByGroupCode.get(i)>0.9) {
+				test ++;
+			}
+			
+		}
+		System.out.println(test);
+		*/
+		
 		boolean bon = false;
 		int iteration = 0;
 		
-		while (iteration != 100 && bon == false) {
+		while (iteration != 10000 && bon == false) {
 			
 			bon = true;
 			for (Ingredient mapentry : ingredientEntry.keySet()) {
@@ -59,7 +70,42 @@ public class FirstPerceptron {
 			}
 			iteration++;
 		}
+		/*
+		double res = 0;
+		double res2 = 0;
+		int it =0;
+		for (Ingredient i : ingredientEntry.keySet()) {
+			if(ingredientEntry.get(i) == 1) {
+			res = res + ingredientEntry.get(i)*weightEntry.get(i);
+			it++;
+			}
+			else {
+				res2 = res2 + ingredientEntry.get(i)*weightEntry.get(i);
+			}
+		
+		}
+		System.out.println(res);
+		System.out.println(res2);
+		System.out.println(it);*/
+		/*
+		int test1 = 0;
+		int test3 = 0;
+		for (Ingredient i : weightEntry.keySet()) {
+			
+			if(weightEntry.get(i)>0.9) {
+				test1 ++;
+			}
+			else {
+				test3++;
+			}
+			
+		}
+		System.out.println(test1);
+		System.out.println(test3);*/
+		/*
+		System.out.println(ingredientEntry.values());*/
 		double resultat = pu.calculSortiePerceptron(ingredientEntry, weightEntry);
+		//System.out.println(resultat);
 		return pu.HeavySidePerceptron(resultat, groupeCode);
 	}
 
