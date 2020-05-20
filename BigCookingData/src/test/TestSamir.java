@@ -1,12 +1,11 @@
 package test;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import business.Ingredient;
-import business.Recipe;
-import clean.SystemUtility;
+import learn.FirstPerceptron;
 import learn.FirstPerceptronEntry;
-import learn.LearnUtility;
 import learn.PerceptronUtility;
 import persistance.IngredientPersistance;
 
@@ -87,9 +86,8 @@ public class TestSamir {
 		
 		
 		IngredientPersistance ip = new IngredientPersistance();
-		ArrayList<Ingredient> listIng = ip.readIngredientsBySousCategorie(602);
-		System.out.println(listIng.size()/5);
-		System.out.println("\n");
+		/*System.out.println(listIng.size()/5);
+		System.out.println("\n");*/
 		/*ArrayList<Ingredient> listIng2 = ip.readIngredientsBySousCategorie(40);
 		ArrayList<Ingredient> listIng3 = ip.readIngredientsBySousCategorie(602);
 		ArrayList<Ingredient> listIng4 = ip.readIngredientsBySousCategorie(803);
@@ -102,15 +100,83 @@ public class TestSamir {
 		System.out.println(listIng4.size()/5);
 		System.out.println("\n");*/
 		
-		
+		/*
 		PerceptronUtility puti = new PerceptronUtility();
 		System.out.println(listIng.size());
 		System.out.println(puti.HeavySidePerceptron(5, 602));
+		*/
 		
 		
 		
 		
-	
+		
+		/*
+		PerceptronUtility pu = new PerceptronUtility();
+		HashMap<Ingredient, Double> k = pu.initiWeightEntry();
+		FirstPerceptronEntry fpe = new FirstPerceptronEntry();
+		
+		ArrayList<Ingredient> a = ip.readAllIngredient();
+		for (int i = 0; i < 2499; i++) {
+			fpe.getIngredientEntry().put(a.get(i), 0);
+			
+		}
+		System.out.println(k);
+		System.out.println(k.size());
+		System.out.println(fpe.getIngredientEntry().size());
+		
+		for(Ingredient i : k.keySet()) {
+			System.out.println(fpe.getIngredientEntry().get(i));
+			System.out.println(k.get(i));
+			double sortie = fpe.getIngredientEntry().get(i)*k.get(i);
+			System.out.println(sortie);
+		}
+		
+		
+		
+		
+		
+		*/
+		FirstPerceptronEntry fpe = new FirstPerceptronEntry();
+		PerceptronUtility pu = new PerceptronUtility();
+		//System.out.println(pu.initiWeightEntry());
+		ArrayList<Ingredient> a = ip.readAllIngredient();
+		//System.out.println(a.size());
+		for (Ingredient ing : a) {
+			if(ing.getAlim_ssgrp_code() == 401) {
+			fpe.getIngredientEntry().put(ing, 1);
+			}
+			else {
+				fpe.getIngredientEntry().put(ing, 0);
+			}
+			//System.out.println(ing);
+			//System.out.println(fpe.getIngredientEntry().get(ing));
+			
+		}
+		//System.out.println(fpe.getIngredientEntry());
+		
+		FirstPerceptron fp = new FirstPerceptron(fpe, pu) ;
+
+		
+		
+		//System.out.println(fp.resultAllPerceptron());
+		System.out.println(fp.resultPerceptron(401));
+		System.out.println(fp.resultPerceptron(905));
+		System.out.println(fp.resultPerceptron(603));
+		
+		
+		
+		/*IngredientPersistance ip1 = new IngredientPersistance();
+		System.out.println(ip1.readIngredientsBySousCategorie(905).size());
+		System.out.println(ip1.readIngredientsBySousCategorie(802).size());
+		System.out.println(ip1.readIngredientsBySousCategorie(600).size());
+		System.out.println(ip1.readIngredientsBySousCategorie(904).size());
+*/
+		/*
+		for(Integer i : fp.resultAllPerceptron().keySet()) {
+			if(fp.resultAllPerceptron().get(i)) {
+				System.out.println(fp.resultAllPerceptron().get(i));
+			}
+		}*/
 	}
 	
 
