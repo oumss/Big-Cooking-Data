@@ -7,6 +7,8 @@ import business.Ingredient;
 import learn.FirstPerceptron;
 import learn.FirstPerceptronEntry;
 import learn.PerceptronUtility;
+import learn.SecondPerceptron;
+import learn.SecondPerceptronEntry;
 import persistance.IngredientPersistance;
 
 
@@ -85,7 +87,7 @@ public class TestSamir {
 		//percepu.creatAllResultVectorByGroup();
 		
 		
-		IngredientPersistance ip = new IngredientPersistance();
+		//IngredientPersistance ip = new IngredientPersistance();
 		/*System.out.println(listIng.size()/5);
 		System.out.println("\n");*/
 		/*ArrayList<Ingredient> listIng2 = ip.readIngredientsBySousCategorie(40);
@@ -136,6 +138,23 @@ public class TestSamir {
 		
 		
 		*/
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		/*
 		FirstPerceptronEntry fpe = new FirstPerceptronEntry();
 		PerceptronUtility pu = new PerceptronUtility();
 		//System.out.println(pu.initiWeightEntry());
@@ -195,7 +214,7 @@ public class TestSamir {
 		System.out.println(fp.resultPerceptron(1104));
 		System.out.println(fp.resultPerceptron(702));*/
 		
-		
+		/*
 		
 		System.out.println("\n");
 		System.out.println("\n");
@@ -230,7 +249,38 @@ public class TestSamir {
 				System.out.println(fp.resultAllPerceptron().get(i));
 			}
 		}*/
-	}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		IngredientPersistance ip = new IngredientPersistance();
+		FirstPerceptronEntry fpe = new FirstPerceptronEntry();
+		PerceptronUtility pu = new PerceptronUtility();
+		
+		ArrayList<Ingredient> a = ip.readAllIngredient();
+		for (Ingredient ing : a) {
+			if(ing.getAlim_ssgrp_code() == 401) {
+			fpe.getIngredientEntry().put(ing, 1);
+			}
+			else {
+				fpe.getIngredientEntry().put(ing, 0);
+			}
+			
+		}	
+		FirstPerceptron fp = new FirstPerceptron(fpe, pu);	
+		
+		//System.out.println(fp.resultAllPerceptron());
+		SecondPerceptronEntry spe = new SecondPerceptronEntry(fpe, pu, fp);
+		
+		SecondPerceptron sp = new SecondPerceptron(spe);
+		
+		System.out.println(sp.resultPercep());
 	
-
+	
+	}
 }

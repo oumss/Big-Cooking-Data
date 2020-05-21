@@ -11,6 +11,8 @@ public class FirstPerceptron {
 	private FirstPerceptronEntry fpe = new FirstPerceptronEntry();
 	private PerceptronUtility pu = new PerceptronUtility();
 
+	public FirstPerceptron() {
+	}
 	public FirstPerceptron(FirstPerceptronEntry fpe, PerceptronUtility pu) {
 		super();
 		this.fpe = fpe;
@@ -39,7 +41,7 @@ public class FirstPerceptron {
 		boolean bon = false;
 		int iteration = 0;
 		
-		while (iteration != 10000 && bon == false) {
+		while (iteration != 1000 && bon == false) {
 			
 			bon = true;
 			for (Ingredient mapentry : ingredientEntry.keySet()) {
