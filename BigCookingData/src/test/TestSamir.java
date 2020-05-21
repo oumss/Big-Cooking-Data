@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import business.Ingredient;
+import clean.SystemUtility;
 import learn.FirstPerceptron;
 import learn.FirstPerceptronEntry;
 import learn.PerceptronUtility;
@@ -16,16 +17,16 @@ public class TestSamir {
 
 	public static void main(String[] args) {
 		
-		//Ingredient ingredient = new Ingredient();
-		//SystemUtility u = new SystemUtility();
-		/*ingredient.setAlim_nom_fr("compote de figues");
+		Ingredient ingredient = new Ingredient();
+		SystemUtility u = new SystemUtility();
+		ingredient.setAlim_nom_fr("");
 		System.out.println(ingredient.toString()+"\n");
 		
 		//u.transformIngredientName(ingredient);
 		//System.out.println(ingredient.toString()+"\n");
 		
 		ingredient = u.associateIngredient(ingredient);
-		System.out.println(ingredient.toString());*/
+		System.out.println(ingredient.toString());/**/
 		  
 
 
@@ -255,7 +256,7 @@ public class TestSamir {
 		
 		
 		
-		
+		/*
 		
 		
 		IngredientPersistance ip = new IngredientPersistance();
@@ -281,6 +282,6 @@ public class TestSamir {
 		
 		System.out.println(sp.resultPercep());
 	
-	
+	*/
 	}
 }

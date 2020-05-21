@@ -13,11 +13,9 @@ public class SecondPerceptron {
 	private SecondPerceptronEntry spe = new SecondPerceptronEntry();
 
 	public SecondPerceptron() {
-		super();
 	}
 
 	public SecondPerceptron(SecondPerceptronEntry spe) {
-		super();
 		this.spe = spe;
 	}
 
@@ -54,6 +52,8 @@ public class SecondPerceptron {
 		return result;
 	}
 
+	
+	
 	public ArrayList<Recipe> resultPercepInit(HashMap<Integer, Boolean> entry) {
 		IngredientPersistance ip = new IngredientPersistance();
 		RecipePersistance rp = new RecipePersistance();
