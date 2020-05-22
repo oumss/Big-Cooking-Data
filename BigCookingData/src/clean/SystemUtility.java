@@ -102,7 +102,7 @@ public class SystemUtility {
 
 		for (String word : this.wordToDelet) {
 			if (ingredient.getAlim_nom_fr().contains(word)) {
-				ingredient.setAlim_nom_fr(ingredient.getAlim_nom_fr().replaceAll(word, " "));
+					ingredient.setAlim_nom_fr(ingredient.getAlim_nom_fr().replaceAll(word, " "));
 			}
 		}
 

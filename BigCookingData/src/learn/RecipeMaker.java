@@ -5,14 +5,16 @@ import java.util.HashMap;
 
 import business.Ingredient;
 import business.Recipe;
+import business.User;
+import persistance.IngredientPersistance;
+import persistance.WeightIngredientPersistence;
 
 public class RecipeMaker {
 	
-	public ArrayList<Recipe> proposition(HashMap<Ingredient, Integer> entry){
-		
-		FirstPerceptronEntry fpe = new FirstPerceptronEntry(entry);
+	public ArrayList<Recipe> proposition(User user){
 		PerceptronUtility pu = new PerceptronUtility();
-		
+		FirstPerceptronEntry fpe = new FirstPerceptronEntry(pu.vectorEntry(user));
+	
 		FirstPerceptron fp = new FirstPerceptron(fpe, pu);
 		
 		SecondPerceptronEntry spe = new SecondPerceptronEntry(fpe, pu, fp);

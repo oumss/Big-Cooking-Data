@@ -3,9 +3,10 @@ package learn;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-
 import business.Ingredient;
+import business.User;
 import persistance.IngredientPersistance;
+import persistance.WeightIngredientPersistence;
 
 public class PerceptronUtility {
 
@@ -14,8 +15,8 @@ public class PerceptronUtility {
 
 	public HashMap<Ingredient, Double> initiWeightEntry(HashMap<Ingredient, Integer> ingredientEntry) {
 
-		//IngredientPersistance ip = new IngredientPersistance();
-		//ArrayList<Ingredient> a = ip.readAllIngredient();
+		// IngredientPersistance ip = new IngredientPersistance();
+		// ArrayList<Ingredient> a = ip.readAllIngredient();
 		HashMap<Ingredient, Double> weightEntry = new HashMap<Ingredient, Double>();
 		for (Ingredient ing : ingredientEntry.keySet()) {
 			weightEntry.put(ing, Math.random());
@@ -31,19 +32,15 @@ public class PerceptronUtility {
 		 */
 		return weightEntry;
 	}
-/*
-	public void initiIngredienttEntry(FirstPerceptronEntry perceptronEntry) {
-
-		IngredientPersistance ip = new IngredientPersistance();
-		ArrayList<Ingredient> a = ip.readAllIngredient();
-
-		for (int i = 0; i < 2499; i++) {
-			perceptronEntry.getWeightEntry().put(a.get(i), 0.0);
-		}
-	}
-		*/
-	
-
+	/*
+	 * public void initiIngredienttEntry(FirstPerceptronEntry perceptronEntry) {
+	 * 
+	 * IngredientPersistance ip = new IngredientPersistance(); ArrayList<Ingredient>
+	 * a = ip.readAllIngredient();
+	 * 
+	 * for (int i = 0; i < 2499; i++) {
+	 * perceptronEntry.getWeightEntry().put(a.get(i), 0.0); } }
+	 */
 
 	public double calculSortieNeurone(int entry, double weight) {
 		return entry * weight;
@@ -63,29 +60,28 @@ public class PerceptronUtility {
 	public double calculSortiePerceptron(HashMap<Ingredient, Integer> perEntry, HashMap<Ingredient, Double> weight) {
 		double result = 0.0;
 		for (Ingredient mapPerEntry : perEntry.keySet()) {
-					result = result + calculSortieNeurone(perEntry.get(mapPerEntry), weight.get(mapPerEntry));
-				}
-		return result;
-	}
-/*ça c'est pour garder l'ancienne fonction calculSortiePerceptron
- * 
- * 
- * 
- * 	public double calculSortiePerceptron(HashMap<Ingredient, Integer> perEntry, HashMap<Ingredient, Double> weight) {
-		double result = 0.0;
-		for (Map.Entry<Ingredient, Integer> mapPerEntry : perEntry.entrySet()) {
-			for (Map.Entry<Ingredient, Double> mapWeight : weight.entrySet()) {
-				if (mapPerEntry.getKey().equals(mapWeight.getKey())) {
-					result = result + calculSortieNeurone(mapPerEntry.getValue(), mapWeight.getValue());
-				}
-			}
+			result = result + calculSortieNeurone(perEntry.get(mapPerEntry), weight.get(mapPerEntry));
 		}
 		return result;
 	}
- */
-	
+	/*
+	 * ça c'est pour garder l'ancienne fonction calculSortiePerceptron
+	 * 
+	 * 
+	 * 
+	 * public double calculSortiePerceptron(HashMap<Ingredient, Integer> perEntry,
+	 * HashMap<Ingredient, Double> weight) { double result = 0.0; for
+	 * (Map.Entry<Ingredient, Integer> mapPerEntry : perEntry.entrySet()) { for
+	 * (Map.Entry<Ingredient, Double> mapWeight : weight.entrySet()) { if
+	 * (mapPerEntry.getKey().equals(mapWeight.getKey())) { result = result +
+	 * calculSortieNeurone(mapPerEntry.getValue(), mapWeight.getValue()); } } }
+	 * return result; }
+	 */
+
 	/**
-	 * Fonction qui crée une liste qui pour chaque groupe, crée le vecteur d'ingredient de ce groupe 
+	 * Fonction qui crée une liste qui pour chaque groupe, crée le vecteur
+	 * d'ingredient de ce groupe
+	 * 
 	 * @return
 	 */
 	public ArrayList<HashMap<Integer, ArrayList<Ingredient>>> creatVectorByGroup() {
@@ -109,14 +105,16 @@ public class PerceptronUtility {
 
 	/**
 	 * Fonction qui crée le vecteur de resultat attendu pour une seule catégorie
+	 * 
 	 * @param groupeCode
 	 * @return
 	 */
-	public HashMap<Ingredient, Integer> creatVectorResultByGroupCode(HashMap<Ingredient, Integer> ingredientEntry, int groupeCode) {
+	public HashMap<Ingredient, Integer> creatVectorResultByGroupCode(HashMap<Ingredient, Integer> ingredientEntry,
+			int groupeCode) {
 
-		//IngredientPersistance ip = new IngredientPersistance();
+		// IngredientPersistance ip = new IngredientPersistance();
 
-		//ArrayList<Ingredient> ingredients = ip.readAllIngredient();
+		// ArrayList<Ingredient> ingredients = ip.readAllIngredient();
 
 		HashMap<Ingredient, Integer> a = new HashMap<Ingredient, Integer>();
 
@@ -132,41 +130,61 @@ public class PerceptronUtility {
 		return a;
 
 	}
-	
+
 	/**
 	 * Fonction qui crée les vecteurs de resultat attendu pour chaque catégories
+	 * 
 	 * @return
 	 */
-/*	public HashMap<Integer,HashMap<Ingredient, Integer>> creatAllResultVectorByGroup(HashMap<Ingredient, Integer> ingredientEntry) {
-		IngredientPersistance ip = new IngredientPersistance();
-		ArrayList<Integer> groupCode = ip.readAllSousCategorie();
-		HashMap<Integer,HashMap<Ingredient, Integer>> result = new HashMap<Integer,HashMap<Ingredient,Integer>>();
-		for (int group : groupCode) {
-			result.put(group,creatVectorResultByGroupCode(ingredientEntry,group));
-		}
-		
-		return result;
-
-
-	}
-*/	
+	/*
+	 * public HashMap<Integer,HashMap<Ingredient, Integer>>
+	 * creatAllResultVectorByGroup(HashMap<Ingredient, Integer> ingredientEntry) {
+	 * IngredientPersistance ip = new IngredientPersistance(); ArrayList<Integer>
+	 * groupCode = ip.readAllSousCategorie(); HashMap<Integer,HashMap<Ingredient,
+	 * Integer>> result = new HashMap<Integer,HashMap<Ingredient,Integer>>(); for
+	 * (int group : groupCode) {
+	 * result.put(group,creatVectorResultByGroupCode(ingredientEntry,group)); }
+	 * 
+	 * return result;
+	 * 
+	 * 
+	 * }
+	 */
 	/**
-	 * Fonction HeavySide qui active ou non le neuron de la catégorie en question en fonction de son resultat de sortie
+	 * Fonction HeavySide qui active ou non le neuron de la catégorie en question en
+	 * fonction de son resultat de sortie
+	 * 
 	 * @param resultCalculSortie
 	 * @param groupeCode
 	 * @return
 	 */
-	
-	public boolean HeavySidePerceptron (double resultCalculSortie, int groupeCode) {
+
+	public boolean HeavySidePerceptron(double resultCalculSortie, int groupeCode) {
 
 		IngredientPersistance ip = new IngredientPersistance();
 		ArrayList<Ingredient> listIng = ip.readIngredientsBySousCategorie(groupeCode);
 		double size = listIng.size();
-		if (resultCalculSortie >= (size/2)) {
+		if (resultCalculSortie >= (size / 2)) {
 			return true;
 		}
-		
-		
+
 		return false;
+	}
+
+	public HashMap<Ingredient, Integer> vectorEntry(User user) {
+
+		WeightIngredientPersistence wip = new WeightIngredientPersistence();
+		IngredientPersistance ip = new IngredientPersistance();
+		ArrayList<Ingredient> ing = ip.readAllIngredient();
+		HashMap<Ingredient, Integer> entry = new HashMap<Ingredient, Integer>();
+		for (Ingredient i : ing) {
+			if(wip.readWeightByIdIngredient(i.getId_ingredient(), user)>3) {
+				entry.put(i, 1);
+			}
+			else{
+				entry.put(i, 0);
+			}
+		}
+		return entry;
 	}
 }
