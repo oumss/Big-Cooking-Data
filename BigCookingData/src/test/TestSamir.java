@@ -19,7 +19,7 @@ public class TestSamir {
 		
 		Ingredient ingredient = new Ingredient();
 		SystemUtility u = new SystemUtility();
-		ingredient.setAlim_nom_fr("");
+		ingredient.setAlim_nom_fr("ananas");
 		System.out.println(ingredient.toString()+"\n");
 		
 		//u.transformIngredientName(ingredient);

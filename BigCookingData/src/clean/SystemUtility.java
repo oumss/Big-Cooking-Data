@@ -56,19 +56,24 @@ public class SystemUtility {
 		ArrayList<Ingredient> ingChoice = ip.readIngredientWithLike(ingredient);
 		double current = 0;
 		double percentage;
-
+		int id_gagnant = 0;
 		for (Ingredient z : ingChoice) {
 			percentage = StringSimilarity.similarity(ingredient.getAlim_nom_fr(), z.getAlim_nom_fr());
+			//System.out.println("score de "+z.getAlim_nom_fr()+" : "+ percentage);
 			if (current <= (percentage)) {
 				current = percentage;
-				ingredient.setAlim_grp_code(z.getAlim_grp_code());
-				ingredient.setAlim_nom_fr(z.getAlim_nom_fr());
-				ingredient.setAlim_ssgrp_code(z.getAlim_ssgrp_code());
-				ingredient.setAlim_ssssgrp_code(z.getAlim_ssssgrp_code());
-				ingredient.setId_ingredient(z.getId_ingredient());
-				ingredient.setPoids(z.getPoids());
+				id_gagnant = z.getId_ingredient();
 			}
 		}
+		
+		Ingredient ingredientFinal = ip.readIngredientById(id_gagnant);
+		ingredient.setAlim_grp_code(ingredientFinal.getAlim_grp_code());
+		ingredient.setAlim_nom_fr(ingredientFinal.getAlim_nom_fr());
+		ingredient.setAlim_ssgrp_code(ingredientFinal.getAlim_ssgrp_code());
+		ingredient.setAlim_ssssgrp_code(ingredientFinal.getAlim_ssssgrp_code());
+		ingredient.setId_ingredient(ingredientFinal.getId_ingredient());
+		ingredient.setPoids(ingredientFinal.getPoids());
+		
 		return ingredient;
 	}
 
