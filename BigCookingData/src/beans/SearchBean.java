@@ -46,11 +46,9 @@ public class SearchBean implements Serializable {
 	}
 
 	public String search() {
-		int i = 0;
 		SearchEntry searchEntry = new SearchEntry(keyword, selectedCategories);
 		// ... traitement des entrées ...
 		searchEntry.combineEntry();
-		ArrayList<Recipe> listRecette = new ArrayList<Recipe>();
 		RecipePersistance recipePersist = new RecipePersistance();
 		recipes.addAll(recipePersist.selectByKeyWord(keyword));
 		System.out.println(recipes.toString());

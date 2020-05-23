@@ -1,0 +1,126 @@
+		
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<h:head>
+
+	<title>Big Cooking Data</title>
+	<link rel="icon" type="image/png" href="images/logo.png" />
+
+	<link rel="stylesheet" type="text/css" href="./css/bootstrap-min.css" />
+	<link rel="stylesheet" type="text/css" href="./css/styles.css" />
+</h:head>
+<h:body style=" overflow: auto;">
+
+
+	<h:form id="containerHome" >	
+
+		<h:outputStylesheet name="primeicons/primeicons.css" library="primefaces" />
+	<p:megaMenu  style="background-color:rgba(0,255,0,0.8);" orientation="#{index.orientation}" >
+		<p:menuitem value="" url="home.jsf" icon="pi pi-home" />
+		<p:menuitem value=" Recherche Avancée" url="search.jsf" icon="pi pi-search"/>
+		
+		<p:submenu label="Catégories" >
+			<p:column>
+				<p:submenu label="Entrées" >
+					<p:menuitem value="Salades" url="home.jsf" />
+					<p:menuitem value="Apéritifs" url="home.jsf" />
+				</p:submenu>
+			</p:column>
+			<p:column>
+				<p:submenu label="Plats" >
+					<p:menuitem value="Poissons" url="home.jsf" />
+					<p:menuitem value="Viandes" url="home.jsf" />
+					<p:menuitem value="Végétarien" url="home.jsf" />
+				</p:submenu>
+			</p:column>
+			<p:column>
+				<p:submenu label="Desserts">
+					<p:menuitem value="Gateaux" url="home.jsf" />
+					<p:menuitem value="Glacés" url="home.jsf" />
+					<p:menuitem value="Yaourt" url="home.jsf" />
+				</p:submenu>
+			</p:column>
+		</p:submenu>
+		
+		<p:submenu label=" My Account" icon="pi pi-user"  >
+			<p:column>
+				<p:submenu>
+					<p:menuitem value="Profil" url="home.jsf" />
+					<p:menuitem value="Changer de mot de passe" url="changePassword.jsf" />
+					<p:menuitem value="Deconnexion" action="#{homeBean.disconnect}" />
+					
+				</p:submenu>
+			</p:column>
+			</p:submenu>
+		</p:megaMenu>
+		<f:facet name="options">
+            <p:commandButton style="background-color:red; color:white;" type="button" value=" Deconnexion" icon="pi pi-power-off" action="#{homeBean.disconnect}" />
+        </f:facet>
+		
+	
+		<div>
+				<h1 style="position:absolute; color:White; float: left; margin-top: 30px; margin-left: 20px;"> <img style="float: top; height:70px;" src="images/logo.png" /> <label>  <h:outputText value="#{resultRecipeBean.recipe.title}" /></label> </h1>
+		
+				<br /><br /><br /><br /><br /><br />
+			 
+			    
+			               <div>
+				            <!--     	--> 			                
+				        
+
+				             <table style=" border-collapse: collapse; background-color:rgba(255,255,255,0.33); margin: auto;">
+ 								<tr>
+ 								   <td style=" border: 3px solid Chartreuse;padding:10px; width:auto; max-width: 600px; max-height: 300px; height: 600px; overflow: auto;"> <img style=" width:95%; height: 320px;" src="images/gateau-mousse-chocolat-et-cafe.jpeg" alt="#{recipe.title}"/> <br /> <br /> <label>Etapes: <br/> <h:outputText value="#{resultRecipeBean.recipe.steps}" /><h:outputText value="#{resultRecipeBean.recipe.title}" /></label></td>
+							       <td style=" border: 3px solid Chartreuse;">  
+							       			<table > 
+							       				<tr>
+							       				<td>
+							       					<table style="width: auto;"> 
+							       					<tr>
+							       					<td style="border: 2px solid Chartreuse;padding: 10px; max-width: 150px; width: auto; height: 50px;"><label>Pour <h:outputText style ="color:Chartreuse;" value="#{resultRecipeBean.recipe.numberOfPerson}" /> personnes </label></td>
+							       					<td style="border: 2px solid Chartreuse;padding: 10px; max-width: 150px; width: auto; height: 50px;"><label>Durée estimée: <br/> <h:outputText style ="color:Chartreuse;" value="#{resultRecipeBean.recipe.timeCooking}" /> </label></td>
+							       					<td style="border: 2px solid Chartreuse;padding: 10px; max-width: 150px; width: auto; height: 50px;"><label>Budget: <br/> <h:outputText style="color:Chartreuse;" value="#{resultRecipeBean.recipe.budget}" /></label></td>
+							       					<td style="border: 2px solid Chartreuse;padding: 10px; max-width: 150px; width: auto; height: 50px;"><label>Catégorie <br/> <h:outputText value="#{resultRecipeBean.recipe.category}" /></label></td>
+							       					</tr>
+							       					</table>
+							       				</td>
+							       				</tr>
+							       				<tr>
+							       				<td>
+							       					<table style="width: 100%;"> 
+							       					<tr>
+							       					<td style="border: 2px solid Chartreuse;padding: 10px; max-width: 200px;   height: 350px; overflow: auto;"><label>Liste des ingrédients: <br /> <h:outputText value="#{resultRecipeBean.recipe.ingredientsList}" /></label></td>
+							       					<td style="border: 2px solid Chartreuse;padding: 10px; max-width: 200px;  height: 350px; overflow: auto;"><label>Liste des ustensils: <br /> <h:outputText value="#{resultRecipeBean.recipe.ustensilsList}" /></label></td>
+							       					</tr>
+							       					</table > 
+							       				</td>
+							       				</tr>
+							       			</table>  
+							       </td>
+							     </tr>
+							 </table> 
+							
+				                 
+
+			 				</div>
+			             
+			              
+			            
+			        
+			
+			 
+				<br />
+				
+		
+			
+		</div>
+	</h:form>
+</h:body>
+</html>
+

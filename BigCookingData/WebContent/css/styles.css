@@ -106,3 +106,21 @@ label{
     66.67%{background-image: url("https://image.freepik.com/photos-gratuite/beau-delicieux-millefeuille-dessert-du-mascarpone-baies-assiette-blanche-sauce-belle-offre-restaurant_127425-302.jpg");}
     100%{background-image: url("https://s3-eu-west-1.amazonaws.com/images-ca-1-0-1-eu/recipe_photos/slide/182548/falafels-recette-facile-pois-chiches_4_CHEFSIMON_680.jpg");}
 }
+
+
+img
+{
+  position: relative;
+  border: 5px solid #000000;
+  transform: scale(0.6);
+  
+  -webkit-transition: .4s ease-in-out;
+     -moz-transition: .4s ease-in-out;
+      -ms-transition: .4s ease-in-out;
+       -o-transition: .4s ease-in-out;
+          transition: .4s ease-in-out;
+}
+
+input{display:none;}
+
+input:checked ~ label img {transform: scale(1.0);}

@@ -10,12 +10,12 @@
 <h:head>
 
 	<title>Big Cooking Data</title>
-	<link rel="icon" type="image/png" href="https://cdn.discordapp.com/icons/669477675697700865/1c65fb82e754248da73f3dd9bdb50ae1.png?size=256" />
+	<link rel="icon" type="image/png" href="images/logo.png" />
 
 	<link rel="stylesheet" type="text/css" href="./css/bootstrap-min.css" />
 	<link rel="stylesheet" type="text/css" href="./css/styles.css" />
 </h:head>
-<h:body style=" overflow: scroll;">
+<h:body >
 
 
 	<h:form id="containerHome" >	
@@ -66,25 +66,25 @@
 	
 		<div>
 			<fieldset>
-		<h1 style="position: absolute; color:White; float: left; margin-top: 30px; margin-left: 20px;"> <img style="float: top; height:70px;" src="https://cdn.discordapp.com/icons/669477675697700865/1c65fb82e754248da73f3dd9bdb50ae1.png?size=256" /> Résultat(s) de la recherche Big Cooking Data</h1>
-			<br/><br/><br/><br/><br/><br/><br/>
+		<h1 style="position: absolute; color:White; float: left; margin-top: 30px; margin-left: 20px;"> <img style="float: top; height:70px;" src="images/logo.png" /> Résultat(s) de la recherche Big Cooking Data</h1>
+			<br/><br/><br/><br/><br/><br/>
 			   <p:dataGrid var="recipe" value="#{resultBean.recipes}" columns="3" layout="grid"
 			        rows="12" paginator="true" id="recipe"
 			        paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-			        rowsPerPageTemplate="5,10" style="width:80%;  margin: 0 auto; max-height: 500px;"> 
+			        rowsPerPageTemplate="5,10" style="width:80%;  margin: 0 auto; max-height: 425px; overflow: auto;"> 
 			         
 			        <f:facet name="header">
 			            Resultats :
 			        </f:facet>
 			 
-			        <p:panel header="#{recipe.title}" style="text-align:center">
-			            <h:panelGrid columns="1" style="width:100%"  class="image1" >
+			        <p:panel header="#{recipe.title}" style="text-align:center;  height:250px;">
+			            <h:panelGrid columns="1" style="width:100%; "  >
 			            
-			               <div >
+			               <div style="margin: auto; width: 100%; height: 100%; " >
 							 
 						
-				               <h:commandLink  action = "#{resultBean.select(recipe.id)}"><h:outputText value="#{recipe.id}" /></h:commandLink>
-				                <img style="max-width:100px;max-weight:100px;" src="images/gateau-mousse-chocolat-et-cafe.jpeg" alt="#{recipe.title}"/>
+				               <h:commandLink  action = "#{resultRecipeBean.affiche(recipe.id)}"><h:outputText value="#{recipe.id}" /></h:commandLink>
+				                <img style=" max-width:100px;max-weight:100px;" src="images/gateau-mousse-chocolat-et-cafe.jpeg" alt="#{recipe.title}"/>
 				                
 				               <!--  <h:outputText value="#{recipe.category}" /> --> 
 				                 

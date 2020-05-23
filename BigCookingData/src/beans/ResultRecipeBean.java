@@ -20,6 +20,7 @@ public class ResultRecipeBean implements Serializable {
 	private Recipe recipe;
 
 	public ResultRecipeBean() {
+		
 	}
 
 	@PostConstruct
@@ -27,8 +28,23 @@ public class ResultRecipeBean implements Serializable {
 		int idRecipe = resultBean.getIdSelected();
 		RecipePersistance rp = new RecipePersistance();
 		this.recipe = rp.readRecipeById(idRecipe);
+		
 	}
+	
+	public String affiche(int idFromR) {
+		
+		int idRecipe = idFromR;
+		System.out.println(idRecipe);
 
+		RecipePersistance rp = new RecipePersistance();
+		
+		this.recipe = rp.readRecipeById(idRecipe);
+		System.out.println(recipe.getIngredientsList());
+		
+		return "resultRecipe";
+	
+	}
+	
 	public ResultBean getResultBean() {
 		return resultBean;
 	}
