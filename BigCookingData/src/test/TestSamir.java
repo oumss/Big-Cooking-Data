@@ -1,13 +1,15 @@
 package test;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import business.Ingredient;
-import business.Recipe;
 import clean.SystemUtility;
+import learn.FirstPerceptron;
 import learn.FirstPerceptronEntry;
-import learn.LearnUtility;
 import learn.PerceptronUtility;
+import learn.SecondPerceptron;
+import learn.SecondPerceptronEntry;
 import persistance.IngredientPersistance;
 
 
@@ -15,16 +17,16 @@ public class TestSamir {
 
 	public static void main(String[] args) {
 		
-		//Ingredient ingredient = new Ingredient();
-		//SystemUtility u = new SystemUtility();
-		/*ingredient.setAlim_nom_fr("compote de figues");
+		Ingredient ingredient = new Ingredient();
+		SystemUtility u = new SystemUtility();
+		ingredient.setAlim_nom_fr("gingembre mariné");
 		System.out.println(ingredient.toString()+"\n");
 		
 		//u.transformIngredientName(ingredient);
 		//System.out.println(ingredient.toString()+"\n");
 		
 		ingredient = u.associateIngredient(ingredient);
-		System.out.println(ingredient.toString());*/
+		System.out.println(ingredient.toString());/**/
 		  
 
 
@@ -86,10 +88,9 @@ public class TestSamir {
 		//percepu.creatAllResultVectorByGroup();
 		
 		
-		IngredientPersistance ip = new IngredientPersistance();
-		ArrayList<Ingredient> listIng = ip.readIngredientsBySousCategorie(602);
-		System.out.println(listIng.size()/5);
-		System.out.println("\n");
+		//IngredientPersistance ip = new IngredientPersistance();
+		/*System.out.println(listIng.size()/5);
+		System.out.println("\n");*/
 		/*ArrayList<Ingredient> listIng2 = ip.readIngredientsBySousCategorie(40);
 		ArrayList<Ingredient> listIng3 = ip.readIngredientsBySousCategorie(602);
 		ArrayList<Ingredient> listIng4 = ip.readIngredientsBySousCategorie(803);
@@ -102,16 +103,185 @@ public class TestSamir {
 		System.out.println(listIng4.size()/5);
 		System.out.println("\n");*/
 		
-		
+		/*
 		PerceptronUtility puti = new PerceptronUtility();
 		System.out.println(listIng.size());
 		System.out.println(puti.HeavySidePerceptron(5, 602));
+		*/
 		
 		
 		
 		
-	
-	}
-	
+		
+		/*
+		PerceptronUtility pu = new PerceptronUtility();
+		HashMap<Ingredient, Double> k = pu.initiWeightEntry();
+		FirstPerceptronEntry fpe = new FirstPerceptronEntry();
+		
+		ArrayList<Ingredient> a = ip.readAllIngredient();
+		for (int i = 0; i < 2499; i++) {
+			fpe.getIngredientEntry().put(a.get(i), 0);
+			
+		}
+		System.out.println(k);
+		System.out.println(k.size());
+		System.out.println(fpe.getIngredientEntry().size());
+		
+		for(Ingredient i : k.keySet()) {
+			System.out.println(fpe.getIngredientEntry().get(i));
+			System.out.println(k.get(i));
+			double sortie = fpe.getIngredientEntry().get(i)*k.get(i);
+			System.out.println(sortie);
+		}
+		
+		
+		
+		
+		
+		*/
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		/*
+		FirstPerceptronEntry fpe = new FirstPerceptronEntry();
+		PerceptronUtility pu = new PerceptronUtility();
+		//System.out.println(pu.initiWeightEntry());
+		ArrayList<Ingredient> a = ip.readAllIngredient();
+		//System.out.println(a.size());
+		for (Ingredient ing : a) {
+			if(ing.getAlim_ssgrp_code() == 401) {
+			fpe.getIngredientEntry().put(ing, 1);
+			}
+			else {
+				fpe.getIngredientEntry().put(ing, 0);
+			}
+			//System.out.println(ing);
+			//System.out.println(fpe.getIngredientEntry().get(ing));
+			
+		}
+		//System.out.println(fpe.getIngredientEntry());
+		
+		int test = 0;
+		for (Ingredient ing : fpe.getIngredientEntry().keySet()) {
+			if(fpe.getIngredientEntry().get(ing)==1 && ing.getAlim_ssgrp_code()!= 401) {
+			test ++;
+			}
+			//System.out.println(ing);
+			//System.out.println(fpe.getIngredientEntry().get(ing));
+			
+		}
+		
+		HashMap<Ingredient, Integer> vectorResultByGroupCode = pu.creatVectorResultByGroupCode(fpe.getIngredientEntry(),401);
+		
+		int test10 = 0;
+		for (Ingredient ing : vectorResultByGroupCode.keySet()) {
+			if(vectorResultByGroupCode.get(ing)==1 && ing.getAlim_ssgrp_code()== 401) {
+			test10 ++;
+			}
+			//System.out.println(ing);
+			//System.out.println(fpe.getIngredientEntry().get(ing));
+			
+		}
+		System.out.println(test10);
+		System.out.println(test);
+		System.out.println("\n");
+		System.out.println("\n");
+		System.out.println("\n");
+		System.out.println("\n");
+		
+		FirstPerceptron fp = new FirstPerceptron(fpe, pu) ;
 
+		
+		
+		System.out.println(fp.resultAllPerceptron());
+		/*System.out.println(fp.resultPerceptron(905));
+		System.out.println(fp.resultPerceptron(401));
+		System.out.println(fp.resultPerceptron(603));
+		System.out.println(fp.resultPerceptron(0));
+		System.out.println(fp.resultPerceptron(40));
+		System.out.println(fp.resultPerceptron(1104));
+		System.out.println(fp.resultPerceptron(702));*/
+		
+		/*
+		
+		System.out.println("\n");
+		System.out.println("\n");
+		IngredientPersistance ip3 = new IngredientPersistance();
+		ArrayList<Ingredient> listIng = ip3.readIngredientsBySousCategorie(905);
+		System.out.println("taille de 905 :" +listIng.size());
+		ArrayList<Ingredient> listIng2 = ip3.readIngredientsBySousCategorie(401);
+		System.out.println("taille de 401 :" + listIng2.size());
+		ArrayList<Ingredient> listIng3 = ip3.readIngredientsBySousCategorie(603);
+		System.out.println("taille de 603 :" +listIng3.size());
+		
+		ArrayList<Ingredient> listIng4 = ip3.readIngredientsBySousCategorie(0);
+		System.out.println("taille de 0 :" +listIng4.size());
+		ArrayList<Ingredient> listIng5 = ip3.readIngredientsBySousCategorie(40);
+		System.out.println("taille de 40 :" +listIng5.size());
+		ArrayList<Ingredient> listIng6 = ip3.readIngredientsBySousCategorie(1104);
+		System.out.println("taille de 1104 :" +listIng6.size());
+		ArrayList<Ingredient> listIng7 = ip3.readIngredientsBySousCategorie(702);
+		System.out.println("taille de 702 :" +listIng7.size());
+		
+		
+		
+		/*IngredientPersistance ip1 = new IngredientPersistance();
+		System.out.println(ip1.readIngredientsBySousCategorie(905).size());
+		System.out.println(ip1.readIngredientsBySousCategorie(802).size());
+		System.out.println(ip1.readIngredientsBySousCategorie(600).size());
+		System.out.println(ip1.readIngredientsBySousCategorie(904).size());
+*/
+		/*
+		for(Integer i : fp.resultAllPerceptron().keySet()) {
+			if(fp.resultAllPerceptron().get(i)) {
+				System.out.println(fp.resultAllPerceptron().get(i));
+			}
+		}*/
+		
+		
+		
+		
+		
+		
+		/*
+		
+		
+		IngredientPersistance ip = new IngredientPersistance();
+		FirstPerceptronEntry fpe = new FirstPerceptronEntry();
+		PerceptronUtility pu = new PerceptronUtility();
+		
+		ArrayList<Ingredient> a = ip.readAllIngredient();
+		for (Ingredient ing : a) {
+			if(ing.getAlim_ssgrp_code() == 401) {
+			fpe.getIngredientEntry().put(ing, 1);
+			}
+			else {
+				fpe.getIngredientEntry().put(ing, 0);
+			}
+			
+		}	
+		FirstPerceptron fp = new FirstPerceptron(fpe, pu);	
+		
+		//System.out.println(fp.resultAllPerceptron());
+		SecondPerceptronEntry spe = new SecondPerceptronEntry(fpe, pu, fp);
+		
+		SecondPerceptron sp = new SecondPerceptron(spe);
+		
+		System.out.println(sp.resultPercep());
+	
+	*/
+	}
 }

@@ -92,12 +92,13 @@ CREATE TABLE `ingredient` (
   `Vitamine B12 (ug/100g)` float DEFAULT NULL,
   `poids` int(11) NOT NULL,
   PRIMARY KEY (`id_ingredient`)
-);
+); 
     
 CREATE TABLE `ingredient_recipe`( 
     `id_recipe` integer,
     `id_ingredient` integer, 
     `quantity` varchar(100),
+    `ingredientList` varchar(200),
     FOREIGN KEY (`id_recipe`) REFERENCES `recipe` (`id_recipe`),
     FOREIGN KEY (`id_ingredient`) REFERENCES `ingredient` (`id_ingredient`)
 );

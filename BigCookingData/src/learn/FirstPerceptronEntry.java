@@ -10,8 +10,20 @@ public class FirstPerceptronEntry {
 		private HashMap<Ingredient, Integer> ingredientEntry = new HashMap<Ingredient, Integer>();
 		private double pasApp = 0.1;
 		
+		public FirstPerceptronEntry() {
+			
+		}
 		
 		
+		
+		public FirstPerceptronEntry(HashMap<Ingredient, Integer> ingredientEntry) {
+			super();
+			this.ingredientEntry = ingredientEntry;
+			
+		}
+
+
+
 		public HashMap<Ingredient, Integer> getIngredientEntry() {
 			return ingredientEntry;
 		}
