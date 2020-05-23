@@ -45,7 +45,7 @@ public class IngredientRecipePersistance {
 	public void addIngredientsRecipe(Recipe recipe, HashMap<String, String> nameMap, ArrayList<Ingredient> ingredientsAssociated, 
 			ArrayList<String> ingredientsList, HashMap<String, String> quantityMap) {
 
-		try {
+		try { 
 			int id_recipe = recipe.getId();
 			for (int index = 0; index < ingredientsAssociated.size(); index++) {
 				int id_ingredient = ingredientsAssociated.get(index).getId_ingredient();
