@@ -11,12 +11,13 @@ import learn.PerceptronUtility;
 import learn.SecondPerceptron;
 import learn.SecondPerceptronEntry;
 import persistance.IngredientPersistance;
+import persistance.RecipePersistance;
 
 
 public class TestSamir {
 
 	public static void main(String[] args) {
-		
+		/*
 		Ingredient ingredient = new Ingredient();
 		SystemUtility u = new SystemUtility();
 		ingredient.setAlim_nom_fr("gingembre mariné");
@@ -27,7 +28,7 @@ public class TestSamir {
 		
 		ingredient = u.associateIngredient(ingredient);
 		System.out.println(ingredient.toString());/**/
-		  
+		 
 
 
 		/*
@@ -283,5 +284,17 @@ public class TestSamir {
 		System.out.println(sp.resultPercep());
 	
 	*/
+		
+		
+		
+		
+		RecipePersistance rp = new RecipePersistance();
+		
+		System.out.println(rp.readEtapeById(1));
+		
+		
+		
+		
+		
 	}
 }
