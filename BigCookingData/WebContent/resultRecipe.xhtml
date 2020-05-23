@@ -65,18 +65,18 @@
 		
 	
 		<div>
-				<h1 style="position: relative; color:White; float: left; margin-top: 30px; margin-left: 20px;"> <img style="float: top; height:70px;" src="images/logo.png" /> <label>  <h:outputText value="#{resultRecipeBean.recipe.title}" /></label> </h1>
+				<h1 style="position: relative; color:White;  float: left; margin-top: 30px; margin-left: 20px;"> <img  style="position:absolute; float: top; height:70px;" src="images/logo.png" /> <label style="margin-left: 80px; max-width: 600px;">  <h:outputText  value="#{resultRecipeBean.recipe.title}" /></label> </h1>
 		
 		<table style="position: relative; border-collapse: collapse;
     border-radius: 40px;
     
-    box-shadow: 0 0 0 2px Black; /* this draws the table border  */
+    box-shadow: 0 0 0 2px Chartreuse; /* this draws the table border  */
     border-style: hidden; /* hide standard table (collapsed) border */
      background-color:rgba(255,255,255,0.33);  right: -100px; margin-top: 20px; width: auto;"> 
 							       					<tr>
-							       					<td style=" border-right:  1px solid Chartreuse;  padding: 10px; max-width: 150px; width: auto; height: 50px;"><label>Pour <h:outputText style ="color:Chartreuse;" value="#{resultRecipeBean.recipe.numberOfPerson}" /> personnes </label></td>
-							       					<td style=" border-right:  1px solid Red; padding: 10px; max-width: 150px; width: auto; height: 50px;"><label>Durée estimée: <br/> <h:outputText style ="color:Chartreuse;" value="#{resultRecipeBean.recipe.timeCooking}" /> </label></td>
-							       					<td style=" border-right:  1px solid Chartreuse; padding: 10px; max-width: 150px; width: auto; height: 50px;"><label>Budget: <br/> <h:outputText style="color:Chartreuse;" value="#{resultRecipeBean.recipe.budget}" /></label></td>
+							       					<td style=" border-right:  1px solid White;  padding: 10px; max-width: 150px; width: auto; height: 50px;"><label>Pour <h:outputText style ="color:Chartreuse;" value="#{resultRecipeBean.recipe.numberOfPerson}" /> personnes </label></td>
+							       					<td style=" border-right:  1px solid White; padding: 10px; max-width: 150px; width: auto; height: 50px;"><label>Durée estimée: <br/> <h:outputText style ="color:Chartreuse;" value="#{resultRecipeBean.recipe.timeCooking}" /> </label></td>
+							       					<td style=" border-right:  1px solid White; padding: 10px; max-width: 150px; width: auto; height: 50px;"><label>Budget: <br/> <h:outputText style="color:Chartreuse;" value="#{resultRecipeBean.recipe.budget}" /></label></td>
 							       					<td style="  padding: 10px; max-width: 150px; width: auto; height: 50px;"><label>Catégorie <br/> <h:outputText value="#{resultRecipeBean.recipe.category}" /></label></td>
 							       					</tr>
 							       					</table>
@@ -84,31 +84,23 @@
 				<br /><br /><br /><br /><br />
 			 
 			    
-			               <div>
-				            <!--     	--> 			                
-				        
-
-				             <table style=" border-collapse: collapse; background-color:rgba(255,255,255,0.33); margin: auto;">
+			               
+				           <div style="display: table-cell;"><!--     	--> 			                
+				             <table style="border-radius: 40px; border-collapse: collapse; background-color:rgba(255,255,255,0.33); margin-right: auto;">
  								<tr>
- 								   <td style=" border: 3px solid Chartreuse;padding:10px; width:auto; max-width: 600px; max-height: 300px; height: 600px; overflow: auto;"> <img style=" width:95%; height: 320px;" src="images/gateau-mousse-chocolat-et-cafe.jpeg" alt="#{recipe.title}"/> <br /> <br /> <label>Etapes: <br/> <h:outputText value="#{resultRecipeBean.recipe.steps}" /><h:outputText value="#{resultRecipeBean.recipe.title}" /></label></td>
-							       <td style=" border: 3px solid Chartreuse;">  
-							       			
-							       					<table style="width: 100%;"> 
-							       					<tr>
-							       					<td style="border: 2px solid Chartreuse;padding: 10px; max-width: 200px;   height: 350px; overflow: auto;"><label>Liste des ingrédients: <br /> <h:outputText value="#{resultRecipeBean.recipe.ingredientsList}" /></label></td>
-							       					<td style="border: 2px solid Chartreuse;padding: 10px; max-width: 200px;  height: 350px; overflow: auto;"><label>Liste des ustensils: <br /> <h:outputText value="#{resultRecipeBean.recipe.ustensilsList}" /></label></td>
-							       					</tr>
-							       					</table > 
-							       			 
-							       </td>
-							     </tr>
-							 </table> 
-								
-				                 
-
-			 				</div>
-			             
-			              
+ 								 <td style="padding: 10px; "><label>Etapes de la recette:</label></td>
+							     <td style="padding: 10px; "><label>Liste des ingrédients:</label></td>
+							     <td style="padding: 10px; "><label>Liste des ustensils:</label></td>
+ 								</tr>
+ 								<tr>
+ 								   <td style="padding:10px; width:20%;   height: 400px; "><label><h:outputText value="#{resultRecipeBean.recipe.steps}" /><h:outputText value="#{resultRecipeBean.recipe.title}" /></label></td>
+							  
+							       		<td style="padding: 10px; width: 200px;  height: 350px;"><label><h:outputText value="#{resultRecipeBean.recipe.ingredientsList}" /></label></td>
+							       		<td style="padding: 10px; width: 200px;  height: 350px;"><label><h:outputText value="#{resultRecipeBean.recipe.ustensilsList}" /></label></td>
+							       		</tr>
+							       </table > 
+			        		</div>
+			           
 			            
 			        
 			
