@@ -174,4 +174,24 @@ public class IngredientPersistance {
 	}
 	
 	
+	public ArrayList<String> readAllSousCategorieNames() {
+		ArrayList<String> readSousCategorieList = new ArrayList<String>();
+		try {
+			String selectIngredientQuery = "SELECT DISTINCT alim_ssgrp_code FROM ingredient ";
+			java.sql.PreparedStatement preparedStatement = dbConnection.prepareStatement(selectIngredientQuery);
+			ResultSet result = preparedStatement.executeQuery();
+
+			while (result.next()) {
+				
+				String a = result.getString("alim_ssgrp_nom_fr");
+				readSousCategorieList.add(a);
+			}
+			preparedStatement.close();
+
+		} catch (SQLException se) {
+			System.err.println(se.getMessage());
+		}
+		return readSousCategorieList;
+	}
+	
 }
