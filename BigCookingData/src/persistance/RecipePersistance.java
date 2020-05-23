@@ -73,7 +73,7 @@ public class RecipePersistance {
 				readRecipe.setIngredientsMap(ingredientRecipePersist.readIngredientByIdRecipe(readRecipe.getId()));
 
 				readRecipeList.add(readRecipe);
-				System.out.println(readRecipe.getTitle());
+				//System.out.println(readRecipe.getTitle());
 			}
 			preparedStatement.close();
 
