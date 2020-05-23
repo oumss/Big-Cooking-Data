@@ -115,7 +115,7 @@ public class UserPersistance {
 			System.out.println("Number of columns in user after update:" + nColumns);
 			
 			java.sql.Statement addStatement2 = dbConnection.createStatement();
-			addStatement2.executeUpdate("INSERT INTO `bcd`.`user` (`id_user`,`surname`,`firstname`,`login`,`password`) VALUES (" + nColumns + ",'" + surname + "','"+ firstname +"','"+ login +"','" + password + "')");
+			addStatement2.executeUpdate("INSERT INTO `user` (`id_user`,`surname`,`firstname`,`login`,`password`) VALUES (" + nColumns + ",'" + surname + "','"+ firstname +"','"+ login +"','" + password + "')");
 
 		} catch (SQLException se) {  
 			System.err.println(se.getMessage());

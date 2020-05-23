@@ -108,19 +108,4 @@ label{
 }
 
 
-img
-{
-  position: relative;
-  border: 5px solid #000000;
-  transform: scale(0.6);
-  
-  -webkit-transition: .4s ease-in-out;
-     -moz-transition: .4s ease-in-out;
-      -ms-transition: .4s ease-in-out;
-       -o-transition: .4s ease-in-out;
-          transition: .4s ease-in-out;
-}
 
-input{display:none;}
-
-input:checked ~ label img {transform: scale(1.0);}

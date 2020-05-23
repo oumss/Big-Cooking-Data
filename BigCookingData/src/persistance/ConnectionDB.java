@@ -10,7 +10,6 @@ public class ConnectionDB {
 	private static String user = "root";
 	private static String password = "";
 	private static String url = "jdbc:mysql://" + host + "/" + base;
-
 	/**
 	 * Lazy singleton instance.
 	 */
