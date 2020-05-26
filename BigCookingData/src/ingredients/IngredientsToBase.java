@@ -1,5 +1,11 @@
 package ingredients;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -19,9 +25,14 @@ public class IngredientsToBase {
 
 	/**
 	 * Fonction principal pour la mise en base des ingredients d'une recette
+	 * @throws IOException 
 	 */
-	public IngredientsToBase() {
+	public IngredientsToBase() throws IOException {
+		init();
+		System.out.println("FIN GENERATION REQUETES ######");
+	}
 
+	public void init() throws IOException {
 		ArrayList<Recipe> recipes = new ArrayList<Recipe>();
 		recipes.addAll(rp.readAllRecipe());
 
@@ -29,35 +40,60 @@ public class IngredientsToBase {
 			HashMap<String, String> quantityMap = new HashMap<String, String>();
 			ArrayList<Ingredient> ingredientsAssociated = new ArrayList<Ingredient>();
 			ArrayList<String> ingredientsList = new ArrayList<String>();
-			String ingredientString = recipe.getIngredientsList();
-			HashMap<String, String> nameMap = readIngredientsList(ingredientString);
-
-			for (String key : nameMap.keySet()) {
-				String value = nameMap.get(key);
-				String[] partValue = value.split(" ");
-				String quantity;
-				if (partValue[0] != null) {
-					quantity = partValue[0];
-				} else {
-					quantity = "";
+			String ingredientString ="";
+			ingredientString = recipe.getIngredientsList();
+			HashMap<String, String> nameMap = new HashMap<String, String>();
+			nameMap = readIngredientsList(ingredientString);
+			
+			if (!(nameMap.equals(null))) {
+				for (String key : nameMap.keySet()) {
+					String value = nameMap.get(key);
+					String[] partValue = value.split(" ");
+					String quantity;
+					if (partValue.length != 0) {
+						quantity = partValue[0];
+					} else {
+						quantity = "";
+					}
+					quantityMap.put(key, quantity);
 				}
-				quantityMap.put(key, quantity);
+				for (String key : nameMap.keySet()) {
+					Ingredient ingredientKey = new Ingredient();
+					ingredientKey.setAlim_nom_fr(key);
+					ingredientsList.add(key);
+					Ingredient ingredient = su.associateIngredient(ingredientKey);
+					ingredientsAssociated.add(ingredient);
+				}
 			}
-			for (String key : nameMap.keySet()) {
-				Ingredient ingredientKey = new Ingredient();
-				ingredientKey.setAlim_nom_fr(key);
-				ingredientsList.add(key);
-				Ingredient ingredient = su.associateIngredient(ingredientKey);
-				ingredientsAssociated.add(ingredient);
-
+			for (int index = 0; index < ingredientsAssociated.size(); index++) {
+				int id_ingredient = ingredientsAssociated.get(index).getId_ingredient();
+				String quantity = quantityMap.get(ingredientsList.get(index));
+				String ingredientList = nameMap.get(ingredientsList.get(index));
+				queryMaker(recipe,id_ingredient, quantity,ingredientList);
 			}
-			irp.addIngredientsRecipe(recipe, nameMap, ingredientsAssociated, ingredientsList, quantityMap);
+			//irp.addIngredientsRecipe(recipe, nameMap, ingredientsAssociated, ingredientsList, quantityMap);
 		}
 	}
-
+	
+	public void queryMaker(Recipe recipe,int id_ingredient, String quantity, String ingredientList) throws IOException {
+		FileWriter insertFile = new FileWriter(new File("src//ingredients//insert_ingredientsRecipe.txt").getAbsolutePath(),true);
+		BufferedWriter bw = new BufferedWriter(insertFile);
+		String insert = "";
+		if (quantity.equals("")) quantity = " ";
+		int id_recipe = recipe.getId();
+		insert = "INSERT INTO `ingredient_recipe`(`id_recipe`,`id_ingredient`,`quantity`,`ingredientList`)"
+				+ "VALUES (" + id_recipe + "," + id_ingredient + ",'" + quantity + "','" + ingredientList +"');\n";
+		System.out.println(insert);
+		bw.write(insert);
+		bw.close();
+	}
+	
 	public HashMap<String, String> readIngredientsList(String ingredientsList) {
-
+		
 		HashMap<String, String> ingredientMap = new HashMap<String, String>();
+		if (ingredientsList==null) {
+			return ingredientMap;
+		}
 		String[] line = ingredientsList.split("},");
 		for (int index = 0; index < line.length; index++) {
 			String[] partLine = line[index].split(",");
@@ -88,6 +124,7 @@ public class IngredientsToBase {
 			ingredientMap.put(name, res);
 		}
 		return ingredientMap;
+		
 	}
 
 	public RecipePersistance getRp() {
