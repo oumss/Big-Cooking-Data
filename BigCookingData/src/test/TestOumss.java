@@ -21,7 +21,7 @@ public class TestOumss {
 		System.out.println(recipe.getIngredientsList()+"\n");
 		//String ingredientsList = recipe.getIngredientsList();
 		
-	/*	
+	/*	 
 		HashMap<String, String> quantityMap = new HashMap<String, String>();
 		ArrayList<Ingredient> ingredientsAssociated = new ArrayList<Ingredient>();
 		ArrayList<String> ingredientsList = new ArrayList<String>();
