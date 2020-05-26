@@ -5,6 +5,7 @@ import java.util.HashMap;
 
 import business.Ingredient;
 import clean.SystemUtility;
+import ingredients.Cleaner;
 import learn.FirstPerceptron;
 import learn.FirstPerceptronEntry;
 import learn.PerceptronUtility;
@@ -290,7 +291,10 @@ public class TestSamir {
 		
 		RecipePersistance rp = new RecipePersistance();
 		
-		System.out.println(rp.readEtapeById(1));
+		System.out.println(rp.readEtapeById(34009));
+		
+		Cleaner clean = new Cleaner();
+		System.out.println(clean.cleanSteps(34009));
 		
 		
 		
