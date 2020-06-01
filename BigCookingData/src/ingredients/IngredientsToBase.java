@@ -81,8 +81,8 @@ public class IngredientsToBase {
 		String insert = "";
 		if (quantity.equals("")) quantity = " ";
 		int id_recipe = recipe.getId();
-		insert = "INSERT INTO `ingredient_recipe`(`id_recipe`,`id_ingredient`,`quantity`,`ingredientList`)"
-				+ "VALUES (" + id_recipe + "," + id_ingredient + ",'" + quantity + "','" + ingredientList +"');\n";
+		insert = "INSERT INTO ingredient_recipe ( id_recipe, id_ingredient, quantity, ingredientList)"
+				+ "VALUES (" + id_recipe + "," + id_ingredient + ",'" + quantity + "',\"" + ingredientList +"\");\n";
 		System.out.println(insert);
 		bw.write(insert);
 		bw.close();
