@@ -6,8 +6,11 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
 
 import business.Recipe;
+import ingredients.Cleaner;
 import persistance.RecipePersistance;
 
 @ManagedBean
@@ -32,14 +35,18 @@ public class ResultRecipeBean implements Serializable {
 	}
 	
 	public String affiche(int idFromR) {
-		
+		Cleaner clean = new Cleaner();
 		int idRecipe = idFromR;
 		System.out.println(idRecipe);
-
+		String newSteps = clean.cleanSteps(idRecipe);
 		RecipePersistance rp = new RecipePersistance();
+		System.out.println(newSteps);
 		
+	
 		this.recipe = rp.readRecipeById(idRecipe);
+		this.recipe.setSteps(newSteps);
 		System.out.println(recipe.getIngredientsList());
+		
 		
 		return "resultRecipe";
 	
