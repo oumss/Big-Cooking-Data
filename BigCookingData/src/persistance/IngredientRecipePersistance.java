@@ -18,7 +18,6 @@ public class IngredientRecipePersistance {
 	}
 
 	public HashMap<Ingredient, Integer> readIngredientByIdRecipe(int id) {
-
 		HashMap<Ingredient, Integer> readIngredientMap = new HashMap<Ingredient, Integer>();
 		try {
 			String selectIngredientQuery = "SELECT * FROM ingredient_recipe WHERE id_recipe = ? ";
@@ -42,6 +41,31 @@ public class IngredientRecipePersistance {
 		return readIngredientMap;
 	}
 
+
+	public ArrayList<Recipe> readRecipesByIdIngredient(int id) {
+
+		ArrayList<Recipe> readRecipes = new ArrayList<Recipe>();
+		try {
+			String selectIngredientQuery = "SELECT * FROM ingredient_recipe WHERE id_ingredient = ? ";
+			java.sql.PreparedStatement preparedStatement = dbConnection.prepareStatement(selectIngredientQuery);
+			preparedStatement.setInt(1, id);
+			ResultSet result = preparedStatement.executeQuery();
+			RecipePersistance recipePersistance = new RecipePersistance();
+
+			while (result.next()) {
+				int id_recipe = result.getInt("id_recipe");
+				Recipe readRecipe = recipePersistance.readRecipeById(id_recipe);
+				readRecipes.add(readRecipe);
+			}
+			preparedStatement.close();
+		} catch (SQLException se) {
+			System.err.println(se.getMessage());
+		}
+
+		return readRecipes;
+	}	
+	
+	
 	public void addIngredientsRecipe(Recipe recipe, HashMap<String, String> nameMap, ArrayList<Ingredient> ingredientsAssociated, 
 			ArrayList<String> ingredientsList, HashMap<String, String> quantityMap) {
 
