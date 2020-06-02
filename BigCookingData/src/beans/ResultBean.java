@@ -1,7 +1,9 @@
 package beans;
 
+import java.io.InputStream;
 import java.io.Serializable;
-
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 
 import javax.annotation.PostConstruct;
@@ -20,6 +22,7 @@ public class ResultBean implements Serializable {
 	private static final long serialVersionUID = 6955508471291131931L;
 	private ArrayList<Recipe> recipes = new ArrayList<Recipe>();
 	private int idSelected;
+	private String url = "";
 	public ResultBean() {
 	}
 
@@ -33,6 +36,31 @@ public class ResultBean implements Serializable {
 		System.out.println(id);
 		setIdSelected(Integer.valueOf(id));
 		return "";
+	}
+	
+	public String verifUrlForImage(int id) {
+		
+		  String urlToReturn = "";
+	      URL uneURL=null;
+	      
+	      try {
+	        uneURL = new URL("http://localhost/images/" + String.valueOf(id) + ".jpg");
+	        HttpURLConnection connexion = (HttpURLConnection)uneURL.openConnection();
+	        InputStream flux = connexion.getInputStream();
+	        System.out.println("Status de la connexion : " + connexion.getResponseMessage());
+	        if (connexion.getResponseCode() == HttpURLConnection.HTTP_OK) {
+	        urlToReturn = "http://localhost/images/" + String.valueOf(id) + ".jpg";
+	        System.out.println(urlToReturn);}
+	        flux.close(); 
+	        connexion.disconnect();
+	        
+	      } 
+	      catch(Exception e) {
+	          
+	    	  urlToReturn = "./images/default.jpg";
+	          System.out.println(urlToReturn);
+	      }
+	      return urlToReturn;
 	}
 	
 	public SearchBean getSearchBean() {
@@ -57,6 +85,14 @@ public class ResultBean implements Serializable {
 
 	public void setIdSelected(int idSelected) {
 		this.idSelected = idSelected;
+	}
+
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
 	}
 
 }

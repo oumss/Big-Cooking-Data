@@ -71,26 +71,17 @@
 			   <p:dataGrid var="recipe" value="#{resultBean.recipes}" columns="3" layout="grid"
 			        rows="12" paginator="true" id="recipe"
 			        paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-			        rowsPerPageTemplate="5,10" style="width:80%;  margin: 0 auto; max-height: 425px; overflow: auto;"> 
+			        rowsPerPageTemplate="5,10" style="width:95%;  margin: 0 auto; max-height: 425px; overflow: auto;"> 
 			         
 			        <f:facet name="header">
 			            Resultats :
 			        </f:facet>
 			 
-			        <p:panel header="#{recipe.title}" style="text-align:center;  height:250px;">
-			            <h:panelGrid columns="1" style="width:100%; "  >
+			        <p:panel header="#{recipe.title}">
+			            <h:panelGrid columns="1" style="text-align:center;">
 			            
-			               <div style="margin: auto; width: 100%; height: 100%; " >
-							 
-						
-				               <h:commandLink  action = "#{resultRecipeBean.affiche(recipe.id)}"><h:outputText value="#{recipe.id}" /></h:commandLink>
-				                <img style=" max-width:100px;max-weight:100px;" src="images/gateau-mousse-chocolat-et-cafe.jpeg" alt="#{recipe.title}"/>
-				                
-				               <!--  <h:outputText value="#{recipe.category}" /> --> 
-				                 
-			 				</div>
-			             
-			              
+				            <h:commandLink  action ="#{resultRecipeBean.affiche(recipe.id)}"><h:graphicImage style=" width:340px; height:200px;" value="#{resultBean.verifUrlForImage(recipe.id)}" alt="#{recipe.title}"/></h:commandLink>
+				          
 			            </h:panelGrid>
 			        </p:panel>
 			 
@@ -98,38 +89,6 @@
 			 
 				<br />
 				
-		<!-- 		
-				<p:dataView var="recipe" value="#{searchBean.recipes}" gridIcon="pi pi-th-large" listIcon="pi pi-bars">
-			        <p:dataViewGridItem>
-			            <p:panel header="#{recipe.id}" style="text-align:center">
-			                <h:panelGrid columns="1" style="width:100%">
-			                    <p:graphicImage name="images/logo.png"/> 
-			                    <h:outputText value="#{recipe.title}" />
-			                </h:panelGrid>
-			            </p:panel>
-			        </p:dataViewGridItem>
-			        
-			        
-			        <p:dataViewListItem>
-			            <h:panelGrid columns="3" style="width:100%" columnClasses="logo,detail">
-			                <p:graphicImage name="images/logo.png" /> 
-			 
-			                <p:outputPanel>
-			                    <h:panelGrid columns="2" cellpadding="5">
-			                        <h:outputText value="Id:" />
-			                        <h:outputText value="#{recipe.id}" style="font-weight: bold"/>
-			 
-			                        <h:outputText value="#{recipe.title}" style="font-weight: bold"/>
-			                      
-			                    </h:panelGrid>
-			                </p:outputPanel>
-			            </h:panelGrid>
-			        </p:dataViewListItem>
-			        
-			        
-		    	</p:dataView>
-		    	
-		    -->
 		 
 			</fieldset>
 		</div>
