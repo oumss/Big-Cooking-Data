@@ -10,7 +10,7 @@ import java.io.IOException;
 		    	String curDir = System.getProperty("user.dir");
 		        System.out.println ("Le répertoire courant est: "+curDir);
 		        
-		        File dossier = new File(".\\WebContent\\images\\marmiton_imgs");
+		        File dossier = new File("C:/Chemin/Vers/Votre/Répertoire/A/Préciser"); // Precisez repertoire ou il y a vos photos 
 		        File[] liste = dossier.listFiles();
 
 		        for (int i = 0; i < liste.length; i++) {
@@ -18,7 +18,7 @@ import java.io.IOException;
 		            if (liste[i].isFile()) { // si c'est un fichier
 		             
 		             //récupérer le fichier en cours
-		             File f = new File(".\\WebContent\\images\\marmiton_imgs\\"+liste[i].getName()); 
+		             File f = new File("C:/Chemin/Vers/Votre/Répertoire/A/Préciser/"+liste[i].getName()); //Ici aussi écrivez sans retirer le "/" à la fin
 		             String extension = "";
 		             String ancien = liste[i].getName();
 		             
@@ -29,7 +29,7 @@ import java.io.IOException;
 		             }
 		             if(extension.equals("png")){
 		                 String nouveau = liste[i].getName().replaceAll(".png", ".jpg");
-		                 f.renameTo(new File("../../WebContent/images/marmiton_imgs/"+nouveau));
+		                 f.renameTo(new File("C:/Chemin/Vers/Votre/Répertoire/A/Préciser/"+nouveau)); //Ici aussi écrivez sans retirer le "/" à la fin
 		                 f.delete();
 		                 System.out.println(ancien+" renommé => "+nouveau);
 		             }

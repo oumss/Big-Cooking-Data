@@ -1,6 +1,9 @@
 package beans;
 
+import java.io.InputStream;
 import java.io.Serializable;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
@@ -21,6 +24,7 @@ public class ResultRecipeBean implements Serializable {
 	private ResultBean resultBean;
 	private static final long serialVersionUID = 6955508471291131931L;
 	private Recipe recipe;
+	private String url;
 
 	public ResultRecipeBean() {
 		
@@ -42,6 +46,7 @@ public class ResultRecipeBean implements Serializable {
 		RecipePersistance rp = new RecipePersistance();
 		System.out.println(newSteps);
 		
+		this.setUrl(verifUrlForImage(idRecipe));
 	
 		this.recipe = rp.readRecipeById(idRecipe);
 		this.recipe.setSteps(newSteps);
@@ -50,6 +55,32 @@ public class ResultRecipeBean implements Serializable {
 		
 		return "resultRecipe";
 	
+	}
+	
+	
+	public String verifUrlForImage(int id) {
+		
+		  String urlToReturn = "";
+	      URL uneURL=null;
+	      
+	      try {
+	        uneURL = new URL("http://localhost/images/" + String.valueOf(id) + ".jpg");
+	        HttpURLConnection connexion = (HttpURLConnection)uneURL.openConnection();
+	        InputStream flux = connexion.getInputStream();
+	        System.out.println("Status de la connexion : " + connexion.getResponseMessage());
+	        if (connexion.getResponseCode() == HttpURLConnection.HTTP_OK) {
+	        urlToReturn = "http://localhost/images/" + String.valueOf(id) + ".jpg";
+	        System.out.println(urlToReturn);}
+	        flux.close(); 
+	        connexion.disconnect();
+	        
+	      } 
+	      catch(Exception e) {
+	          
+	    	  urlToReturn = "./images/default.jpg";
+	          System.out.println(urlToReturn);
+	      }
+	      return urlToReturn;
 	}
 	
 	public ResultBean getResultBean() {
@@ -66,6 +97,14 @@ public class ResultRecipeBean implements Serializable {
 
 	public void setRecipe(Recipe recipe) {
 		this.recipe = recipe;
+	}
+
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
 	}
 
 }
