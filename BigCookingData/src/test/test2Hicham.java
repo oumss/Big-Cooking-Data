@@ -1,4 +1,8 @@
 package test;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -7,27 +11,25 @@ public class test2Hicham {
 
 
 
-	    public static void main(String[] args) {
-	      String urlToReturn = "";
-	      URL uneURL=null;
-	      
-	      try {
-	        uneURL = new URL("https://gateuaed.com");
-	        HttpURLConnection connexion = (HttpURLConnection)uneURL.openConnection();
-	        InputStream flux = connexion.getInputStream();
-	        System.out.println("Status de la connexion : " + connexion.getResponseMessage());
-	        if (connexion.getResponseCode() == HttpURLConnection.HTTP_OK) {
-	        urlToReturn = "On prend l'id du truc";
-	        System.out.println(urlToReturn);}
-	        flux.close(); 
-	        connexion.disconnect();
-	        
-	      } 
-	      catch(Exception e) {
-	          
-	    	  urlToReturn = "On prend l'id général";
-	          System.out.println(urlToReturn);
-	      }
-	    }
+	   
+	    	public static void main (String[] args) throws IOException 
+			{
+				BufferedReader in;
+				try {
+					in = new BufferedReader(new FileReader("C:/Users/G005335/git/Big-Cooking-Data/BigCookingData/src/ingredients/insert_ingredientsRecipe.sql"));
+					String line;
+					while ((line = in.readLine()) != null)
+						System.out.println (line);
+					in.close();
+				} catch (FileNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+				
+			
+	 
+	        }
+	   
 	
 }

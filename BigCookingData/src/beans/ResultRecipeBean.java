@@ -36,6 +36,7 @@ public class ResultRecipeBean implements Serializable {
 		RecipePersistance rp = new RecipePersistance();
 		this.recipe = rp.readRecipeById(idRecipe);
 		
+		
 	}
 	
 	public String affiche(int idFromR) {
