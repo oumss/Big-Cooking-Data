@@ -18,7 +18,7 @@
 <h:body>
 
 
-	<h:form id="containerHome" >	
+	<h:form id="containerSearch" >	
 
 		<h:outputStylesheet name="primeicons/primeicons.css" library="primefaces" />
 	<p:megaMenu  style="background-color:rgba(0,255,0,0.8);" orientation="#{index.orientation}" >
@@ -67,20 +67,24 @@
 		<h1 style="position:absolute; color:White; float: left; margin-top: 30px; margin-left: 20px;"> <img style="float: top; height:70px;" src="images/logo.png" /> Rechercher dans Big Cooking Data</h1>
 	
 			<br/><br/><br/><br/><br/><br/><br/>
-			<div style=" margin: 0 auto; border: inset;">
-		    <h:panelGrid columns="2" cellpadding="5" >
-			    <h5 style="color: white;"> Categories : </h5> 
-			    <br/>
-			    <p:selectCheckboxMenu style="width:120px; float: right;" id="category" value="#{searchBean.selectedCategories}" label="Category" multiple="true"
+			<div style=" background-color: rgba(255,255,255,0.5); border-radius: 10% / 50%; width: 75%; height: 200px; margin: 0 auto; border: inset;">
+		    
+		    	<table>
+		    	<tr>
+			    <h5 style="position: relative; color: black;"> Categories : </h5> 
+			
+			    <p:selectCheckboxMenu style="width:120px;" id="category" value="#{searchBean.selectedCategories}" label="Category" multiple="true"
 			                              filter="true" filterMatchMode="startsWith" panelStyle="width:280px; color:red;" >
-			    <f:selectItems value="#{searchBean.categories}"/>
+			    		<f:selectItems value="#{searchBean.categories}"/>
 			    </p:selectCheckboxMenu>
-				<br />
-		        <h6 style="color: white;"> Mot clé : </h6> 
+				
+		        <h6 style="color: Black;"> Mot clé : </h6> 
 		        <p:inputText value="#{searchBean.keyword}" />
-		        <br/>  
-	        </h:panelGrid>			
+		        </table>
+		        <br /> <br />
+	      		
 			<p:commandButton style="width:contain; color:white; background-color:green;" look="success" value="Chercher" action="#{searchBean.search}" /><br />
+			
 		</div>
 	</h:form>
 </h:body>

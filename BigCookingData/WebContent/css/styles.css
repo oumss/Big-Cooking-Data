@@ -70,6 +70,16 @@ label{
 	margin:auto auto auto auto;
 }
 
+#containerHome{	
+	float:top;
+	position: relative;
+	background-color: rgba(0,0,0,0.3);
+	overflow:hidden;
+	height:auto;
+	width: contain;
+	
+}
+
 #formulaire-change{
 	position: relative;
 	top:70px;
