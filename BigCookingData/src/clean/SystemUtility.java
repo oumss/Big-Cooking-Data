@@ -59,7 +59,7 @@ public class SystemUtility {
 		int id_gagnant = 0;
 		for (Ingredient z : ingChoice) {
 			percentage = StringSimilarity.similarity(ingredient.getAlim_nom_fr(), z.getAlim_nom_fr());
-			//System.out.println("score de "+z.getAlim_nom_fr()+" : "+ percentage);
+			System.out.println("score pour l'ingrédient '"+z.getAlim_nom_fr()+"' : "+ percentage);
 			if (current <= (percentage)) {
 				current = percentage;
 				id_gagnant = z.getId_ingredient();

@@ -18,18 +18,19 @@ import persistance.RecipePersistance;
 public class TestSamir {
 
 	public static void main(String[] args) {
-		/*
+		
 		Ingredient ingredient = new Ingredient();
 		SystemUtility u = new SystemUtility();
-		ingredient.setAlim_nom_fr("gingembre mariné");
-		System.out.println(ingredient.toString()+"\n");
-		
+		ingredient.setAlim_nom_fr("tomate");
+		//System.out.println(ingredient.toString()+"\n");
+		System.out.println("Ingrédient à comparer : tomate");
+		System.out.println("\n");
 		//u.transformIngredientName(ingredient);
 		//System.out.println(ingredient.toString()+"\n");
 		
 		ingredient = u.associateIngredient(ingredient);
-		System.out.println(ingredient.toString());/**/
-		 
+		//System.out.println(ingredient.toString());/**/
+		 /*
 
 
 		/*
@@ -286,7 +287,7 @@ public class TestSamir {
 	
 	*/
 		
-		
+		/*
 		
 		
 		RecipePersistance rp = new RecipePersistance();
@@ -296,7 +297,7 @@ public class TestSamir {
 		Cleaner clean = new Cleaner();
 		System.out.println(clean.cleanSteps(34009));
 		
-		
+		*/
 		
 		
 		
