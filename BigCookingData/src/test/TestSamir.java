@@ -18,7 +18,7 @@ import persistance.RecipePersistance;
 public class TestSamir {
 
 	public static void main(String[] args) {
-		
+		/*
 		Ingredient ingredient = new Ingredient();
 		SystemUtility u = new SystemUtility();
 		ingredient.setAlim_nom_fr("tomate");
@@ -28,7 +28,7 @@ public class TestSamir {
 		//u.transformIngredientName(ingredient);
 		//System.out.println(ingredient.toString()+"\n");
 		
-		ingredient = u.associateIngredient(ingredient);
+		ingredient = u.associateIngredient(ingredient);*/
 		//System.out.println(ingredient.toString());/**/
 		 /*
 
