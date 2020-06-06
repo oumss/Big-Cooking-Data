@@ -67,21 +67,40 @@
 		<h1 style="position:absolute; color:White; float: left; margin-top: 30px; margin-left: 20px;"> <img style="float: top; height:70px;" src="images/logo.png" /> Rechercher dans Big Cooking Data</h1>
 	
 			<br/><br/><br/><br/><br/><br/><br/>
-			<div style=" background-color: rgba(255,255,255,0.5); border-radius: 10% / 50%; width: 75%; height: 200px; margin: 0 auto; border: inset;">
+			<div style="background-color: rgba(0,255,0,0.8); border-radius: 10% / 50%; width: 75%; height: 200px; margin: 0 auto; border: inset;">
 		    
-		    	<table>
+		    	<table style="position: relative; border-collapse: collapse;
+								  border-radius: 40px;
+								  box-shadow: 0 0 0 2px Black; 
+								  border-style: hidden; 
+								  margin: 0 auto;
+								  margin-top: 20px; width: 500px;  background-color: rgba(255,255,255,0.8);">
+		    	
 		    	<tr>
-			    <h5 style="position: relative; color: black;"> Categories : </h5> 
-			
-			    <p:selectCheckboxMenu style="width:120px;" id="category" value="#{searchBean.selectedCategories}" label="Category" multiple="true"
-			                              filter="true" filterMatchMode="startsWith" panelStyle="width:280px; color:red;" >
-			    		<f:selectItems value="#{searchBean.categories}"/>
-			    </p:selectCheckboxMenu>
-				
-		        <h6 style="color: Black;"> Mot clé : </h6> 
-		        <p:inputText value="#{searchBean.keyword}" />
+		    		<td style=" border-right:  1px solid White;  padding: 10px; max-width: 150px; width: auto; height: 50px;">
+		    		<h5 style="position: relative; color: black; font-size:20px;"> Categories : </h5>
+		    		</td>
+		    		
+		    		<td style=" border-right:  1px solid White;  padding: 10px; max-width: 150px; width: auto; height: 50px;">
+		    		<h6 style="color: Black; font-size:20px;"> Mot clé : </h6>
+		    		</td>
+		    	</tr>
+		    	
+		    	<tr>
+		    		<td style=" border-right:  1px solid white;  padding: 10px; max-width: 150px; width: auto; height: 50px;">
+		    			<p:selectCheckboxMenu   value="#{searchBean.selectedCategories}" label="Category" multiple="true"
+			                             filter="true" filterMatchMode="startsWith"  panelStyle="width:250px">
+			    			<f:selectItems style="color:red;" value="#{searchBean.categories}"/>
+			   			</p:selectCheckboxMenu>
+		    		</td>
+		    		<td style=" border-right:  1px solid White;  padding: 10px; max-width: 150px; width: auto; height: 50px;">
+		    			<p:inputText value="#{searchBean.keyword}" />
+		    		</td>
+		    	</tr>
+			 
 		        </table>
-		        <br /> <br />
+		        
+		        <br />
 	      		
 			<p:commandButton style="width:contain; color:white; background-color:green;" look="success" value="Chercher" action="#{searchBean.search}" /><br />
 			

@@ -42,7 +42,7 @@ public class SearchBean implements Serializable {
 		cat.setSelectItems(new SelectItem[] { new SelectItem("Entrée", "Entrée"), new SelectItem("Plat", "Plat"),
 				new SelectItem("Dessert", "Dessert"), new SelectItem("Soupe", "Soupe"),
 				new SelectItem("Apéritif", "Apéritif"), new SelectItem("Boisson", "Boisson") });
-		categories.add(cat);
+		categories.add(cat); 
 	}
 
 	public String search() {
