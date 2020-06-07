@@ -166,4 +166,27 @@ CREATE TABLE `visits`(
     FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`),
     FOREIGN KEY (`id_recipe`) REFERENCES `recipe` (`id_recipe`)  
 );
-    
+   
+
+
+CREATE TABLE `liked_recipes` ( 
+    `id_user` integer, 
+    `id_recipe` integer
+);
+
+CREATE TABLE `disliked_recipes` (  
+    `id_user` integer, 
+    `id_recipe` integer
+);
+
+CREATE TABLE `weight_perceptron`(
+    `id_user` integer,
+    `Eau (g/100g)` float,
+    `Sucres (g/100g)` float,
+    `Sel chlorure de sodium (g/100g)` float,
+  	`Proteines (g/100g)` float DEFAULT NULL,
+  	`Glucides (g/100g)` float DEFAULT NULL,
+  	`Lipides (g/100g)` float DEFAULT NULL,
+    `W0` float
+);
+

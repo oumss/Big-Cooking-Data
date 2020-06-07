@@ -28,16 +28,22 @@ public class IngredientRecipePersistance {
 
 			while (result.next()) {
 				int id_ingredient = result.getInt("id_ingredient");
+				int quantity = 1;
 				Ingredient readIngredient = ingredientPersist.readIngredientById(id_ingredient);
-				int quantity = result.getInt("quantity");
-
+				
+				
+				quantity = result.getInt("quantity");
+					
+				
 				readIngredientMap.put(readIngredient, quantity);
+				
 			}
 			preparedStatement.close();
 
 		} catch (SQLException se) {
 			System.err.println(se.getMessage());
 		}
+		
 		return readIngredientMap;
 	}
 

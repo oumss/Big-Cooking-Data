@@ -2,6 +2,7 @@ package test;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Random;
 
 import business.Ingredient;
 import clean.SystemUtility;
@@ -12,6 +13,7 @@ import learn.PerceptronUtility;
 import learn.SecondPerceptron;
 import learn.SecondPerceptronEntry;
 import persistance.IngredientPersistance;
+import persistance.IngredientRecipePersistance;
 import persistance.RecipePersistance;
 
 
@@ -297,8 +299,18 @@ public class TestSamir {
 		Cleaner clean = new Cleaner();
 		System.out.println(clean.cleanSteps(34009));
 		
-		*/
+		*//*
+		double start = 0;
+		double end = 10;
+		for(int i=0; i<10; i++  ) {
+		double random = new Random().nextDouble();
+		double result = start + (random * (end - start));
+
+
+		}*/
 		
+		IngredientRecipePersistance irp = new IngredientRecipePersistance();
+		System.out.println(irp.readIngredientByIdRecipe(11444)); 
 		
 		
 	}
