@@ -213,8 +213,7 @@ public class IngredientPersistance {
 				readTaux.put("Sel chlorure de sodium (g/100g)",result.getFloat("Sel chlorure de sodium (g/100g)"));
 				readTaux.put("Proteines (g/100g)",result.getFloat("Proteines (g/100g)"));
 				readTaux.put("Glucides (g/100g)",result.getFloat("Glucides (g/100g)"));
-				readTaux.put("Lipides (g/100g",result.getFloat("Lipides (g/100g)"));
-				readTaux.put("x0",(float) 1.0);
+				readTaux.put("Lipides (g/100g)",result.getFloat("Lipides (g/100g)"));
 			}
 			preparedStatement.close();
 
