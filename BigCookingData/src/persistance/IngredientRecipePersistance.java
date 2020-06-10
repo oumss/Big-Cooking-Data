@@ -105,5 +105,26 @@ public class IngredientRecipePersistance {
 			System.out.println("\n");
 		}
 	}
+	
+	
+	
+	public String readIngredientList(int id_recipe, int id_ingredient) {
+		String resultat = "";
+		try {
+			String selectIngredientQuery = "SELECT * FROM ingredient_recipe WHERE id_ingredient = ? AND id_recipe = ? ";
+			java.sql.PreparedStatement preparedStatement = dbConnection.prepareStatement(selectIngredientQuery);
+			preparedStatement.setInt(1, id_ingredient);
+			preparedStatement.setInt(2, id_recipe);
+			ResultSet result = preparedStatement.executeQuery();
+			while (result.next()) {
+				resultat = result.getString("ingredientList");
+			}
+			preparedStatement.close();
+		} catch (SQLException se) {
+			System.err.println(se.getMessage());
+		}
+
+		return resultat;
+	}	
 
 }
