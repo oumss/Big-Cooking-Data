@@ -21,7 +21,7 @@ public class LikedRecipePersistence {
 			preparedStatement.setInt(1, id_user);
 			preparedStatement.setInt(2, id_recipe);
 			ResultSet result = preparedStatement.executeQuery();
-			preparedStatement.close();
+			
 
 			if (!result.last()) {
 
@@ -29,11 +29,11 @@ public class LikedRecipePersistence {
 				java.sql.PreparedStatement preparedStatement1 = dbConnection.prepareStatement(insertVisitQuery);
 				preparedStatement1.setInt(1, id_user);
 				preparedStatement1.setInt(2, id_recipe);
-				preparedStatement1.executeQuery();
+				preparedStatement1.executeUpdate();
 				preparedStatement1.close();
 
 			}
-
+			preparedStatement.close();
 			
 		} catch (SQLException se) {
 			System.err.println(se.getMessage());

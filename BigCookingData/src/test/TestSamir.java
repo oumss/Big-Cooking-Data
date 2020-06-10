@@ -12,8 +12,10 @@ import learn.FirstPerceptronEntry;
 import learn.PerceptronUtility;
 import learn.SecondPerceptron;
 import learn.SecondPerceptronEntry;
+import persistance.DislikedRecipePersistence;
 import persistance.IngredientPersistance;
 import persistance.IngredientRecipePersistance;
+import persistance.LikedRecipePersistence;
 import persistance.RecipePersistance;
 
 
@@ -320,9 +322,25 @@ public class TestSamir {
 		//System.out.println(ip.getTaux(13004));
 		
 		
-		IngredientRecipePersistance irp = new IngredientRecipePersistance();
+		//IngredientRecipePersistance irp = new IngredientRecipePersistance();
 		
-		System.out.println(irp.readIngredientList(1, 18163));
+		//System.out.println(irp.readIngredientList(1, 18163));
+		
+		
+		LikedRecipePersistence lrp = new LikedRecipePersistence();
+		DislikedRecipePersistence drp = new DislikedRecipePersistence();
+		
+		lrp.addRecipe(5, 12);
+		lrp.addRecipe(6, 12);
+		lrp.addRecipe(99, 31);
+		lrp.addRecipe(5, 9888);
+		lrp.addRecipe(5, 12);
+		
+		drp.addRecipe(5, 12);
+		drp.addRecipe(6, 12);
+		drp.addRecipe(99, 31);
+		drp.addRecipe(5, 9888);
+		drp.addRecipe(5, 12);
 		
 	}
 }
