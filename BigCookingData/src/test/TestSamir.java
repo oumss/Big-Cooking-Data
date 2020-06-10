@@ -20,17 +20,19 @@ import persistance.RecipePersistance;
 public class TestSamir {
 
 	public static void main(String[] args) {
-		/*
-		Ingredient ingredient = new Ingredient();
+		
+		/*Ingredient ingredient = new Ingredient();
 		SystemUtility u = new SystemUtility();
-		ingredient.setAlim_nom_fr("tomate");
+		ingredient.setAlim_nom_fr("chou-fleur");
 		//System.out.println(ingredient.toString()+"\n");
-		System.out.println("Ingrédient à comparer : tomate");
-		System.out.println("\n");
+		//System.out.println("Ingrédient à comparer : tomate");
+		System.out.println(ingredient);
 		//u.transformIngredientName(ingredient);
 		//System.out.println(ingredient.toString()+"\n");
+		/**/
+		//ingredient = u.associateIngredient(ingredient);
 		
-		ingredient = u.associateIngredient(ingredient);*/
+		//System.out.println(ingredient);
 		//System.out.println(ingredient.toString());/**/
 		 /*
 
@@ -309,8 +311,8 @@ public class TestSamir {
 
 		}*/
 		
-		IngredientRecipePersistance irp = new IngredientRecipePersistance();
-		System.out.println(irp.readIngredientByIdRecipe(11444)); 
+		//IngredientRecipePersistance irp = new IngredientRecipePersistance();
+		//System.out.println(irp.readIngredientByIdRecipe(11444)); 
 		
 		
 	}

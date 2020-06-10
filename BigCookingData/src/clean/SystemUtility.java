@@ -99,6 +99,7 @@ public class SystemUtility {
 		this.wordToDelet.add(" d'");
 		this.wordToDelet.add(" en ");
 		this.wordToDelet.add(" et ");
+		this.wordToDelet.add("-");
 
 		for (String word : this.wordToDelet) {
 			if (ingredient.getAlim_nom_fr().contains(word)) {
