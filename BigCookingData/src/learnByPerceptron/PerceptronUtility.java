@@ -11,17 +11,12 @@ public class PerceptronUtility {
 	
 	
 	
-	
-	
-	
-	
-	
-	public double newWeight(int entry, float weight, float pasApp, float sortie, float sortieD) {
+	public float newWeight(int entry, float weight, float pasApp, float sortie, float sortieD) {
 		return weight + pasApp * (sortieD - sortie) * entry;
 	}
 	
 	
-	public double calculSortiePerceptron(HashMap<String, Float> parameterEntry, HashMap<String, Float> weight) {
+	public float calculSortiePerceptron(HashMap<String, Float> parameterEntry, HashMap<String, Float> weight) {
 		float result = 0;
 		for (String mapPerEntry : parameterEntry.keySet()) {
 			result = result + (parameterEntry.get(mapPerEntry)* weight.get(mapPerEntry));
