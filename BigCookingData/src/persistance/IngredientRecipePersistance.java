@@ -31,9 +31,12 @@ public class IngredientRecipePersistance {
 				int quantity = 1;
 				Ingredient readIngredient = ingredientPersist.readIngredientById(id_ingredient);
 				
-				
-				quantity = result.getInt("quantity");
+				try {
+					quantity = result.getInt("quantity");
 					
+				} catch (Exception e) {
+					quantity = 1;
+				}
 				
 				readIngredientMap.put(readIngredient, quantity);
 				
