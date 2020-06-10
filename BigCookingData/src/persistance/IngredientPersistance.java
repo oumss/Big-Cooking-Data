@@ -1,6 +1,8 @@
 package persistance;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+
 import business.Ingredient;
 import clean.SystemUtility;
 
@@ -194,4 +196,31 @@ public class IngredientPersistance {
 		return readSousCategorieList;
 	}
 	
+	
+	
+	
+	public HashMap<String, Float> getTaux(int id) {
+		HashMap<String, Float> readTaux = new HashMap<String, Float>();
+		try {
+			String selectIngredientQuery = "SELECT * FROM ingredient WHERE id_ingredient = ? ";
+			java.sql.PreparedStatement preparedStatement = dbConnection.prepareStatement(selectIngredientQuery);
+			preparedStatement.setInt(1, id);
+			ResultSet result = preparedStatement.executeQuery();
+
+			while (result.next()) {
+				readTaux.put("Eau (g/100g)",result.getFloat("Eau (g/100g)"));
+				readTaux.put("Sucres (g/100g)",result.getFloat("Sucres (g/100g)"));
+				readTaux.put("Sel chlorure de sodium (g/100g)",result.getFloat("Sel chlorure de sodium (g/100g)"));
+				readTaux.put("Proteines (g/100g)",result.getFloat("Proteines (g/100g)"));
+				readTaux.put("Glucides (g/100g)",result.getFloat("Glucides (g/100g)"));
+				readTaux.put("Lipides (g/100g",result.getFloat("Lipides (g/100g)"));
+				readTaux.put("x0",(float) 1.0);
+			}
+			preparedStatement.close();
+
+		} catch (SQLException se) {
+			System.err.println(se.getMessage());
+		}
+		return readTaux;
+	}
 }

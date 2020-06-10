@@ -315,5 +315,9 @@ public class TestSamir {
 		//System.out.println(irp.readIngredientByIdRecipe(11444)); 
 		
 		
+		//IngredientPersistance ip = new IngredientPersistance();
+		
+		//System.out.println(ip.getTaux(13004));
+		
 	}
 }
