@@ -6,6 +6,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
 import business.User;
+import persistance.ConnexionPersistence;
 import persistance.UserPersistance;
 
 
@@ -27,6 +28,7 @@ public class SigninBean implements Serializable {
 		System.out.println(login);
 		String results;
 		UserPersistance userPersist = new UserPersistance();
+		ConnexionPersistence connPers = new ConnexionPersistence();
 		
 		    if (userPersist.userExistByLogin(login)) {
 		    	User usr = userPersist.readUserByLogin(login);
@@ -34,6 +36,7 @@ public class SigninBean implements Serializable {
 	                results = "home";
 	                System.out.println("connected");
 	                connected = true;
+	                connPers.updateWhoConnected(usr.getId());
 	            } else {
 	                results = "errorSignin";
 	                System.out.println("password incorrect");

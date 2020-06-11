@@ -7,6 +7,8 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+import persistance.ConnexionPersistence;
+
 public class test2Hicham {
 
 
@@ -14,6 +16,7 @@ public class test2Hicham {
 	   
 	    	public static void main (String[] args) throws IOException 
 			{
+	    		/*
 				BufferedReader in;
 				try {
 					in = new BufferedReader(new FileReader("C:/Users/G005335/git/Big-Cooking-Data/BigCookingData/src/ingredients/insert_ingredientsRecipe.sql"));
@@ -25,10 +28,10 @@ public class test2Hicham {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				
-				
-			
+			*/
 	 
+	    		ConnexionPersistence test = new ConnexionPersistence();
+	    		test.updateWhoConnected(100001);
 	        }
 	   
 	

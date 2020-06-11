@@ -13,8 +13,13 @@ import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
 import business.Recipe;
+import business.User;
 import ingredients.Cleaner;
+import persistance.ConnexionPersistence;
+import persistance.DislikedRecipePersistence;
+import persistance.LikedRecipePersistence;
 import persistance.RecipePersistance;
+import persistance.UserPersistance;
 
 @ManagedBean
 @SessionScoped
@@ -25,6 +30,7 @@ public class ResultRecipeBean implements Serializable {
 	private static final long serialVersionUID = 6955508471291131931L;
 	private Recipe recipe;
 	private String url;
+	private User usr;
 
 	public ResultRecipeBean() {
 		
@@ -35,9 +41,29 @@ public class ResultRecipeBean implements Serializable {
 		int idRecipe = resultBean.getIdSelected();
 		RecipePersistance rp = new RecipePersistance();
 		this.recipe = rp.readRecipeById(idRecipe);
-		
+		 
 		
 	}
+	
+	public String like(){
+		LikedRecipePersistence lk = new LikedRecipePersistence();
+		ConnexionPersistence conn = new ConnexionPersistence();
+		int currentUsr = conn.whoIsConnected().getId();
+		lk.addRecipe(currentUsr, this.recipe.getId());
+		System.out.println(currentUsr +" a liké la recette:" + this.recipe.getId());
+		return "";
+	}
+	
+	public String dislike(){
+		DislikedRecipePersistence dlk = new DislikedRecipePersistence();
+		ConnexionPersistence conn = new ConnexionPersistence();
+
+		int currentUsr = conn.whoIsConnected().getId();
+		dlk.addRecipe(currentUsr, this.recipe.getId());
+		System.out.println(currentUsr +" a disliké la recette:" + this.recipe.getId());
+		return "";
+	}
+	
 	
 	public String affiche(int idFromR) {
 		Cleaner clean = new Cleaner();
@@ -52,6 +78,10 @@ public class ResultRecipeBean implements Serializable {
 		this.recipe = rp.readRecipeById(idRecipe);
 		this.recipe.setSteps(newSteps);
 		System.out.println(recipe.getIngredientsList());
+		
+		ConnexionPersistence connexion = new ConnexionPersistence();
+		this.usr = connexion.whoIsConnected();
+;
 		
 		
 		return "resultRecipe";
@@ -106,6 +136,14 @@ public class ResultRecipeBean implements Serializable {
 
 	public void setUrl(String url) {
 		this.url = url;
+	}
+
+	public User getUsr() {
+		return usr;
+	}
+
+	public void setUsr(User usr) {
+		this.usr = usr;
 	}
 
 }

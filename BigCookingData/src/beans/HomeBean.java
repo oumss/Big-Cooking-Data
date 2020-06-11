@@ -6,6 +6,8 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 
+import persistance.ConnexionPersistence;
+
 @ManagedBean(name = "homeBean", eager = true)
 @SessionScoped
 public class HomeBean implements Serializable {
@@ -20,6 +22,8 @@ public class HomeBean implements Serializable {
 	
 	public String disconnect() {
 		signinBean.setConnected(false);
+		ConnexionPersistence connPers = new ConnexionPersistence();
+        connPers.updateWhoConnected(0);
 		return "signin";
 	}
 
