@@ -370,10 +370,6 @@ public class TestSamir {
 		System.out.println(wpp.existWeight(21));
 		System.out.println(wpp.existWeight(22));
 		*/
-		
-		
-		
-		
 		Perceptron p = new Perceptron();
 		
 		p.apprentissage(12);
