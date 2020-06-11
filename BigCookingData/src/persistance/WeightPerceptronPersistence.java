@@ -6,6 +6,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import business.Ingredient;
+import business.User;
+
 public class WeightPerceptronPersistence {
 	
 
@@ -26,9 +29,9 @@ public class WeightPerceptronPersistence {
 				preparedStatement1.setFloat(4, weights.get("Sel chlorure de sodium (g/100g)"));
 				preparedStatement1.setFloat(5, weights.get("Proteines (g/100g)"));
 				preparedStatement1.setFloat(6, weights.get("Glucides (g/100g)"));
-				preparedStatement1.setFloat(6, weights.get("Lipides (g/100g)"));
+				preparedStatement1.setFloat(7, weights.get("Lipides (g/100g)"));
 				preparedStatement1.setFloat(8, weights.get("W0"));
-				preparedStatement1.executeQuery();
+				preparedStatement1.executeUpdate();
 				preparedStatement1.close();
 
 			}
@@ -69,10 +72,70 @@ public class WeightPerceptronPersistence {
 	}
 	
 	
+	public boolean existWeight(int id_user) {
+		
+		
+		try {
+			String selectUserQuery = "SELECT * FROM weight_perceptron WHERE id_user = ?";
+			java.sql.PreparedStatement preparedStatement = dbConnection.prepareStatement(selectUserQuery);
+			preparedStatement.setInt(1, id_user);
+			ResultSet result = preparedStatement.executeQuery();
+
+			if (!result.next()) {
+				return false;
+			}
+			preparedStatement.close();
+
+		} catch (SQLException se) {
+			System.err.println(se.getMessage());
+		}
+		return true;
+	}
 	
 	
 	
 	
+	public float getUniqueWeight(String colonne, int id_user) {
+		
+		float resultat = 0;
+		try {
+			String selectUserQuery = "SELECT * FROM weight_perceptron WHERE id_user = ?";
+			java.sql.PreparedStatement preparedStatement = dbConnection.prepareStatement(selectUserQuery);
+			preparedStatement.setInt(1, id_user);
+			ResultSet result = preparedStatement.executeQuery();
+			
+			while (result.next()) {
+				resultat = result.getFloat(colonne);
+			}
+			preparedStatement.close();
+
+		} catch (SQLException se) {
+			System.err.println(se.getMessage());
+		}
+		return resultat;
+	}
+	
+	
+	
+	
+	
+	public void updateWeight(String colonne, float newWeight, int id_user) {
+		
+		try {
+				String updateVisitQuery = "UPDATE `weight_perceptron` SET `"+colonne+"`=? WHERE id_user = ?";
+				java.sql.PreparedStatement preparedStatement2 = dbConnection.prepareStatement(updateVisitQuery);
+				preparedStatement2.setFloat(1, newWeight);
+				preparedStatement2.setInt(2, id_user);
+				preparedStatement2.executeUpdate();
+				preparedStatement2.close();
+			
+
+
+		} catch (SQLException se) {
+			System.err.println(se.getMessage());
+		}
+
+	}
 	
 
 }

@@ -63,16 +63,22 @@ public class PerceptronUtility {
 		map.put("x0", (float) 1.0);
 	}
 
-	public float newWeight(int entry, float weight, float pasApp, float sortie, float sortieD) {
+	public float newWeight(float entry, float weight, float pasApp, float sortie, float sortieD) {
 		return weight + pasApp * (sortieD - sortie) * entry;
 	}
 
-	public float calculSortiePerceptron(HashMap<String, Float> parameterEntry, HashMap<String, Float> weight) {
+	public int calculSortiePerceptron(HashMap<String, Float> parameterEntry, HashMap<String, Float> weight) {
 		float result = 0;
 		for (String mapPerEntry : parameterEntry.keySet()) {
 			result = result + (parameterEntry.get(mapPerEntry) * weight.get(mapPerEntry));
 		}
-		return result;
+		
+		if (result >= 0) {
+			return 1;
+		}
+		else {
+			return -1;
+		}
 	}
 
 	public boolean acceptSortie(HashMap<String, Float> parameterEntry, HashMap<String, Float> weight, int sortieD) {
@@ -89,7 +95,15 @@ public class PerceptronUtility {
 		return false;
 	}
 
-	public void initiWeightEntry(HashMap<String, Float> parameterEntry, int id_user) {
+	public void initiWeightEntry(int id_user) {
+		HashMap<String, Float> parameterEntry = new HashMap<String, Float>();
+		parameterEntry.put("Eau (g/100g)", (float) 1 );
+		parameterEntry.put("Sucres (g/100g)", (float) 1 );
+		parameterEntry.put("Sel chlorure de sodium (g/100g)", (float) 1 );
+		parameterEntry.put("Proteines (g/100g)", (float) 1 );
+		parameterEntry.put("Glucides (g/100g)", (float) 1 );
+		parameterEntry.put("Lipides (g/100g)", (float) 1 );
+		parameterEntry.put("W0", (float) 1 );
 
 		HashMap<String, Float> weightEntry = new HashMap<String, Float>();
 		for (String parameter : parameterEntry.keySet()) {

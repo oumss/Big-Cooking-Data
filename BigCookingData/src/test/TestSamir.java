@@ -12,11 +12,13 @@ import learn.FirstPerceptronEntry;
 import learn.PerceptronUtility;
 import learn.SecondPerceptron;
 import learn.SecondPerceptronEntry;
+import learnByPerceptron.Perceptron;
 import persistance.DislikedRecipePersistence;
 import persistance.IngredientPersistance;
 import persistance.IngredientRecipePersistance;
 import persistance.LikedRecipePersistence;
 import persistance.RecipePersistance;
+import persistance.WeightPerceptronPersistence;
 
 
 public class TestSamir {
@@ -326,7 +328,7 @@ public class TestSamir {
 		
 		//System.out.println(irp.readIngredientList(1, 18163));
 		
-		
+		/*
 		LikedRecipePersistence lrp = new LikedRecipePersistence();
 		DislikedRecipePersistence drp = new DislikedRecipePersistence();
 		
@@ -341,6 +343,39 @@ public class TestSamir {
 		drp.addRecipe(99, 31);
 		drp.addRecipe(5, 9888);
 		drp.addRecipe(5, 12);
+		*/
 		
+		
+		
+		/*learnByPerceptron.PerceptronUtility pu = new learnByPerceptron.PerceptronUtility();
+		
+		pu.initiWeightEntry(12);
+		/*pu.initiWeightEntry(14);
+		pu.initiWeightEntry(16);
+		pu.initiWeightEntry(18);*/
+		
+		WeightPerceptronPersistence wpp = new WeightPerceptronPersistence();
+		
+		wpp.updateWeight("Sucres (g/100g)", (float)2.33333, 13);
+		/*
+		System.out.println(wpp.existWeight(12));
+		System.out.println(wpp.existWeight(13));
+		System.out.println(wpp.existWeight(14));
+		System.out.println(wpp.existWeight(15));
+		System.out.println(wpp.existWeight(16));
+		System.out.println(wpp.existWeight(17));
+		System.out.println(wpp.existWeight(18));
+		System.out.println(wpp.existWeight(19));
+		System.out.println(wpp.existWeight(20));
+		System.out.println(wpp.existWeight(21));
+		System.out.println(wpp.existWeight(22));
+		*/
+		
+		
+		
+		
+		Perceptron p = new Perceptron();
+		
+		p.apprentissage(12);
 	}
 }
