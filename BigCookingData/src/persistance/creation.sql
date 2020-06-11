@@ -120,12 +120,18 @@ CREATE TABLE `recipe`(
     PRIMARY KEY (`id_recipe`)
 );
     
+
+
 CREATE TABLE `connexion`( 
-    `id_user` integer, 
-    `date` varchar(30), 
-    FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`)
-); 
-    
+    `tmp` integer,
+    `id_user` integer,
+    PRIMARY KEY (`tmp`),
+    FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`), 
+);
+INSERT INTO `connexion` (`tmp`, `id_user`) VALUES (1, null);
+
+
+
 CREATE TABLE `weight_ingredient`( 
     `id_weight_ingredient` integer AUTO_INCREMENT,
     `id_user` integer,
