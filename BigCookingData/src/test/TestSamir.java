@@ -352,7 +352,7 @@ public class TestSamir {
 		pu.initiWeightEntry(12);
 		/*pu.initiWeightEntry(14);
 		pu.initiWeightEntry(16);
-		pu.initiWeightEntry(18);*/
+		pu.initiWeightEntry(18);*/ 
 		
 		WeightPerceptronPersistence wpp = new WeightPerceptronPersistence();
 		
