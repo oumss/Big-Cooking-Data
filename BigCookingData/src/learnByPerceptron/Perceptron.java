@@ -53,7 +53,7 @@ public class Perceptron {
 	}
 	
 	
-	
+	 
 	
 
 	public void majPercep(HashMap<Integer, Integer> entry, RecipePersistance rp, boolean changementPoid, int id_user,WeightPerceptronPersistence wpp) {
