@@ -61,7 +61,7 @@ public class Perceptron {
 	public void majPercep(HashMap<Integer, Integer> entry, RecipePersistance rp, boolean changementPoid, int id_user,WeightPerceptronPersistence wpp) {
 		ArrayList<Integer> total = new ArrayList<Integer>();
 		int limit = 0;
-		while (total.size() != entry.size() || limit < 1000) {
+		while (total.size() != entry.size() || limit < 10000) {
 			for (int id_recipe : entry.keySet()) {
 				
 				System.out.println(id_recipe);
@@ -106,6 +106,7 @@ public class Perceptron {
 			
 			limit++;
 		}
+		System.out.println("LIMITE= "+limit);
 	}
 
 	

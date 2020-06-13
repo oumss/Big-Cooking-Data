@@ -55,7 +55,7 @@ public class TestOumss {
 		}
 	*/
 		
-		
+	/*	
 		PerceptronUtility pu = new PerceptronUtility();
 		RecipePersistance rp = new RecipePersistance();
 		
@@ -70,7 +70,7 @@ public class TestOumss {
 		System.out.println("sucre tarte amandine aux noix chocolat ");
 		Recipe recipe2 = rp.readRecipeById(171);
 		System.out.println(pu.calculateTaux(recipe2));
-		
+	*/	
 	}
 
 }
