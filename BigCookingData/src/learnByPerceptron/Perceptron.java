@@ -45,8 +45,10 @@ public class Perceptron {
 		ArrayList<Recipe> listRecipe = rp.readAllRecipe();
 		ArrayList<Recipe> result = new ArrayList<Recipe>();
 		for (Recipe r : listRecipe) {
-			if(pu.calculSortiePerceptron(pu.calculateTaux(r), wpp.getWeight(id_user)) >= 0);
-			result.add(r);
+			if(pu.calculSortiePerceptron(pu.calculateTaux(r), wpp.getWeight(id_user)) >= 0) {
+				result.add(r);
+			}
+			
 		}
 		
 		return result;
@@ -59,12 +61,9 @@ public class Perceptron {
 	public void majPercep(HashMap<Integer, Integer> entry, RecipePersistance rp, boolean changementPoid, int id_user,WeightPerceptronPersistence wpp) {
 		ArrayList<Integer> total = new ArrayList<Integer>();
 		int limit = 0;
-		while (total.size() != entry.size() || limit <100) {
+		while (total.size() != entry.size() || limit < 1000) {
 			for (int id_recipe : entry.keySet()) {
 				
-				for (int curseur = 0; curseur < total.size() ; curseur++) {
-					total.remove(curseur);
-				}
 				
 
 				HashMap<String, Float> entryRecipe = pu.calculateTaux(rp.readRecipeById(id_recipe));
@@ -89,6 +88,11 @@ public class Perceptron {
 				}
 				
 				if (test_break > 0) {
+					
+					for (int curseur = 0; curseur < total.size() ; curseur++) {
+						total.remove(curseur);	
+					}
+					
 					break;
 				}
 

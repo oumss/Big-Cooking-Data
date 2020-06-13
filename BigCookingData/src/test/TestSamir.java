@@ -353,8 +353,7 @@ public class TestSamir {
 		/*pu.initiWeightEntry(14);
 		pu.initiWeightEntry(16);
 		pu.initiWeightEntry(18);*/ 
-		
-		WeightPerceptronPersistence wpp = new WeightPerceptronPersistence();
+		/*WeightPerceptronPersistence wpp = new WeightPerceptronPersistence();
 		
 		wpp.updateWeight("Sucres (g/100g)", (float)2.33333, 13);
 		/*
@@ -370,8 +369,16 @@ public class TestSamir {
 		System.out.println(wpp.existWeight(21));
 		System.out.println(wpp.existWeight(22));
 		*/
+		
+		
+		
 		Perceptron p = new Perceptron();
 		
 		p.apprentissage(12);
+		
+		System.out.println(p.proposition(12));
+		
+		
+		
 	}
 }
