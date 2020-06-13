@@ -29,7 +29,7 @@ public class TestSamir {
 		SystemUtility u = new SystemUtility();
 		ingredient.setAlim_nom_fr("chou-fleur");
 		//System.out.println(ingredient.toString()+"\n");
-		//System.out.println("Ingrédient à comparer : tomate");
+		//System.out.println("Ingrï¿½dient ï¿½ comparer : tomate");
 		System.out.println(ingredient);
 		//u.transformIngredientName(ingredient);
 		//System.out.println(ingredient.toString()+"\n");
@@ -48,7 +48,7 @@ public class TestSamir {
 		Ingredient b = new Ingredient();
 		b.setAlim_nom_fr("colin");
 		Ingredient c = new Ingredient();
-		c.setAlim_nom_fr("Tomate concentré appertisé");
+		c.setAlim_nom_fr("Tomate concentrï¿½ appertisï¿½");
 		
 		r.getIngredientsMap().put(a, 1);
 		r.getIngredientsMap().put(b, 2);
@@ -328,22 +328,22 @@ public class TestSamir {
 		
 		//System.out.println(irp.readIngredientList(1, 18163));
 		
-		/*
+		/**/
 		LikedRecipePersistence lrp = new LikedRecipePersistence();
 		DislikedRecipePersistence drp = new DislikedRecipePersistence();
 		
-		lrp.addRecipe(5, 12);
-		lrp.addRecipe(6, 12);
-		lrp.addRecipe(99, 31);
-		lrp.addRecipe(5, 9888);
-		lrp.addRecipe(5, 12);
+		lrp.addRecipe(12, 12);
+		lrp.addRecipe(12, 19);
+		lrp.addRecipe(12, 31);
+		lrp.addRecipe(12, 9888);
+		lrp.addRecipe(12, 12);
 		
-		drp.addRecipe(5, 12);
-		drp.addRecipe(6, 12);
-		drp.addRecipe(99, 31);
-		drp.addRecipe(5, 9888);
-		drp.addRecipe(5, 12);
-		*/
+		drp.addRecipe(12, 70152);
+		drp.addRecipe(12, 5620);
+		drp.addRecipe(12, 1569);
+		drp.addRecipe(12, 123);
+		drp.addRecipe(12, 156);
+		
 		
 		
 		
@@ -370,13 +370,13 @@ public class TestSamir {
 		System.out.println(wpp.existWeight(22));
 		*/
 		
-		
-		
+		//12 	0.0606461 	4.34992 	2.7124 	1.36039 	1.76787 	0.765809 	7.31846
+
 		Perceptron p = new Perceptron();
 		
 		p.apprentissage(12);
 		
-		System.out.println(p.proposition(12));
+		//System.out.println(p.proposition(12));
 		
 		
 		

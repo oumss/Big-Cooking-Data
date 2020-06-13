@@ -54,13 +54,13 @@ public class PerceptronUtility {
 	}
 
 	public void initTauxMap(HashMap<String, Float> map) {
-		map.put("Eau (g/100g)", (float) 0);
-		map.put("Sucres (g/100g)", (float) 0);
-		map.put("Sel chlorure de sodium (g/100g)", (float) 0);
-		map.put("Proteines (g/100g)", (float) 0);
-		map.put("Glucides (g/100g)", (float) 0);
-		map.put("Lipides (g/100g)", (float) 0);
-		map.put("x0", (float) 1.0);
+		map.put("Eau (g/100g)", (float) 1);
+		map.put("Sucres (g/100g)", (float) 1);
+		map.put("Sel chlorure de sodium (g/100g)", (float) 1);
+		map.put("Proteines (g/100g)", (float) 1);
+		map.put("Glucides (g/100g)", (float) 1);
+		map.put("Lipides (g/100g)", (float) 1);
+		map.put("W0", (float) 1.0);
 	}
 
 	public float newWeight(float entry, float weight, float pasApp, float sortie, float sortieD) {

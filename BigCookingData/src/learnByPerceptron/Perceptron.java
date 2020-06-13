@@ -64,7 +64,7 @@ public class Perceptron {
 		while (total.size() != entry.size() || limit < 1000) {
 			for (int id_recipe : entry.keySet()) {
 				
-				
+				System.out.println(id_recipe);
 
 				HashMap<String, Float> entryRecipe = pu.calculateTaux(rp.readRecipeById(id_recipe));
 
@@ -86,7 +86,7 @@ public class Perceptron {
 					}
 
 				}
-				
+				changementPoid = false;
 				if (test_break > 0) {
 					
 					for (int curseur = 0; curseur < total.size() ; curseur++) {
