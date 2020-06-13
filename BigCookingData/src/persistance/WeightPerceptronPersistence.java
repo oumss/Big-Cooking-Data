@@ -137,5 +137,29 @@ public class WeightPerceptronPersistence {
 
 	}
 	
+	
+	
+	//Pour tester hein
+	public HashMap<String, Float> getWeightbis(int id_user) {
+		HashMap<String, Float> weights = new HashMap<String, Float>();
+		try {
+			String selectIngredientQuery = "SELECT * FROM weight_perceptron WHERE id_user = ? ";
+			java.sql.PreparedStatement preparedStatement = dbConnection.prepareStatement(selectIngredientQuery);
+			preparedStatement.setInt(1, id_user);
+			ResultSet result = preparedStatement.executeQuery();
+
+			while (result.next()) {
+				
+				weights.put("Sucres (g/100g)",result.getFloat("Sucres (g/100g)"));
+				weights.put("Sel chlorure de sodium (g/100g)",result.getFloat("Sel chlorure de sodium (g/100g)"));
+			}
+			preparedStatement.close();
+
+		} catch (SQLException se) {
+			System.err.println(se.getMessage());
+		}
+		return weights;
+	}
+	
 
 }

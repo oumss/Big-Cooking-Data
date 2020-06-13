@@ -1,24 +1,10 @@
 package test;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Random;
-
-import business.Ingredient;
-import clean.SystemUtility;
-import ingredients.Cleaner;
-import learn.FirstPerceptron;
-import learn.FirstPerceptronEntry;
-import learn.PerceptronUtility;
-import learn.SecondPerceptron;
-import learn.SecondPerceptronEntry;
-import learnByPerceptron.Perceptron;
+import testLearnPerceptron.Perceptron;
+import testLearnPerceptron.PerceptronUtility;
+import business.Recipe;
 import persistance.DislikedRecipePersistence;
-import persistance.IngredientPersistance;
-import persistance.IngredientRecipePersistance;
 import persistance.LikedRecipePersistence;
 import persistance.RecipePersistance;
-import persistance.WeightPerceptronPersistence;
 
 
 public class TestSamir {
@@ -331,18 +317,46 @@ public class TestSamir {
 		/**/
 		LikedRecipePersistence lrp = new LikedRecipePersistence();
 		DislikedRecipePersistence drp = new DislikedRecipePersistence();
+		Perceptron p = new Perceptron();
+		/*PerceptronUtility pu = new PerceptronUtility();
+		RecipePersistance rp = new RecipePersistance();
 		
-		lrp.addRecipe(12, 12);
-		lrp.addRecipe(12, 19);
-		lrp.addRecipe(12, 31);
-		lrp.addRecipe(12, 9888);
-		lrp.addRecipe(12, 12);
+		Recipe r = rp.readRecipeById(2);
+		Recipe r1 = rp.readRecipeById(16);
+		Recipe r2= rp.readRecipeById(1687);
+		Recipe r4 = rp.readRecipeById(2717);
+		Recipe r5 = rp.readRecipeById(2720);
+		Recipe r6= rp.readRecipeById(13);
+		Recipe r7= rp.readRecipeById(22);
+		Recipe r8= rp.readRecipeById(23);
 		
-		drp.addRecipe(12, 70152);
-		drp.addRecipe(12, 5620);
-		drp.addRecipe(12, 1569);
-		drp.addRecipe(12, 123);
-		drp.addRecipe(12, 156);
+		System.out.println("recette sucrée:");
+		System.out.println("\n");
+		System.out.println(pu.calculateTaux(r, 1));
+		System.out.println(pu.calculateTaux(r1, 1));
+		System.out.println(pu.calculateTaux(r2, 1));
+		System.out.println(pu.calculateTaux(r4, 1));
+		System.out.println("\n");
+		System.out.println("recette salée:");
+		System.out.println("\n");
+		System.out.println(pu.calculateTaux(r5, 1));
+		System.out.println(pu.calculateTaux(r6, 1));
+		System.out.println(pu.calculateTaux(r7, 1));
+		System.out.println(pu.calculateTaux(r8, 1));
+		*/
+		
+		lrp.addRecipe(12, 2);   
+		lrp.addRecipe(12, 16);
+		lrp.addRecipe(12, 1687);
+		lrp.addRecipe(12, 2717);
+		
+		
+		
+		
+		drp.addRecipe(12, 2720);
+		drp.addRecipe(12, 13);
+		drp.addRecipe(12, 22);
+		drp.addRecipe(12, 23);
 		
 		
 		
@@ -372,9 +386,9 @@ public class TestSamir {
 		
 		//12 	0.0606461 	4.34992 	2.7124 	1.36039 	1.76787 	0.765809 	7.31846
 
-		Perceptron p = new Perceptron();
 		
-		p.apprentissage(12);
+		
+		p.proposition(12);
 		
 		//System.out.println(p.proposition(12));
 		
