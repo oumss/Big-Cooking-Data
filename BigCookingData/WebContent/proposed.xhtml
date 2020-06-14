@@ -1,3 +1,4 @@
+		
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
@@ -7,15 +8,17 @@
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
 <h:head>
-	<title>Change Password</title>
+
+	<title>Big Cooking Data</title>
 	<link rel="icon" type="image/png" href="images/logo.png" />
 
-    <link rel="stylesheet" type="text/css" href="./css/bootstrap-min.css" />
+	<link rel="stylesheet" type="text/css" href="./css/bootstrap-min.css" />
 	<link rel="stylesheet" type="text/css" href="./css/styles.css" />
-	
 </h:head>
-<h:body>
-<h:form style="height: 550px" id="containerHome" >	
+<h:body >
+
+
+	<h:form id="containerHome" >	
 
 		<h:outputStylesheet name="primeicons/primeicons.css" library="primefaces" />
 	<p:megaMenu  style="background-color:rgba(0,255,0,0.8);" orientation="#{index.orientation}" >
@@ -55,37 +58,43 @@
 				</p:submenu>
 			</p:column>
 			</p:submenu>
-		
+			
+			<p:menuitem value=" Découvrez vos goûts" url="proposed.jsf" icon="pi pi-search"/>
+		</p:megaMenu>
 		<f:facet name="options">
             <p:commandButton style="background-color:red; color:white;" type="button" value=" Deconnexion" icon="pi pi-power-off" action="#{homeBean.disconnect}" />
         </f:facet>
 		
-	</p:megaMenu>
-				<h1 style="position: absolute; color:White; float: left; height: 1px; margin-left: 20px;"> <img style="float: top; height:70px;" src="images/logo.png" />  Big Cooking Data</h1>
-	<br />
-			<div id="formulaire-change">
-			<br />
-				<h2 style="color:white;">Changer votre mot de passe</h2>
-							<h3 style="color:green; font-size: 15px;">Your password has been updated ! </h3>
-			
-					
-	                <label> Mot de passe actuel : </label> <br />
-		            <p:password value="#{changePasswordBean.actualPassword}" />
-		            <br />	<br />
-		            <label> Nouveau mot de passe : </label> <br />
-		            <p:password value="#{changePasswordBean.newPassword}" feedback="true" /> 
-					<br /><br />
-					<label> Confirmation du nouveau mot de passe : </label> <br />
-					<p:password value="#{changePasswordBean.confirmedPassword}" feedback="true" />
-	        	
-				<br /><br />
-				<p:commandButton style="width:contain; color : white; background-color:green;" look="success" value="Confim changes" action="#{changePasswordBean.verify}" /><br />
-			</div>
-		
-	</h:form>
 	
-			
-
+		<div>
+			<fieldset>
+		<h1 style="position: absolute; color:White; float: left; margin-top: 30px; margin-left: 20px;"> <img style="float: top; height:70px;" src="images/logo.png" /> Vos goûts selon vos recherches :</h1>
+			<br/><br/><br/><br/><br/><br/>
+			   <p:dataGrid var="recipe" value="#{searchBean.searchForLearning()}" columns="3" layout="grid"
+			        rows="12" paginator="true" id="recipe"
+			        paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+			        rowsPerPageTemplate="5,10" style="width:95%;  margin: 0 auto; max-height: 425px; overflow: auto;"> 
+			         
+			        <f:facet name="header">
+			            Resultats :
+			        </f:facet>
+			 
+			        <p:panel header="#{recipe.title}">
+			            <h:panelGrid columns="1" style="text-align:center;">
+			            
+				            <h:commandLink  action ="#{resultRecipeBean.affiche(recipe.id)}"><h:graphicImage style=" width:340px; height:200px;" value="#{resultBean.verifUrlForImage(recipe.id)}" alt="#{recipe.title}"/></h:commandLink>
+				          
+			            </h:panelGrid>
+			        </p:panel>
+			 
+			    </p:dataGrid>
+			 
+				<br />
+				
+		 
+			</fieldset>
+		</div>
+	</h:form>
 </h:body>
 </html>
-				
+

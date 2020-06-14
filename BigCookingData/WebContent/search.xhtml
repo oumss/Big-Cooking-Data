@@ -28,22 +28,22 @@
 		<p:submenu label="Catégories" >
 			<p:column>
 				<p:submenu label="Entrées" >
-					<p:menuitem value="Salades" url="home.jsf" />
-					<p:menuitem value="Apéritifs" url="home.jsf" />
+					<p:menuitem  action="#{searchBean.quickSearch('salade')}" >Salades</p:menuitem>
+					<p:menuitem  action="#{searchBean.quickSearch('apéritif')}" >Apéritifs</p:menuitem>
 				</p:submenu>
 			</p:column>
 			<p:column>
 				<p:submenu label="Plats" >
-					<p:menuitem value="Poissons" url="home.jsf" />
-					<p:menuitem value="Viandes" url="home.jsf" />
-					<p:menuitem value="Végétarien" url="home.jsf" />
+					<p:menuitem   action="#{searchBean.quickSearch('poisson')}">Poissons</p:menuitem>
+					<p:menuitem  action="#{searchBean.quickSearch('viande')}" >Viandes</p:menuitem>
+					<p:menuitem  action="#{searchBean.quickSearch('végétarien')}" >Végétarien</p:menuitem>
 				</p:submenu>
 			</p:column>
 			<p:column>
 				<p:submenu label="Desserts">
-					<p:menuitem value="Gateaux" url="home.jsf" />
-					<p:menuitem value="Glacés" url="home.jsf" />
-					<p:menuitem value="Yaourt" url="home.jsf" />
+					<p:menuitem  action="#{searchBean.quickSearch('gateau')}" >Gâteaux</p:menuitem>
+					<p:menuitem   action="#{searchBean.quickSearch('glace')}" >Glacés</p:menuitem>
+					<p:menuitem   action="#{searchBean.quickSearch('yaourt')}" >Yaourt</p:menuitem>
 				</p:submenu>
 			</p:column>
 		</p:submenu>
@@ -59,22 +59,20 @@
 			</p:column>
 			</p:submenu>
 		
-		<f:facet name="options">
-            <p:commandButton style="background-color:red; color:white;" type="button" value=" Deconnexion" icon="pi pi-power-off" action="#{homeBean.disconnect}" />
-        </f:facet>
+		<p:menuitem value=" Découvrez vos goûts" url="proposed.jsf" icon="pi pi-search"/>
 		
 	</p:megaMenu>
 		<h1 style="position:absolute; color:White; float: left; margin-top: 30px; margin-left: 20px;"> <img style="float: top; height:70px;" src="images/logo.png" /> Rechercher dans Big Cooking Data</h1>
 	
 			<br/><br/><br/><br/><br/><br/><br/>
-			<div style="background-color: rgba(0,255,0,0.8); border-radius: 10% / 50%; width: 75%; height: 200px; margin: 0 auto; border: inset;">
+			<div style=" background-image: url('./images/formulaire.jpg'); border-radius: 10% / 50%; width: 75%; height: 350px; margin: 0 auto; border: inset;">
 		    
 		    	<table style="position: relative; border-collapse: collapse;
 								  border-radius: 40px;
 								  box-shadow: 0 0 0 2px Black; 
 								  border-style: hidden; 
 								  margin: 0 auto;
-								  margin-top: 20px; width: 500px;  background-color: rgba(255,255,255,0.8);">
+								  width: 500px; margin-top:100px; background-color: rgba(255,255,255,0.8);">
 		    	
 		    	<tr>
 		    		<td style=" border-right:  1px solid White;  padding: 10px; max-width: 150px; width: auto; height: 50px;">
@@ -102,7 +100,7 @@
 		        
 		        <br />
 	      		
-			<p:commandButton style="width:contain; color:white; background-color:green;" look="success" value="Chercher"  action="#{searchBean.search}" /><br />
+			<p:commandButton style="position:relative;width:contain; color:white; background-color:green; margin: 0 auto;" look="success" value="Chercher"  action="#{searchBean.search}" /><br />
 			
 		</div>
 	</h:form>

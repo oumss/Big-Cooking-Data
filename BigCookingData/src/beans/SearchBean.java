@@ -27,6 +27,7 @@ public class SearchBean implements Serializable {
 	private SigninBean signinBean;
 	private static final long serialVersionUID = 6955508471291131931L;
 	private String keyword;
+	private String category;
 	private List<SelectItemGroup> categories;
 	private String[] selectedCategories;
 	private ArrayList<Recipe> recipes = new ArrayList<Recipe>();
@@ -46,20 +47,49 @@ public class SearchBean implements Serializable {
 	}
 
 	public String search() {
+		this.recipes = new ArrayList<Recipe>();
 		SearchEntry searchEntry = new SearchEntry(keyword, selectedCategories);
 		// ... traitement des entrées ...
 		searchEntry.combineEntry();
 		RecipePersistance recipePersist = new RecipePersistance();
+		System.out.println(recipes.toString());
 		recipes.addAll(recipePersist.selectByKeyWord(keyword));
 		System.out.println(recipes.toString());
-
+		System.out.println(keyword);
 		
-		//ArrayList<Recipe> recipesPersist = recipePersist.readAllRecipe();
-		//System.out.println("recipesPersist = "+recipesPersist);
-		//recipes.addAll(recipesPersist);
 		
-		// recipes = ...
 		return "results";
+	}
+	
+	
+	public String quickSearch(String cat) {
+		this.category = new String();
+		this.setCategory(null);
+		this.setCategory(cat);
+		System.out.println("------------------"+category);
+		this.recipes = new ArrayList<Recipe>();
+		RecipePersistance recipePersist = new RecipePersistance();
+		System.out.println(recipes.toString());
+		recipes.addAll(recipePersist.selectByKeyWord(category));
+		System.out.println(recipes.toString());
+		System.out.println(category);
+		
+		
+		return "results";
+	}
+	
+	public void newCategory(String cat) {
+		
+		
+	}
+	
+	
+	public ArrayList<Recipe> searchForLearning() {
+		ArrayList<Recipe> recipe = new ArrayList<Recipe>();
+		RecipePersistance recipePersist = new RecipePersistance();
+		recipe.addAll(recipePersist.selectByKeyWordForLearning(""));
+
+		return recipe;
 	}
 
 	public String disconnect() {
@@ -115,6 +145,14 @@ public class SearchBean implements Serializable {
 		msg.setSeverity(FacesMessage.SEVERITY_INFO);
 
 		context.addMessage(null, msg);
+	}
+
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
 	}
 
 }

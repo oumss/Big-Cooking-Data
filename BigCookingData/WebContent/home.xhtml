@@ -27,22 +27,22 @@
 		<p:submenu label="Catégories" >
 			<p:column>
 				<p:submenu label="Entrées" >
-					<p:menuitem value="Salades" url="home.jsf" />
-					<p:menuitem value="Apéritifs" url="home.jsf" />
+					<p:menuitem  action="#{searchBean.quickSearch('salade')}" >Salades</p:menuitem>
+					<p:menuitem  action="#{searchBean.quickSearch('apéritif')}" >Apéritifs</p:menuitem>
 				</p:submenu>
 			</p:column>
 			<p:column>
 				<p:submenu label="Plats" >
-					<p:menuitem value="Poissons" url="home.jsf" />
-					<p:menuitem value="Viandes" url="home.jsf" />
-					<p:menuitem value="Végétarien" url="home.jsf" />
+					<p:menuitem   action="#{searchBean.quickSearch('poisson')}">Poissons</p:menuitem>
+					<p:menuitem  action="#{searchBean.quickSearch('viande')}" >Viandes</p:menuitem>
+					<p:menuitem  action="#{searchBean.quickSearch('végétarien')}" >Végétarien</p:menuitem>
 				</p:submenu>
 			</p:column>
 			<p:column>
 				<p:submenu label="Desserts">
-					<p:menuitem value="Gateaux" url="home.jsf" />
-					<p:menuitem value="Glacés" url="home.jsf" />
-					<p:menuitem value="Yaourt" url="home.jsf" />
+					<p:menuitem  action="#{searchBean.quickSearch('gateau')}" >Gâteaux</p:menuitem>
+					<p:menuitem   action="#{searchBean.quickSearch('glace')}" >Glacés</p:menuitem>
+					<p:menuitem   action="#{searchBean.quickSearch('yaourt')}" >Yaourt</p:menuitem>
 				</p:submenu>
 			</p:column>
 		</p:submenu>
@@ -57,7 +57,7 @@
 				</p:submenu>
 			</p:column>
 			</p:submenu>
-		
+		<p:menuitem value=" Découvrez vos goûts" url="proposed.jsf" icon="pi pi-search"/>
 		
 		
 	</p:megaMenu>
