@@ -314,11 +314,11 @@ public class TestSamir {
 		
 		//System.out.println(irp.readIngredientList(1, 18163));
 		
-		/**/
+		
 		LikedRecipePersistence lrp = new LikedRecipePersistence();
 		DislikedRecipePersistence drp = new DislikedRecipePersistence();
-		Perceptron p = new Perceptron();
-		/*PerceptronUtility pu = new PerceptronUtility();
+		Perceptron p = new Perceptron();/**/
+		PerceptronUtility pu = new PerceptronUtility();/*
 		RecipePersistance rp = new RecipePersistance();
 		
 		Recipe r = rp.readRecipeById(2);
@@ -329,6 +329,7 @@ public class TestSamir {
 		Recipe r6= rp.readRecipeById(13);
 		Recipe r7= rp.readRecipeById(22);
 		Recipe r8= rp.readRecipeById(23);
+		Recipe r9= rp.readRecipeById(17);
 		
 		System.out.println("recette sucrée:");
 		System.out.println("\n");
@@ -343,6 +344,7 @@ public class TestSamir {
 		System.out.println(pu.calculateTaux(r6, 1));
 		System.out.println(pu.calculateTaux(r7, 1));
 		System.out.println(pu.calculateTaux(r8, 1));
+		System.out.println(pu.calculateTaux(r9, 1));
 		*/
 		
 		lrp.addRecipe(12, 2);   
@@ -357,6 +359,7 @@ public class TestSamir {
 		drp.addRecipe(12, 13);
 		drp.addRecipe(12, 22);
 		drp.addRecipe(12, 23);
+		drp.addRecipe(12, 17);
 		
 		
 		
@@ -366,7 +369,8 @@ public class TestSamir {
 		pu.initiWeightEntry(12);
 		/*pu.initiWeightEntry(14);
 		pu.initiWeightEntry(16);
-		pu.initiWeightEntry(18);*/ 
+		pu.initiWeightEntry(18);*/
+		
 		/*WeightPerceptronPersistence wpp = new WeightPerceptronPersistence();
 		
 		wpp.updateWeight("Sucres (g/100g)", (float)2.33333, 13);
@@ -385,10 +389,8 @@ public class TestSamir {
 		*/
 		
 		//12 	0.0606461 	4.34992 	2.7124 	1.36039 	1.76787 	0.765809 	7.31846
-
-		
-		
-		p.proposition(12);
+		//pu.initiWeightEntry(12);
+		p.apprentissage(12);
 		
 		//System.out.println(p.proposition(12));
 		
