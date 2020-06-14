@@ -40,22 +40,33 @@ public class SearchBean implements Serializable {
 
 		categories = new ArrayList<SelectItemGroup>();
 		SelectItemGroup cat = new SelectItemGroup("Catégories");
-		cat.setSelectItems(new SelectItem[] { new SelectItem("Entrée", "Entrée"), new SelectItem("Plat", "Plat"),
+		cat.setSelectItems(new SelectItem[] {new SelectItem("", "Select One"), new SelectItem("Entrée", "Entrée"), new SelectItem("Plat", "Plat"),
 				new SelectItem("Dessert", "Dessert"), new SelectItem("Soupe", "Soupe"),
 				new SelectItem("Apéritif", "Apéritif"), new SelectItem("Boisson", "Boisson") });
 		categories.add(cat); 
 	}
 
 	public String search() {
+		System.out.println("yooooooooooooooooooooo");
 		this.recipes = new ArrayList<Recipe>();
-		SearchEntry searchEntry = new SearchEntry(keyword, selectedCategories);
-		// ... traitement des entrées ...
-		searchEntry.combineEntry();
+		
 		RecipePersistance recipePersist = new RecipePersistance();
 		System.out.println(recipes.toString());
-		recipes.addAll(recipePersist.selectByKeyWord(keyword));
-		System.out.println(recipes.toString());
-		System.out.println(keyword);
+		System.out.println("yooooooooooooooooooooo");
+		try {
+			System.out.println(selectedCategories[0]);
+			recipes.addAll(recipePersist.selectByKeyWordPlusCategory(keyword,selectedCategories[0]));
+			System.out.println(selectedCategories[0]);
+			
+		} catch (Exception e) {
+			recipes.addAll(recipePersist.selectByKeyWord(keyword));
+			System.out.println("pas rempli");
+		}
+			
+			System.out.println(recipes.toString());
+		//	System.out.println(selectedCategories[0]);
+			System.out.println("que le key");
+
 		
 		
 		return "results";

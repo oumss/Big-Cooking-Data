@@ -116,7 +116,58 @@ public class RecipePersistance {
 		return readRecipe;
 	}
 	
-	
+		public ArrayList<Recipe> selectByKeyWordPlusCategory(String key, String cat) {
+
+			ArrayList<Recipe> listRecette = new ArrayList<Recipe>();
+			
+			try {
+				
+				String selectRecipeQuery = "SELECT * FROM recipe WHERE (category LIKE ? OR title LIKE ? ) AND ( title LIKE ? OR ingredients_list LIKE ?)";
+				java.sql.PreparedStatement preparedStatement = dbConnection.prepareStatement(selectRecipeQuery);
+			
+				preparedStatement.setString(1, "%" + cat + "%");
+				preparedStatement.setString(2, "%" + cat + "%");
+				preparedStatement.setString(3, "%" + key + "%");
+				preparedStatement.setString(4, "%" + key + "%");
+				
+				ResultSet result = preparedStatement.executeQuery();
+				IngredientRecipePersistance ingredientRecipePersist = new IngredientRecipePersistance();
+
+				while (result.next()) {
+					
+					Recipe readRecipe = new Recipe();
+
+					
+					readRecipe.setId(result.getInt("id_recipe"));
+					readRecipe.setUrl(result.getString("url"));
+					readRecipe.setNumberOfPerson(result.getInt("number_of_person"));
+					readRecipe.setIngredientsList(result.getString("ingredients_list"));
+					readRecipe.setUstensilsList(result.getString("utensils"));
+					readRecipe.setTitle(result.getString("title"));
+					readRecipe.setBudget(result.getInt("budget"));
+					readRecipe.setCategory(result.getString("category"));
+					readRecipe.setLevel(result.getInt("level"));
+					readRecipe.setTimeCooking(result.getString("time_cooking"));
+					readRecipe.setTimeTotal(result.getString("time_total"));
+					readRecipe.setSteps(result.getString("steps"));
+					readRecipe.setIngredientsMap(ingredientRecipePersist.readIngredientByIdRecipe(readRecipe.getId()));
+					
+					listRecette.add(readRecipe);
+
+				}
+
+				preparedStatement.close();
+
+
+			} catch (SQLException se) {
+				System.err.println(se.getMessage());
+			}
+			return listRecette;
+		}
+		
+		
+		
+		
 		public ArrayList<Recipe> selectByKeyWordForLearning (String cat){
 		
 			ArrayList<Recipe> listRecette = new ArrayList<Recipe>();
