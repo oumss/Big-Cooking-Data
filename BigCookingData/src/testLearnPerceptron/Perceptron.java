@@ -44,7 +44,7 @@ public class Perceptron {
 		WeightPerceptronPersistence wpp = new WeightPerceptronPersistence();
 		ArrayList<Recipe> listRecipe = rp.readAllRecipe();
 		ArrayList<Recipe> result = new ArrayList<Recipe>();
-		for (int i = 1; i < 1000; i++) {
+		for (int i = 1; i < 10000; i++) {
 			Recipe r = listRecipe.get(i);
 			
 			if(pu.calculSortiePerceptron(pu.calculateTaux(r,1), wpp.getWeight(id_user)) >= 0) {
@@ -64,7 +64,7 @@ public class Perceptron {
 	public void majPercep(HashMap<Integer, Integer> entry, RecipePersistance rp, boolean changementPoid, int id_user,WeightPerceptronPersistence wpp) {
 		ArrayList<Integer> total = new ArrayList<Integer>();
 		int limit = 0;
-		while (total.size() != entry.size() || limit < 10000) {
+		while (total.size() != entry.size() && limit < 100) {
 			for (int id_recipe : entry.keySet()) {
 				
 				System.out.println(id_recipe);
@@ -106,7 +106,6 @@ public class Perceptron {
 				}
 
 			}
-			
 			limit++;
 		}
 		System.out.println("LIMITE= "+limit);
