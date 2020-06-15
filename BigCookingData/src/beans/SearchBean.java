@@ -29,7 +29,7 @@ public class SearchBean implements Serializable {
 	private String keyword;
 	private String category;
 	private List<SelectItemGroup> categories;
-	private String[] selectedCategories;
+	private String selectedCategories;
 	private ArrayList<Recipe> recipes = new ArrayList<Recipe>();
 
 	public SearchBean() {
@@ -54,18 +54,20 @@ public class SearchBean implements Serializable {
 		System.out.println(recipes.toString());
 		System.out.println("yooooooooooooooooooooo");
 		try {
-			System.out.println(selectedCategories[0]);
-			recipes.addAll(recipePersist.selectByKeyWordPlusCategory(keyword,selectedCategories[0]));
-			System.out.println(selectedCategories[0]);
+			System.out.println(selectedCategories);
+			recipes.addAll(recipePersist.selectByKeyWordPlusCategory(keyword,selectedCategories));
+			System.out.println(selectedCategories);
+			System.out.println("Key + Categorie");
 			
 		} catch (Exception e) {
 			recipes.addAll(recipePersist.selectByKeyWord(keyword));
 			System.out.println("pas rempli");
+			System.out.println("que le key");
 		}
 			
 			System.out.println(recipes.toString());
 		//	System.out.println(selectedCategories[0]);
-			System.out.println("que le key");
+			
 
 		
 		
@@ -132,11 +134,11 @@ public class SearchBean implements Serializable {
 		this.categories = categories;
 	}
 
-	public String[] getSelectedCategories() {
+	public String getSelectedCategories() {
 		return selectedCategories;
 	}
 
-	public void setSelectedCategories(String[] selectedCategories) {
+	public void setSelectedCategories(String selectedCategories) {
 		this.selectedCategories = selectedCategories;
 	}
 
