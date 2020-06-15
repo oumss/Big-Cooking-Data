@@ -45,6 +45,7 @@ public class PerceptronUtility {
 				}
 				tauxElement.put(element, newTaux);
 				float i =  tauxTotal.get(element) + newTaux;
+				System.out.println("taux "+ element + ":" +newTaux);
 				tauxTotal.put(element,i);
 			}
 		}

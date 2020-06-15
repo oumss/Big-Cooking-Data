@@ -330,7 +330,7 @@ public class TestSamir {
 		Recipe r7= rp.readRecipeById(22);
 		Recipe r8= rp.readRecipeById(23);
 		Recipe r9= rp.readRecipeById(17);
-		
+		/*
 		System.out.println("recette sucrée:");
 		System.out.println("\n");
 		System.out.println(pu.calculateTaux(r, 1));
@@ -351,8 +351,8 @@ public class TestSamir {
 		
 		Recipe r10= rp.readRecipeById(3);
 		Recipe r11 = rp.readRecipeById(4);
-		Recipe r12 = rp.readRecipeById(6);
-		Recipe r13= rp.readRecipeById(7);
+		Recipe r12 = rp.readRecipeById(6);*/
+		Recipe r13= rp.readRecipeById(7);/*
 		Recipe r14= rp.readRecipeById(8);
 		Recipe r15= rp.readRecipeById(9);
 		Recipe r16= rp.readRecipeById(10);
@@ -361,12 +361,12 @@ public class TestSamir {
 		
 		System.out.println(pu.calculateTaux(r10, -1));
 		System.out.println(pu.calculateTaux(r11, -1));
-		System.out.println(pu.calculateTaux(r12, -1));
-		System.out.println(pu.calculateTaux(r13, -1));
+		System.out.println(pu.calculateTaux(r12, -1));*/
+		System.out.println(pu.calculateTaux(r13, -1));/*
 		System.out.println(pu.calculateTaux(r14, -1));
 		System.out.println(pu.calculateTaux(r15, -1));
 		System.out.println(pu.calculateTaux(r16, -1));
-		
+		*/
 		System.out.println("\n");
 		
 		
