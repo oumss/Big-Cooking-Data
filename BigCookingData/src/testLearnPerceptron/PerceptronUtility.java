@@ -35,16 +35,17 @@ public class PerceptronUtility {
 					
 				//}
 				if (quantity > 10) {
-					newTaux = (quantity / 100) * taux;
+					newTaux = ((float)quantity / 100) * taux;
 				} else {
 					if ((ingredientList.contains(" l ")) || (ingredientList.contains(" kg "))) {
-						newTaux = (quantity * 10) * taux;
+						newTaux = ((float)quantity * 10) * taux;
 					} else {
-						newTaux = quantity * taux;
+						newTaux = (float)quantity * taux;
 					}
 				}
 				tauxElement.put(element, newTaux);
 				float i =  tauxTotal.get(element) + newTaux;
+				System.out.println(ingredient.getAlim_nom_fr());
 				System.out.println("taux "+ element + ":" +newTaux);
 				tauxTotal.put(element,i);
 			}
