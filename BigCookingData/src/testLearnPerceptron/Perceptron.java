@@ -44,7 +44,7 @@ public class Perceptron {
 		WeightPerceptronPersistence wpp = new WeightPerceptronPersistence();
 		ArrayList<Recipe> listRecipe = rp.readAllRecipe();
 		ArrayList<Recipe> result = new ArrayList<Recipe>();
-		for (int i = 1; i < 10000; i++) {
+		for (int i = 1; i < 500; i++) {
 			Recipe r = listRecipe.get(i);
 			
 			if(pu.calculSortiePerceptron(pu.calculateTaux(r,1), wpp.getWeight(id_user)) >= 0) {
@@ -53,7 +53,7 @@ public class Perceptron {
 			}
 			
 		}
-		
+		System.out.println(result.size());
 		return result;
 	}
 	

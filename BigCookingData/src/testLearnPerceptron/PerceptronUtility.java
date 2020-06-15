@@ -56,12 +56,12 @@ public class PerceptronUtility {
 	public void initTauxMap(HashMap<String, Float> map, int entryRecipe) {
 		
 		if (entryRecipe == 1) {
-			map.put("Sucres (g/100g)", (float) 10);
-			map.put("Sel chlorure de sodium (g/100g)", (float) 10);
+			map.put("Sucres (g/100g)", (float) 1);
+			map.put("Sel chlorure de sodium (g/100g)", (float) 1);
 		} 
 		else {
-			map.put("Sucres (g/100g)", (float) -10);
-			map.put("Sel chlorure de sodium (g/100g)", (float) -10);
+			map.put("Sucres (g/100g)", (float) -1);
+			map.put("Sel chlorure de sodium (g/100g)", (float) -1);
 		}
 
 	}
