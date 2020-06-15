@@ -5,6 +5,7 @@ import java.util.HashMap;
 
 import business.Recipe;
 import persistance.DislikedRecipePersistence;
+import persistance.IngredientRecipePersistance;
 import persistance.LikedRecipePersistence;
 import persistance.RecipePersistance;
 import persistance.WeightPerceptronPersistence;
@@ -42,7 +43,7 @@ public class Perceptron {
 		RecipePersistance rp = new RecipePersistance();
 		PerceptronUtility pu = new PerceptronUtility();
 		WeightPerceptronPersistence wpp = new WeightPerceptronPersistence();
-		ArrayList<Recipe> listRecipe = rp.readAllRecipe();
+		ArrayList<Recipe> listRecipe = pu.filter(rp.readAllRecipe());
 		ArrayList<Recipe> result = new ArrayList<Recipe>();
 		for (int i = 1; i < 500; i++) {
 			Recipe r = listRecipe.get(i);

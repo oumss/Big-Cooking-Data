@@ -1,5 +1,6 @@
 package testLearnPerceptron;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
 
@@ -7,6 +8,7 @@ import business.Ingredient;
 import business.Recipe;
 import persistance.IngredientPersistance;
 import persistance.IngredientRecipePersistance;
+import persistance.RecipePersistance;
 import persistance.WeightPerceptronPersistence;
 
 public class PerceptronUtility {
@@ -124,5 +126,41 @@ public class PerceptronUtility {
 
 		WeightPerceptronPersistence wpp = new WeightPerceptronPersistence();
 		wpp.insertWeight(id_user, weightEntry);
+	}
+	
+	
+	
+	
+	
+	public ArrayList<Recipe> filter(ArrayList<Recipe> listRecipe){
+		
+		IngredientRecipePersistance irp = new IngredientRecipePersistance();
+		ArrayList<Integer> suppr = new ArrayList<Integer>();
+		RecipePersistance rp = new RecipePersistance();
+		
+		for(Recipe recipe : listRecipe) {
+			if(!irp.existRecipe(recipe.getId())) {
+				suppr.add(recipe.getId());
+			}
+		}
+		System.out.println(suppr.size());
+		for (int i = 0; i < listRecipe.size(); i++) {
+			if (contains(suppr, listRecipe.get(i).getId())) {
+				listRecipe.remove(i);
+			}
+			
+		}
+		
+		return listRecipe;
+		
+	}
+	
+	public boolean contains(ArrayList<Integer> suppr, int i) {
+		for (int j = 0; j < suppr.size(); j++) {
+			if (suppr.get(j) == i) {
+				return true;
+			}
+		}
+		return false;
 	}
 }

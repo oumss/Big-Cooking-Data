@@ -126,5 +126,28 @@ public class IngredientRecipePersistance {
 
 		return resultat;
 	}	
+	
+	
+	
+	public boolean existRecipe(int id_recipe) {
+		
+		
+		try {
+			String selectUserQuery = "SELECT * FROM ingredient_recipe WHERE id_recipe = ?";
+			java.sql.PreparedStatement preparedStatement = dbConnection.prepareStatement(selectUserQuery);
+			preparedStatement.setInt(1, id_recipe);
+			ResultSet result = preparedStatement.executeQuery();
+
+			if (!result.next()) {
+				return false;
+			}
+			preparedStatement.close();
+
+		} catch (SQLException se) {
+			System.err.println(se.getMessage());
+		}
+		return true;
+	}
+	
 
 }
