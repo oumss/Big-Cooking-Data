@@ -4,7 +4,9 @@ import testLearnPerceptron.PerceptronUtility;
 
 import java.util.ArrayList;
 
+import business.Ingredient;
 import business.Recipe;
+import clean.SystemUtility;
 import persistance.DislikedRecipePersistence;
 import persistance.IngredientRecipePersistance;
 import persistance.LikedRecipePersistence;
@@ -371,6 +373,9 @@ public class TestSamir {
 		System.out.println(pu.calculateTaux(r15, -1));
 		System.out.println(pu.calculateTaux(r16, -1));
 		*/
+		
+		
+		
 		System.out.println("\n");
 		LikedRecipePersistence lrp = new LikedRecipePersistence();
 		DislikedRecipePersistence drp = new DislikedRecipePersistence();
@@ -396,6 +401,10 @@ public class TestSamir {
 		ArrayList<Recipe> test = rp.readAllRecipe();
 		//System.out.println(test.size());
 		System.out.println(pu.filter(test).size());
+		
+		
+		
+		
 		
 		/*
 		IngredientRecipePersistance irp = new IngredientRecipePersistance();
@@ -433,6 +442,23 @@ public class TestSamir {
 		//System.out.println(p.proposition(12));
 		
 		
+		
+		/*
+		
+		Ingredient ingredient = new Ingredient();
+		SystemUtility u = new SystemUtility();
+		ingredient.setAlim_nom_fr("carottes");
+		//System.out.println(ingredient.toString()+"\n");
+		//System.out.println("Ingr�dient � comparer : tomate");
+		System.out.println(ingredient);
+		//u.transformIngredientName(ingredient);
+		//System.out.println(ingredient.toString()+"\n");
+		/*
+		ingredient = u.associateIngredient(ingredient);
+		
+		System.out.println("\n");
+		System.out.println(ingredient);*/
+		//System.out.println(ingredient.toString());
 		
 	}
 }
