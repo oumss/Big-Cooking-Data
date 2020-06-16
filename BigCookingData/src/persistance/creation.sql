@@ -193,6 +193,7 @@ CREATE TABLE `weight_perceptron`(
   	`Proteines (g/100g)` float DEFAULT NULL,
   	`Glucides (g/100g)` float DEFAULT NULL,
   	`Lipides (g/100g)` float DEFAULT NULL,
+  	`Energie, Reglement UE No 1169/2011 (kcal/100g)` float DEFAULT NULL,
     `W0` float
 );
 

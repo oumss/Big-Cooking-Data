@@ -236,6 +236,7 @@ public class IngredientPersistance {
 			while (result.next()) {
 				readTaux.put("Sucres (g/100g)",result.getFloat("Sucres (g/100g)"));
 				readTaux.put("Sel chlorure de sodium (g/100g)",result.getFloat("Sel chlorure de sodium (g/100g)"));
+				readTaux.put("Energie, Reglement UE No 1169/2011 (kcal/100g)",result.getFloat("Energie, Reglement UE No 1169/2011 (kcal/100g)"));
 				
 			}
 			preparedStatement.close();

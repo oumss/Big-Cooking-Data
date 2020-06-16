@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import business.Ingredient;
 import business.Recipe;
 import clean.SystemUtility;
+import ingredients.Cleaner;
 import persistance.DislikedRecipePersistence;
 import persistance.IngredientRecipePersistance;
 import persistance.LikedRecipePersistence;
@@ -320,11 +321,13 @@ public class TestSamir {
 		
 		//System.out.println(irp.readIngredientList(1, 18163));
 		
-		/*
+		
 		LikedRecipePersistence lrp = new LikedRecipePersistence();
 		DislikedRecipePersistence drp = new DislikedRecipePersistence();
-		Perceptron p = new Perceptron();/**//*
-		PerceptronUtility pu = new PerceptronUtility();/**//*
+		
+		Perceptron p = new Perceptron();
+		PerceptronUtility pu = new PerceptronUtility();
+		/*
 		RecipePersistance rp = new RecipePersistance();
 		
 		Recipe r = rp.readRecipeById(2);
@@ -336,7 +339,7 @@ public class TestSamir {
 		Recipe r7= rp.readRecipeById(22);
 		Recipe r8= rp.readRecipeById(23);
 		Recipe r9= rp.readRecipeById(17);
-		/*
+		
 		System.out.println("recette sucrée:");
 		System.out.println("\n");
 		System.out.println(pu.calculateTaux(r, 1));
@@ -357,9 +360,9 @@ public class TestSamir {
 		
 		Recipe r10= rp.readRecipeById(3);
 		Recipe r11 = rp.readRecipeById(4);
-		Recipe r12 = rp.readRecipeById(6);*/
-		//Recipe r13= rp.readRecipeById(7);
-		/*Recipe r14= rp.readRecipeById(8);
+		Recipe r12 = rp.readRecipeById(6);
+		Recipe r13= rp.readRecipeById(7);
+		Recipe r14= rp.readRecipeById(8);
 		Recipe r15= rp.readRecipeById(9);
 		Recipe r16= rp.readRecipeById(10);
 		
@@ -367,18 +370,16 @@ public class TestSamir {
 		
 		System.out.println(pu.calculateTaux(r10, -1));
 		System.out.println(pu.calculateTaux(r11, -1));
-		System.out.println(pu.calculateTaux(r12, -1));*/
-		//System.out.println(pu.calculateTaux(r13, -1));
-		/*System.out.println(pu.calculateTaux(r14, -1));
+		System.out.println(pu.calculateTaux(r12, -1));
+		System.out.println(pu.calculateTaux(r13, -1));
+		System.out.println(pu.calculateTaux(r14, -1));
 		System.out.println(pu.calculateTaux(r15, -1));
 		System.out.println(pu.calculateTaux(r16, -1));
+		
 		*/
 		
 		
-		
 		System.out.println("\n");
-		LikedRecipePersistence lrp = new LikedRecipePersistence();
-		DislikedRecipePersistence drp = new DislikedRecipePersistence();
 		
 		lrp.addRecipe(12, 2);   
 		lrp.addRecipe(12, 16);
@@ -395,7 +396,7 @@ public class TestSamir {
 		drp.addRecipe(12, 17);
 		
 		
-		
+		/*
 		PerceptronUtility pu = new PerceptronUtility();
 		RecipePersistance rp = new RecipePersistance();
 		ArrayList<Recipe> test = rp.readAllRecipe();
@@ -405,7 +406,7 @@ public class TestSamir {
 		}
 		System.out.println(test2.size());
 		System.out.println(pu.filter(test2).size());
-		
+		*/
 		
 		
 		
@@ -442,6 +443,10 @@ public class TestSamir {
 		//12 	0.0606461 	4.34992 	2.7124 	1.36039 	1.76787 	0.765809 	7.31846
 		//pu.initiWeightEntry(12);
 		//p.proposition(12);
+		
+		Cleaner c = new Cleaner();
+		
+		System.out.println(c.cleanSteps(59));
 		
 		//System.out.println(p.proposition(12));
 		

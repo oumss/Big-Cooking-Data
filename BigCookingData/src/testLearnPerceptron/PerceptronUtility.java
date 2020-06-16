@@ -47,8 +47,8 @@ public class PerceptronUtility {
 				}
 				tauxElement.put(element, newTaux);
 				float i =  tauxTotal.get(element) + newTaux;
-				System.out.println(ingredient.getAlim_nom_fr());
-				System.out.println("taux "+ element + ":" +newTaux);
+				//System.out.println(ingredient.getAlim_nom_fr());
+				//System.out.println("taux "+ element + ":" +newTaux);
 				tauxTotal.put(element,i);
 			}
 		}
@@ -62,10 +62,12 @@ public class PerceptronUtility {
 		if (entryRecipe == 1) {
 			map.put("Sucres (g/100g)", (float) 1);
 			map.put("Sel chlorure de sodium (g/100g)", (float) 1);
+			map.put("Energie, Reglement UE No 1169/2011 (kcal/100g)", (float) 1);
 		} 
 		else {
 			map.put("Sucres (g/100g)", (float) -1);
 			map.put("Sel chlorure de sodium (g/100g)", (float) -1);
+			map.put("Energie, Reglement UE No 1169/2011 (kcal/100g)", (float) -1);
 		}
 
 	}
@@ -110,6 +112,7 @@ public class PerceptronUtility {
 		parameterEntry.put("Proteines (g/100g)", (float) 1 );
 		parameterEntry.put("Glucides (g/100g)", (float) 1 );
 		parameterEntry.put("Lipides (g/100g)", (float) 1 );
+		parameterEntry.put("Energie, Reglement UE No 1169/2011 (kcal/100g)", (float) 1 );
 		parameterEntry.put("W0", (float) 1 );
 
 		HashMap<String, Float> weightEntry = new HashMap<String, Float>();

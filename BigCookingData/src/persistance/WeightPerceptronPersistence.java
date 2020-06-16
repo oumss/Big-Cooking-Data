@@ -21,7 +21,7 @@ public class WeightPerceptronPersistence {
 	public void insertWeight(int id_user, HashMap<String, Float> weights) {
 		try {
 
-				String insertVisitQuery = "INSERT INTO `weight_perceptron`(`id_user`,`Eau (g/100g)`, `Sucres (g/100g)`, `Sel chlorure de sodium (g/100g)`, `Proteines (g/100g)`, `Glucides (g/100g)`,`Lipides (g/100g)`, `W0`) VALUES (?,?,?,?,?,?,?,?)";
+				String insertVisitQuery = "INSERT INTO `weight_perceptron`(`id_user`,`Eau (g/100g)`, `Sucres (g/100g)`, `Sel chlorure de sodium (g/100g)`, `Proteines (g/100g)`, `Glucides (g/100g)`,`Lipides (g/100g)`,`Energie, Reglement UE No 1169/2011 (kcal/100g)`, `W0`) VALUES (?,?,?,?,?,?,?,?,?)";
 				java.sql.PreparedStatement preparedStatement1 = dbConnection.prepareStatement(insertVisitQuery);
 				preparedStatement1.setInt(1, id_user);
 				preparedStatement1.setFloat(2, weights.get("Eau (g/100g)"));
@@ -30,7 +30,8 @@ public class WeightPerceptronPersistence {
 				preparedStatement1.setFloat(5, weights.get("Proteines (g/100g)"));
 				preparedStatement1.setFloat(6, weights.get("Glucides (g/100g)"));
 				preparedStatement1.setFloat(7, weights.get("Lipides (g/100g)"));
-				preparedStatement1.setFloat(8, weights.get("W0"));
+				preparedStatement1.setFloat(8, weights.get("Energie, Reglement UE No 1169/2011 (kcal/100g)"));
+				preparedStatement1.setFloat(9, weights.get("W0"));
 				preparedStatement1.executeUpdate();
 				preparedStatement1.close();
 
@@ -61,6 +62,7 @@ public class WeightPerceptronPersistence {
 				weights.put("Proteines (g/100g)",result.getFloat("Proteines (g/100g)"));
 				weights.put("Glucides (g/100g)",result.getFloat("Glucides (g/100g)"));
 				weights.put("Lipides (g/100g)",result.getFloat("Lipides (g/100g)"));
+				weights.put("Energie, Reglement UE No 1169/2011 (kcal/100g)",result.getFloat("Energie, Reglement UE No 1169/2011 (kcal/100g)"));
 				weights.put("W0",result.getFloat("W0"));
 			}
 			preparedStatement.close();
@@ -152,6 +154,7 @@ public class WeightPerceptronPersistence {
 				
 				weights.put("Sucres (g/100g)",result.getFloat("Sucres (g/100g)"));
 				weights.put("Sel chlorure de sodium (g/100g)",result.getFloat("Sel chlorure de sodium (g/100g)"));
+				weights.put("Energie, Reglement UE No 1169/2011 (kcal/100g)",result.getFloat("Energie, Reglement UE No 1169/2011 (kcal/100g)"));
 			}
 			preparedStatement.close();
 

@@ -9,6 +9,7 @@ public class Cleaner {
 		RecipePersistance rp = new RecipePersistance();
 
 		String a = rp.readEtapeById(id_recipe);
+		System.out.println(a);
 		String result = "";
 		String[] line = a.split("},");
 		for (int index = 0; index < line.length; index++) {
@@ -16,7 +17,14 @@ public class Cleaner {
 			for (int index1 = 0; index1 < partLine.length; index1++) {
 				if(index1 == 1 || index1 == 2 || index1 ==4 || index1 ==5) {
 					if (index1 == 2) {
-						partLine[index1] = " "+partLine[index1].charAt(2)+"";
+						char aaa = ',';
+						if(partLine[index1].charAt(3) == aaa) {
+							partLine[index1] = " "+partLine[index1].charAt(2)+"";
+						}
+						else {
+							partLine[index1] = " "+partLine[index1].charAt(2)+ partLine[index1].charAt(3)+"";
+						}
+						
 						
 
 					}
@@ -24,21 +32,7 @@ public class Cleaner {
 				}
 			
 				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
+			
 				/*String[] partLine1 = partLine[index1].split("\"");
 				if (index1 == 0) {
 					for (int index2 = 0; index2 < partLine1.length; index2++) {
