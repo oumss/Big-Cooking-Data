@@ -224,7 +224,7 @@ public class IngredientPersistance {
 	}
 	
 	
-	//C'est Pour tester ça hein
+	//C'est Pour tester ï¿½a hein
 	public HashMap<String, Float> getTauxbis(int id) {
 		HashMap<String, Float> readTaux = new HashMap<String, Float>();
 		try {
@@ -236,7 +236,8 @@ public class IngredientPersistance {
 			while (result.next()) {
 				readTaux.put("Sucres (g/100g)",result.getFloat("Sucres (g/100g)"));
 				readTaux.put("Sel chlorure de sodium (g/100g)",result.getFloat("Sel chlorure de sodium (g/100g)"));
-				readTaux.put("Energie, Reglement UE No 1169/2011 (kcal/100g)",result.getFloat("Energie, Reglement UE No 1169/2011 (kcal/100g)"));
+				readTaux.put("Glucides (g/100g)",result.getFloat("Glucides (g/100g)"));
+				readTaux.put("Lipides (g/100g)",result.getFloat("Lipides (g/100g)"));
 				
 			}
 			preparedStatement.close();

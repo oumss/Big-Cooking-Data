@@ -331,7 +331,6 @@ public class TestSamir {
 		RecipePersistance rp = new RecipePersistance();
 		
 		Recipe r = rp.readRecipeById(39);
-		Recipe r1 = rp.readRecipeById(59);
 		Recipe r2= rp.readRecipeById(88);
 		Recipe r4 = rp.readRecipeById(125);
 		Recipe r5 = rp.readRecipeById(146);
@@ -340,21 +339,16 @@ public class TestSamir {
 		Recipe r8= rp.readRecipeById(18);
 		
 		
-		Recipe r10= rp.readRecipeById(50);
 		Recipe r11 = rp.readRecipeById(365);
 		Recipe r12 = rp.readRecipeById(367);
-		Recipe r13= rp.readRecipeById(880);
-		Recipe r14= rp.readRecipeById(468);
-		Recipe r15= rp.readRecipeById(196);
 		
 		
 		
 		Recipe r9= rp.readRecipeById(17);
 		
-		System.out.println("recette sucrée:");
+		System.out.println("recette sucrï¿½e:");
 		System.out.println("\n");
 		System.out.println(pu.calculateTaux(r, 1));
-		System.out.println(pu.calculateTaux(r1, 1));
 		System.out.println(pu.calculateTaux(r2, 1));
 		System.out.println(pu.calculateTaux(r4, 1));
 		System.out.println(pu.calculateTaux(r5, 1));
@@ -362,19 +356,15 @@ public class TestSamir {
 		System.out.println(pu.calculateTaux(r6, 1));
 		System.out.println(pu.calculateTaux(r7, 1));
 		System.out.println("\n");
-		System.out.println("recette salée:");
+		System.out.println("recette salï¿½e:");
 		System.out.println("\n");
 		System.out.println(pu.calculateTaux(r8, -1));
 		System.out.println(pu.calculateTaux(r9, -1));
-		System.out.println(pu.calculateTaux(r10, -1));
 		System.out.println(pu.calculateTaux(r11, -1));
 		System.out.println(pu.calculateTaux(r12, -1));
-		System.out.println(pu.calculateTaux(r13, -1));
-		System.out.println(pu.calculateTaux(r14, -1));
-		System.out.println(pu.calculateTaux(r15, -1));
 		
 		
-		
+/*		
 		System.out.println("\n");
 		
 		lrp.addRecipe(12, 2);   
@@ -391,7 +381,7 @@ public class TestSamir {
 		drp.addRecipe(12, 23);
 		drp.addRecipe(12, 17);
 		
-		
+		*/
 		/*
 		PerceptronUtility pu = new PerceptronUtility();
 		RecipePersistance rp = new RecipePersistance();
@@ -437,8 +427,9 @@ public class TestSamir {
 		*/
 		
 		//12 	0.0606461 	4.34992 	2.7124 	1.36039 	1.76787 	0.765809 	7.31846
-		//pu.initiWeightEntry(12);
-		//p.proposition(12);
+		//pu.initiWeightEntry(2);
+		//p.apprentissage(2);
+		//p.proposition(2);
 		
 		//Cleaner c = new Cleaner();
 		

@@ -62,12 +62,14 @@ public class PerceptronUtility {
 		if (entryRecipe == 1) {
 			map.put("Sucres (g/100g)", (float) 1);
 			map.put("Sel chlorure de sodium (g/100g)", (float) 1);
-			map.put("Energie, Reglement UE No 1169/2011 (kcal/100g)", (float) 1);
+			map.put("Glucides (g/100g)", (float) 1);
+			map.put("Lipides (g/100g)", (float) 1);
 		} 
 		else {
 			map.put("Sucres (g/100g)", (float) -1);
 			map.put("Sel chlorure de sodium (g/100g)", (float) -1);
-			map.put("Energie, Reglement UE No 1169/2011 (kcal/100g)", (float) -1);
+			map.put("Glucides (g/100g)", (float) -1);
+			map.put("Lipides (g/100g)", (float) -1);
 		}
 
 	}

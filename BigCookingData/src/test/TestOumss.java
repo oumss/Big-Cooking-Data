@@ -7,8 +7,8 @@ import java.util.HashMap;
 import business.Ingredient;
 import business.Recipe;
 import ingredients.IngredientsToBase;
-import learnByPerceptron.Perceptron;
-import learnByPerceptron.PerceptronUtility;
+import testLearnPerceptron.Perceptron;
+import testLearnPerceptron.PerceptronUtility;
 import persistance.DislikedRecipePersistence;
 import persistance.LikedRecipePersistence;
 import persistance.RecipePersistance;
@@ -56,9 +56,10 @@ public class TestOumss {
 		Perceptron p = new Perceptron();
 		//p.getPu().initiWeightEntry(12);
 		
-		//p.apprentissage(12);
+		//p.apprentissage(2);
 		
-		System.out.println(p.proposition(12));
+		
+		//System.out.println(p.proposition(2));
 		
 		
 		

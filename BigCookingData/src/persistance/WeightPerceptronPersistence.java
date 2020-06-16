@@ -154,7 +154,9 @@ public class WeightPerceptronPersistence {
 				
 				weights.put("Sucres (g/100g)",result.getFloat("Sucres (g/100g)"));
 				weights.put("Sel chlorure de sodium (g/100g)",result.getFloat("Sel chlorure de sodium (g/100g)"));
-				weights.put("Energie, Reglement UE No 1169/2011 (kcal/100g)",result.getFloat("Energie, Reglement UE No 1169/2011 (kcal/100g)"));
+				weights.put("Glucides (g/100g)",result.getFloat("Glucides (g/100g)"));
+				weights.put("Lipides (g/100g)",result.getFloat("Lipides (g/100g)"));
+				
 			}
 			preparedStatement.close();
 
