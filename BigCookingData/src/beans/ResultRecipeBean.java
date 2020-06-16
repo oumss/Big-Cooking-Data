@@ -70,13 +70,22 @@ public class ResultRecipeBean implements Serializable {
 		int idRecipe = idFromR;
 		System.out.println(idRecipe);
 		String newSteps = clean.cleanSteps(idRecipe);
+		
 		RecipePersistance rp = new RecipePersistance();
 		System.out.println(newSteps);
 		
 		this.setUrl(verifUrlForImage(idRecipe));
 	
 		this.recipe = rp.readRecipeById(idRecipe);
+		String newCategory = clean.cleanCategory(this.recipe.getCategory());
+		String newUstensils = clean.cleanCategory(this.recipe.getUstensilsList());
+		String newIngredient = clean.cleanIngredientList(this.recipe.getIngredientsList());
+
 		this.recipe.setSteps(newSteps);
+		this.recipe.setCategory(newCategory);
+		this.recipe.setUstensilsList(newUstensils);
+		this.recipe.setIngredientsList(newIngredient);
+		
 		System.out.println(recipe.getIngredientsList());
 		
 		ConnexionPersistence connexion = new ConnexionPersistence();
@@ -88,6 +97,10 @@ public class ResultRecipeBean implements Serializable {
 	
 	}
 	
+	public String budget(int budget) {
+		Cleaner clean = new Cleaner();
+		return clean.cleanBudget(budget);
+	}
 	
 	public String verifUrlForImage(int id) {
 		

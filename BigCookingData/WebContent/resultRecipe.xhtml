@@ -74,8 +74,8 @@
 							       					<tr>
 							       					<td style=" border-right:  1px solid White;  padding: 10px; max-width: 150px; width: auto; height: 50px;"><label style ="color:white;">Pour <h:outputText style ="color:Chartreuse;" value="#{resultRecipeBean.recipe.numberOfPerson}" /> personnes </label></td>
 							       					<td style=" border-right:  1px solid White; padding: 10px; max-width: 150px; width: auto; height: 50px;"><label style ="color:white;">Durée estimée: <br/> <h:outputText style ="color:Chartreuse;" value="#{resultRecipeBean.recipe.timeCooking}" /> </label></td>
-							       					<td style=" border-right:  1px solid White; padding: 10px; max-width: 150px; width: auto; height: 50px;"><label style ="color:white;">Budget: <br/> <h:outputText style="color:Chartreuse;" value="#{resultRecipeBean.recipe.budget}" /></label></td>
-							       					<td style="  padding: 10px; max-width: 200px; width: auto; height: 50px;"><label style ="color:white;">Catégorie <br/> <h:outputText value="#{resultRecipeBean.recipe.category}" /></label></td>
+							       					<td style=" border-right:  1px solid White; padding: 10px; max-width: 150px; width: auto; height: 50px;"><label style ="color:white;">Budget: <br/> <h:outputText style="color:Chartreuse;" value="#{resultRecipeBean.budget(resultRecipeBean.recipe.budget)}" /></label></td>
+							       					<td style="  padding: 10px; max-width: 200px; width: auto; height: 50px;"><label style ="color:white;">Catégorie <br/> <h:outputText style="color:Chartreuse;" value="#{resultRecipeBean.recipe.category}" escape="false" /></label></td>
 							       					</tr>
 							       					</table>
 							       					
@@ -95,8 +95,8 @@
 								  background-color:rgba(255,255,255,0.8);  margin-top: 20px; width: 95%; max-height:300px; overflow:hidden;"> 
 						<tr>
 						<td style="  border-right:  1px solid White;   max-width: contain; width: 300px; max-height: contain;"><h:graphicImage style ="max-width:500px; height: 350px;  border-radius:  40px 0 0 40px;" value="#{resultRecipeBean.url}" alt="hey"/></td>
-						<td style=" border-right:  1px solid White; padding: 10px; max-width: 500px; width: auto; max-height: 50px;"><label style ="color:Red;">Liste des ingrédients: <br/> <h:outputText style =" color:black;" value="#{resultRecipeBean.recipe.ingredientsList}" /> </label></td>
-						<td style=" border-right:  1px solid White; padding: 10px; max-width: 300px; width: auto; max-height: 50px;"><label style ="color:Red;">Liste des ustensils <br/> <h:outputText style ="color:black;" value="#{resultRecipeBean.recipe.ustensilsList}" /></label></td>
+						<td style=" border-right:  1px solid White; padding: 10px; max-width: 500px; width: auto; max-height: 50px;"><label style ="text-align:left; width:65%;color:Red;">Liste des ingrédients: <br/> <h:outputText style =" color:black;" value="#{resultRecipeBean.recipe.ingredientsList}" escape="false"  /> </label></td>
+						<td style=" border-right:  1px solid White; padding: 10px; max-width: 300px; width: auto; max-height: 50px;"><label style ="text-align:left; width:65%; color:Red;">Liste des ustensils <br/> <h:outputText style ="color:black;" value="#{resultRecipeBean.recipe.ustensilsList}" escape="false" /></label></td>
 						</tr>
 					</table>			   
 							  
@@ -112,7 +112,7 @@
     							   border-style: hidden; /* hide standard table (collapsed) border */
     							   background-color:rgba(255,255,255,0.8); margin-top: 20px; width: 95%;">
      					<tr>
-     					<td style=" border-right:  1px solid White;  padding: 10px; max-width: 1000px; width: auto; max-height: 50px;"><label><h:outputText style="color:black;" value="#{resultRecipeBean.recipe.steps}" /></label></td>
+     					<td style=" border-right:  1px solid White;  padding: 10px; max-width: 1000px; width: auto; max-height: 50px;"><label style="max-width:80%; text-align:left;"><h:outputText style=" color:black;" value="#{resultRecipeBean.recipe.steps}" escape="false" /></label></td>
      					 </tr>
      					 </table>
 			 </div>
