@@ -135,32 +135,20 @@ public class PerceptronUtility {
 	public ArrayList<Recipe> filter(ArrayList<Recipe> listRecipe){
 		
 		IngredientRecipePersistance irp = new IngredientRecipePersistance();
-		ArrayList<Integer> suppr = new ArrayList<Integer>();
+		ArrayList<Recipe> result = new ArrayList<Recipe>();
 		RecipePersistance rp = new RecipePersistance();
-		
 		for(Recipe recipe : listRecipe) {
-			if(!irp.existRecipe(recipe.getId())) {
-				suppr.add(recipe.getId());
+			if(irp.existRecipe(recipe.getId())) {
+				result.add(recipe);
 			}
 		}
-		System.out.println(suppr.size());
-		for (int i = 0; i < listRecipe.size(); i++) {
-			if (contains(suppr, listRecipe.get(i).getId())) {
-				listRecipe.remove(i);
-			}
-			
-		}
+		System.out.println(result.size());
 		
-		return listRecipe;
+		return result;
 		
+	
+	
 	}
 	
-	public boolean contains(ArrayList<Integer> suppr, int i) {
-		for (int j = 0; j < suppr.size(); j++) {
-			if (suppr.get(j) == i) {
-				return true;
-			}
-		}
-		return false;
-	}
+	
 }

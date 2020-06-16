@@ -399,8 +399,12 @@ public class TestSamir {
 		PerceptronUtility pu = new PerceptronUtility();
 		RecipePersistance rp = new RecipePersistance();
 		ArrayList<Recipe> test = rp.readAllRecipe();
-		//System.out.println(test.size());
-		System.out.println(pu.filter(test).size());
+		ArrayList<Recipe> test2 = new ArrayList<Recipe>();
+		for (int i = 0; i < 10000; i++) {
+			test2.add(test.get(i));
+		}
+		System.out.println(test2.size());
+		System.out.println(pu.filter(test2).size());
 		
 		
 		
