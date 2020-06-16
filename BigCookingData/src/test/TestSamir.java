@@ -327,17 +327,28 @@ public class TestSamir {
 		
 		Perceptron p = new Perceptron();
 		PerceptronUtility pu = new PerceptronUtility();
-		/*
+		
 		RecipePersistance rp = new RecipePersistance();
 		
-		Recipe r = rp.readRecipeById(2);
-		Recipe r1 = rp.readRecipeById(16);
-		Recipe r2= rp.readRecipeById(1687);
-		Recipe r4 = rp.readRecipeById(2717);
-		Recipe r5 = rp.readRecipeById(2720);
-		Recipe r6= rp.readRecipeById(13);
-		Recipe r7= rp.readRecipeById(22);
-		Recipe r8= rp.readRecipeById(23);
+		Recipe r = rp.readRecipeById(39);
+		Recipe r1 = rp.readRecipeById(59);
+		Recipe r2= rp.readRecipeById(88);
+		Recipe r4 = rp.readRecipeById(125);
+		Recipe r5 = rp.readRecipeById(146);
+		Recipe r6= rp.readRecipeById(122);
+		Recipe r7= rp.readRecipeById(1);
+		Recipe r8= rp.readRecipeById(18);
+		
+		
+		Recipe r10= rp.readRecipeById(50);
+		Recipe r11 = rp.readRecipeById(365);
+		Recipe r12 = rp.readRecipeById(367);
+		Recipe r13= rp.readRecipeById(880);
+		Recipe r14= rp.readRecipeById(468);
+		Recipe r15= rp.readRecipeById(196);
+		
+		
+		
 		Recipe r9= rp.readRecipeById(17);
 		
 		System.out.println("recette sucrée:");
@@ -346,37 +357,22 @@ public class TestSamir {
 		System.out.println(pu.calculateTaux(r1, 1));
 		System.out.println(pu.calculateTaux(r2, 1));
 		System.out.println(pu.calculateTaux(r4, 1));
-		System.out.println("\n");
-		System.out.println("recette salée:");
-		System.out.println("\n");
-		System.out.println(pu.calculateTaux(r5, -1));
+		System.out.println(pu.calculateTaux(r5, 1));
 		System.out.println(pu.calculateTaux(r5, 1));
 		System.out.println(pu.calculateTaux(r6, 1));
 		System.out.println(pu.calculateTaux(r7, 1));
-		System.out.println(pu.calculateTaux(r8, 1));
-		System.out.println(pu.calculateTaux(r9, 1));
-		
-		
-		
-		Recipe r10= rp.readRecipeById(3);
-		Recipe r11 = rp.readRecipeById(4);
-		Recipe r12 = rp.readRecipeById(6);
-		Recipe r13= rp.readRecipeById(7);
-		Recipe r14= rp.readRecipeById(8);
-		Recipe r15= rp.readRecipeById(9);
-		Recipe r16= rp.readRecipeById(10);
-		
 		System.out.println("\n");
-		
+		System.out.println("recette salée:");
+		System.out.println("\n");
+		System.out.println(pu.calculateTaux(r8, -1));
+		System.out.println(pu.calculateTaux(r9, -1));
 		System.out.println(pu.calculateTaux(r10, -1));
 		System.out.println(pu.calculateTaux(r11, -1));
 		System.out.println(pu.calculateTaux(r12, -1));
 		System.out.println(pu.calculateTaux(r13, -1));
 		System.out.println(pu.calculateTaux(r14, -1));
 		System.out.println(pu.calculateTaux(r15, -1));
-		System.out.println(pu.calculateTaux(r16, -1));
 		
-		*/
 		
 		
 		System.out.println("\n");
@@ -444,9 +440,9 @@ public class TestSamir {
 		//pu.initiWeightEntry(12);
 		//p.proposition(12);
 		
-		Cleaner c = new Cleaner();
+		//Cleaner c = new Cleaner();
 		
-		System.out.println(c.cleanSteps(59));
+		//System.out.println(c.cleanSteps(59));
 		
 		//System.out.println(p.proposition(12));
 		
