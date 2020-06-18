@@ -366,7 +366,7 @@ public class RecipePersistance {
 			ResultSet result = preparedStatement.executeQuery();
 			IngredientRecipePersistance ingredientRecipePersist = new IngredientRecipePersistance();			
 			
-			while (result.next() && i<10000) {
+			while (result.next() && i<1000) {
 				Recipe readRecipe = new Recipe();
 
 				readRecipe.setId(result.getInt("id_recipe"));

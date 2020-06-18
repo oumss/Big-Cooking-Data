@@ -45,7 +45,7 @@ public class Perceptron {
 		ArrayList<Recipe> listRecipe = rp.readAllRecipe();
 		ArrayList<Recipe> result = new ArrayList<Recipe>();
 		//for (Recipe r : listRecipe) {
-		for (int i = 1; i < 1000; i++) {
+		for (int i = 1; i < 100; i++) {
 			Recipe r = rp.readRecipeById(i);
 			if(pu.calculSortiePerceptron(pu.calculateTaux(r,1), wpp.getWeight(id_user)) >= 0) {
 				result.add(r);
