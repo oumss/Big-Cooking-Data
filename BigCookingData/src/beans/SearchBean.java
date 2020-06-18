@@ -74,6 +74,15 @@ public class SearchBean implements Serializable {
 		return "results";
 	}
 	
+	public String selectedCategoriesFunc() {
+		if(this.selectedCategories.equals("")) {
+			return "";
+		}
+		else {
+			return "(Catégorie: ''" + this.selectedCategories +"'')";
+		}
+			
+	}
 	
 	public String quickSearch(String cat) {
 		this.category = new String();

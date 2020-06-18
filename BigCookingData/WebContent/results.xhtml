@@ -44,7 +44,7 @@
 	
 		<div>
 			<fieldset>
-		<h1 style="position: absolute; color:White; float: left; margin-top: 30px; margin-left: 20px;"> <img style="float: top; height:70px;" src="images/logo.png" /> Résultat(s) de la recherche Big Cooking Data</h1>
+		<h1 style="position: absolute; color:White; float: left; margin-top: 30px; margin-left: 20px;"> <img style="float: top; height:70px;" src="images/logo.png" /> Résultat(s) de la recherche : <h:outputText value=" ''#{searchBean.keyword}'' #{searchBean.selectedCategoriesFunc()}"/></h1>
 			<br/><br/><br/><br/><br/><br/>
 			   <p:dataGrid var="recipe" value="#{resultBean.funcRecipes()}" columns="3" layout="grid"
 			        rows="12" paginator="true" id="recipe"

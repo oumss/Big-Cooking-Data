@@ -15,6 +15,7 @@ import javax.swing.SwingConstants;
 import business.Recipe;
 import business.User;
 import ingredients.Cleaner;
+import learnByPerceptron.Perceptron;
 import persistance.ConnexionPersistence;
 import persistance.DislikedRecipePersistence;
 import persistance.LikedRecipePersistence;
@@ -50,7 +51,10 @@ public class ResultRecipeBean implements Serializable {
 		ConnexionPersistence conn = new ConnexionPersistence();
 		int currentUsr = conn.whoIsConnected().getId();
 		lk.addRecipe(currentUsr, this.recipe.getId());
-		System.out.println(currentUsr +" a liké la recette:" + this.recipe.getId());
+		System.out.println(currentUsr +" a disliké la recette:" + this.recipe.getId());
+		Perceptron per = new Perceptron();
+		per.apprentissage(currentUsr);
+		
 		return "";
 	}
 	
@@ -61,6 +65,9 @@ public class ResultRecipeBean implements Serializable {
 		int currentUsr = conn.whoIsConnected().getId();
 		dlk.addRecipe(currentUsr, this.recipe.getId());
 		System.out.println(currentUsr +" a disliké la recette:" + this.recipe.getId());
+		Perceptron per = new Perceptron();
+		per.apprentissage(currentUsr);
+		
 		return "";
 	}
 	

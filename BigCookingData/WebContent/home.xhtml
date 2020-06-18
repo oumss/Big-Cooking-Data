@@ -66,7 +66,7 @@
 	<p:galleria value="#{homeBean.imagesView()}" var="recipe" style="box-shadow: 0 0 0 2px Chartreuse; /* this draws the table border  */
 								  									 border-style: hidden; background-color: rgba(255,255,255,0.3); 
 								  									 border-radius: 20px 20px 20px 20px; position:relative; float:right; margin-right: 15px; margin-top: 8%" 
-								  									 panelWidth="500" panelHeight="313" showCaption="true" >
+								  									 panelWidth="550" panelHeight="313" showCaption="true" >
     	 	<h:commandLink style="text-decoration:none;color:white; font-style: italic; font-weight:bold; font-size: 30px;" action="proposed.jsf" value="Laissez-vous inspirer!" />
     		<h:graphicImage  style="height:110%; width:100%;" value="#{homeBean.verifUrlForImage(recipe.getId())}" alt="#{resultRecipeBean.category(recipe.getCategory())}"  title="#{recipe.getTitle()}" />
 			
