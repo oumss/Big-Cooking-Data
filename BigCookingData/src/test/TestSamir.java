@@ -329,36 +329,58 @@ public class TestSamir {
 		PerceptronUtility pu = new PerceptronUtility();
 		
 		RecipePersistance rp = new RecipePersistance();
-		/*
-		Recipe r = rp.readRecipeById(19);
-		Recipe r2= rp.readRecipeById(89);
-		Recipe r4 = rp.readRecipeById(39);
 		
+		// 59 63 103 142 151 164 203 258
+		
+		Recipe r = rp.readRecipeById(59); //Sainte Aurore (gâteau chocolat- poire fourré mousse chocolat-framboise glaçage fudge)
+		Recipe r2= rp.readRecipeById(63); //quatre-quarts caramel ananas
+		Recipe r4 = rp.readRecipeById(103); // gâteau au yaourt et nutella
+		Recipe r5 = rp.readRecipeById(142); // Gâteaux au miel et à la cannelle
+		Recipe r6= rp.readRecipeById(151); // gâteau facile au chocolat façon Salete
+		Recipe r7= rp.readRecipeById(164); // Gateau semoule coco raisins
+		Recipe r8= rp.readRecipeById(203); // Gâteau au Get 27
+		Recipe r9= rp.readRecipeById(258); // gateau des grisons aux noix, par missc
+		
+		//24 50 365 367 377 468 538 596 672
+		
+		Recipe r11 = rp.readRecipeById(24); // Patina de concombre (cuisine romaine)
+		Recipe r12 = rp.readRecipeById(50); // Fish Pie ( plat traditionnel anglais )
+		Recipe r13 = rp.readRecipeById(365); // lasagnes de la mer parfumées à la noix de coco et son coulis d'avocat
+		Recipe r14 = rp.readRecipeById(367); // spaghetti aux fruits de mer express
+		Recipe r15 = rp.readRecipeById(377); // poisson micro-ondes
+		Recipe r16 = rp.readRecipeById(468); // La marmite du pêcheur
+		Recipe r17 = rp.readRecipeById(538); // Ceviche péruvien de poisson
+		Recipe r18 = rp.readRecipeById(596); // citrons farcis aux poissons
+		Recipe r19 = rp.readRecipeById(672); // Salade de pommes de terre aux poissons fumés (Lituanie)
+		
+
+ 
+	
+		System.out.println("SUCREE");
 		System.out.println("\n");
+		System.out.println(r.getTitle()+" : "+pu.calculateTaux(r, 1));
+		System.out.println(r2.getTitle()+" : "+pu.calculateTaux(r2, 1));
+		System.out.println(r4.getTitle()+" : "+pu.calculateTaux(r4, 1));
+		System.out.println(r5.getTitle()+" : "+pu.calculateTaux(r5, 1));
+		System.out.println(r6.getTitle()+" : "+pu.calculateTaux(r6, 1));
+		System.out.println(r7.getTitle()+" : "+pu.calculateTaux(r7, 1));
+		System.out.println(r8.getTitle()+" : "+pu.calculateTaux(r8, 1));
+		System.out.println(r9.getTitle()+" : "+pu.calculateTaux(r9, 1));
+		System.out.println("\n");
+		System.out.println("SALEE");
+		System.out.println("\n");
+		System.out.println(r11.getTitle()+" : "+pu.calculateTaux(r11, 1));
+		System.out.println(r11.getTitle()+" : "+pu.calculateTaux(r12, 1));
+		System.out.println(r12.getTitle()+" : "+pu.calculateTaux(r13, 1));
+		System.out.println(r13.getTitle()+" : "+pu.calculateTaux(r14, 1));
+		System.out.println(r14.getTitle()+" : "+pu.calculateTaux(r15, 1));
+		System.out.println(r15.getTitle()+" : "+pu.calculateTaux(r16, 1));
+		System.out.println(r16.getTitle()+" : "+pu.calculateTaux(r17, 1));
+		System.out.println(r17.getTitle()+" : "+pu.calculateTaux(r18, 1));
+		System.out.println(r18.getTitle()+" : "+pu.calculateTaux(r19, 1));
 		
 		
-		Recipe r5 = rp.readRecipeById(367);   
-		Recipe r6= rp.readRecipeById(896);
-		Recipe r7= rp.readRecipeById(468);
-		Recipe r8= rp.readRecipeById(538);
-		Recipe r9= rp.readRecipeById(69);
-		Recipe r11 = rp.readRecipeById(10);
-		Recipe r12 = rp.readRecipeById(10);
 		
-		
-		
-		
-		System.out.println(pu.calculateTaux(r, 1));
-		System.out.println(pu.calculateTaux(r2, 1));
-		System.out.println(pu.calculateTaux(r4, 1));
-		System.out.println(pu.calculateTaux(r5, 1));
-		System.out.println(pu.calculateTaux(r5, 1));
-		System.out.println(pu.calculateTaux(r6, 1));
-		System.out.println(pu.calculateTaux(r7, 1));
-		System.out.println(pu.calculateTaux(r8, 1));
-		System.out.println(pu.calculateTaux(r9, 1));
-		System.out.println(pu.calculateTaux(r11, 1));
-		System.out.println(pu.calculateTaux(r12, 1));
 		
 		System.out.println("\n");
 		System.out.println("\n");
@@ -367,7 +389,7 @@ public class TestSamir {
 		System.out.println(rp.readAllFirstsRecipe().get(288).getId());
 		
 		*/
-	
+		/*
 		System.out.println("\n");
 		
 		lrp.addRecipe(5, 2);   
@@ -383,7 +405,7 @@ public class TestSamir {
 		drp.addRecipe(5, 22);
 		drp.addRecipe(5, 23);
 		drp.addRecipe(5, 17);
-		
+		*/
 		
 		/*
 		PerceptronUtility pu = new PerceptronUtility();
@@ -433,7 +455,7 @@ public class TestSamir {
 		//pu.initiWeightEntry(2);
 		//p.apprentissage(5);
 		
-		p.proposition(5);
+		//p.proposition(5);
 		
 		//Cleaner c = new Cleaner();
 		
