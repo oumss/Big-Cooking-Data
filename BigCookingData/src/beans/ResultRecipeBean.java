@@ -75,8 +75,8 @@ public class ResultRecipeBean implements Serializable {
 		int currentUsr = conn.whoIsConnected().getId();
 		lk.addRecipe(currentUsr, this.recipe.getId());
 		System.out.println(currentUsr +" a liké la recette:" + this.recipe.getId());
-	//	Perceptron per = new Perceptron();
-	//	per.apprentissage(currentUsr);
+		Perceptron per = new Perceptron();
+		per.apprentissage(currentUsr);
 		
 		return "resultRecipe"; 
 	}
@@ -88,8 +88,8 @@ public class ResultRecipeBean implements Serializable {
 		int currentUsr = conn.whoIsConnected().getId();
 		dlk.addRecipe(currentUsr, this.recipe.getId());
 		System.out.println(currentUsr +" a disliké la recette:" + this.recipe.getId());
-	//	Perceptron per = new Perceptron();
-	//	per.apprentissage(currentUsr);
+		Perceptron per = new Perceptron();
+		per.apprentissage(currentUsr);
 		
 		return "resultRecipe";
 	}

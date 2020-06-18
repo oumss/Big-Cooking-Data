@@ -87,16 +87,13 @@ public class SearchBean implements Serializable {
 	}
 	
 	public String quickSearch(String cat) {
-		this.category = new String();
-		this.setCategory(null);
-		this.setCategory(cat);
-		System.out.println("------------------"+category);
+		
 		this.recipes = new ArrayList<Recipe>();
 		RecipePersistance recipePersist = new RecipePersistance();
 		System.out.println(recipes.toString());
-		recipes.addAll(recipePersist.selectByKeyWord(category));
+		recipes.addAll(recipePersist.selectByKeyWord(cat));
 		System.out.println(recipes.toString());
-		System.out.println(category);
+		
 		
 		
 		return "results";
