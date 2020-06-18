@@ -34,9 +34,9 @@ public class HomeBean implements Serializable {
 	    	ConnexionPersistence conn = new ConnexionPersistence();
 	    	ArrayList<Recipe> recipes;
 	    	ArrayList<Recipe> recipes2 = new ArrayList<Recipe>();
-	    	//Perceptron p = new Perceptron();
-	    	//recipes = p.proposition(conn.whoIsConnected().getId());
-	    	recipes = new RecipePersistance().selectByKeyWord("gateau");
+	    	Perceptron p = new Perceptron();
+	    	recipes = p.proposition(conn.whoIsConnected().getId());
+	    //	recipes = new RecipePersistance().selectByKeyWord("gateau");
 	    	System.out.println(recipes.toString());
 	    	 
 	        while ((i < recipes.size()) && (i < 10)) {

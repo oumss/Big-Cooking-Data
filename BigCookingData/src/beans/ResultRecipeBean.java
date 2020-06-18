@@ -94,6 +94,30 @@ public class ResultRecipeBean implements Serializable {
 		return "resultRecipe";
 	}
 	
+	public String like2(){
+		LikedRecipePersistence lk = new LikedRecipePersistence();
+		ConnexionPersistence conn = new ConnexionPersistence();
+		int currentUsr = conn.whoIsConnected().getId();
+		lk.addRecipe(currentUsr, this.recipe.getId());
+		System.out.println(currentUsr +" a liké la recette:" + this.recipe.getId());
+		Perceptron per = new Perceptron();
+		per.apprentissage(currentUsr);
+		
+		return "resultRecipe2"; 
+	}
+	
+	public String dislike2(){
+		DislikedRecipePersistence dlk = new DislikedRecipePersistence();
+		ConnexionPersistence conn = new ConnexionPersistence();
+
+		int currentUsr = conn.whoIsConnected().getId();
+		dlk.addRecipe(currentUsr, this.recipe.getId());
+		System.out.println(currentUsr +" a disliké la recette:" + this.recipe.getId());
+		Perceptron per = new Perceptron();
+		per.apprentissage(currentUsr);
+		
+		return "resultRecipe2";
+	}
 	
 	public String affiche(int idFromR) {
 		Cleaner clean = new Cleaner();
