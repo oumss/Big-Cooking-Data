@@ -343,16 +343,17 @@ public class TestSamir {
 		
 		//24 50 365 367 377 468 538 596 672
 		
-		Recipe r11 = rp.readRecipeById(24); // Patina de concombre (cuisine romaine)
-		Recipe r12 = rp.readRecipeById(50); // Fish Pie ( plat traditionnel anglais )
-		Recipe r13 = rp.readRecipeById(365); // lasagnes de la mer parfumées à la noix de coco et son coulis d'avocat
-		Recipe r14 = rp.readRecipeById(367); // spaghetti aux fruits de mer express
-		Recipe r15 = rp.readRecipeById(377); // poisson micro-ondes
-		Recipe r16 = rp.readRecipeById(468); // La marmite du pêcheur
-		Recipe r17 = rp.readRecipeById(538); // Ceviche péruvien de poisson
-		Recipe r18 = rp.readRecipeById(596); // citrons farcis aux poissons
-		Recipe r19 = rp.readRecipeById(672); // Salade de pommes de terre aux poissons fumés (Lituanie)
+		Recipe r11 = rp.readRecipeById(17); // Patina de concombre (cuisine romaine)
+		Recipe r12 = rp.readRecipeById(37); // Fish Pie ( plat traditionnel anglais )
+		Recipe r13 = rp.readRecipeById(69); // lasagnes de la mer parfumées à la noix de coco et son coulis d'avocat
+		Recipe r14 = rp.readRecipeById(83); // spaghetti aux fruits de mer express
+		Recipe r15 = rp.readRecipeById(114); // poisson micro-ondes
+		Recipe r16 = rp.readRecipeById(186); // La marmite du pêcheur
+		Recipe r17 = rp.readRecipeById(209); // Ceviche péruvien de poisson
+		Recipe r18 = rp.readRecipeById(270); // citrons farcis aux poissons
+		Recipe r19 = rp.readRecipeById(284); // Salade de pommes de terre aux poissons fumés (Lituanie)
 		
+
 
  
 	
