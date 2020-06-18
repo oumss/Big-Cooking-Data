@@ -70,7 +70,7 @@
 			<fieldset>
 		<h1 style="position: absolute; color:White; float: left; margin-top: 30px; margin-left: 20px;"> <img style="float: top; height:70px;" src="images/logo.png" /> Vos goûts selon vos recherches :</h1>
 			<br/><br/><br/><br/><br/><br/>
-			   <p:dataGrid  value="#{searchBean.searchForLearning()}" var="recipe" columns="3" layout="grid"
+			   <p:dataGrid  value="#{searchBean.getProposedRecipe()}" var="recipe" columns="3" layout="grid"
 			        rows="12" paginator="true" id="recipe"
 			        paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
 			         style="width:95%;  margin: 0 auto; max-height: 425px; overflow: auto;"> 
