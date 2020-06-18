@@ -43,7 +43,7 @@ public class LikedRecipePersistence {
 
 			
 			preparedStatement.close();
-			
+			 
 		} catch (SQLException se) {
 			System.err.println(se.getMessage());
 		}
