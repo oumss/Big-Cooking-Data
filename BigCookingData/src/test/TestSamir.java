@@ -370,19 +370,19 @@ public class TestSamir {
 	
 		System.out.println("\n");
 		
-		lrp.addRecipe(12, 2);   
-		lrp.addRecipe(12, 16);
-		lrp.addRecipe(12, 1687);
-		lrp.addRecipe(12, 2717);
+		lrp.addRecipe(5, 2);   
+		lrp.addRecipe(5, 16);
+		lrp.addRecipe(5, 1687);
+		lrp.addRecipe(5, 2717);
 		
 		
 		
 		
-		drp.addRecipe(12, 2720);
-		drp.addRecipe(12, 13);
-		drp.addRecipe(12, 22);
-		drp.addRecipe(12, 23);
-		drp.addRecipe(12, 17);
+		drp.addRecipe(5, 2720);
+		drp.addRecipe(5, 13);
+		drp.addRecipe(5, 22);
+		drp.addRecipe(5, 23);
+		drp.addRecipe(5, 17);
 		
 		
 		/*
@@ -431,7 +431,7 @@ public class TestSamir {
 		
 		//12 	0.0606461 	4.34992 	2.7124 	1.36039 	1.76787 	0.765809 	7.31846
 		//pu.initiWeightEntry(2);
-		//p.apprentissage(12);
+		//p.apprentissage(5);
 		
 		p.proposition(5);
 		
