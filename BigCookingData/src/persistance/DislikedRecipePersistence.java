@@ -32,9 +32,19 @@ public class DislikedRecipePersistence {
 				preparedStatement1.setInt(2, id_recipe);
 				preparedStatement1.executeUpdate();
 				preparedStatement1.close();
+				
+
+				String removeLikeQuery = "DELETE FROM `liked_recipes` WHERE `id_user`=? AND `id_recipe`=?";
+				java.sql.PreparedStatement preparedStatement2 = dbConnection.prepareStatement(removeLikeQuery);
+				preparedStatement2.setInt(1, id_user);
+				preparedStatement2.setInt(2, id_recipe);
+				preparedStatement2.executeUpdate();
+				preparedStatement2.close();
+
 
 			}
 			preparedStatement.close();
+			
 			
 		} catch (SQLException se) {
 			System.err.println(se.getMessage());
