@@ -17,7 +17,9 @@ import org.primefaces.event.UnselectEvent;
 
 import business.Recipe;
 import core.SearchEntry;
+import persistance.ConnexionPersistence;
 import persistance.RecipePersistance;
+import testLearnPerceptron.Perceptron;
 
 @ManagedBean(name = "searchBean", eager = true)
 @SessionScoped
@@ -105,13 +107,13 @@ public class SearchBean implements Serializable {
 		
 	}
 	
-	
-	public ArrayList<Recipe> searchForLearning() {
-		ArrayList<Recipe> recipe = new ArrayList<Recipe>();
-		RecipePersistance recipePersist = new RecipePersistance();
-		recipe.addAll(recipePersist.selectByKeyWordForLearning(""));
 
-		return recipe;
+	public ArrayList<Recipe> searchForLearning() {
+		
+		Perceptron p = new Perceptron();
+		ConnexionPersistence conn = new ConnexionPersistence();
+		
+		return p.proposition(conn.whoIsConnected().getId());
 	}
 
 	public String disconnect() {

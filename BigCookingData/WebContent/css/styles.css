@@ -117,5 +117,19 @@ label{
     100%{background-image: url("https://s3-eu-west-1.amazonaws.com/images-ca-1-0-1-eu/recipe_photos/slide/182548/falafels-recette-facile-pois-chiches_4_CHEFSIMON_680.jpg");}
 }
 
+.success1 {
+    
+    color: white;
+    background-color: green;
+}
 
+.success2 {
+    
+    color: white;
+    background-color: red;
+}
+
+.error {
+    
+}
 

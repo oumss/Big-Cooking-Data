@@ -14,6 +14,7 @@ import javax.faces.bean.SessionScoped;
 import business.Recipe;
 import persistance.ConnexionPersistence;
 import persistance.RecipePersistance;
+import testLearnPerceptron.Perceptron;
 
 @ManagedBean(name = "homeBean", eager = true)
 @SessionScoped
@@ -30,10 +31,11 @@ public class HomeBean implements Serializable {
 
 	 public List<Recipe> imagesView() {
 		 	int i = 0; 
-	    	RecipePersistance rp = new RecipePersistance();
+	    	ConnexionPersistence conn = new ConnexionPersistence();
 	    	List<Recipe> recipes;
 	    	List<Recipe> recipes2 = new ArrayList<Recipe>();
-	    	recipes = rp.selectByKeyWordForLearning("");
+	    	Perceptron p = new Perceptron();
+	    	recipes = p.proposition(conn.whoIsConnected().getId());
 	    	System.out.println(recipes.toString());
 	    	 
 	        while ((i < recipes.size()) && (i < 10)) {

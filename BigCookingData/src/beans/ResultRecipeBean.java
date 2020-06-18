@@ -15,7 +15,7 @@ import javax.swing.SwingConstants;
 import business.Recipe;
 import business.User;
 import ingredients.Cleaner;
-import learnByPerceptron.Perceptron;
+import testLearnPerceptron.*;
 import persistance.ConnexionPersistence;
 import persistance.DislikedRecipePersistence;
 import persistance.LikedRecipePersistence;
@@ -46,14 +46,37 @@ public class ResultRecipeBean implements Serializable {
 		
 	}
 	
+	public String success1(int idRecipe) {
+		ConnexionPersistence conn = new ConnexionPersistence();
+		int idUser = conn.whoIsConnected().getId();
+		LikedRecipePersistence lk = new LikedRecipePersistence();
+		if(lk.isLikedRecipeByUser(idUser, idRecipe)) {
+			return "success1";
+		}
+		else {return "error";}
+		
+	}
+	
+	public String success2(int idRecipe) {
+		ConnexionPersistence conn = new ConnexionPersistence();
+		DislikedRecipePersistence dlk = new DislikedRecipePersistence();
+		int idUser = conn.whoIsConnected().getId();
+		if(dlk.isDislikedRecipeByUser(idUser, idRecipe)) {
+			return "success2";
+		}
+		else {return "error";}
+		
+	}
+	
+	
 	public String like(){
 		LikedRecipePersistence lk = new LikedRecipePersistence();
 		ConnexionPersistence conn = new ConnexionPersistence();
 		int currentUsr = conn.whoIsConnected().getId();
 		lk.addRecipe(currentUsr, this.recipe.getId());
-		System.out.println(currentUsr +" a disliké la recette:" + this.recipe.getId());
-		Perceptron per = new Perceptron();
-		per.apprentissage(currentUsr);
+		System.out.println(currentUsr +" a liké la recette:" + this.recipe.getId());
+		//Perceptron per = new Perceptron();
+		//per.apprentissage(currentUsr);
 		
 		return "";
 	}
@@ -65,8 +88,8 @@ public class ResultRecipeBean implements Serializable {
 		int currentUsr = conn.whoIsConnected().getId();
 		dlk.addRecipe(currentUsr, this.recipe.getId());
 		System.out.println(currentUsr +" a disliké la recette:" + this.recipe.getId());
-		Perceptron per = new Perceptron();
-		per.apprentissage(currentUsr);
+		//Perceptron per = new Perceptron();
+		//per.apprentissage(currentUsr);
 		
 		return "";
 	}

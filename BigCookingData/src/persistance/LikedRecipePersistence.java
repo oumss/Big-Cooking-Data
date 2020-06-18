@@ -63,6 +63,26 @@ public class LikedRecipePersistence {
 		return readRecipesList;
 	}
 	
+	public boolean isLikedRecipeByUser(int id_user, int id_recipe) {
+		
+		
+		try {
+			String selectUserQuery = "SELECT * FROM liked_recipes WHERE id_user = ? AND id_recipe = ?";
+			java.sql.PreparedStatement preparedStatement = dbConnection.prepareStatement(selectUserQuery);
+			preparedStatement.setInt(1, id_user);
+			preparedStatement.setInt(2, id_recipe);
+			ResultSet result = preparedStatement.executeQuery();
+
+			if (!result.next()) {
+				return false;
+			}
+			preparedStatement.close();
+
+		} catch (SQLException se) {
+			System.err.println(se.getMessage());
+		}
+		return true;
+	}
 	
 	
 	
