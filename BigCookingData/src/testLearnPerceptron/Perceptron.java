@@ -57,7 +57,7 @@ public class Perceptron {
 			}
 			
 		}
-		//System.out.println(result.size());
+		System.out.println(result.size());
 		return result;
 	}
 	
