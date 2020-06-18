@@ -330,24 +330,24 @@ public class TestSamir {
 		
 		RecipePersistance rp = new RecipePersistance();
 		/*
-		Recipe r = rp.readRecipeById(39);
-		Recipe r2= rp.readRecipeById(88);
-		Recipe r4 = rp.readRecipeById(125);
-		Recipe r5 = rp.readRecipeById(146);
-		Recipe r6= rp.readRecipeById(122);
-		Recipe r7= rp.readRecipeById(1);
-		Recipe r8= rp.readRecipeById(18);
+		Recipe r = rp.readRecipeById(19);
+		Recipe r2= rp.readRecipeById(89);
+		Recipe r4 = rp.readRecipeById(39);
 		
-		
-		Recipe r11 = rp.readRecipeById(365);
-		Recipe r12 = rp.readRecipeById(367);
-		
-		
-		
-		Recipe r9= rp.readRecipeById(17);
-		
-		System.out.println("recette sucr�e:");
 		System.out.println("\n");
+		
+		
+		Recipe r5 = rp.readRecipeById(367);   
+		Recipe r6= rp.readRecipeById(896);
+		Recipe r7= rp.readRecipeById(468);
+		Recipe r8= rp.readRecipeById(538);
+		Recipe r9= rp.readRecipeById(69);
+		Recipe r11 = rp.readRecipeById(10);
+		Recipe r12 = rp.readRecipeById(10);
+		
+		
+		
+		
 		System.out.println(pu.calculateTaux(r, 1));
 		System.out.println(pu.calculateTaux(r2, 1));
 		System.out.println(pu.calculateTaux(r4, 1));
@@ -355,17 +355,14 @@ public class TestSamir {
 		System.out.println(pu.calculateTaux(r5, 1));
 		System.out.println(pu.calculateTaux(r6, 1));
 		System.out.println(pu.calculateTaux(r7, 1));
-		System.out.println("\n");
-		System.out.println("recette sal�e:");
-		System.out.println("\n");
-		System.out.println(pu.calculateTaux(r8, -1));
-		System.out.println(pu.calculateTaux(r9, -1));
-		System.out.println(pu.calculateTaux(r11, -1));
-		System.out.println(pu.calculateTaux(r12, -1));
+		System.out.println(pu.calculateTaux(r8, 1));
+		System.out.println(pu.calculateTaux(r9, 1));
+		System.out.println(pu.calculateTaux(r11, 1));
+		System.out.println(pu.calculateTaux(r12, 1));
 		
 		System.out.println("\n");
 		System.out.println("\n");
-		
+		/*
 		System.out.println(rp.readAllFirstsRecipe().size());
 		System.out.println(rp.readAllFirstsRecipe().get(288).getId());
 		
@@ -435,7 +432,8 @@ public class TestSamir {
 		//12 	0.0606461 	4.34992 	2.7124 	1.36039 	1.76787 	0.765809 	7.31846
 		//pu.initiWeightEntry(2);
 		//p.apprentissage(12);
-		p.proposition(12);
+		
+		p.proposition(5);
 		
 		//Cleaner c = new Cleaner();
 		

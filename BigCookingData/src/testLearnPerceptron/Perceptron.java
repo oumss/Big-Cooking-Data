@@ -45,16 +45,19 @@ public class Perceptron {
 		WeightPerceptronPersistence wpp = new WeightPerceptronPersistence();
 		ArrayList<Recipe> listRecipe = rp.readAllFirstsRecipe();
 		ArrayList<Recipe> result = new ArrayList<Recipe>();
-		for (int i = 0; i < 10000; i++) {
+		if (!wpp.existWeight(id_user)) {
+			pu.initiWeightEntry(id_user);
+		}
+		for (int i = 0; i < 1000; i++) {
 			Recipe r = listRecipe.get(i);
 			
 			if(pu.calculSortiePerceptron(pu.calculateTaux(r,1), wpp.getWeight(id_user)) >= 0) {
 				result.add(r);
-				System.out.println(r.getTitle() + r.getId());
+				//System.out.println(r.getTitle() + r.getId());
 			}
 			
 		}
-		System.out.println(result.size());
+		//System.out.println(result.size());
 		return result;
 	}
 	
