@@ -74,10 +74,11 @@ public class ResultRecipeBean implements Serializable {
 		ConnexionPersistence conn = new ConnexionPersistence();
 		int currentUsr = conn.whoIsConnected().getId();
 		lk.addRecipe(currentUsr, this.recipe.getId());
-		System.out.println(currentUsr +" a liké la recette:" + this.recipe.getId());
-		Perceptron per = new Perceptron();
-		per.apprentissage(currentUsr);
-		
+		System.out.println(currentUsr +" a likï¿½ la recette:" + this.recipe.getId());
+		//Perceptron per = new Perceptron();
+		//per.apprentissage(currentUsr);
+	    Thread t = new Thread(new Perceptron(currentUsr, false));
+	    t.start();
 		return "resultRecipe"; 
 	}
 	
@@ -87,9 +88,11 @@ public class ResultRecipeBean implements Serializable {
 
 		int currentUsr = conn.whoIsConnected().getId();
 		dlk.addRecipe(currentUsr, this.recipe.getId());
-		System.out.println(currentUsr +" a disliké la recette:" + this.recipe.getId());
-		Perceptron per = new Perceptron();
-		per.apprentissage(currentUsr);
+		System.out.println(currentUsr +" a dislikï¿½ la recette:" + this.recipe.getId());
+		//Perceptron per = new Perceptron();
+		//per.apprentissage(currentUsr);
+		Thread t = new Thread(new Perceptron(currentUsr, false));
+	    t.start();
 		
 		return "resultRecipe";
 	}
@@ -99,10 +102,12 @@ public class ResultRecipeBean implements Serializable {
 		ConnexionPersistence conn = new ConnexionPersistence();
 		int currentUsr = conn.whoIsConnected().getId();
 		lk.addRecipe(currentUsr, this.recipe.getId());
-		System.out.println(currentUsr +" a liké la recette:" + this.recipe.getId());
-		Perceptron per = new Perceptron();
-		per.apprentissage(currentUsr);
-		
+		System.out.println(currentUsr +" a likï¿½ la recette:" + this.recipe.getId());
+		//Perceptron per = new Perceptron();
+		//per.apprentissage(currentUsr);
+		Thread t = new Thread(new Perceptron(currentUsr, false));
+	    t.start();
+	    
 		return "resultRecipe2"; 
 	}
 	
@@ -112,9 +117,11 @@ public class ResultRecipeBean implements Serializable {
 
 		int currentUsr = conn.whoIsConnected().getId();
 		dlk.addRecipe(currentUsr, this.recipe.getId());
-		System.out.println(currentUsr +" a disliké la recette:" + this.recipe.getId());
-		Perceptron per = new Perceptron();
-		per.apprentissage(currentUsr);
+		System.out.println(currentUsr +" a dislikï¿½ la recette:" + this.recipe.getId());
+		//Perceptron per = new Perceptron();
+		//per.apprentissage(currentUsr);
+		Thread t = new Thread(new Perceptron(currentUsr, false));
+	    t.start();
 		
 		return "resultRecipe2";
 	}

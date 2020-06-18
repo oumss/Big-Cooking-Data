@@ -7,13 +7,38 @@ import business.Recipe;
 import persistance.DislikedRecipePersistence;
 import persistance.IngredientRecipePersistance;
 import persistance.LikedRecipePersistence;
+import persistance.ProposedRecipePersistance;
 import persistance.RecipePersistance;
 import persistance.WeightPerceptronPersistence;
 
-public class Perceptron {
+public class Perceptron implements Runnable {
 
-	PerceptronUtility pu = new PerceptronUtility();
+	private PerceptronUtility pu = new PerceptronUtility();
+	private int id_user ;
+	private boolean learning = false;
+	
+	
+	public Perceptron() {
+		super();
+	}
 
+	public Perceptron(int id_user , boolean learning) {
+		super();
+		this.id_user=id_user;
+		this.learning = learning;
+	}
+
+	@Override
+	public void run() {
+		if(learning = true) {
+			apprentissage(this.id_user);
+		}
+		else {
+			proposition(this.id_user);
+		}
+		
+	}
+	
 	public void apprentissage (int id_user) {
 
 		WeightPerceptronPersistence wpp = new WeightPerceptronPersistence();
@@ -43,6 +68,7 @@ public class Perceptron {
 		RecipePersistance rp = new RecipePersistance();
 		PerceptronUtility pu = new PerceptronUtility();
 		WeightPerceptronPersistence wpp = new WeightPerceptronPersistence();
+		ProposedRecipePersistance prp = new ProposedRecipePersistance();
 		ArrayList<Recipe> listRecipe = rp.readAllFirstsRecipe();
 		ArrayList<Recipe> result = new ArrayList<Recipe>();
 		if (!wpp.existWeight(id_user)) {
@@ -53,6 +79,7 @@ public class Perceptron {
 			
 			if(pu.calculSortiePerceptron(pu.calculateTaux(r,1), wpp.getWeight(id_user)) >= 0) {
 				result.add(r);
+				prp.addProposedRecipeByIdUser(id_user, r.getId());
 				//System.out.println(r.getTitle() + r.getId());
 			}
 			

@@ -18,6 +18,7 @@ import org.primefaces.event.UnselectEvent;
 import business.Recipe;
 import core.SearchEntry;
 import persistance.ConnexionPersistence;
+import persistance.ProposedRecipePersistance;
 import persistance.RecipePersistance;
 import testLearnPerceptron.Perceptron;
 
@@ -41,10 +42,10 @@ public class SearchBean implements Serializable {
 	public void init() {
 
 		categories = new ArrayList<SelectItemGroup>();
-		SelectItemGroup cat = new SelectItemGroup("Catégories");
-		cat.setSelectItems(new SelectItem[] {new SelectItem("", "Select One"), new SelectItem("Entrée", "Entrée"), new SelectItem("Plat", "Plat"),
+		SelectItemGroup cat = new SelectItemGroup("Catï¿½gories");
+		cat.setSelectItems(new SelectItem[] {new SelectItem("", "Select One"), new SelectItem("Entrï¿½e", "Entrï¿½e"), new SelectItem("Plat", "Plat"),
 				new SelectItem("Dessert", "Dessert"), new SelectItem("Soupe", "Soupe"),
-				new SelectItem("Apéritif", "Apéritif"), new SelectItem("Boisson", "Boisson") });
+				new SelectItem("Apï¿½ritif", "Apï¿½ritif"), new SelectItem("Boisson", "Boisson") });
 		categories.add(cat); 
 	}
 
@@ -81,7 +82,7 @@ public class SearchBean implements Serializable {
 			return "";
 		}
 		else {
-			return "(Catégorie: ''" + this.selectedCategories +"'')";
+			return "(Catï¿½gorie: ''" + this.selectedCategories +"'')";
 		}
 			
 	}
@@ -105,14 +106,29 @@ public class SearchBean implements Serializable {
 	}
 	
 
+	public ArrayList<Recipe> getProposedRecipe() {
+		ConnexionPersistence conn = new ConnexionPersistence();
+		ArrayList<Recipe> recipesProposed = readProposedRecipes(conn.whoIsConnected().getId());	    
+		return recipesProposed;
+		
+	}
+	
+	
 	public ArrayList<Recipe> searchForLearning() {
 		
-		Perceptron p = new Perceptron();
+		//Perceptron p = new Perceptron();
 		ConnexionPersistence conn = new ConnexionPersistence();
-		
-		return p.proposition(conn.whoIsConnected().getId());
+		Thread t = new Thread(new Perceptron(conn.whoIsConnected().getId(), true));
+	    t.start();
+	    ArrayList<Recipe> recipesProposed = readProposedRecipes(conn.whoIsConnected().getId());	    
+		return recipesProposed;
 	}
 
+	public  ArrayList<Recipe> readProposedRecipes(int id_user){
+		ProposedRecipePersistance prp = new ProposedRecipePersistance();
+		return prp.readProposedRecipeByIdUser(id_user);
+	}
+	
 	public String disconnect() {
 		signinBean.setConnected(false);
 		return "signin";
