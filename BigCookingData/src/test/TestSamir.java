@@ -329,7 +329,7 @@ public class TestSamir {
 		PerceptronUtility pu = new PerceptronUtility();
 		
 		RecipePersistance rp = new RecipePersistance();
-		
+		/*
 		Recipe r = rp.readRecipeById(39);
 		Recipe r2= rp.readRecipeById(88);
 		Recipe r4 = rp.readRecipeById(125);
@@ -363,8 +363,14 @@ public class TestSamir {
 		System.out.println(pu.calculateTaux(r11, -1));
 		System.out.println(pu.calculateTaux(r12, -1));
 		
+		System.out.println("\n");
+		System.out.println("\n");
 		
-/*		
+		System.out.println(rp.readAllFirstsRecipe().size());
+		System.out.println(rp.readAllFirstsRecipe().get(288).getId());
+		
+		*/
+	
 		System.out.println("\n");
 		
 		lrp.addRecipe(12, 2);   
@@ -381,7 +387,7 @@ public class TestSamir {
 		drp.addRecipe(12, 23);
 		drp.addRecipe(12, 17);
 		
-		*/
+		
 		/*
 		PerceptronUtility pu = new PerceptronUtility();
 		RecipePersistance rp = new RecipePersistance();
@@ -428,8 +434,8 @@ public class TestSamir {
 		
 		//12 	0.0606461 	4.34992 	2.7124 	1.36039 	1.76787 	0.765809 	7.31846
 		//pu.initiWeightEntry(2);
-		//p.apprentissage(2);
-		//p.proposition(2);
+		//p.apprentissage(12);
+		p.proposition(12);
 		
 		//Cleaner c = new Cleaner();
 		
