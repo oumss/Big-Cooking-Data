@@ -25,7 +25,7 @@ public class HomeBean implements Serializable {
 	private static final long serialVersionUID = 6955508471291131931L;
 	public ArrayList<Recipe> recipesFinal ;
 	
-	
+	 
 	public HomeBean() {
 	}
 
@@ -37,7 +37,7 @@ public class HomeBean implements Serializable {
 	    	Perceptron p = new Perceptron();
 	    	recipes = p.proposition(conn.whoIsConnected().getId());
 	    //	recipes = new RecipePersistance().selectByKeyWord("gateau");
-	    	System.out.println(recipes.toString());
+	  //  	System.out.println(recipes.toString());
 	    	 
 	        while ((i < recipes.size()) && (i < 10)) {
 	        	
@@ -61,10 +61,11 @@ public class HomeBean implements Serializable {
 		        uneURL = new URL("http://localhost/images/" + String.valueOf(id) + ".jpg");
 		        HttpURLConnection connexion = (HttpURLConnection)uneURL.openConnection();
 		        InputStream flux = connexion.getInputStream();
-		        System.out.println("Status de la connexion : " + connexion.getResponseMessage());
+		     //   System.out.println("Status de la connexion : " + connexion.getResponseMessage());
 		        if (connexion.getResponseCode() == HttpURLConnection.HTTP_OK) {
 		        urlToReturn = "http://localhost/images/" + String.valueOf(id) + ".jpg";
-		        System.out.println(urlToReturn);}
+		      //  System.out.println(urlToReturn);
+		        }
 		        flux.close(); 
 		        connexion.disconnect();
 		        
@@ -72,7 +73,7 @@ public class HomeBean implements Serializable {
 		      catch(Exception e) {
 		          
 		    	  urlToReturn = "./images/default.jpg";
-		          System.out.println(urlToReturn);
+		       //   System.out.println(urlToReturn);
 		      }
 		      return urlToReturn;
 		}

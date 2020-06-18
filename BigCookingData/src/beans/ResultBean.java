@@ -28,26 +28,26 @@ public class ResultBean implements Serializable {
 
 	@PostConstruct
 	public void init() {
-		System.out.println(recipes.toString());
+	//	System.out.println(recipes.toString());
 		this.recipes = new ArrayList<Recipe>();
-		System.out.println(recipes.toString());
+	//	System.out.println(recipes.toString());
 		recipes.addAll(searchBean.getRecipes());
-		System.out.println(recipes.toString());
-		System.out.println(recipes.size());
+	//	System.out.println(recipes.toString());
+	//	System.out.println(recipes.size());
 	}
 	
 	public ArrayList<Recipe> funcRecipes () {
-		System.out.println(recipes.toString());
+	//	System.out.println(recipes.toString());
 		ArrayList<Recipe> recipesList = new ArrayList<Recipe>();
-		System.out.println(recipesList.toString());
+	//	System.out.println(recipesList.toString());
 		recipesList.addAll(searchBean.getRecipes());
-		System.out.println(recipesList.toString());
-		System.out.println(recipesList.size());
+	//	System.out.println(recipesList.toString());
+	//	System.out.println(recipesList.size());
 		return recipesList;
 	}
 	
 	public  String select(String id) {
-		System.out.println(id);
+	//	System.out.println(id);
 		setIdSelected(Integer.valueOf(id));
 		return "";
 	}
@@ -61,10 +61,11 @@ public class ResultBean implements Serializable {
 	        uneURL = new URL("http://localhost/images/" + String.valueOf(id) + ".jpg");
 	        HttpURLConnection connexion = (HttpURLConnection)uneURL.openConnection();
 	        InputStream flux = connexion.getInputStream();
-	        System.out.println("Status de la connexion : " + connexion.getResponseMessage());
+	     //   System.out.println("Status de la connexion : " + connexion.getResponseMessage());
 	        if (connexion.getResponseCode() == HttpURLConnection.HTTP_OK) {
 	        urlToReturn = "http://localhost/images/" + String.valueOf(id) + ".jpg";
-	        System.out.println(urlToReturn);}
+	     //   System.out.println(urlToReturn);
+	        }
 	        flux.close(); 
 	        connexion.disconnect();
 	        
@@ -72,7 +73,7 @@ public class ResultBean implements Serializable {
 	      catch(Exception e) {
 	          
 	    	  urlToReturn = "./images/default.jpg";
-	          System.out.println(urlToReturn);
+	       //   System.out.println(urlToReturn);
 	      }
 	      return urlToReturn;
 	}

@@ -49,12 +49,12 @@ public class SearchBean implements Serializable {
 	}
 
 	public String search() {
-		System.out.println("yooooooooooooooooooooo");
+	//	System.out.println("yooooooooooooooooooooo");
 		this.recipes = new ArrayList<Recipe>();
 		
 		RecipePersistance recipePersist = new RecipePersistance();
-		System.out.println(recipes.toString());
-		System.out.println("yooooooooooooooooooooo");
+	//	System.out.println(recipes.toString());
+	//	System.out.println("yooooooooooooooooooooo");
 		try {
 			System.out.println(selectedCategories);
 			recipes.addAll(recipePersist.selectByKeyWordPlusCategory(keyword,selectedCategories));
@@ -63,11 +63,11 @@ public class SearchBean implements Serializable {
 			
 		} catch (Exception e) {
 			recipes.addAll(recipePersist.selectByKeyWord(keyword));
-			System.out.println("pas rempli");
-			System.out.println("que le key");
+	//		System.out.println("pas rempli");
+	//		System.out.println("que le key");
 		}
 			
-			System.out.println(recipes.toString());
+	//		System.out.println(recipes.toString());
 		//	System.out.println(selectedCategories[0]);
 			
 
@@ -90,9 +90,9 @@ public class SearchBean implements Serializable {
 		
 		this.recipes = new ArrayList<Recipe>();
 		RecipePersistance recipePersist = new RecipePersistance();
-		System.out.println(recipes.toString());
+	//	System.out.println(recipes.toString());
 		recipes.addAll(recipePersist.selectByKeyWord(cat));
-		System.out.println(recipes.toString());
+	//	System.out.println(recipes.toString());
 		
 		
 		

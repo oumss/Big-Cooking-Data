@@ -122,11 +122,11 @@ public class ResultRecipeBean implements Serializable {
 	public String affiche(int idFromR) {
 		Cleaner clean = new Cleaner();
 		int idRecipe = idFromR;
-		System.out.println(idRecipe);
+	//	System.out.println(idRecipe);
 		String newSteps = clean.cleanSteps(idRecipe);
 		
 		RecipePersistance rp = new RecipePersistance();
-		System.out.println(newSteps);
+	//	System.out.println(newSteps);
 		
 		this.setUrl(verifUrlForImage(idRecipe));
 	
@@ -140,7 +140,7 @@ public class ResultRecipeBean implements Serializable {
 		this.recipe.setUstensilsList(newUstensils);
 		this.recipe.setIngredientsList(newIngredient);
 		
-		System.out.println(recipe.getIngredientsList());
+	//	System.out.println(recipe.getIngredientsList());
 		
 		
 		
@@ -151,11 +151,11 @@ public class ResultRecipeBean implements Serializable {
 	public String affiche2(int idFromR) {
 		Cleaner clean = new Cleaner();
 		int idRecipe = idFromR;
-		System.out.println(idRecipe);
+	//	System.out.println(idRecipe);
 		String newSteps = clean.cleanSteps(idRecipe);
 		
 		RecipePersistance rp = new RecipePersistance();
-		System.out.println(newSteps);
+	//	System.out.println(newSteps);
 		
 		this.setUrl(verifUrlForImage(idRecipe));
 	
@@ -169,7 +169,7 @@ public class ResultRecipeBean implements Serializable {
 		this.recipe.setUstensilsList(newUstensils);
 		this.recipe.setIngredientsList(newIngredient);
 		
-		System.out.println(recipe.getIngredientsList());
+	//	System.out.println(recipe.getIngredientsList());
 		
 		
 		
@@ -196,10 +196,11 @@ public class ResultRecipeBean implements Serializable {
 	        uneURL = new URL("http://localhost/images/" + String.valueOf(id) + ".jpg");
 	        HttpURLConnection connexion = (HttpURLConnection)uneURL.openConnection();
 	        InputStream flux = connexion.getInputStream();
-	        System.out.println("Status de la connexion : " + connexion.getResponseMessage());
+	     //   System.out.println("Status de la connexion : " + connexion.getResponseMessage());
 	        if (connexion.getResponseCode() == HttpURLConnection.HTTP_OK) {
 	        urlToReturn = "http://localhost/images/" + String.valueOf(id) + ".jpg";
-	        System.out.println(urlToReturn);}
+	     //   System.out.println(urlToReturn);
+	        }
 	        flux.close(); 
 	        connexion.disconnect();
 	        
@@ -207,7 +208,7 @@ public class ResultRecipeBean implements Serializable {
 	      catch(Exception e) {
 	          
 	    	  urlToReturn = "./images/default.jpg";
-	          System.out.println(urlToReturn);
+	     //     System.out.println(urlToReturn);
 	      }
 	      return urlToReturn;
 	}
