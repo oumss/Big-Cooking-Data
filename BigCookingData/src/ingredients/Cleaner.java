@@ -94,6 +94,57 @@ public class Cleaner {
 	} catch (Exception e) {
 		return "Aucune";
 	}}
+	
+	public String cleanCategoryForHome (String category) {
+		try {
+			
+		
+		String s = category;
+		
+		int nb = 0;
+		 for (int i=0; i < s.length(); i++)
+		 {
+		 if (s.charAt(i) == ',')
+		 nb++;
+		 }
+		 System.out.println(nb);
+		 if (nb==0) {
+			 s = s.replaceAll("\"","");
+			 s = s.replace("[", "");
+			 s = s.replace("]", "");
+			 System.out.println(s);
+			 return s;
+		 }
+		 else {
+			 
+			 s = s.replaceAll(", ", ";");
+		 	 s = s.replaceAll("[^\\w\\s\\.\\,\\:\\;\\-\\'\\Ã©\\Ã¨\\Ã \\Ãª\\Ã´\\Ã¯\\Ã¹\\Ã­\\Ã¬\\Ä«\\Ã¡\\Ã³\\Ç�\\Ã¢\\Ã¤\\Ã§\\Ã«\\Ã®\\Ã¶\\Ã»\\Ã¼\\Ã¿\\Ãº\\Ã¾]", "");
+		 	 String[] tabS = s.split(";");
+		 	
+	        Set set = new HashSet() ;
+	        for (int j = 0; j < tabS.length; j++) {
+	        set.add(tabS[j]) ;
+	        }
+	        ArrayList<String> distinctList = new ArrayList(set) ;
+	        s = "";
+	        for (int i = 0; i < distinctList.size(); i++) {
+	        	if (i==distinctList.size()-1) {
+	        		s = s + distinctList.get(i);
+	        	}
+	        	else {
+	        		s = s + distinctList.get(i) + "\n";
+	        	}
+			}
+			 
+			 
+			 
+			 System.out.println(s);
+			 return s;
+		}
+	
+	} catch (Exception e) {
+		return "Aucune catégorie";
+	}}
 
 	public String cleanBudget (int budget) {
 		try {

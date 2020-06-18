@@ -17,7 +17,7 @@
 <h:body>
 
 
-	<h:form id="containerHome" >	
+	<h:form id="containerHome"  >	
 
 		<h:outputStylesheet name="primeicons/primeicons.css" library="primefaces" />
 	<p:megaMenu  style="background-color:rgba(0,255,0,0.8);" orientation="#{index.orientation}" >
@@ -62,13 +62,38 @@
 		
 	</p:megaMenu>
 	<h1 style=" color:White; float: left; margin-top: 30px; margin-left: 20px;"> <img style="float: top; height:70px;" src="images/logo.png" /> Bienvenue sur Big Cooking Data</h1>
-	<div  class="d1"></div>	
 	
-	<p style="text-align:left; position:relative;color:White; float: left; margin-left: 20px; width:600px; margin-top: 35px;">«Les épices sont à la cuisine ce que la ponctuation est à la langue française. Comme la ponctuation révèle les mots, les épices permettent de révéler la face cachée des mets», annonce Olivier Roellinger en guise d’introduction. Le chef cancalais est connu pour avoir fermé son restaurant gastronomique triplement étoilé en 2008, en pleine gloire. L'idée était notamment de prendre le temps de transmettre au plus grand nombre sa passion pour les épices. Pour lui, les épices permettent une cuisine moins grasse, moins salée et riches en bienfaits, ainsi que de redécouvrir des aliments simples. «Avant d’être bon au palais, il faut que cela soit sain pour le corps, c’est ce que l’on pense avec ma femme depuis trente-cinq ans», explique-t-il. Et de nous donner les conseils pour s'y mettre, avec l'art et la manière.</p>
-		<p style="text-align:left; position:relative;color:White; float: left; margin-left: 20px; width:600px;">Ouvrir un livre de cuisine pour composer le menu. Rêvasser à mille combinaisons saugrenues. Un poulet aux fraises ? Un lapin aux rutabagas ? Une sole au caramel et au chocolat ? Et pourquoi pas ? La vie est triste parce qu'on la répète chaque jour. Il suffit de changer les ingrédients et elle chante. <br /><br />Katherine Pancol.</p>
+	<p:galleria value="#{homeBean.imagesView()}" var="recipe" style="box-shadow: 0 0 0 2px Chartreuse; /* this draws the table border  */
+								  									 border-style: hidden; background-color: rgba(255,255,255,0.3); 
+								  									 border-radius: 20px 20px 20px 20px; position:relative; float:right; margin-right: 15px; margin-top: 8%" 
+								  									 panelWidth="500" panelHeight="313" showCaption="true" >
+    	 	<h:commandLink style="text-decoration:none;color:white; font-style: italic; font-weight:bold; font-size: 30px;" action="proposed.jsf" value="Voir les propositions!" />
+    		<h:graphicImage  style="height:110%; width:100%;" value="#{homeBean.verifUrlForImage(recipe.getId())}" alt="#{resultRecipeBean.category(recipe.getCategory())}"  title="#{recipe.getTitle()}" />
+			
+		</p:galleria>
+		
+	<!--  <div  class="d1"></div>	-->
+	
+	<p style="text-align:left; position:relative;color:White; float: left; margin-left: 20px; width:600px; margin-top: 2%;">«Les épices sont à la cuisine ce que la ponctuation est à la langue française. 
+																																Comme la ponctuation révèle les mots, les épices permettent de révéler la face cachée des mets», 
+																																annonce Olivier Roellinger en guise d’introduction. 
+																																Le chef cancalais est connu pour avoir fermé son restaurant gastronomique triplement étoilé en 2008, 
+																																en pleine gloire. L'idée était notamment de prendre le temps de transmettre au plus grand nombre 
+																																sa passion pour les épices. Pour lui, les épices permettent une cuisine moins grasse, moins salée 
+																																et riches en bienfaits, ainsi que de redécouvrir des aliments simples. «Avant d’être bon au palais, 
+																																il faut que cela soit sain pour le corps, c’est ce que l’on pense avec ma femme depuis trente-cinq 
+																																ans», explique-t-il. Et de nous donner les conseils pour s'y mettre, avec l'art et la manière.
+																																<br /><br />
+																																
+																																Ouvrir un livre de cuisine pour composer le menu. Rêvasser à mille combinaisons saugrenues. 
+																																Un poulet aux fraises ? Un lapin aux rutabagas ? Une sole au caramel et au chocolat ? Et pourquoi pas ? 
+																																La vie est triste parce qu'on la répète chaque jour. Il suffit de changer les ingrédients et elle chante. 
+																																<br /><br />Katherine Pancol. <br /><br /><br /><br /><br /><br /><br /><br /><br /></p>
+		
 			
 		
 		
 	</h:form>
+	
 </h:body>
 </html>

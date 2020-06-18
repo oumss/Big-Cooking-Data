@@ -57,9 +57,9 @@
 			 
 			        <p:panel header="#{recipe.title}">
 			            <h:panelGrid columns="1" style="text-align:center;">
-			            
-				            <h:commandLink  action ="#{resultRecipeBean.affiche(recipe.id)}"><h:graphicImage style=" width:340px; height:200px;" value="#{resultBean.verifUrlForImage(recipe.id)}" alt="#{recipe.title}"/></h:commandLink>
-				          
+			            <h:commandLink action="#{resultRecipeBean.affiche(recipe.id)}">
+				            <h:graphicImage style=" width:340px; height:200px;" value="#{resultBean.verifUrlForImage(recipe.id)}" alt="#{recipe.title}"/>
+				          </h:commandLink>
 			            </h:panelGrid>
 			        </p:panel>
 			 
