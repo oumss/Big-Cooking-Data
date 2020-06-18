@@ -23,17 +23,17 @@ public class HomeBean implements Serializable {
 	@ManagedProperty(value = "#{signinBean}")
 	private SigninBean signinBean;
 	private static final long serialVersionUID = 6955508471291131931L;
-	public List<Recipe> recipesFinal ;
+	public ArrayList<Recipe> recipesFinal ;
 	
 	
 	public HomeBean() {
 	}
 
-	 public List<Recipe> imagesView() {
+	 public ArrayList<Recipe> imagesView() {
 		 	int i = 0; 
 	    	ConnexionPersistence conn = new ConnexionPersistence();
-	    	List<Recipe> recipes;
-	    	List<Recipe> recipes2 = new ArrayList<Recipe>();
+	    	ArrayList<Recipe> recipes;
+	    	ArrayList<Recipe> recipes2 = new ArrayList<Recipe>();
 	    	Perceptron p = new Perceptron();
 	    	recipes = p.proposition(conn.whoIsConnected().getId());
 	    	System.out.println(recipes.toString());
@@ -46,6 +46,7 @@ public class HomeBean implements Serializable {
 	        this.setRecipesFinal(recipes2);
 	        return recipesFinal;
 	    }
+	 
 	 public String action(int id) {
 		 ResultRecipeBean r = new ResultRecipeBean();
 		 return  r.affiche(id);
@@ -89,11 +90,11 @@ public class HomeBean implements Serializable {
 	public void setSigninBean(SigninBean signinBean) {
 		this.signinBean = signinBean;
 	}
-	public List<Recipe> getRecipesFinal(List<Recipe> recipesFinal) {
+	public ArrayList<Recipe> getRecipesFinal(ArrayList<Recipe> recipesFinal) {
 		return recipesFinal;
 	}
 
-	public void setRecipesFinal(List<Recipe> recipesFinal) {
+	public void setRecipesFinal(ArrayList<Recipe> recipesFinal) {
 		this.recipesFinal = recipesFinal;
 	}
 }
