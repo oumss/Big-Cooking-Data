@@ -82,8 +82,8 @@
 				<br /><br /><br /><br /><br /><br /><br /><br />
 			
 			    </div>
-		       	<h:commandButton  value="Retourner aux resultats" action="results.jsf" />
-		       	
+		       	<p:commandButton style="position: relative; float:left; margin-left:5%;" value="Retourner aux resultats" action="results.jsf" />
+		       	<br />
 		       	<h:commandButton styleClass="#{resultRecipeBean.success1(resultRecipeBean.recipe.id)}" value="like" action="#{resultRecipeBean.like()}" />
  				<h:commandButton styleClass="#{resultRecipeBean.success2(resultRecipeBean.recipe.id)}" value="dislike" action="#{resultRecipeBean.dislike()}" />
  				

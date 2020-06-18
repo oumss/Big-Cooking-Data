@@ -78,7 +78,7 @@ public class ResultRecipeBean implements Serializable {
 	//	Perceptron per = new Perceptron();
 	//	per.apprentissage(currentUsr);
 		
-		return "";
+		return "resultRecipe"; 
 	}
 	
 	public String dislike(){
@@ -91,7 +91,7 @@ public class ResultRecipeBean implements Serializable {
 	//	Perceptron per = new Perceptron();
 	//	per.apprentissage(currentUsr);
 		
-		return "";
+		return "resultRecipe";
 	}
 	
 	
